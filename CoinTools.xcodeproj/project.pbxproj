@@ -1,0 +1,1036 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AD66B8F8250A799400D7C66E /* CoinTools.h in Headers */ = {isa = PBXBuildFile; fileRef = AD66B8F6250A799400D7C66E /* CoinTools.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AD66B8FF250A79F000D7C66E /* rrrViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD66B8FE250A79F000D7C66E /* rrrViewController.swift */; };
+		AD66B908250A7A0600D7C66E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AD66B907250A7A0600D7C66E /* AppDelegate.m */; };
+		AD66B90B250A7A0600D7C66E /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AD66B90A250A7A0600D7C66E /* SceneDelegate.m */; };
+		AD66B90E250A7A0600D7C66E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD66B90D250A7A0600D7C66E /* ViewController.m */; };
+		AD66B911250A7A0600D7C66E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD66B90F250A7A0600D7C66E /* Main.storyboard */; };
+		AD66B913250A7A0800D7C66E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD66B912250A7A0800D7C66E /* Assets.xcassets */; };
+		AD66B916250A7A0800D7C66E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD66B914250A7A0800D7C66E /* LaunchScreen.storyboard */; };
+		AD66B919250A7A0800D7C66E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AD66B918250A7A0800D7C66E /* main.m */; };
+		AD66B931250A7B8100D7C66E /* GateBaseViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = AD66B922250A7B8100D7C66E /* GateBaseViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AD66B939250A7B8100D7C66E /* GateBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD66B92A250A7B8100D7C66E /* GateBaseViewController.m */; };
+		AD66B940250A7BC400D7C66E /* CoinTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD66B8F3250A799400D7C66E /* CoinTools.framework */; };
+		AD66B941250A7BC400D7C66E /* CoinTools.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AD66B8F3250A799400D7C66E /* CoinTools.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AD66B953250A7E7200D7C66E /* GateHomePagesController.h in Headers */ = {isa = PBXBuildFile; fileRef = AD66B951250A7E7200D7C66E /* GateHomePagesController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AD66B954250A7E7200D7C66E /* GateHomePagesController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD66B952250A7E7200D7C66E /* GateHomePagesController.m */; };
+		AD66B95B250A7F0A00D7C66E /* ConfigFile.pch in Headers */ = {isa = PBXBuildFile; fileRef = AD66B956250A7F0A00D7C66E /* ConfigFile.pch */; };
+		AD66B95C250A7F0A00D7C66E /* URL.h in Headers */ = {isa = PBXBuildFile; fileRef = AD66B957250A7F0A00D7C66E /* URL.h */; };
+		AD66B95D250A7F0A00D7C66E /* GateToolDefine.h in Headers */ = {isa = PBXBuildFile; fileRef = AD66B958250A7F0A00D7C66E /* GateToolDefine.h */; };
+		AD66B95E250A7F0A00D7C66E /* GateHeaderFile.h in Headers */ = {isa = PBXBuildFile; fileRef = AD66B959250A7F0A00D7C66E /* GateHeaderFile.h */; };
+		AD66B95F250A7F0A00D7C66E /* GateDefine.h in Headers */ = {isa = PBXBuildFile; fileRef = AD66B95A250A7F0A00D7C66E /* GateDefine.h */; };
+		AD66B9BD250A806800D7C66E /* NSString+HYDESize.h in Headers */ = {isa = PBXBuildFile; fileRef = AD66B969250A806700D7C66E /* NSString+HYDESize.h */; };
+		AD66B9BE250A806800D7C66E /* UIView+shadowPath.m in Sources */ = {isa = PBXBuildFile; fileRef = AD66B96A250A806700D7C66E /* UIView+shadowPath.m */; };
+		AD66B9BF250A806800D7C66E /* NSString+GateAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = AD66B96B250A806700D7C66E /* NSString+GateAttribute.m */; };
+		AD66B9C0250A806800D7C66E /* NSDictionary+Extend.h in Headers */ = {isa = PBXBuildFile; fileRef = AD66B96C250A806700D7C66E /* NSDictionary+Extend.h */; };
+		AD66B9C1250A806800D7C66E /* UISegmentedControl+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = AD66B96D250A806700D7C66E /* UISegmentedControl+Category.m */; };
+		AD66B9C2250A806800D7C66E /* UIFont+HYDENormalFont.h in Headers */ = {isa = PBXBuildFile; fileRef = AD66B96E250A806700D7C66E /* UIFont+HYDENormalFont.h */; };
+		AD66B9C3250A806800D7C66E /* UITableViewCell+GateTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = AD66B96F250A806700D7C66E /* UITableViewCell+GateTableViewCell.h */; };
+		AD66B9C4250A806800D7C66E /* UIView+HYDEBottomBorder.m in Sources */ = {isa = PBXBuildFile; fileRef = AD66B970250A806700D7C66E /* UIView+HYDEBottomBorder.m */; };
+		AD66B9C5250A806800D7C66E /* UIViewController+HYDENavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = AD66B971250A806700D7C66E /* UIViewController+HYDENavigation.m */; };
+		AD66B9C6250A806800D7C66E /* UIColor+HYDEGradientChange.h in Headers */ = {isa = PBXBuildFile; fileRef = AD66B972250A806700D7C66E /* UIColor+HYDEGradientChange.h */; };
+		AD66B9C7250A806800D7C66E /* NSString+GateAttribute.h in Headers */ = {isa = PBXBuildFile; fileRef = AD66B973250A806700D7C66E /* NSString+GateAttribute.h */; };
+		AD66B9C8250A806800D7C66E /* UIView+shadowPath.h in Headers */ = {isa = PBXBuildFile; fileRef = AD66B974250A806700D7C66E /* UIView+shadowPath.h */; };
+		AD66B9C9250A806800D7C66E /* NSString+HYDESize.m in Sources */ = {isa = PBXBuildFile; fileRef = AD66B975250A806700D7C66E /* NSString+HYDESize.m */; };
+		AD66B9CA250A806800D7C66E /* UIFont+HYDENormalFont.m in Sources */ = {isa = PBXBuildFile; fileRef = AD66B976250A806700D7C66E /* UIFont+HYDENormalFont.m */; };
+		AD66B9CB250A806800D7C66E /* UISegmentedControl+Category.h in Headers */ = {isa = PBXBuildFile; fileRef = AD66B977250A806700D7C66E /* UISegmentedControl+Category.h */; };
+		AD66B9CC250A806800D7C66E /* NSDictionary+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = AD66B978250A806700D7C66E /* NSDictionary+Extend.m */; };
+		AD66B9CD250A806800D7C66E /* UIView+HYDEBottomBorder.h in Headers */ = {isa = PBXBuildFile; fileRef = AD66B979250A806700D7C66E /* UIView+HYDEBottomBorder.h */; };
+		AD66B9CE250A806800D7C66E /* UITableViewCell+GateTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD66B97A250A806700D7C66E /* UITableViewCell+GateTableViewCell.m */; };
+		AD66B9CF250A806800D7C66E /* UIColor+HYDEGradientChange.m in Sources */ = {isa = PBXBuildFile; fileRef = AD66B97B250A806700D7C66E /* UIColor+HYDEGradientChange.m */; };
+		AD66B9D0250A806800D7C66E /* UIViewController+HYDENavigation.h in Headers */ = {isa = PBXBuildFile; fileRef = AD66B97C250A806700D7C66E /* UIViewController+HYDENavigation.h */; };
+		AD66B9D3250A806800D7C66E /* UIImageView+PlayGIF.h in Headers */ = {isa = PBXBuildFile; fileRef = AD66B981250A806700D7C66E /* UIImageView+PlayGIF.h */; };
+		AD66B9D4250A806800D7C66E /* NSArray+WHArray.h in Headers */ = {isa = PBXBuildFile; fileRef = AD66B982250A806700D7C66E /* NSArray+WHArray.h */; };
+		AD66B9D5250A806800D7C66E /* UIDevice+WHDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = AD66B983250A806700D7C66E /* UIDevice+WHDevice.m */; };
+		AD66B9D6250A806800D7C66E /* NSDate+WHDate.h in Headers */ = {isa = PBXBuildFile; fileRef = AD66B984250A806700D7C66E /* NSDate+WHDate.h */; };
+		AD66B9D7250A806800D7C66E /* UIImage+WHImage.h in Headers */ = {isa = PBXBuildFile; fileRef = AD66B985250A806700D7C66E /* UIImage+WHImage.h */; };
+		AD66B9D8250A806800D7C66E /* NSDate+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = AD66B986250A806700D7C66E /* NSDate+Category.m */; };
+		AD66B9D9250A806800D7C66E /* NSString+WHString.m in Sources */ = {isa = PBXBuildFile; fileRef = AD66B987250A806700D7C66E /* NSString+WHString.m */; };
+		AD66B9DA250A806800D7C66E /* NSNumber+WHNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = AD66B988250A806700D7C66E /* NSNumber+WHNumber.m */; };
+		AD66B9DB250A806800D7C66E /* NSDateFormatter+Category.h in Headers */ = {isa = PBXBuildFile; fileRef = AD66B989250A806700D7C66E /* NSDateFormatter+Category.h */; };
+		AD66B9DC250A806800D7C66E /* UITextView+YLTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = AD66B98A250A806700D7C66E /* UITextView+YLTextView.h */; };
+		AD66B9DD250A806800D7C66E /* NSObject+WHObject.m in Sources */ = {isa = PBXBuildFile; fileRef = AD66B98B250A806700D7C66E /* NSObject+WHObject.m */; };
+		AD66B9DE250A806800D7C66E /* UIScrollView+WHScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = AD66B98C250A806700D7C66E /* UIScrollView+WHScrollView.h */; };
+		AD66B9DF250A806800D7C66E /* UIButton+WHButton.h in Headers */ = {isa = PBXBuildFile; fileRef = AD66B98D250A806700D7C66E /* UIButton+WHButton.h */; };
+		AD66B9E0250A806800D7C66E /* UITableView+WHTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = AD66B98E250A806700D7C66E /* UITableView+WHTableView.h */; };
+		AD66B9E1250A806800D7C66E /* UINavigationController+WHNavigationController.h in Headers */ = {isa = PBXBuildFile; fileRef = AD66B98F250A806700D7C66E /* UINavigationController+WHNavigationController.h */; };
+		AD66B9E2250A806800D7C66E /* UIColor+WHColor.h in Headers */ = {isa = PBXBuildFile; fileRef = AD66B990250A806700D7C66E /* UIColor+WHColor.h */; };
+		AD66B9E3250A806800D7C66E /* NSArray+decription.h in Headers */ = {isa = PBXBuildFile; fileRef = AD66B991250A806700D7C66E /* NSArray+decription.h */; };
+		AD66B9E4250A806800D7C66E /* UILabel+WHLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD66B992250A806700D7C66E /* UILabel+WHLabel.m */; };
+		AD66B9E5250A806800D7C66E /* NSTimer+WHTimer.h in Headers */ = {isa = PBXBuildFile; fileRef = AD66B993250A806700D7C66E /* NSTimer+WHTimer.h */; };
+		AD66B9E6250A806800D7C66E /* NSFileManager+WHFileManager.h in Headers */ = {isa = PBXBuildFile; fileRef = AD66B994250A806700D7C66E /* NSFileManager+WHFileManager.h */; };
+		AD66B9E7250A806800D7C66E /* UIBarButtonItem+LFExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = AD66B995250A806700D7C66E /* UIBarButtonItem+LFExtension.h */; };
+		AD66B9E8250A806800D7C66E /* UIView+CLFExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = AD66B996250A806700D7C66E /* UIView+CLFExtension.m */; };
+		AD66B9E9250A806800D7C66E /* UIBarButtonItem+Item.h in Headers */ = {isa = PBXBuildFile; fileRef = AD66B997250A806700D7C66E /* UIBarButtonItem+Item.h */; };
+		AD66B9EA250A806800D7C66E /* NSDictionary+WHDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = AD66B998250A806700D7C66E /* NSDictionary+WHDictionary.m */; };
+		AD66B9EB250A806800D7C66E /* WHMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = AD66B999250A806700D7C66E /* WHMethods.m */; };
+		AD66B9EC250A806800D7C66E /* UIView+WHView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD66B99A250A806700D7C66E /* UIView+WHView.m */; };
+		AD66B9ED250A806800D7C66E /* UIImageView+WHImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD66B99B250A806700D7C66E /* UIImageView+WHImageView.m */; };
+		AD66B9EE250A806800D7C66E /* UIBarButtonItem+WHBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AD66B99C250A806700D7C66E /* UIBarButtonItem+WHBarButtonItem.m */; };
+		AD66B9EF250A806800D7C66E /* UIViewController+WHVC.h in Headers */ = {isa = PBXBuildFile; fileRef = AD66B99D250A806700D7C66E /* UIViewController+WHVC.h */; };
+		AD66B9F0250A806800D7C66E /* NSDate+Category.h in Headers */ = {isa = PBXBuildFile; fileRef = AD66B99E250A806700D7C66E /* NSDate+Category.h */; };
+		AD66B9F1250A806800D7C66E /* UIImage+WHImage.m in Sources */ = {isa = PBXBuildFile; fileRef = AD66B99F250A806700D7C66E /* UIImage+WHImage.m */; };
+		AD66B9F2250A806800D7C66E /* NSDate+WHDate.m in Sources */ = {isa = PBXBuildFile; fileRef = AD66B9A0250A806700D7C66E /* NSDate+WHDate.m */; };
+		AD66B9F3250A806800D7C66E /* UIDevice+WHDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = AD66B9A1250A806700D7C66E /* UIDevice+WHDevice.h */; };
+		AD66B9F4250A806800D7C66E /* NSArray+WHArray.m in Sources */ = {isa = PBXBuildFile; fileRef = AD66B9A2250A806700D7C66E /* NSArray+WHArray.m */; };
+		AD66B9F5250A806800D7C66E /* UIImageView+PlayGIF.m in Sources */ = {isa = PBXBuildFile; fileRef = AD66B9A3250A806700D7C66E /* UIImageView+PlayGIF.m */; };
+		AD66B9F6250A806800D7C66E /* NSArray+decription.m in Sources */ = {isa = PBXBuildFile; fileRef = AD66B9A4250A806700D7C66E /* NSArray+decription.m */; };
+		AD66B9F7250A806800D7C66E /* UIColor+WHColor.m in Sources */ = {isa = PBXBuildFile; fileRef = AD66B9A5250A806700D7C66E /* UIColor+WHColor.m */; };
+		AD66B9F8250A806800D7C66E /* UINavigationController+WHNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD66B9A6250A806700D7C66E /* UINavigationController+WHNavigationController.m */; };
+		AD66B9F9250A806800D7C66E /* UITableView+WHTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD66B9A7250A806700D7C66E /* UITableView+WHTableView.m */; };
+		AD66B9FA250A806800D7C66E /* UIButton+WHButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AD66B9A8250A806700D7C66E /* UIButton+WHButton.m */; };
+		AD66B9FB250A806800D7C66E /* UIScrollView+WHScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD66B9A9250A806700D7C66E /* UIScrollView+WHScrollView.m */; };
+		AD66B9FC250A806800D7C66E /* NSObject+WHObject.h in Headers */ = {isa = PBXBuildFile; fileRef = AD66B9AA250A806700D7C66E /* NSObject+WHObject.h */; };
+		AD66B9FD250A806800D7C66E /* UITextView+YLTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD66B9AB250A806700D7C66E /* UITextView+YLTextView.m */; };
+		AD66B9FE250A806800D7C66E /* NSNumber+WHNumber.h in Headers */ = {isa = PBXBuildFile; fileRef = AD66B9AC250A806700D7C66E /* NSNumber+WHNumber.h */; };
+		AD66B9FF250A806800D7C66E /* WHCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = AD66B9AD250A806700D7C66E /* WHCategory.h */; };
+		AD66BA00250A806800D7C66E /* NSDateFormatter+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = AD66B9AE250A806700D7C66E /* NSDateFormatter+Category.m */; };
+		AD66BA01250A806800D7C66E /* NSString+WHString.h in Headers */ = {isa = PBXBuildFile; fileRef = AD66B9AF250A806700D7C66E /* NSString+WHString.h */; };
+		AD66BA02250A806800D7C66E /* UIBarButtonItem+Item.m in Sources */ = {isa = PBXBuildFile; fileRef = AD66B9B0250A806700D7C66E /* UIBarButtonItem+Item.m */; };
+		AD66BA03250A806800D7C66E /* UIBarButtonItem+LFExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = AD66B9B1250A806700D7C66E /* UIBarButtonItem+LFExtension.m */; };
+		AD66BA04250A806800D7C66E /* UIView+CLFExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = AD66B9B2250A806700D7C66E /* UIView+CLFExtension.h */; };
+		AD66BA05250A806800D7C66E /* NSFileManager+WHFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AD66B9B3250A806700D7C66E /* NSFileManager+WHFileManager.m */; };
+		AD66BA06250A806800D7C66E /* NSTimer+WHTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = AD66B9B4250A806700D7C66E /* NSTimer+WHTimer.m */; };
+		AD66BA07250A806800D7C66E /* UILabel+WHLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = AD66B9B5250A806700D7C66E /* UILabel+WHLabel.h */; };
+		AD66BA08250A806800D7C66E /* UIBarButtonItem+WHBarButtonItem.h in Headers */ = {isa = PBXBuildFile; fileRef = AD66B9B6250A806700D7C66E /* UIBarButtonItem+WHBarButtonItem.h */; };
+		AD66BA09250A806800D7C66E /* UIViewController+WHVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AD66B9B7250A806700D7C66E /* UIViewController+WHVC.m */; };
+		AD66BA0A250A806800D7C66E /* WHMethods.h in Headers */ = {isa = PBXBuildFile; fileRef = AD66B9B8250A806700D7C66E /* WHMethods.h */; };
+		AD66BA0B250A806800D7C66E /* UIView+WHView.h in Headers */ = {isa = PBXBuildFile; fileRef = AD66B9B9250A806700D7C66E /* UIView+WHView.h */; };
+		AD66BA0C250A806800D7C66E /* UIImageView+WHImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = AD66B9BA250A806700D7C66E /* UIImageView+WHImageView.h */; };
+		AD66BA0D250A806800D7C66E /* WHMacro.h in Headers */ = {isa = PBXBuildFile; fileRef = AD66B9BB250A806700D7C66E /* WHMacro.h */; };
+		AD66BA0E250A806800D7C66E /* NSDictionary+WHDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = AD66B9BC250A806700D7C66E /* NSDictionary+WHDictionary.h */; };
+		ADA6EA83250A87D400E4A525 /* GateScources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = ADA6EA82250A87D400E4A525 /* GateScources.bundle */; };
+		ADA6EA84250A893E00E4A525 /* GateScources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = ADA6EA82250A87D400E4A525 /* GateScources.bundle */; };
+		D4AF44D9CEB94B6EE8DEF9CD /* Pods_demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 926A74B1EA17DF30351FA12C /* Pods_demo.framework */; };
+		F8B3B1B24E75D63367F3C031 /* Pods_CoinTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A04FF267BC60EBF2D1B29A /* Pods_CoinTools.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AD66B942250A7BC400D7C66E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AD66B8EA250A799400D7C66E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AD66B8F2250A799400D7C66E;
+			remoteInfo = CoinTools;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AD66B944250A7BC400D7C66E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				AD66B941250A7BC400D7C66E /* CoinTools.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		17AC5F681DF6E12CC8FF2B26 /* Pods-demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-demo.release.xcconfig"; path = "Target Support Files/Pods-demo/Pods-demo.release.xcconfig"; sourceTree = "<group>"; };
+		77A04FF267BC60EBF2D1B29A /* Pods_CoinTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoinTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		926A74B1EA17DF30351FA12C /* Pods_demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD66B8F3250A799400D7C66E /* CoinTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CoinTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD66B8F6250A799400D7C66E /* CoinTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoinTools.h; sourceTree = "<group>"; };
+		AD66B8F7250A799400D7C66E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AD66B8FE250A79F000D7C66E /* rrrViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = rrrViewController.swift; sourceTree = "<group>"; };
+		AD66B904250A7A0600D7C66E /* demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD66B906250A7A0600D7C66E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		AD66B907250A7A0600D7C66E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		AD66B909250A7A0600D7C66E /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		AD66B90A250A7A0600D7C66E /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		AD66B90C250A7A0600D7C66E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		AD66B90D250A7A0600D7C66E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		AD66B910250A7A0600D7C66E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AD66B912250A7A0800D7C66E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AD66B915250A7A0800D7C66E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AD66B917250A7A0800D7C66E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AD66B918250A7A0800D7C66E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		AD66B922250A7B8100D7C66E /* GateBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GateBaseViewController.h; sourceTree = "<group>"; };
+		AD66B92A250A7B8100D7C66E /* GateBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GateBaseViewController.m; sourceTree = "<group>"; };
+		AD66B951250A7E7200D7C66E /* GateHomePagesController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GateHomePagesController.h; sourceTree = "<group>"; };
+		AD66B952250A7E7200D7C66E /* GateHomePagesController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GateHomePagesController.m; sourceTree = "<group>"; };
+		AD66B956250A7F0A00D7C66E /* ConfigFile.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigFile.pch; sourceTree = "<group>"; };
+		AD66B957250A7F0A00D7C66E /* URL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URL.h; sourceTree = "<group>"; };
+		AD66B958250A7F0A00D7C66E /* GateToolDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GateToolDefine.h; sourceTree = "<group>"; };
+		AD66B959250A7F0A00D7C66E /* GateHeaderFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GateHeaderFile.h; sourceTree = "<group>"; };
+		AD66B95A250A7F0A00D7C66E /* GateDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GateDefine.h; sourceTree = "<group>"; };
+		AD66B969250A806700D7C66E /* NSString+HYDESize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HYDESize.h"; sourceTree = "<group>"; };
+		AD66B96A250A806700D7C66E /* UIView+shadowPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+shadowPath.m"; sourceTree = "<group>"; };
+		AD66B96B250A806700D7C66E /* NSString+GateAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+GateAttribute.m"; sourceTree = "<group>"; };
+		AD66B96C250A806700D7C66E /* NSDictionary+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Extend.h"; sourceTree = "<group>"; };
+		AD66B96D250A806700D7C66E /* UISegmentedControl+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISegmentedControl+Category.m"; sourceTree = "<group>"; };
+		AD66B96E250A806700D7C66E /* UIFont+HYDENormalFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+HYDENormalFont.h"; sourceTree = "<group>"; };
+		AD66B96F250A806700D7C66E /* UITableViewCell+GateTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+GateTableViewCell.h"; sourceTree = "<group>"; };
+		AD66B970250A806700D7C66E /* UIView+HYDEBottomBorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HYDEBottomBorder.m"; sourceTree = "<group>"; };
+		AD66B971250A806700D7C66E /* UIViewController+HYDENavigation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HYDENavigation.m"; sourceTree = "<group>"; };
+		AD66B972250A806700D7C66E /* UIColor+HYDEGradientChange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HYDEGradientChange.h"; sourceTree = "<group>"; };
+		AD66B973250A806700D7C66E /* NSString+GateAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+GateAttribute.h"; sourceTree = "<group>"; };
+		AD66B974250A806700D7C66E /* UIView+shadowPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+shadowPath.h"; sourceTree = "<group>"; };
+		AD66B975250A806700D7C66E /* NSString+HYDESize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HYDESize.m"; sourceTree = "<group>"; };
+		AD66B976250A806700D7C66E /* UIFont+HYDENormalFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+HYDENormalFont.m"; sourceTree = "<group>"; };
+		AD66B977250A806700D7C66E /* UISegmentedControl+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISegmentedControl+Category.h"; sourceTree = "<group>"; };
+		AD66B978250A806700D7C66E /* NSDictionary+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Extend.m"; sourceTree = "<group>"; };
+		AD66B979250A806700D7C66E /* UIView+HYDEBottomBorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HYDEBottomBorder.h"; sourceTree = "<group>"; };
+		AD66B97A250A806700D7C66E /* UITableViewCell+GateTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+GateTableViewCell.m"; sourceTree = "<group>"; };
+		AD66B97B250A806700D7C66E /* UIColor+HYDEGradientChange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HYDEGradientChange.m"; sourceTree = "<group>"; };
+		AD66B97C250A806700D7C66E /* UIViewController+HYDENavigation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HYDENavigation.h"; sourceTree = "<group>"; };
+		AD66B981250A806700D7C66E /* UIImageView+PlayGIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+PlayGIF.h"; sourceTree = "<group>"; };
+		AD66B982250A806700D7C66E /* NSArray+WHArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+WHArray.h"; sourceTree = "<group>"; };
+		AD66B983250A806700D7C66E /* UIDevice+WHDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+WHDevice.m"; sourceTree = "<group>"; };
+		AD66B984250A806700D7C66E /* NSDate+WHDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+WHDate.h"; sourceTree = "<group>"; };
+		AD66B985250A806700D7C66E /* UIImage+WHImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+WHImage.h"; sourceTree = "<group>"; };
+		AD66B986250A806700D7C66E /* NSDate+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Category.m"; sourceTree = "<group>"; };
+		AD66B987250A806700D7C66E /* NSString+WHString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+WHString.m"; sourceTree = "<group>"; };
+		AD66B988250A806700D7C66E /* NSNumber+WHNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+WHNumber.m"; sourceTree = "<group>"; };
+		AD66B989250A806700D7C66E /* NSDateFormatter+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+Category.h"; sourceTree = "<group>"; };
+		AD66B98A250A806700D7C66E /* UITextView+YLTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+YLTextView.h"; sourceTree = "<group>"; };
+		AD66B98B250A806700D7C66E /* NSObject+WHObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+WHObject.m"; sourceTree = "<group>"; };
+		AD66B98C250A806700D7C66E /* UIScrollView+WHScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+WHScrollView.h"; sourceTree = "<group>"; };
+		AD66B98D250A806700D7C66E /* UIButton+WHButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+WHButton.h"; sourceTree = "<group>"; };
+		AD66B98E250A806700D7C66E /* UITableView+WHTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+WHTableView.h"; sourceTree = "<group>"; };
+		AD66B98F250A806700D7C66E /* UINavigationController+WHNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+WHNavigationController.h"; sourceTree = "<group>"; };
+		AD66B990250A806700D7C66E /* UIColor+WHColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+WHColor.h"; sourceTree = "<group>"; };
+		AD66B991250A806700D7C66E /* NSArray+decription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+decription.h"; sourceTree = "<group>"; };
+		AD66B992250A806700D7C66E /* UILabel+WHLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+WHLabel.m"; sourceTree = "<group>"; };
+		AD66B993250A806700D7C66E /* NSTimer+WHTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+WHTimer.h"; sourceTree = "<group>"; };
+		AD66B994250A806700D7C66E /* NSFileManager+WHFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+WHFileManager.h"; sourceTree = "<group>"; };
+		AD66B995250A806700D7C66E /* UIBarButtonItem+LFExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+LFExtension.h"; sourceTree = "<group>"; };
+		AD66B996250A806700D7C66E /* UIView+CLFExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CLFExtension.m"; sourceTree = "<group>"; };
+		AD66B997250A806700D7C66E /* UIBarButtonItem+Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Item.h"; sourceTree = "<group>"; };
+		AD66B998250A806700D7C66E /* NSDictionary+WHDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+WHDictionary.m"; sourceTree = "<group>"; };
+		AD66B999250A806700D7C66E /* WHMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHMethods.m; sourceTree = "<group>"; };
+		AD66B99A250A806700D7C66E /* UIView+WHView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WHView.m"; sourceTree = "<group>"; };
+		AD66B99B250A806700D7C66E /* UIImageView+WHImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WHImageView.m"; sourceTree = "<group>"; };
+		AD66B99C250A806700D7C66E /* UIBarButtonItem+WHBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+WHBarButtonItem.m"; sourceTree = "<group>"; };
+		AD66B99D250A806700D7C66E /* UIViewController+WHVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+WHVC.h"; sourceTree = "<group>"; };
+		AD66B99E250A806700D7C66E /* NSDate+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Category.h"; sourceTree = "<group>"; };
+		AD66B99F250A806700D7C66E /* UIImage+WHImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WHImage.m"; sourceTree = "<group>"; };
+		AD66B9A0250A806700D7C66E /* NSDate+WHDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+WHDate.m"; sourceTree = "<group>"; };
+		AD66B9A1250A806700D7C66E /* UIDevice+WHDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+WHDevice.h"; sourceTree = "<group>"; };
+		AD66B9A2250A806700D7C66E /* NSArray+WHArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+WHArray.m"; sourceTree = "<group>"; };
+		AD66B9A3250A806700D7C66E /* UIImageView+PlayGIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+PlayGIF.m"; sourceTree = "<group>"; };
+		AD66B9A4250A806700D7C66E /* NSArray+decription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+decription.m"; sourceTree = "<group>"; };
+		AD66B9A5250A806700D7C66E /* UIColor+WHColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+WHColor.m"; sourceTree = "<group>"; };
+		AD66B9A6250A806700D7C66E /* UINavigationController+WHNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+WHNavigationController.m"; sourceTree = "<group>"; };
+		AD66B9A7250A806700D7C66E /* UITableView+WHTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+WHTableView.m"; sourceTree = "<group>"; };
+		AD66B9A8250A806700D7C66E /* UIButton+WHButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+WHButton.m"; sourceTree = "<group>"; };
+		AD66B9A9250A806700D7C66E /* UIScrollView+WHScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+WHScrollView.m"; sourceTree = "<group>"; };
+		AD66B9AA250A806700D7C66E /* NSObject+WHObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+WHObject.h"; sourceTree = "<group>"; };
+		AD66B9AB250A806700D7C66E /* UITextView+YLTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+YLTextView.m"; sourceTree = "<group>"; };
+		AD66B9AC250A806700D7C66E /* NSNumber+WHNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+WHNumber.h"; sourceTree = "<group>"; };
+		AD66B9AD250A806700D7C66E /* WHCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHCategory.h; sourceTree = "<group>"; };
+		AD66B9AE250A806700D7C66E /* NSDateFormatter+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+Category.m"; sourceTree = "<group>"; };
+		AD66B9AF250A806700D7C66E /* NSString+WHString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+WHString.h"; sourceTree = "<group>"; };
+		AD66B9B0250A806700D7C66E /* UIBarButtonItem+Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Item.m"; sourceTree = "<group>"; };
+		AD66B9B1250A806700D7C66E /* UIBarButtonItem+LFExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+LFExtension.m"; sourceTree = "<group>"; };
+		AD66B9B2250A806700D7C66E /* UIView+CLFExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CLFExtension.h"; sourceTree = "<group>"; };
+		AD66B9B3250A806700D7C66E /* NSFileManager+WHFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+WHFileManager.m"; sourceTree = "<group>"; };
+		AD66B9B4250A806700D7C66E /* NSTimer+WHTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+WHTimer.m"; sourceTree = "<group>"; };
+		AD66B9B5250A806700D7C66E /* UILabel+WHLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+WHLabel.h"; sourceTree = "<group>"; };
+		AD66B9B6250A806700D7C66E /* UIBarButtonItem+WHBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+WHBarButtonItem.h"; sourceTree = "<group>"; };
+		AD66B9B7250A806700D7C66E /* UIViewController+WHVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+WHVC.m"; sourceTree = "<group>"; };
+		AD66B9B8250A806700D7C66E /* WHMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHMethods.h; sourceTree = "<group>"; };
+		AD66B9B9250A806700D7C66E /* UIView+WHView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WHView.h"; sourceTree = "<group>"; };
+		AD66B9BA250A806700D7C66E /* UIImageView+WHImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+WHImageView.h"; sourceTree = "<group>"; };
+		AD66B9BB250A806700D7C66E /* WHMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHMacro.h; sourceTree = "<group>"; };
+		AD66B9BC250A806700D7C66E /* NSDictionary+WHDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+WHDictionary.h"; sourceTree = "<group>"; };
+		ADA6EA82250A87D400E4A525 /* GateScources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GateScources.bundle; sourceTree = "<group>"; };
+		BACBD9EFF0E00AB9FEAAFEBF /* Pods-CoinTools.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoinTools.debug.xcconfig"; path = "Target Support Files/Pods-CoinTools/Pods-CoinTools.debug.xcconfig"; sourceTree = "<group>"; };
+		BAE2018222D98D5BCD292460 /* Pods-CoinTools.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoinTools.release.xcconfig"; path = "Target Support Files/Pods-CoinTools/Pods-CoinTools.release.xcconfig"; sourceTree = "<group>"; };
+		E181CD8E024768FE878AE11C /* Pods-demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-demo.debug.xcconfig"; path = "Target Support Files/Pods-demo/Pods-demo.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AD66B8F0250A799400D7C66E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8B3B1B24E75D63367F3C031 /* Pods_CoinTools.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD66B901250A7A0600D7C66E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4AF44D9CEB94B6EE8DEF9CD /* Pods_demo.framework in Frameworks */,
+				AD66B940250A7BC400D7C66E /* CoinTools.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		06D0202271EF42D55DA4288D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				77A04FF267BC60EBF2D1B29A /* Pods_CoinTools.framework */,
+				926A74B1EA17DF30351FA12C /* Pods_demo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4949FB4CF3DBD89AE5D151EF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BACBD9EFF0E00AB9FEAAFEBF /* Pods-CoinTools.debug.xcconfig */,
+				BAE2018222D98D5BCD292460 /* Pods-CoinTools.release.xcconfig */,
+				E181CD8E024768FE878AE11C /* Pods-demo.debug.xcconfig */,
+				17AC5F681DF6E12CC8FF2B26 /* Pods-demo.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		AD66B8E9250A799400D7C66E = {
+			isa = PBXGroup;
+			children = (
+				AD66B8F5250A799400D7C66E /* CoinTools */,
+				AD66B905250A7A0600D7C66E /* demo */,
+				AD66B8F4250A799400D7C66E /* Products */,
+				4949FB4CF3DBD89AE5D151EF /* Pods */,
+				06D0202271EF42D55DA4288D /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		AD66B8F4250A799400D7C66E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AD66B8F3250A799400D7C66E /* CoinTools.framework */,
+				AD66B904250A7A0600D7C66E /* demo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AD66B8F5250A799400D7C66E /* CoinTools */ = {
+			isa = PBXGroup;
+			children = (
+				ADA6EA82250A87D400E4A525 /* GateScources.bundle */,
+				AD66B967250A806700D7C66E /* Other */,
+				AD66B955250A7F0A00D7C66E /* GateConfigs */,
+				AD66B921250A7B8100D7C66E /* main */,
+				AD66B8FE250A79F000D7C66E /* rrrViewController.swift */,
+				AD66B8F6250A799400D7C66E /* CoinTools.h */,
+				AD66B8F7250A799400D7C66E /* Info.plist */,
+				AD66B951250A7E7200D7C66E /* GateHomePagesController.h */,
+				AD66B952250A7E7200D7C66E /* GateHomePagesController.m */,
+			);
+			path = CoinTools;
+			sourceTree = "<group>";
+		};
+		AD66B905250A7A0600D7C66E /* demo */ = {
+			isa = PBXGroup;
+			children = (
+				AD66B906250A7A0600D7C66E /* AppDelegate.h */,
+				AD66B907250A7A0600D7C66E /* AppDelegate.m */,
+				AD66B909250A7A0600D7C66E /* SceneDelegate.h */,
+				AD66B90A250A7A0600D7C66E /* SceneDelegate.m */,
+				AD66B90C250A7A0600D7C66E /* ViewController.h */,
+				AD66B90D250A7A0600D7C66E /* ViewController.m */,
+				AD66B90F250A7A0600D7C66E /* Main.storyboard */,
+				AD66B912250A7A0800D7C66E /* Assets.xcassets */,
+				AD66B914250A7A0800D7C66E /* LaunchScreen.storyboard */,
+				AD66B917250A7A0800D7C66E /* Info.plist */,
+				AD66B918250A7A0800D7C66E /* main.m */,
+			);
+			path = demo;
+			sourceTree = "<group>";
+		};
+		AD66B921250A7B8100D7C66E /* main */ = {
+			isa = PBXGroup;
+			children = (
+				AD66B922250A7B8100D7C66E /* GateBaseViewController.h */,
+				AD66B92A250A7B8100D7C66E /* GateBaseViewController.m */,
+			);
+			path = main;
+			sourceTree = "<group>";
+		};
+		AD66B955250A7F0A00D7C66E /* GateConfigs */ = {
+			isa = PBXGroup;
+			children = (
+				AD66B956250A7F0A00D7C66E /* ConfigFile.pch */,
+				AD66B957250A7F0A00D7C66E /* URL.h */,
+				AD66B958250A7F0A00D7C66E /* GateToolDefine.h */,
+				AD66B959250A7F0A00D7C66E /* GateHeaderFile.h */,
+				AD66B95A250A7F0A00D7C66E /* GateDefine.h */,
+			);
+			path = GateConfigs;
+			sourceTree = "<group>";
+		};
+		AD66B967250A806700D7C66E /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				AD66B968250A806700D7C66E /* Category */,
+				AD66B97D250A806700D7C66E /* Manager */,
+				AD66B980250A806700D7C66E /* Category+c */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		AD66B968250A806700D7C66E /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				AD66B969250A806700D7C66E /* NSString+HYDESize.h */,
+				AD66B96A250A806700D7C66E /* UIView+shadowPath.m */,
+				AD66B96B250A806700D7C66E /* NSString+GateAttribute.m */,
+				AD66B96C250A806700D7C66E /* NSDictionary+Extend.h */,
+				AD66B96D250A806700D7C66E /* UISegmentedControl+Category.m */,
+				AD66B96E250A806700D7C66E /* UIFont+HYDENormalFont.h */,
+				AD66B96F250A806700D7C66E /* UITableViewCell+GateTableViewCell.h */,
+				AD66B970250A806700D7C66E /* UIView+HYDEBottomBorder.m */,
+				AD66B971250A806700D7C66E /* UIViewController+HYDENavigation.m */,
+				AD66B972250A806700D7C66E /* UIColor+HYDEGradientChange.h */,
+				AD66B973250A806700D7C66E /* NSString+GateAttribute.h */,
+				AD66B974250A806700D7C66E /* UIView+shadowPath.h */,
+				AD66B975250A806700D7C66E /* NSString+HYDESize.m */,
+				AD66B976250A806700D7C66E /* UIFont+HYDENormalFont.m */,
+				AD66B977250A806700D7C66E /* UISegmentedControl+Category.h */,
+				AD66B978250A806700D7C66E /* NSDictionary+Extend.m */,
+				AD66B979250A806700D7C66E /* UIView+HYDEBottomBorder.h */,
+				AD66B97A250A806700D7C66E /* UITableViewCell+GateTableViewCell.m */,
+				AD66B97B250A806700D7C66E /* UIColor+HYDEGradientChange.m */,
+				AD66B97C250A806700D7C66E /* UIViewController+HYDENavigation.h */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		AD66B97D250A806700D7C66E /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		AD66B980250A806700D7C66E /* Category+c */ = {
+			isa = PBXGroup;
+			children = (
+				AD66B981250A806700D7C66E /* UIImageView+PlayGIF.h */,
+				AD66B982250A806700D7C66E /* NSArray+WHArray.h */,
+				AD66B983250A806700D7C66E /* UIDevice+WHDevice.m */,
+				AD66B984250A806700D7C66E /* NSDate+WHDate.h */,
+				AD66B985250A806700D7C66E /* UIImage+WHImage.h */,
+				AD66B986250A806700D7C66E /* NSDate+Category.m */,
+				AD66B987250A806700D7C66E /* NSString+WHString.m */,
+				AD66B988250A806700D7C66E /* NSNumber+WHNumber.m */,
+				AD66B989250A806700D7C66E /* NSDateFormatter+Category.h */,
+				AD66B98A250A806700D7C66E /* UITextView+YLTextView.h */,
+				AD66B98B250A806700D7C66E /* NSObject+WHObject.m */,
+				AD66B98C250A806700D7C66E /* UIScrollView+WHScrollView.h */,
+				AD66B98D250A806700D7C66E /* UIButton+WHButton.h */,
+				AD66B98E250A806700D7C66E /* UITableView+WHTableView.h */,
+				AD66B98F250A806700D7C66E /* UINavigationController+WHNavigationController.h */,
+				AD66B990250A806700D7C66E /* UIColor+WHColor.h */,
+				AD66B991250A806700D7C66E /* NSArray+decription.h */,
+				AD66B992250A806700D7C66E /* UILabel+WHLabel.m */,
+				AD66B993250A806700D7C66E /* NSTimer+WHTimer.h */,
+				AD66B994250A806700D7C66E /* NSFileManager+WHFileManager.h */,
+				AD66B995250A806700D7C66E /* UIBarButtonItem+LFExtension.h */,
+				AD66B996250A806700D7C66E /* UIView+CLFExtension.m */,
+				AD66B997250A806700D7C66E /* UIBarButtonItem+Item.h */,
+				AD66B998250A806700D7C66E /* NSDictionary+WHDictionary.m */,
+				AD66B999250A806700D7C66E /* WHMethods.m */,
+				AD66B99A250A806700D7C66E /* UIView+WHView.m */,
+				AD66B99B250A806700D7C66E /* UIImageView+WHImageView.m */,
+				AD66B99C250A806700D7C66E /* UIBarButtonItem+WHBarButtonItem.m */,
+				AD66B99D250A806700D7C66E /* UIViewController+WHVC.h */,
+				AD66B99E250A806700D7C66E /* NSDate+Category.h */,
+				AD66B99F250A806700D7C66E /* UIImage+WHImage.m */,
+				AD66B9A0250A806700D7C66E /* NSDate+WHDate.m */,
+				AD66B9A1250A806700D7C66E /* UIDevice+WHDevice.h */,
+				AD66B9A2250A806700D7C66E /* NSArray+WHArray.m */,
+				AD66B9A3250A806700D7C66E /* UIImageView+PlayGIF.m */,
+				AD66B9A4250A806700D7C66E /* NSArray+decription.m */,
+				AD66B9A5250A806700D7C66E /* UIColor+WHColor.m */,
+				AD66B9A6250A806700D7C66E /* UINavigationController+WHNavigationController.m */,
+				AD66B9A7250A806700D7C66E /* UITableView+WHTableView.m */,
+				AD66B9A8250A806700D7C66E /* UIButton+WHButton.m */,
+				AD66B9A9250A806700D7C66E /* UIScrollView+WHScrollView.m */,
+				AD66B9AA250A806700D7C66E /* NSObject+WHObject.h */,
+				AD66B9AB250A806700D7C66E /* UITextView+YLTextView.m */,
+				AD66B9AC250A806700D7C66E /* NSNumber+WHNumber.h */,
+				AD66B9AD250A806700D7C66E /* WHCategory.h */,
+				AD66B9AE250A806700D7C66E /* NSDateFormatter+Category.m */,
+				AD66B9AF250A806700D7C66E /* NSString+WHString.h */,
+				AD66B9B0250A806700D7C66E /* UIBarButtonItem+Item.m */,
+				AD66B9B1250A806700D7C66E /* UIBarButtonItem+LFExtension.m */,
+				AD66B9B2250A806700D7C66E /* UIView+CLFExtension.h */,
+				AD66B9B3250A806700D7C66E /* NSFileManager+WHFileManager.m */,
+				AD66B9B4250A806700D7C66E /* NSTimer+WHTimer.m */,
+				AD66B9B5250A806700D7C66E /* UILabel+WHLabel.h */,
+				AD66B9B6250A806700D7C66E /* UIBarButtonItem+WHBarButtonItem.h */,
+				AD66B9B7250A806700D7C66E /* UIViewController+WHVC.m */,
+				AD66B9B8250A806700D7C66E /* WHMethods.h */,
+				AD66B9B9250A806700D7C66E /* UIView+WHView.h */,
+				AD66B9BA250A806700D7C66E /* UIImageView+WHImageView.h */,
+				AD66B9BB250A806700D7C66E /* WHMacro.h */,
+				AD66B9BC250A806700D7C66E /* NSDictionary+WHDictionary.h */,
+			);
+			path = "Category+c";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		AD66B8EE250A799400D7C66E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD66B9D6250A806800D7C66E /* NSDate+WHDate.h in Headers */,
+				AD66B9E1250A806800D7C66E /* UINavigationController+WHNavigationController.h in Headers */,
+				AD66B953250A7E7200D7C66E /* GateHomePagesController.h in Headers */,
+				AD66B9C7250A806800D7C66E /* NSString+GateAttribute.h in Headers */,
+				AD66BA0C250A806800D7C66E /* UIImageView+WHImageView.h in Headers */,
+				AD66B8F8250A799400D7C66E /* CoinTools.h in Headers */,
+				AD66B9D3250A806800D7C66E /* UIImageView+PlayGIF.h in Headers */,
+				AD66B9DC250A806800D7C66E /* UITextView+YLTextView.h in Headers */,
+				AD66B9D7250A806800D7C66E /* UIImage+WHImage.h in Headers */,
+				AD66B95B250A7F0A00D7C66E /* ConfigFile.pch in Headers */,
+				AD66B9C2250A806800D7C66E /* UIFont+HYDENormalFont.h in Headers */,
+				AD66B9FC250A806800D7C66E /* NSObject+WHObject.h in Headers */,
+				AD66BA01250A806800D7C66E /* NSString+WHString.h in Headers */,
+				AD66B9E7250A806800D7C66E /* UIBarButtonItem+LFExtension.h in Headers */,
+				AD66B95E250A7F0A00D7C66E /* GateHeaderFile.h in Headers */,
+				AD66B9E9250A806800D7C66E /* UIBarButtonItem+Item.h in Headers */,
+				AD66B9E0250A806800D7C66E /* UITableView+WHTableView.h in Headers */,
+				AD66B9D0250A806800D7C66E /* UIViewController+HYDENavigation.h in Headers */,
+				AD66B9BD250A806800D7C66E /* NSString+HYDESize.h in Headers */,
+				AD66BA0D250A806800D7C66E /* WHMacro.h in Headers */,
+				AD66B9C3250A806800D7C66E /* UITableViewCell+GateTableViewCell.h in Headers */,
+				AD66B9DB250A806800D7C66E /* NSDateFormatter+Category.h in Headers */,
+				AD66B9CB250A806800D7C66E /* UISegmentedControl+Category.h in Headers */,
+				AD66B9DE250A806800D7C66E /* UIScrollView+WHScrollView.h in Headers */,
+				AD66BA07250A806800D7C66E /* UILabel+WHLabel.h in Headers */,
+				AD66B9FF250A806800D7C66E /* WHCategory.h in Headers */,
+				AD66B9F3250A806800D7C66E /* UIDevice+WHDevice.h in Headers */,
+				AD66B9E2250A806800D7C66E /* UIColor+WHColor.h in Headers */,
+				AD66B9E5250A806800D7C66E /* NSTimer+WHTimer.h in Headers */,
+				AD66BA0B250A806800D7C66E /* UIView+WHView.h in Headers */,
+				AD66BA0A250A806800D7C66E /* WHMethods.h in Headers */,
+				AD66BA08250A806800D7C66E /* UIBarButtonItem+WHBarButtonItem.h in Headers */,
+				AD66B9D4250A806800D7C66E /* NSArray+WHArray.h in Headers */,
+				AD66B9E3250A806800D7C66E /* NSArray+decription.h in Headers */,
+				AD66B95C250A7F0A00D7C66E /* URL.h in Headers */,
+				AD66BA0E250A806800D7C66E /* NSDictionary+WHDictionary.h in Headers */,
+				AD66B95D250A7F0A00D7C66E /* GateToolDefine.h in Headers */,
+				AD66B95F250A7F0A00D7C66E /* GateDefine.h in Headers */,
+				AD66B9FE250A806800D7C66E /* NSNumber+WHNumber.h in Headers */,
+				AD66BA04250A806800D7C66E /* UIView+CLFExtension.h in Headers */,
+				AD66B9CD250A806800D7C66E /* UIView+HYDEBottomBorder.h in Headers */,
+				AD66B9F0250A806800D7C66E /* NSDate+Category.h in Headers */,
+				AD66B9EF250A806800D7C66E /* UIViewController+WHVC.h in Headers */,
+				AD66B9C6250A806800D7C66E /* UIColor+HYDEGradientChange.h in Headers */,
+				AD66B9E6250A806800D7C66E /* NSFileManager+WHFileManager.h in Headers */,
+				AD66B9DF250A806800D7C66E /* UIButton+WHButton.h in Headers */,
+				AD66B931250A7B8100D7C66E /* GateBaseViewController.h in Headers */,
+				AD66B9C0250A806800D7C66E /* NSDictionary+Extend.h in Headers */,
+				AD66B9C8250A806800D7C66E /* UIView+shadowPath.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		AD66B8F2250A799400D7C66E /* CoinTools */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AD66B8FB250A799400D7C66E /* Build configuration list for PBXNativeTarget "CoinTools" */;
+			buildPhases = (
+				9A822D737833743F3D3E3E6B /* [CP] Check Pods Manifest.lock */,
+				AD66B8EE250A799400D7C66E /* Headers */,
+				AD66B8EF250A799400D7C66E /* Sources */,
+				AD66B8F0250A799400D7C66E /* Frameworks */,
+				AD66B8F1250A799400D7C66E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CoinTools;
+			productName = CoinTools;
+			productReference = AD66B8F3250A799400D7C66E /* CoinTools.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		AD66B903250A7A0600D7C66E /* demo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AD66B91A250A7A0800D7C66E /* Build configuration list for PBXNativeTarget "demo" */;
+			buildPhases = (
+				3A51EDEE14CED40A731E0B5F /* [CP] Check Pods Manifest.lock */,
+				AD66B900250A7A0600D7C66E /* Sources */,
+				AD66B901250A7A0600D7C66E /* Frameworks */,
+				AD66B902250A7A0600D7C66E /* Resources */,
+				B2CE82CA2356F588FE7C891F /* [CP] Embed Pods Frameworks */,
+				AD66B944250A7BC400D7C66E /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AD66B943250A7BC400D7C66E /* PBXTargetDependency */,
+			);
+			name = demo;
+			productName = demo;
+			productReference = AD66B904250A7A0600D7C66E /* demo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AD66B8EA250A799400D7C66E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1160;
+				ORGANIZATIONNAME = "蔡路飞";
+				TargetAttributes = {
+					AD66B8F2250A799400D7C66E = {
+						CreatedOnToolsVersion = 11.6;
+						LastSwiftMigration = 1160;
+					};
+					AD66B903250A7A0600D7C66E = {
+						CreatedOnToolsVersion = 11.6;
+					};
+				};
+			};
+			buildConfigurationList = AD66B8ED250A799400D7C66E /* Build configuration list for PBXProject "CoinTools" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AD66B8E9250A799400D7C66E;
+			productRefGroup = AD66B8F4250A799400D7C66E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AD66B8F2250A799400D7C66E /* CoinTools */,
+				AD66B903250A7A0600D7C66E /* demo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AD66B8F1250A799400D7C66E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ADA6EA83250A87D400E4A525 /* GateScources.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD66B902250A7A0600D7C66E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ADA6EA84250A893E00E4A525 /* GateScources.bundle in Resources */,
+				AD66B916250A7A0800D7C66E /* LaunchScreen.storyboard in Resources */,
+				AD66B913250A7A0800D7C66E /* Assets.xcassets in Resources */,
+				AD66B911250A7A0600D7C66E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3A51EDEE14CED40A731E0B5F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-demo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9A822D737833743F3D3E3E6B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CoinTools-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B2CE82CA2356F588FE7C891F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-demo/Pods-demo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-demo/Pods-demo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-demo/Pods-demo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AD66B8EF250A799400D7C66E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD66BA03250A806800D7C66E /* UIBarButtonItem+LFExtension.m in Sources */,
+				AD66B9F6250A806800D7C66E /* NSArray+decription.m in Sources */,
+				AD66B9DD250A806800D7C66E /* NSObject+WHObject.m in Sources */,
+				AD66B9FA250A806800D7C66E /* UIButton+WHButton.m in Sources */,
+				AD66B9E8250A806800D7C66E /* UIView+CLFExtension.m in Sources */,
+				AD66B9C9250A806800D7C66E /* NSString+HYDESize.m in Sources */,
+				AD66B9F9250A806800D7C66E /* UITableView+WHTableView.m in Sources */,
+				AD66B9F4250A806800D7C66E /* NSArray+WHArray.m in Sources */,
+				AD66BA02250A806800D7C66E /* UIBarButtonItem+Item.m in Sources */,
+				AD66B8FF250A79F000D7C66E /* rrrViewController.swift in Sources */,
+				AD66B9D9250A806800D7C66E /* NSString+WHString.m in Sources */,
+				AD66B9E4250A806800D7C66E /* UILabel+WHLabel.m in Sources */,
+				AD66B9CE250A806800D7C66E /* UITableViewCell+GateTableViewCell.m in Sources */,
+				AD66BA06250A806800D7C66E /* NSTimer+WHTimer.m in Sources */,
+				AD66B9BE250A806800D7C66E /* UIView+shadowPath.m in Sources */,
+				AD66B9D8250A806800D7C66E /* NSDate+Category.m in Sources */,
+				AD66B9CF250A806800D7C66E /* UIColor+HYDEGradientChange.m in Sources */,
+				AD66B9CC250A806800D7C66E /* NSDictionary+Extend.m in Sources */,
+				AD66BA00250A806800D7C66E /* NSDateFormatter+Category.m in Sources */,
+				AD66B9C5250A806800D7C66E /* UIViewController+HYDENavigation.m in Sources */,
+				AD66B954250A7E7200D7C66E /* GateHomePagesController.m in Sources */,
+				AD66B9ED250A806800D7C66E /* UIImageView+WHImageView.m in Sources */,
+				AD66B9FB250A806800D7C66E /* UIScrollView+WHScrollView.m in Sources */,
+				AD66BA09250A806800D7C66E /* UIViewController+WHVC.m in Sources */,
+				AD66B9BF250A806800D7C66E /* NSString+GateAttribute.m in Sources */,
+				AD66BA05250A806800D7C66E /* NSFileManager+WHFileManager.m in Sources */,
+				AD66B9DA250A806800D7C66E /* NSNumber+WHNumber.m in Sources */,
+				AD66B9FD250A806800D7C66E /* UITextView+YLTextView.m in Sources */,
+				AD66B9F7250A806800D7C66E /* UIColor+WHColor.m in Sources */,
+				AD66B9F5250A806800D7C66E /* UIImageView+PlayGIF.m in Sources */,
+				AD66B9F1250A806800D7C66E /* UIImage+WHImage.m in Sources */,
+				AD66B9F2250A806800D7C66E /* NSDate+WHDate.m in Sources */,
+				AD66B9EB250A806800D7C66E /* WHMethods.m in Sources */,
+				AD66B9F8250A806800D7C66E /* UINavigationController+WHNavigationController.m in Sources */,
+				AD66B9EC250A806800D7C66E /* UIView+WHView.m in Sources */,
+				AD66B9CA250A806800D7C66E /* UIFont+HYDENormalFont.m in Sources */,
+				AD66B9C1250A806800D7C66E /* UISegmentedControl+Category.m in Sources */,
+				AD66B9EE250A806800D7C66E /* UIBarButtonItem+WHBarButtonItem.m in Sources */,
+				AD66B939250A7B8100D7C66E /* GateBaseViewController.m in Sources */,
+				AD66B9EA250A806800D7C66E /* NSDictionary+WHDictionary.m in Sources */,
+				AD66B9D5250A806800D7C66E /* UIDevice+WHDevice.m in Sources */,
+				AD66B9C4250A806800D7C66E /* UIView+HYDEBottomBorder.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD66B900250A7A0600D7C66E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD66B90E250A7A0600D7C66E /* ViewController.m in Sources */,
+				AD66B908250A7A0600D7C66E /* AppDelegate.m in Sources */,
+				AD66B919250A7A0800D7C66E /* main.m in Sources */,
+				AD66B90B250A7A0600D7C66E /* SceneDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AD66B943250A7BC400D7C66E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AD66B8F2250A799400D7C66E /* CoinTools */;
+			targetProxy = AD66B942250A7BC400D7C66E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AD66B90F250A7A0600D7C66E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AD66B910250A7A0600D7C66E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		AD66B914250A7A0800D7C66E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AD66B915250A7A0800D7C66E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AD66B8F9250A799400D7C66E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		AD66B8FA250A799400D7C66E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		AD66B8FC250A799400D7C66E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BACBD9EFF0E00AB9FEAAFEBF /* Pods-CoinTools.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/CoinTools/GateConfigs/ConfigFile.pch";
+				INFOPLIST_FILE = CoinTools/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dasfd.CoinTools;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AD66B8FD250A799400D7C66E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BAE2018222D98D5BCD292460 /* Pods-CoinTools.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/CoinTools/GateConfigs/ConfigFile.pch";
+				INFOPLIST_FILE = CoinTools/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dasfd.CoinTools;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		AD66B91B250A7A0800D7C66E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E181CD8E024768FE878AE11C /* Pods-demo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = demo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dasfd.demo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AD66B91C250A7A0800D7C66E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 17AC5F681DF6E12CC8FF2B26 /* Pods-demo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = demo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dasfd.demo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AD66B8ED250A799400D7C66E /* Build configuration list for PBXProject "CoinTools" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AD66B8F9250A799400D7C66E /* Debug */,
+				AD66B8FA250A799400D7C66E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AD66B8FB250A799400D7C66E /* Build configuration list for PBXNativeTarget "CoinTools" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AD66B8FC250A799400D7C66E /* Debug */,
+				AD66B8FD250A799400D7C66E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AD66B91A250A7A0800D7C66E /* Build configuration list for PBXNativeTarget "demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AD66B91B250A7A0800D7C66E /* Debug */,
+				AD66B91C250A7A0800D7C66E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AD66B8EA250A799400D7C66E /* Project object */;
+}

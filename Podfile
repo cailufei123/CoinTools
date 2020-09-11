@@ -13,6 +13,9 @@ pod 'Masonry'
 pod 'YYKit'
 pod 'UITableView+FDTemplateLayoutCell'
 pod 'MJRefresh'
+pod 'JXCategoryView'
+pod 'SYProgressView'
+
 end
 target 'demo' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -25,4 +28,7 @@ pod 'Masonry'
 pod 'YYKit'
 pod 'UITableView+FDTemplateLayoutCell'
 pod 'MJRefresh'
+pod 'JXCategoryView'
+pod 'SYProgressView'
 end
+

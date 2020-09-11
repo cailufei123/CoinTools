@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="GateWholeNetworkBigOrderStatisticsCollectionCell">
+            <rect key="frame" x="0.0" y="0.0" width="423" height="125"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="423" height="125"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="STp-Po-FLc">
+                        <rect key="frame" x="0.0" y="0.0" width="80" height="20"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Nd-PH-Ojz">
+                                <rect key="frame" x="1" y="1" width="74" height="19"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="4Nd-PH-Ojz" secondAttribute="bottom" id="7Gc-p2-2UM"/>
+                            <constraint firstAttribute="width" constant="80" id="8jl-5Y-As1"/>
+                            <constraint firstItem="4Nd-PH-Ojz" firstAttribute="leading" secondItem="STp-Po-FLc" secondAttribute="leading" constant="1" id="DGE-rc-fh4"/>
+                            <constraint firstAttribute="trailing" secondItem="4Nd-PH-Ojz" secondAttribute="trailing" constant="5" id="ctk-pL-rBn"/>
+                            <constraint firstItem="4Nd-PH-Ojz" firstAttribute="top" secondItem="STp-Po-FLc" secondAttribute="top" constant="1" id="edd-8J-vkk"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="k3e-Aa-9Wn"/>
+                            <constraint firstAttribute="height" constant="20" id="seN-Rc-qex"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$100万" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0vq-gT-ZdI">
+                        <rect key="frame" x="183" y="40" width="57" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lfe-5e-kyZ">
+                        <rect key="frame" x="211.5" y="0.0" width="0.0" height="125"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="width" id="Abh-kT-fKy"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="买：100万" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wEu-WI-FaB">
+                        <rect key="frame" x="15" y="66" width="81" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="买：100万" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hxV-8F-wAh">
+                        <rect key="frame" x="226.5" y="66" width="81" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="wEu-WI-FaB" firstAttribute="top" secondItem="0vq-gT-ZdI" secondAttribute="bottom" constant="5" id="7Tz-4H-Bn4"/>
+                <constraint firstAttribute="bottom" secondItem="lfe-5e-kyZ" secondAttribute="bottom" id="GwS-Zg-ncd"/>
+                <constraint firstItem="0vq-gT-ZdI" firstAttribute="top" secondItem="STp-Po-FLc" secondAttribute="bottom" constant="20" id="I13-qp-7ZE"/>
+                <constraint firstItem="wEu-WI-FaB" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="15" id="KYY-Uw-bEy"/>
+                <constraint firstItem="0vq-gT-ZdI" firstAttribute="centerX" secondItem="SEy-5g-ep8" secondAttribute="centerX" id="azW-Bh-oeZ"/>
+                <constraint firstItem="hxV-8F-wAh" firstAttribute="leading" secondItem="lfe-5e-kyZ" secondAttribute="trailing" constant="15" id="eRr-ya-HTi"/>
+                <constraint firstItem="lfe-5e-kyZ" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="elw-Ck-WlH"/>
+                <constraint firstItem="lfe-5e-kyZ" firstAttribute="centerX" secondItem="SEy-5g-ep8" secondAttribute="centerX" id="f7g-iS-YYO"/>
+                <constraint firstItem="STp-Po-FLc" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="fK3-6j-YOP"/>
+                <constraint firstItem="STp-Po-FLc" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="sMw-tr-YOG"/>
+                <constraint firstItem="hxV-8F-wAh" firstAttribute="centerY" secondItem="wEu-WI-FaB" secondAttribute="centerY" id="yaf-xu-jDq"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
+            <size key="customSize" width="423" height="125"/>
+            <connections>
+                <outlet property="buyLb" destination="hxV-8F-wAh" id="kI8-yB-9DC"/>
+                <outlet property="sellLb" destination="wEu-WI-FaB" id="hEM-Tu-uqD"/>
+                <outlet property="titleBgView" destination="STp-Po-FLc" id="Wzq-9r-Stl"/>
+                <outlet property="titleLb" destination="4Nd-PH-Ojz" id="Z8W-3t-JQr"/>
+                <outlet property="totalMoneyLb" destination="0vq-gT-ZdI" id="B6y-8M-Jjp"/>
+            </connections>
+            <point key="canvasLocation" x="55.797101449275367" y="69.977678571428569"/>
+        </collectionViewCell>
+    </objects>
+</document>

@@ -22,12 +22,12 @@
 #define hydeBannerImageSize CGSizeMake(ScreenWidth , (ScreenWidth - 30) * 110 / 345)
 
 
-#define gateTableRegisterNib(tableView,nibName) [tableView registerNib:[UINib nibWithNibName:nibName bundle:[NSBundle mainBundle]] forCellReuseIdentifier:nibName]
+#define gateTableRegisterNib(tableView,nibName) [tableView registerNib:[UINib nibWithNibName:[NSString stringWithFormat:@"CoinTools.framework/%@",nibName] bundle:[NSBundle mainBundle]] forCellReuseIdentifier:nibName]
 
 #define gateTableRegisterClass(tableView,className) [tableView registerClass:NSClassFromString(className) forCellReuseIdentifier:className]
 
 
-#define gateCollectionRegisterNib(collectionView,nibName) [collectionView registerNib:[UINib nibWithNibName:nibName bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:nibName]
+#define gateCollectionRegisterNib(collectionView,nibName) [collectionView registerNib:[UINib nibWithNibName:[NSString stringWithFormat:@"CoinTools.framework/%@",nibName] bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:nibName]
 
 #define gateCollectionRegisterClass(collectionView,className) [collectionView registerClass:NSClassFromString(className) forCellWithReuseIdentifier:className]
 

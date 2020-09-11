@@ -17,28 +17,26 @@
 #import <AFNetworking.h>
 #import "AFNetworking.h"
 #import "URL.h"
-//#import "UITableViewCell+GateTableViewCell.h"
-#import "UITableView+FDTemplateLayoutCell.h"
-
-//#import "GateRequestManager.h"
-////#import "GateHomeModel.h"
+#import "GateRequestManager.h"
+//#import "GateHomeModel.h"
 #import "WHCategory.h"
-//
+
 #import "GateToolDefine.h"
-//
-//#import "UIFont+HYDENormalFont.h"
-//
-//#import "UIView+HYDEBottomBorder.h"
-//#import "UIView+shadowPath.h"
-//#import "GateBaseViewController.h"
-//#import "SANavigationController.h"
-//#import "GateRefreshAutoNormalFooter.h"
-//#import "GateRefreshNormalHeader.h"
-//#import "NSString+HYDESize.h"
-//#import "UIViewController+HYDENavigation.h"
-//#import "NSString+GateAttribute.h"
-//#import "UISegmentedControl+Category.h"
-//#import "GatePublicSelectModel.h"
-//#import "GatePublicSelectView.h"
-//#import "UIColor+HYDEGradientChange.h"
+
+#import "UIFont+HYDENormalFont.h"
+#import "UITableViewCell+GateTableViewCell.h"
+#import "UITableView+FDTemplateLayoutCell.h"
+#import "UIView+HYDEBottomBorder.h"
+#import "UIView+shadowPath.h"
+#import "GateBaseViewController.h"
+#import "SANavigationController.h"
+#import "GateRefreshAutoNormalFooter.h"
+#import "GateRefreshNormalHeader.h"
+#import "NSString+HYDESize.h"
+#import "UIViewController+HYDENavigation.h"
+#import "NSString+GateAttribute.h"
+#import "UISegmentedControl+Category.h"
+#import "GatePublicSelectModel.h"
+#import "GatePublicSelectView.h"
+#import "UIColor+HYDEGradientChange.h"
 #endif /* HeaderFile_h */

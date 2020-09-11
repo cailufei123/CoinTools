@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="367" id="KGk-i7-Jjw" customClass="GateBigOrderDistributionDealCell">
+            <rect key="frame" x="0.0" y="0.0" width="402" height="367"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="402" height="367"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C2c-76-UTM">
+                        <rect key="frame" x="0.0" y="0.0" width="402" height="50"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="Vy5-FF-5oI"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O2e-WS-A21" customClass="CombinedChartView" customModule="Charts">
+                        <rect key="frame" x="0.0" y="50" width="402" height="200"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="200" id="nhO-jI-gZv"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eaK-zl-7za">
+                        <rect key="frame" x="0.0" y="250" width="402" height="50"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="t2a-Ld-zYD"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="O2e-WS-A21" secondAttribute="trailing" id="LIQ-Gl-IQB"/>
+                    <constraint firstItem="O2e-WS-A21" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Tnn-v8-gOP"/>
+                    <constraint firstItem="C2c-76-UTM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Uht-BZ-rr4"/>
+                    <constraint firstItem="eaK-zl-7za" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Yga-K7-50M"/>
+                    <constraint firstAttribute="trailing" secondItem="eaK-zl-7za" secondAttribute="trailing" id="b8p-eP-tJB"/>
+                    <constraint firstAttribute="bottom" secondItem="eaK-zl-7za" secondAttribute="bottom" id="fYc-bf-DRw"/>
+                    <constraint firstItem="O2e-WS-A21" firstAttribute="top" secondItem="C2c-76-UTM" secondAttribute="bottom" id="iV7-iY-TPt"/>
+                    <constraint firstAttribute="trailing" secondItem="C2c-76-UTM" secondAttribute="trailing" id="jxA-vR-Ked"/>
+                    <constraint firstItem="C2c-76-UTM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="rf3-mu-KfS"/>
+                    <constraint firstItem="eaK-zl-7za" firstAttribute="top" secondItem="O2e-WS-A21" secondAttribute="bottom" id="y4O-E5-P8f"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="bottomSelectView" destination="eaK-zl-7za" id="sCx-pG-C3h"/>
+                <outlet property="chartView" destination="O2e-WS-A21" id="a3y-sh-DOc"/>
+                <outlet property="selectView" destination="C2c-76-UTM" id="8EG-BC-RAH"/>
+            </connections>
+            <point key="canvasLocation" x="82.608695652173921" y="108.14732142857143"/>
+        </tableViewCell>
+    </objects>
+</document>

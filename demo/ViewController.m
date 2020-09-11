@@ -15,7 +15,7 @@
 
 - (void)viewDidLoad {
 //    [super viewDidLoad];
-   [self.navigationController pushViewController:[[GateHomePagesController alloc]init] animated:YES];
+    [self.navigationController pushViewController:[[GateHomePageController alloc]init] animated:YES];
 }
 
 

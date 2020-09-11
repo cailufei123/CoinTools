@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="367" id="KGk-i7-Jjw" customClass="GateThirtyDaysBurstStatisticsTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="343" height="367"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="343" height="367"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IiC-ob-y3g">
+                        <rect key="frame" x="0.0" y="0.0" width="343" height="40"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最近30日爆仓统计" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eTR-Q1-w3N">
+                                <rect key="frame" x="15" y="11" width="125.5" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Prp-P2-jsI">
+                                <rect key="frame" x="0.0" y="39" width="343" height="1"/>
+                                <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="vd4-uz-izM"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="eTR-Q1-w3N" firstAttribute="centerY" secondItem="IiC-ob-y3g" secondAttribute="centerY" id="0VU-Fm-Yeu"/>
+                            <constraint firstItem="eTR-Q1-w3N" firstAttribute="leading" secondItem="IiC-ob-y3g" secondAttribute="leading" constant="15" id="6fN-j0-fOK"/>
+                            <constraint firstAttribute="trailing" secondItem="Prp-P2-jsI" secondAttribute="trailing" id="Owz-BZ-M8T"/>
+                            <constraint firstAttribute="bottom" secondItem="Prp-P2-jsI" secondAttribute="bottom" id="Zzi-WI-Uhf"/>
+                            <constraint firstAttribute="height" constant="40" id="nyg-VD-vie"/>
+                            <constraint firstItem="Prp-P2-jsI" firstAttribute="leading" secondItem="IiC-ob-y3g" secondAttribute="leading" id="t5G-mE-ybC"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M6a-aD-LdY" customClass="BarChartView" customModule="Charts">
+                        <rect key="frame" x="0.0" y="40" width="343" height="300"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="300" id="Opy-CC-1dr"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6X1-Rx-CAB">
+                        <rect key="frame" x="0.0" y="340" width="343" height="50"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="qfA-1g-KDt"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="M6a-aD-LdY" firstAttribute="top" secondItem="IiC-ob-y3g" secondAttribute="bottom" id="95R-hw-F7H"/>
+                    <constraint firstItem="M6a-aD-LdY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="IQR-jl-2lE"/>
+                    <constraint firstItem="IiC-ob-y3g" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Moa-iy-nzE"/>
+                    <constraint firstAttribute="trailing" secondItem="6X1-Rx-CAB" secondAttribute="trailing" id="Srp-q7-WhX"/>
+                    <constraint firstAttribute="trailing" secondItem="IiC-ob-y3g" secondAttribute="trailing" id="dgl-Ri-cw6"/>
+                    <constraint firstItem="6X1-Rx-CAB" firstAttribute="top" secondItem="M6a-aD-LdY" secondAttribute="bottom" id="ewW-xH-YHd"/>
+                    <constraint firstItem="IiC-ob-y3g" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="lyF-Wf-9YZ"/>
+                    <constraint firstAttribute="bottom" secondItem="6X1-Rx-CAB" secondAttribute="bottom" id="qIP-mU-JF6"/>
+                    <constraint firstAttribute="trailing" secondItem="M6a-aD-LdY" secondAttribute="trailing" id="ueX-2l-qES"/>
+                    <constraint firstItem="6X1-Rx-CAB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="zxN-jP-VXL"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="bottomSelectView" destination="6X1-Rx-CAB" id="Wb7-CS-i7E"/>
+                <outlet property="chartView" destination="M6a-aD-LdY" id="Lsx-Wy-xdr"/>
+            </connections>
+            <point key="canvasLocation" x="60.14492753623189" y="230.69196428571428"/>
+        </tableViewCell>
+    </objects>
+</document>

@@ -233,7 +233,9 @@
 		04D350B6250B587700D940D1 /* GateHoldCoinTopMessageCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 04D350B3250B587700D940D1 /* GateHoldCoinTopMessageCell.h */; };
 		04D350B7250B587700D940D1 /* GateHoldCoinTopMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D350B4250B587700D940D1 /* GateHoldCoinTopMessageCell.m */; };
 		04D350B8250B587700D940D1 /* GateHoldCoinTopMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04D350B5250B587700D940D1 /* GateHoldCoinTopMessageCell.xib */; };
-		04D350BA250B5B8E00D940D1 /* 49.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D350B9250B5B8E00D940D1 /* 49.png */; };
+		04D350BE250B75CB00D940D1 /* GTHoldChartsStatisticsTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 04D350BB250B75CB00D940D1 /* GTHoldChartsStatisticsTableViewCell.h */; };
+		04D350BF250B75CB00D940D1 /* GTHoldChartsStatisticsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D350BC250B75CB00D940D1 /* GTHoldChartsStatisticsTableViewCell.m */; };
+		04D350C0250B75CB00D940D1 /* GTHoldChartsStatisticsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04D350BD250B75CB00D940D1 /* GTHoldChartsStatisticsTableViewCell.xib */; };
 		AD66B908250A7A0600D7C66E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AD66B907250A7A0600D7C66E /* AppDelegate.m */; };
 		AD66B90B250A7A0600D7C66E /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AD66B90A250A7A0600D7C66E /* SceneDelegate.m */; };
 		AD66B90E250A7A0600D7C66E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD66B90D250A7A0600D7C66E /* ViewController.m */; };
@@ -498,7 +500,9 @@
 		04D350B3250B587700D940D1 /* GateHoldCoinTopMessageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GateHoldCoinTopMessageCell.h; sourceTree = "<group>"; };
 		04D350B4250B587700D940D1 /* GateHoldCoinTopMessageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GateHoldCoinTopMessageCell.m; sourceTree = "<group>"; };
 		04D350B5250B587700D940D1 /* GateHoldCoinTopMessageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GateHoldCoinTopMessageCell.xib; sourceTree = "<group>"; };
-		04D350B9250B5B8E00D940D1 /* 49.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 49.png; sourceTree = "<group>"; };
+		04D350BB250B75CB00D940D1 /* GTHoldChartsStatisticsTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTHoldChartsStatisticsTableViewCell.h; sourceTree = "<group>"; };
+		04D350BC250B75CB00D940D1 /* GTHoldChartsStatisticsTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTHoldChartsStatisticsTableViewCell.m; sourceTree = "<group>"; };
+		04D350BD250B75CB00D940D1 /* GTHoldChartsStatisticsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GTHoldChartsStatisticsTableViewCell.xib; sourceTree = "<group>"; };
 		17AC5F681DF6E12CC8FF2B26 /* Pods-demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-demo.release.xcconfig"; path = "Target Support Files/Pods-demo/Pods-demo.release.xcconfig"; sourceTree = "<group>"; };
 		77A04FF267BC60EBF2D1B29A /* Pods_CoinTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoinTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		926A74B1EA17DF30351FA12C /* Pods_demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -548,13 +552,13 @@
 				04D35051250B16EA00D940D1 /* MultiSpaceRatio-多空比 */,
 				04D34E95250B0C8500D940D1 /* BigOrderBurstStatistics-大单成交统计 */,
 				04D34EFC250B0C8500D940D1 /* BurstStatistics-爆仓统计 */,
-				04D34EC3250B0C8500D940D1 /* GateConfigs */,
 				04D34E8B250B0C8500D940D1 /* HoldCoin-持币 */,
 				04D34EE3250B0C8500D940D1 /* main */,
 				04D34EAF250B0C8500D940D1 /* Other */,
 				04D34EB1250B0C8500D940D1 /* PublicView */,
 				04D34EE0250B0C8500D940D1 /* Request */,
 				04D34EA7250B0C8500D940D1 /* WholeNetworkPositionStatistics-全网持仓统计 */,
+				04D34EC3250B0C8500D940D1 /* GateConfigs */,
 				04D34EF4250B0C8500D940D1 /* GateScources.bundle */,
 				04D34FA6250B0D0200D940D1 /* CoinTools.h */,
 				04D34FA8250B0D7600D940D1 /* Info.plist */,
@@ -574,7 +578,6 @@
 		04D34E8C250B0C8500D940D1 /* controller */ = {
 			isa = PBXGroup;
 			children = (
-				04D350B9250B5B8E00D940D1 /* 49.png */,
 				04D34E8D250B0C8500D940D1 /* GateHoldCoinViewController.h */,
 				04D34E8F250B0C8500D940D1 /* GateHoldCoinViewController.m */,
 				04D34E90250B0C8500D940D1 /* GateMarketValueViewController.h */,
@@ -592,6 +595,9 @@
 				04D350B3250B587700D940D1 /* GateHoldCoinTopMessageCell.h */,
 				04D350B4250B587700D940D1 /* GateHoldCoinTopMessageCell.m */,
 				04D350B5250B587700D940D1 /* GateHoldCoinTopMessageCell.xib */,
+				04D350BB250B75CB00D940D1 /* GTHoldChartsStatisticsTableViewCell.h */,
+				04D350BC250B75CB00D940D1 /* GTHoldChartsStatisticsTableViewCell.m */,
+				04D350BD250B75CB00D940D1 /* GTHoldChartsStatisticsTableViewCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -608,19 +614,19 @@
 		04D34E96250B0C8500D940D1 /* view */ = {
 			isa = PBXGroup;
 			children = (
-				04D34E97250B0C8500D940D1 /* GateWholeNetworkBigOrderStatisticsCell.h */,
-				04D34E98250B0C8500D940D1 /* GateThirtyDaysBigOrderStatisticsTableViewCell.m */,
-				04D34E99250B0C8500D940D1 /* GateWholeNetworkBigOrderStatisticsCollectionCell.m */,
+				04D34EA0250B0C8500D940D1 /* GateBigOrderDistributionDealCell.h */,
 				04D34E9A250B0C8500D940D1 /* GateBigOrderDistributionDealCell.m */,
-				04D34E9B250B0C8500D940D1 /* GateWholeNetworkBigOrderStatisticsCollectionCell.xib */,
+				04D34E9E250B0C8500D940D1 /* GateBigOrderDistributionDealCell.xib */,
+				04D34EA2250B0C8500D940D1 /* GateThirtyDaysBigOrderStatisticsSelectView.h */,
 				04D34E9C250B0C8500D940D1 /* GateThirtyDaysBigOrderStatisticsSelectView.m */,
 				04D34E9D250B0C8500D940D1 /* GateThirtyDaysBigOrderStatisticsTableViewCell.h */,
-				04D34E9E250B0C8500D940D1 /* GateBigOrderDistributionDealCell.xib */,
-				04D34E9F250B0C8500D940D1 /* GateWholeNetworkBigOrderStatisticsCell.m */,
-				04D34EA0250B0C8500D940D1 /* GateBigOrderDistributionDealCell.h */,
-				04D34EA1250B0C8500D940D1 /* GateWholeNetworkBigOrderStatisticsCollectionCell.h */,
-				04D34EA2250B0C8500D940D1 /* GateThirtyDaysBigOrderStatisticsSelectView.h */,
+				04D34E98250B0C8500D940D1 /* GateThirtyDaysBigOrderStatisticsTableViewCell.m */,
 				04D34EA3250B0C8500D940D1 /* GateThirtyDaysBigOrderStatisticsTableViewCell.xib */,
+				04D34E97250B0C8500D940D1 /* GateWholeNetworkBigOrderStatisticsCell.h */,
+				04D34E9F250B0C8500D940D1 /* GateWholeNetworkBigOrderStatisticsCell.m */,
+				04D34EA1250B0C8500D940D1 /* GateWholeNetworkBigOrderStatisticsCollectionCell.h */,
+				04D34E99250B0C8500D940D1 /* GateWholeNetworkBigOrderStatisticsCollectionCell.m */,
+				04D34E9B250B0C8500D940D1 /* GateWholeNetworkBigOrderStatisticsCollectionCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -628,8 +634,8 @@
 		04D34EA4250B0C8500D940D1 /* controler */ = {
 			isa = PBXGroup;
 			children = (
-				04D34EA5250B0C8500D940D1 /* GateBigOrderStatisticsViewController.m */,
 				04D34EA6250B0C8500D940D1 /* GateBigOrderStatisticsViewController.h */,
+				04D34EA5250B0C8500D940D1 /* GateBigOrderStatisticsViewController.m */,
 			);
 			path = controler;
 			sourceTree = "<group>";
@@ -655,9 +661,9 @@
 		04D34EAB250B0C8500D940D1 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				04D34EAE250B0C8500D940D1 /* GateDeliveryPositionAmountCell.h */,
 				04D34EAC250B0C8500D940D1 /* GateDeliveryPositionAmountCell.m */,
 				04D34EAD250B0C8500D940D1 /* GateDeliveryPositionAmountCell.xib */,
-				04D34EAE250B0C8500D940D1 /* GateDeliveryPositionAmountCell.h */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1104,6 +1110,7 @@
 				04D3508F250B16EA00D940D1 /* GateDetailsViewController.h in Headers */,
 				04D35004250B0F7300D940D1 /* UIImage+WHImage.h in Headers */,
 				04D35000250B0F7300D940D1 /* UIImageView+PlayGIF.h in Headers */,
+				04D350BE250B75CB00D940D1 /* GTHoldChartsStatisticsTableViewCell.h in Headers */,
 				04D35012250B0F7300D940D1 /* NSTimer+WHTimer.h in Headers */,
 				04D35031250B0F7300D940D1 /* UIView+CLFExtension.h in Headers */,
 				04D35014250B0F7300D940D1 /* UIBarButtonItem+LFExtension.h in Headers */,
@@ -1245,6 +1252,7 @@
 		AD66B8EA250A799400D7C66E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = GT;
 				LastUpgradeCheck = 1160;
 				ORGANIZATIONNAME = "蔡路飞";
 				TargetAttributes = {
@@ -1287,10 +1295,10 @@
 				04D34F32250B0C8600D940D1 /* GateBigOrderDistributionDealCell.xib in Resources */,
 				04D35076250B16EA00D940D1 /* GatePrgessTableViewCell.xib in Resources */,
 				04D34F96250B0C8600D940D1 /* GateHousBurstStatisticsTableViewCell.xib in Resources */,
-				04D350BA250B5B8E00D940D1 /* 49.png in Resources */,
 				04D34F9B250B0C8600D940D1 /* GateHoursCollectionViewCell.xib in Resources */,
 				04D34F8D250B0C8600D940D1 /* GateBurstListTableViewCell.xib in Resources */,
 				04D350B8250B587700D940D1 /* GateHoldCoinTopMessageCell.xib in Resources */,
+				04D350C0250B75CB00D940D1 /* GTHoldChartsStatisticsTableViewCell.xib in Resources */,
 				04D34F9C250B0C8600D940D1 /* GateThirtyDaysBurstStatisticsTableViewCell.xib in Resources */,
 				04D3507C250B16EA00D940D1 /* GateSelectLineChartCollectionViewCell.xib in Resources */,
 				04D35083250B16EA00D940D1 /* GateData1TableViewCell.xib in Resources */,
@@ -1437,6 +1445,7 @@
 				04D35026250B0F7300D940D1 /* UITableView+WHTableView.m in Sources */,
 				04D350A7250B1B9D00D940D1 /* GateHomePageTopEnterViewCell.m in Sources */,
 				04D35077250B16EA00D940D1 /* GateHearCategoryView.m in Sources */,
+				04D350BF250B75CB00D940D1 /* GTHoldChartsStatisticsTableViewCell.m in Sources */,
 				04D350A2250B1A1900D940D1 /* GateHomePageTopEnterViewCollectionViewCell.m in Sources */,
 				04D35017250B0F7300D940D1 /* NSDictionary+WHDictionary.m in Sources */,
 				04D3501A250B0F7300D940D1 /* UIImageView+WHImageView.m in Sources */,

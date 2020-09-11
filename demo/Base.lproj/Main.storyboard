@@ -26,9 +26,9 @@
         <!--Navigation Controller-->
         <scene sceneID="ciO-ph-hJy">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VFT-ca-LJg" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VFT-ca-LJg" customClass="SANavigationController" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="AUX-Cz-gXE">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="AUX-Cz-gXE" customClass="ns">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

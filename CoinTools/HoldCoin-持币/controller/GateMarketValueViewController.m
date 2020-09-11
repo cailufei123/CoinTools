@@ -85,4 +85,5 @@
         cell.highlightView.backgroundColor = [UIColor colorGradientChangeWithSize: cell.highlightView.clf_size direction:HYDEGradientChangeDirectionLevel startColor:[UIColor.whiteColor colorWithAlphaComponent:0.0] endColor:[UIColor.greenColor colorWithAlphaComponent:0.4]];
 
 }
+
 @end

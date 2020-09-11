@@ -21,6 +21,7 @@
 
 #define hydeBannerImageSize CGSizeMake(ScreenWidth , (ScreenWidth - 30) * 110 / 345)
 
+#define getImage(hex) [UIImage imageNamed:[NSString stringWithFormat:@"CoinTools.framework/GateScources.bundle/%@",hex]]
 
 #define gateTableRegisterNib(tableView,nibName) [tableView registerNib:[UINib nibWithNibName:[NSString stringWithFormat:@"CoinTools.framework/%@",nibName] bundle:[NSBundle mainBundle]] forCellReuseIdentifier:nibName]
 

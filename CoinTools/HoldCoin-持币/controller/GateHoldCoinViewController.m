@@ -8,6 +8,7 @@
 
 #import "GateHoldCoinViewController.h"
 #import "GateHoldCoinTopMessageCell.h"
+#import "GTHoldChartsStatisticsTableViewCell.h"
 @interface GateHoldCoinViewController ()
 
 @end
@@ -18,14 +19,14 @@
     [super viewDidLoad];
     self.navTitle  =@"持币";
   
-       self.tableView.frame = CGRectMake(0,0 , scrWeiht, self.view.bounds.size.height-0);
+       self.tableView.frame = CGRectMake(0,kTopHeight, scrWeiht, self.view.bounds.size.height-0);
       
     
      gateTableRegisterNib(self.tableView, @"GateHousBurstStatisticsTableViewCell");
      gateTableRegisterNib(self.tableView, @"GateLineChartTableViewCell");
     gateTableRegisterNib(self.tableView, @"GateDeliveryPositionAmountCell");
       gateTableRegisterNib(self.tableView, @"GateHoldCoinTopMessageCell");
-  
+    gateTableRegisterNib(self.tableView, @"GTHoldChartsStatisticsTableViewCell");
        GateRefreshNormalHeader * header = [GateRefreshNormalHeader headerWithRefreshingBlock:^{
            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                [self.tableView.mj_header endRefreshing];
@@ -46,24 +47,53 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     
-    return 60 ;
+    return 1 ;
 }
 
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-  return 80;
+    if (indexPath.section == 0) {
+        CGFloat height = [tableView
+                          fd_heightForCellWithIdentifier:@"GateHoldCoinTopMessageCell"
+                          cacheByIndexPath:indexPath
+                          configuration:^(id cell) {
+
+                           }];
+        return height;
+    }else if  (indexPath.section == 1){
+        CGFloat height = [tableView
+                          fd_heightForCellWithIdentifier:@"GTHoldChartsStatisticsTableViewCell"
+                          cacheByIndexPath:indexPath
+                          configuration:^(id cell) {
+
+                           }];
+        return height;
+    }
+    
+   return 0;
 
 }
   -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
-       GateHoldCoinTopMessageCell * cell = [tableView dequeueReusableCellWithIdentifier:@"GateHoldCoinTopMessageCell" forIndexPath:indexPath];
-                                                 return cell;
+    
      
+      if (indexPath.section == 0) {
+               GateHoldCoinTopMessageCell * cell = [tableView dequeueReusableCellWithIdentifier:@"GateHoldCoinTopMessageCell" forIndexPath:indexPath];
+                                                          
+                return cell;
+          
+         }else if  (indexPath.section == 1){
+                GTHoldChartsStatisticsTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"GTHoldChartsStatisticsTableViewCell" forIndexPath:indexPath];
+                                                           
+             return cell;
+             
+         }
+         return nil;
   }
  
 

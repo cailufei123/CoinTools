@@ -18,6 +18,10 @@
 #import "GateNewDetailsViewController.h"
 #import "GateMarketValueViewController.h"
 #import "GateBurstViewController.h"
+
+#import "GateHomePageTopEnterViewCell.h"
+#import "GateFearIndexTableViewCell.h"
+#import "GateHoldCoinViewController.h"
 @interface GateHomePageController ()
 @property(nonatomic,strong)NSArray * classArry;
 @end
@@ -26,13 +30,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.classArry = [NSArray arrayWithObjects:@"GateBurstViewController",@"GateNewDetailsViewController",@"GateBigOrderStatisticsViewController",@"GateWholeNetworkPositionStatisticsViewController",@"GateMarketValueViewController" ,nil];
+    self.classArry = [NSArray arrayWithObjects:@"GateBurstViewController",@"GateNewDetailsViewController",@"GateBigOrderStatisticsViewController",@"GateWholeNetworkPositionStatisticsViewController",@"GateHoldCoinViewController" ,nil];
     self.tableView.frame = CGRectMake(0,88 , scrWeiht, scrHeiht);
      self.tableView.backgroundColor = [UIColor whiteColor];
-    self.tableView.backgroundColor = gateColor(@"000000");
     gateTableRegisterClass(self.tableView, @"UITableViewCell");
-//    [self.tableView reloadData];
-//    [self.navigationController pushViewController:[[GateWholeNetworkPositionStatisticsViewController alloc]init] animated:YES];
+    gateTableRegisterClass(self.tableView, @"GateHomePageTopEnterViewCell");
+    gateTableRegisterNib(self.tableView, @"GateFearIndexTableViewCell");
+
     UIView * imag = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 75, 25)];
     [imag addSubview:[UIImageView wh_imageViewWithPNGImage:@"CoinTools.framework/GateScources.bundle/icon_logon_d_logo_145x51_@2x" frame:imag.frame]];
   self.navigationItem.titleView  = imag;
@@ -44,42 +48,50 @@
 
 {
     
-      return 50;
+    return 0.01;
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
      return [UIView new];
    
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-     return self.classArry.count;
+     return 1;
 }
 
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
- 
-    return 61;
+ if (indexPath.section == 1){
+     return 150;
+}
+  return 230;
    
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
-    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell" forIndexPath:indexPath];
-    cell.textLabel.text = self.classArry[indexPath.row];
-    cell.textLabel.textColor = [UIColor blackColor];
-  
-                         return cell;
+   
+    if (indexPath.section == 0) {
+         GateHomePageTopEnterViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"GateHomePageTopEnterViewCell" forIndexPath:indexPath];
+        @weakify(self)
+        cell.selectBlock = ^(NSInteger index) {
+            @strongify(self)
+            
+            [self.navigationController pushViewController:[self stringChangeToClass:self.classArry[index]] animated:YES];
+        };
+           return cell;
+        
+    }else if (indexPath.section == 1){
+        GateFearIndexTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"GateFearIndexTableViewCell" forIndexPath:indexPath];
+                 return cell;
+    }
+    
+    return nil;
    
 }
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    UIViewController * rr = [self stringChangeToClass:self.classArry[indexPath.row]];
-//    GatettttViewController * nv = [[GatettttViewController alloc] initWithRootViewController: rr];
-//    [self.navigationController pushViewController: [[GateBurstViewController alloc] init] animated:YES];
-     [self.navigationController pushViewController:rr animated:YES];
-}
+
 - (UIViewController*)stringChangeToClass:(NSString *)str {
     id vc = [[NSClassFromString(str) alloc]init];
     if ([vc isKindOfClass:[UIViewController class]]) {

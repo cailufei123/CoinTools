@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="GateHomePageTopEnterViewCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="235" height="117"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="235" height="117"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tXe-B5-HQc">
+                        <rect key="frame" x="0.0" y="0.0" width="235" height="117"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1小时 552万" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pJL-7E-S4Y">
+                                <rect key="frame" x="5" y="36" width="225" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1小时 552万" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T7i-iW-hZV">
+                                <rect key="frame" x="5" y="62" width="225" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="爆仓数据" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u4p-Cm-I0O">
+                                <rect key="frame" x="5" y="10" width="225" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="u4p-Cm-I0O" firstAttribute="leading" secondItem="tXe-B5-HQc" secondAttribute="leading" constant="5" id="2tX-cU-xgB"/>
+                            <constraint firstItem="pJL-7E-S4Y" firstAttribute="leading" secondItem="tXe-B5-HQc" secondAttribute="leading" constant="5" id="EbK-xX-Zhr"/>
+                            <constraint firstAttribute="trailing" secondItem="T7i-iW-hZV" secondAttribute="trailing" constant="5" id="ZN6-bu-rCe"/>
+                            <constraint firstItem="T7i-iW-hZV" firstAttribute="leading" secondItem="tXe-B5-HQc" secondAttribute="leading" constant="5" id="apr-io-ISW"/>
+                            <constraint firstItem="u4p-Cm-I0O" firstAttribute="top" secondItem="tXe-B5-HQc" secondAttribute="top" constant="10" id="cls-QV-nbg"/>
+                            <constraint firstItem="T7i-iW-hZV" firstAttribute="top" secondItem="pJL-7E-S4Y" secondAttribute="bottom" constant="5" id="g4p-jK-4Uv"/>
+                            <constraint firstAttribute="trailing" secondItem="u4p-Cm-I0O" secondAttribute="trailing" constant="5" id="glF-b8-I3k"/>
+                            <constraint firstItem="pJL-7E-S4Y" firstAttribute="top" secondItem="u4p-Cm-I0O" secondAttribute="bottom" constant="5" id="nlr-mM-UHr"/>
+                            <constraint firstAttribute="trailing" secondItem="pJL-7E-S4Y" secondAttribute="trailing" constant="5" id="tYq-La-nh1"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="tXe-B5-HQc" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="EIB-tU-C1X"/>
+                <constraint firstAttribute="bottom" secondItem="tXe-B5-HQc" secondAttribute="bottom" id="KQm-sZ-45M"/>
+                <constraint firstItem="tXe-B5-HQc" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="fuP-SG-HFx"/>
+                <constraint firstAttribute="trailing" secondItem="tXe-B5-HQc" secondAttribute="trailing" id="srl-Ki-Hu0"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
+            <size key="customSize" width="235" height="117"/>
+            <connections>
+                <outlet property="bagView" destination="tXe-B5-HQc" id="iEl-nd-MV6"/>
+                <outlet property="moneyLb" destination="pJL-7E-S4Y" id="IVX-cs-sLs"/>
+                <outlet property="titleLb" destination="u4p-Cm-I0O" id="KCF-82-OJF"/>
+                <outlet property="twentyFourHourNumberLb" destination="T7i-iW-hZV" id="FpY-9z-j2J"/>
+            </connections>
+            <point key="canvasLocation" x="84.782608695652186" y="-1.0044642857142856"/>
+        </collectionViewCell>
+    </objects>
+</document>

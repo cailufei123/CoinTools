@@ -7,7 +7,7 @@
 //
 
 #import "GateHoldCoinViewController.h"
-
+#import "GateHoldCoinTopMessageCell.h"
 @interface GateHoldCoinViewController ()
 
 @end
@@ -24,6 +24,7 @@
      gateTableRegisterNib(self.tableView, @"GateHousBurstStatisticsTableViewCell");
      gateTableRegisterNib(self.tableView, @"GateLineChartTableViewCell");
     gateTableRegisterNib(self.tableView, @"GateDeliveryPositionAmountCell");
+      gateTableRegisterNib(self.tableView, @"GateHoldCoinTopMessageCell");
   
        GateRefreshNormalHeader * header = [GateRefreshNormalHeader headerWithRefreshingBlock:^{
            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -44,6 +45,26 @@
 //    [self setDate];
 }
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    
+    return 60 ;
+}
+
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+  return 80;
+
+}
+  -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
+       GateHoldCoinTopMessageCell * cell = [tableView dequeueReusableCellWithIdentifier:@"GateHoldCoinTopMessageCell" forIndexPath:indexPath];
+                                                 return cell;
+     
+  }
+ 
 
 @end

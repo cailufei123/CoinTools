@@ -7,6 +7,7 @@
 //
 #import "ViewController.h"
 #import <CoinTools/CoinTools.h>
+#import <CoinTools/CoinTools-Swift.h>
 @interface ViewController ()
 
 @end
@@ -15,7 +16,9 @@
 
 - (void)viewDidLoad {
 //    [super viewDidLoad];
-    [self.navigationController pushViewController:[[GateHomePageController alloc]init] animated:YES];
+//    [Ga=teHomePageController pushHomePageController];
+    
+    [CoinTools pushHomePageControllers];
 }
 
 

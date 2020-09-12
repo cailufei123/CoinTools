@@ -27,6 +27,39 @@
 @end
 
 @implementation GateHomePageController
++(void)pushHomePageController{
+    GateHomePageController * vc = [[GateHomePageController alloc] init];
+    [[self getCurrentVC].navigationController pushViewController:vc animated:YES];
+}
+
++ (UIViewController *)getCurrentVC {
+    UIViewController *result = nil;
+
+    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+    if (window.windowLevel != UIWindowLevelNormal) {
+        NSArray *windows = [[UIApplication sharedApplication] windows];
+        for (UIWindow *temp in windows) {
+            if (temp.windowLevel == UIWindowLevelNormal) {
+                window = temp;
+                break;
+            }
+        }
+    }
+    //取当前展示的控制器
+    result = window.rootViewController;
+    while (result.presentedViewController) {
+        result = result.presentedViewController;
+    }
+    //如果为UITabBarController：取选中控制器
+    if ([result isKindOfClass:[UITabBarController class]]) {
+        result = [(UITabBarController *)result selectedViewController];
+    }
+    //如果为UINavigationController：取可视控制器
+    if ([result isKindOfClass:[UINavigationController class]]) {
+        result = [(UINavigationController *)result visibleViewController];
+    }
+    return result;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

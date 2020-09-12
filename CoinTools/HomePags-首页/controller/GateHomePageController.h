@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GateHomePageController : GateBaseViewController
-
++(void)pushHomePageController;
 @end
 
 NS_ASSUME_NONNULL_END

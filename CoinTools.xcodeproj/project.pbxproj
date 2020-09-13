@@ -236,7 +236,7 @@
 		04D350BE250B75CB00D940D1 /* GTHoldChartsStatisticsTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 04D350BB250B75CB00D940D1 /* GTHoldChartsStatisticsTableViewCell.h */; };
 		04D350BF250B75CB00D940D1 /* GTHoldChartsStatisticsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D350BC250B75CB00D940D1 /* GTHoldChartsStatisticsTableViewCell.m */; };
 		04D350C0250B75CB00D940D1 /* GTHoldChartsStatisticsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04D350BD250B75CB00D940D1 /* GTHoldChartsStatisticsTableViewCell.xib */; };
-		AD4E8D1D250C665600B027F8 /* CoinTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4E8D1C250C665600B027F8 /* CoinTools.swift */; };
+		AD4E8D1D250C665600B027F8 /* CoinTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4E8D1C250C665600B027F8 /* CoinTool.swift */; };
 		AD66B908250A7A0600D7C66E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AD66B907250A7A0600D7C66E /* AppDelegate.m */; };
 		AD66B90B250A7A0600D7C66E /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AD66B90A250A7A0600D7C66E /* SceneDelegate.m */; };
 		AD66B90E250A7A0600D7C66E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD66B90D250A7A0600D7C66E /* ViewController.m */; };
@@ -507,7 +507,7 @@
 		17AC5F681DF6E12CC8FF2B26 /* Pods-demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-demo.release.xcconfig"; path = "Target Support Files/Pods-demo/Pods-demo.release.xcconfig"; sourceTree = "<group>"; };
 		77A04FF267BC60EBF2D1B29A /* Pods_CoinTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoinTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		926A74B1EA17DF30351FA12C /* Pods_demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		AD4E8D1C250C665600B027F8 /* CoinTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinTools.swift; sourceTree = "<group>"; };
+		AD4E8D1C250C665600B027F8 /* CoinTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinTool.swift; sourceTree = "<group>"; };
 		AD66B8F3250A799400D7C66E /* CoinTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CoinTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD66B904250A7A0600D7C66E /* demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD66B906250A7A0600D7C66E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -564,7 +564,7 @@
 				04D34EF4250B0C8500D940D1 /* GateScources.bundle */,
 				04D34FA6250B0D0200D940D1 /* CoinTools.h */,
 				04D34FA8250B0D7600D940D1 /* Info.plist */,
-				AD4E8D1C250C665600B027F8 /* CoinTools.swift */,
+				AD4E8D1C250C665600B027F8 /* CoinTool.swift */,
 			);
 			path = CoinTools;
 			sourceTree = "<group>";
@@ -1485,7 +1485,7 @@
 				04D34F72250B0C8600D940D1 /* GateRefreshNormalHeader.m in Sources */,
 				04D3509D250B18E500D940D1 /* GateHomePageTopEnterView.m in Sources */,
 				04D34F25250B0C8600D940D1 /* GateMarketValueViewController.m in Sources */,
-				AD4E8D1D250C665600B027F8 /* CoinTools.swift in Sources */,
+				AD4E8D1D250C665600B027F8 /* CoinTool.swift in Sources */,
 				04D34F71250B0C8600D940D1 /* SANavigationController.m in Sources */,
 				04D34F99250B0C8600D940D1 /* GateTopSelectView.m in Sources */,
 				04D35087250B16EA00D940D1 /* GateSelectLineChartCollectionViewCell.m in Sources */,

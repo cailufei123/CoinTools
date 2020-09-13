@@ -18,7 +18,7 @@
 //    [super viewDidLoad];
 //    [Ga=teHomePageController pushHomePageController];
     
-    [CoinTools pushHomePageControllers];
+    [CoinTool pushHomePageControllers];
 }
 
 

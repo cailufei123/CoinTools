@@ -8,7 +8,7 @@
 
 import UIKit
 
-@objc public class CoinTools: NSObject {
+@objc public class CoinTool: NSObject {
     
    @objc public class func   pushHomePageControllers() {
             GateHomePageController.push()

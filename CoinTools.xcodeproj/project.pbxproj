@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04BA82CC25104F5100E1FE8F /* GTTotalViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 04BA82CA25104F5100E1FE8F /* GTTotalViewController.h */; };
+		04BA82CD25104F5100E1FE8F /* GTTotalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BA82CB25104F5100E1FE8F /* GTTotalViewController.m */; };
+		04BA82D0251077E600E1FE8F /* GTHoldCoinHeardView.h in Headers */ = {isa = PBXBuildFile; fileRef = 04BA82CE251077E600E1FE8F /* GTHoldCoinHeardView.h */; };
+		04BA82D1251077E600E1FE8F /* GTHoldCoinHeardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BA82CF251077E600E1FE8F /* GTHoldCoinHeardView.m */; };
+		04BA82D32510782600E1FE8F /* GTHoldCoinHeardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04BA82D22510782600E1FE8F /* GTHoldCoinHeardView.xib */; };
+		04BA82D7251093DA00E1FE8F /* GTHoldCoinListTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 04BA82D4251093DA00E1FE8F /* GTHoldCoinListTableViewCell.h */; };
+		04BA82D8251093DA00E1FE8F /* GTHoldCoinListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BA82D5251093DA00E1FE8F /* GTHoldCoinListTableViewCell.m */; };
+		04BA82D9251093DA00E1FE8F /* GTHoldCoinListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04BA82D6251093DA00E1FE8F /* GTHoldCoinListTableViewCell.xib */; };
 		04D34F24250B0C8600D940D1 /* GateHoldCoinViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 04D34E8D250B0C8500D940D1 /* GateHoldCoinViewController.h */; };
 		04D34F25250B0C8600D940D1 /* GateMarketValueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D34E8E250B0C8500D940D1 /* GateMarketValueViewController.m */; };
 		04D34F26250B0C8600D940D1 /* GateHoldCoinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D34E8F250B0C8500D940D1 /* GateHoldCoinViewController.m */; };
@@ -275,6 +283,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		04BA82CA25104F5100E1FE8F /* GTTotalViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTTotalViewController.h; sourceTree = "<group>"; };
+		04BA82CB25104F5100E1FE8F /* GTTotalViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTTotalViewController.m; sourceTree = "<group>"; };
+		04BA82CE251077E600E1FE8F /* GTHoldCoinHeardView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTHoldCoinHeardView.h; sourceTree = "<group>"; };
+		04BA82CF251077E600E1FE8F /* GTHoldCoinHeardView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTHoldCoinHeardView.m; sourceTree = "<group>"; };
+		04BA82D22510782600E1FE8F /* GTHoldCoinHeardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GTHoldCoinHeardView.xib; sourceTree = "<group>"; };
+		04BA82D4251093DA00E1FE8F /* GTHoldCoinListTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTHoldCoinListTableViewCell.h; sourceTree = "<group>"; };
+		04BA82D5251093DA00E1FE8F /* GTHoldCoinListTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTHoldCoinListTableViewCell.m; sourceTree = "<group>"; };
+		04BA82D6251093DA00E1FE8F /* GTHoldCoinListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GTHoldCoinListTableViewCell.xib; sourceTree = "<group>"; };
 		04D34E8D250B0C8500D940D1 /* GateHoldCoinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GateHoldCoinViewController.h; sourceTree = "<group>"; };
 		04D34E8E250B0C8500D940D1 /* GateMarketValueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GateMarketValueViewController.m; sourceTree = "<group>"; };
 		04D34E8F250B0C8500D940D1 /* GateHoldCoinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GateHoldCoinViewController.m; sourceTree = "<group>"; };
@@ -547,19 +563,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04BA82C825104EF500E1FE8F /* Total */ = {
+			isa = PBXGroup;
+			children = (
+				04BA82C925104F2700E1FE8F /* controller */,
+			);
+			path = Total;
+			sourceTree = "<group>";
+		};
+		04BA82C925104F2700E1FE8F /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				04BA82CA25104F5100E1FE8F /* GTTotalViewController.h */,
+				04BA82CB25104F5100E1FE8F /* GTTotalViewController.m */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
 		04D34E89250B0C8500D940D1 /* CoinTools */ = {
 			isa = PBXGroup;
 			children = (
-				04D35092250B17F600D940D1 /* HomePags-首页 */,
-				04D35051250B16EA00D940D1 /* MultiSpaceRatio-多空比 */,
+				04BA82C825104EF500E1FE8F /* Total */,
+				04D34EA7250B0C8500D940D1 /* WholeNetworkPositionStatistics-全网持仓统计 */,
 				04D34E95250B0C8500D940D1 /* BigOrderBurstStatistics-大单成交统计 */,
 				04D34EFC250B0C8500D940D1 /* BurstStatistics-爆仓统计 */,
+				04D35051250B16EA00D940D1 /* MultiSpaceRatio-多空比 */,
 				04D34E8B250B0C8500D940D1 /* HoldCoin-持币 */,
+				04D35092250B17F600D940D1 /* HomePags-首页 */,
 				04D34EE3250B0C8500D940D1 /* main */,
 				04D34EAF250B0C8500D940D1 /* Other */,
 				04D34EB1250B0C8500D940D1 /* PublicView */,
 				04D34EE0250B0C8500D940D1 /* Request */,
-				04D34EA7250B0C8500D940D1 /* WholeNetworkPositionStatistics-全网持仓统计 */,
 				04D34EC3250B0C8500D940D1 /* GateConfigs */,
 				04D34EF4250B0C8500D940D1 /* GateScources.bundle */,
 				04D34FA6250B0D0200D940D1 /* CoinTools.h */,
@@ -601,6 +635,12 @@
 				04D350BB250B75CB00D940D1 /* GTHoldChartsStatisticsTableViewCell.h */,
 				04D350BC250B75CB00D940D1 /* GTHoldChartsStatisticsTableViewCell.m */,
 				04D350BD250B75CB00D940D1 /* GTHoldChartsStatisticsTableViewCell.xib */,
+				04BA82CE251077E600E1FE8F /* GTHoldCoinHeardView.h */,
+				04BA82CF251077E600E1FE8F /* GTHoldCoinHeardView.m */,
+				04BA82D22510782600E1FE8F /* GTHoldCoinHeardView.xib */,
+				04BA82D4251093DA00E1FE8F /* GTHoldCoinListTableViewCell.h */,
+				04BA82D5251093DA00E1FE8F /* GTHoldCoinListTableViewCell.m */,
+				04BA82D6251093DA00E1FE8F /* GTHoldCoinListTableViewCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -764,8 +804,8 @@
 		04D34EFD250B0C8500D940D1 /* controller */ = {
 			isa = PBXGroup;
 			children = (
-				04D34EFE250B0C8500D940D1 /* GateBurstViewController.m */,
 				04D34EFF250B0C8600D940D1 /* GateBurstViewController.h */,
+				04D34EFE250B0C8500D940D1 /* GateBurstViewController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -969,11 +1009,11 @@
 		04D3506C250B16EA00D940D1 /* controler */ = {
 			isa = PBXGroup;
 			children = (
-				04D3506D250B16EA00D940D1 /* GateNewDetailsViewController.h */,
-				04D3506E250B16EA00D940D1 /* GateDetailsViewController.m */,
-				04D3506F250B16EA00D940D1 /* GateViewController.h */,
-				04D35070250B16EA00D940D1 /* GateNewDetailsViewController.m */,
 				04D35071250B16EA00D940D1 /* GateDetailsViewController.h */,
+				04D3506E250B16EA00D940D1 /* GateDetailsViewController.m */,
+				04D3506D250B16EA00D940D1 /* GateNewDetailsViewController.h */,
+				04D35070250B16EA00D940D1 /* GateNewDetailsViewController.m */,
+				04D3506F250B16EA00D940D1 /* GateViewController.h */,
 				04D35072250B16EA00D940D1 /* GateViewController.m */,
 			);
 			path = controler;
@@ -1145,8 +1185,11 @@
 				04D35082250B16EA00D940D1 /* GateHearCategoryView.h in Headers */,
 				04D350A1250B1A1900D940D1 /* GateHomePageTopEnterViewCollectionViewCell.h in Headers */,
 				04D34F51250B0C8600D940D1 /* GateToolDefine.h in Headers */,
+				04BA82D7251093DA00E1FE8F /* GTHoldCoinListTableViewCell.h in Headers */,
 				04D34F79250B0C8600D940D1 /* SANavigationController.h in Headers */,
+				04BA82D0251077E600E1FE8F /* GTHoldCoinHeardView.h in Headers */,
 				04D34F6F250B0C8600D940D1 /* GatettttViewController.h in Headers */,
+				04BA82CC25104F5100E1FE8F /* GTTotalViewController.h in Headers */,
 				04D34F78250B0C8600D940D1 /* GateRefreshNormalHeader.h in Headers */,
 				04D34F88250B0C8600D940D1 /* GateYHorstAxisValueFormatter.h in Headers */,
 				04D35086250B16EA00D940D1 /* GateHearView.h in Headers */,
@@ -1294,6 +1337,7 @@
 			files = (
 				04D34F37250B0C8600D940D1 /* GateThirtyDaysBigOrderStatisticsTableViewCell.xib in Resources */,
 				04D34F2F250B0C8600D940D1 /* GateWholeNetworkBigOrderStatisticsCollectionCell.xib in Resources */,
+				04BA82D9251093DA00E1FE8F /* GTHoldCoinListTableViewCell.xib in Resources */,
 				04D34F3D250B0C8600D940D1 /* GateDeliveryPositionAmountCell.xib in Resources */,
 				04D34F32250B0C8600D940D1 /* GateBigOrderDistributionDealCell.xib in Resources */,
 				04D35076250B16EA00D940D1 /* GatePrgessTableViewCell.xib in Resources */,
@@ -1313,6 +1357,7 @@
 				04D34F8F250B0C8600D940D1 /* GateBurstHouseTableViewCell.xib in Resources */,
 				04D350AD250B201700D940D1 /* GateFearIndexTableViewCell.xib in Resources */,
 				04D34F7C250B0C8600D940D1 /* GateScources.bundle in Resources */,
+				04BA82D32510782600E1FE8F /* GTHoldCoinHeardView.xib in Resources */,
 				04D34F29250B0C8600D940D1 /* GateMarketValueCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1401,12 +1446,14 @@
 			files = (
 				04D35030250B0F7300D940D1 /* UIBarButtonItem+LFExtension.m in Sources */,
 				04D35032250B0F7300D940D1 /* NSFileManager+WHFileManager.m in Sources */,
+				04BA82D8251093DA00E1FE8F /* GTHoldCoinListTableViewCell.m in Sources */,
 				04D350B7250B587700D940D1 /* GateHoldCoinTopMessageCell.m in Sources */,
 				04D35080250B16EA00D940D1 /* GateLineChartTableViewCell.m in Sources */,
 				04D35023250B0F7300D940D1 /* NSArray+decription.m in Sources */,
 				04D3502A250B0F7300D940D1 /* UITextView+YLTextView.m in Sources */,
 				04D35075250B16EA00D940D1 /* GatePrgessTableViewCell.m in Sources */,
 				04D34F40250B0C8600D940D1 /* GatePublicSelectView.m in Sources */,
+				04BA82D1251077E600E1FE8F /* GTHoldCoinHeardView.m in Sources */,
 				04D35049250B0F7300D940D1 /* UIFont+HYDENormalFont.m in Sources */,
 				04D35048250B0F7300D940D1 /* NSString+HYDESize.m in Sources */,
 				04D34F2C250B0C8600D940D1 /* GateThirtyDaysBigOrderStatisticsTableViewCell.m in Sources */,
@@ -1473,6 +1520,7 @@
 				04D35011250B0F7300D940D1 /* UILabel+WHLabel.m in Sources */,
 				04D35044250B0F7300D940D1 /* UIViewController+HYDENavigation.m in Sources */,
 				04D3507D250B16EA00D940D1 /* GateData2TableViewCell.m in Sources */,
+				04BA82CD25104F5100E1FE8F /* GTTotalViewController.m in Sources */,
 				04D34F2D250B0C8600D940D1 /* GateWholeNetworkBigOrderStatisticsCollectionCell.m in Sources */,
 				04D35028250B0F7300D940D1 /* UIScrollView+WHScrollView.m in Sources */,
 				04D34F47250B0C8600D940D1 /* GatePublicSelectModel.m in Sources */,

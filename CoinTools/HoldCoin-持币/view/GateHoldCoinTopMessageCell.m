@@ -36,8 +36,11 @@
       self.hold10Percentage.textColor =self.hold20Percentage.textColor =   self.hold50Percentage.textColor =    self.hold100Percentage.textColor =   self.numberLb.textColor = gateColor(@"060606");
     
    
- 
-  
+    self.hold10Percentage.text = @"4.26%";
+    self.hold20Percentage.text = @"6.63%";
+    self.hold50Percentage.text = @"9.68%";
+    self.hold100Percentage.text = @"12.38%";
+    self.numberLb.text = @"31634527";
   
 }
 

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,7 +18,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="kL7-TJ-Tca">
-                        <rect key="frame" x="0.0" y="0.0" width="339" height="120"/>
+                        <rect key="frame" x="0.0" y="10" width="339" height="120"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="120" id="z77-iR-Jky"/>
@@ -30,7 +31,7 @@
                         </collectionViewFlowLayout>
                     </collectionView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qEk-da-Cl4">
-                        <rect key="frame" x="0.0" y="120" width="339" height="65"/>
+                        <rect key="frame" x="0.0" y="130" width="339" height="65"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最近24小时，共有6014币民爆仓" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fI3-Ix-YgM">
                                 <rect key="frame" x="24" y="14" width="192.5" height="16"/>
@@ -85,8 +86,9 @@
                         </constraints>
                     </view>
                 </subviews>
+                <color key="backgroundColor" red="0.96078431372549022" green="0.98039215686274506" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
-                    <constraint firstItem="kL7-TJ-Tca" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="3nt-qe-eK6"/>
+                    <constraint firstItem="kL7-TJ-Tca" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="3nt-qe-eK6"/>
                     <constraint firstItem="qEk-da-Cl4" firstAttribute="top" secondItem="kL7-TJ-Tca" secondAttribute="bottom" id="DGJ-jw-hpR"/>
                     <constraint firstItem="qEk-da-Cl4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="W7j-jx-c7f"/>
                     <constraint firstAttribute="trailing" secondItem="qEk-da-Cl4" secondAttribute="trailing" id="iIF-Xb-6cU"/>

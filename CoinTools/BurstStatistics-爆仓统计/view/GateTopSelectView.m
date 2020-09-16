@@ -8,7 +8,7 @@
 
 #import "GateTopSelectView.h"
 @interface GateTopSelectView()
-@property (strong, nonatomic) UIView *lineView;
+
 @end
 @implementation GateTopSelectView
 
@@ -32,9 +32,10 @@
 
 -(UIView *)lineView{
     if (!_lineView) {
-        
-        _lineView = [[UIView alloc] initWithFrame:CGRectMake(0, self.height-1, scrWeiht , 0.5)];
-        _lineView.backgroundColor = [UIColor grayColor];
+      
+        _lineView = [[UIView alloc] initWithFrame:CGRectMake(0, self.height-1, scrWeiht , 1)];
+        _lineView.backgroundColor = gateColor(@"ededed");
+        _lineView.hidden = YES;
     }
     return _lineView;
 }
@@ -51,16 +52,16 @@
         _categoryView.titleColor = gateColor(gateDefaultColor);
          _categoryView.titleSelectedColor = gateColor(gateSelectColor);
          _categoryView.titleColorGradientEnabled = YES;
-        _categoryView.titleFont = gateFont(16, Medium);
-         _categoryView.titleSelectedFont = gateFont(16, Medium);
+        _categoryView.titleFont = gateFont(14, Normal);
+         _categoryView.titleSelectedFont = gateFont(14, Normal);
         _categoryView.averageCellSpacingEnabled = NO;
         [_categoryView viewShadowPathWithColor:gateColor(@"f2f2f3") shadowOpacity:0.5 shadowRadius:6 shadowPathType:LeShadowPathBottom shadowPathWidth:8];
   JXCategoryIndicatorLineView *lineView = [[JXCategoryIndicatorLineView alloc] init];
         switch (self.categoryTitleViewStyle) {
             case CategoryStyleDefault:
              
-               lineView.indicatorColor = gateColor(@"00d9c2");
-               lineView.indicatorWidth = 20;
+               lineView.indicatorColor = gateColor(@"c82728");
+               lineView.indicatorWidth = 50;
                _categoryView.indicators = @[lineView];
                 break;
             case CategoryZoomScale:

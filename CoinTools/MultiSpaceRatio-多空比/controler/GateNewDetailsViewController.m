@@ -61,9 +61,9 @@
    
 }
 -(void)creatTopSelectView{
-      self.topSelectView = [[GateTopSelectView alloc] initWithFrame:CGRectMake(0, kTopHeight, scrWeiht, 40) categoryTitleViewStyle:CategoryZoomScale];
+      self.topSelectView = [[GateTopSelectView alloc] initWithFrame:CGRectMake(0, 0, scrWeiht, 40) categoryTitleViewStyle:CategoryZoomScale];
      [self.view addSubview:self.topSelectView];
-     self.tableView.frame = CGRectMake(0,CGRectGetMaxY(self.topSelectView.frame) , scrWeiht, self.view.bounds.size.height-CGRectGetMaxY(self.topSelectView.frame));
+//     self.tableView.frame = CGRectMake(0,CGRectGetMaxY(self.topSelectView.frame) , scrWeiht, self.view.bounds.size.height-CGRectGetMaxY(self.topSelectView.frame));
      self.tableView.backgroundColor = [UIColor whiteColor];
     [self registerCreateTable];
     @weakify(self)

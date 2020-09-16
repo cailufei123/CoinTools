@@ -16,8 +16,8 @@
 
 #define axislabelTextColor @"848dad"
 #define gateGridColor @"f6f6f9"
-#define gateSelectColor @"272e5d"
-#define gateDefaultColor @"6f7892"
+#define gateSelectColor @"575757"
+#define gateDefaultColor @"b2b2b2"
 
 
 #define gateWhiteColor  gateColor(@"ffffff")

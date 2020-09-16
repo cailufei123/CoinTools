@@ -51,8 +51,8 @@
 //      [self setNavLeftItemTitle:nil ImageName:@"backicon" WithAction:@"backAction"];
         
         UIButton * backItem = [UIButton buttonWithType:UIButtonTypeCustom];
-        [backItem setImage:[UIImage imageNamed:@"back_28x28_"] forState:UIControlStateNormal];
-        [backItem setImage:[UIImage imageNamed:@"back_28x28_"] forState:UIControlStateHighlighted];
+        [backItem setImage: getImage(@"back_28x28_@2x") forState:UIControlStateNormal];
+        [backItem setImage:getImage(@"back_28x28_@2x") forState:UIControlStateHighlighted];
         
         [backItem setTitle:@"" forState:UIControlStateNormal];
         [backItem setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];

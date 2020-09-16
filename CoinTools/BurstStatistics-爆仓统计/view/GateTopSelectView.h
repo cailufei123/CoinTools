@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
  } CategoryTitleViewStyle;
 
 @interface GateTopSelectView : UIView<JXCategoryViewDelegate>
-
+@property (strong, nonatomic) UIView *lineView;
 @property (nonatomic, strong) NSArray *titles;
 @property (nonatomic, copy) void(^selectBlock) (NSInteger index,NSString * title);
 @property (nonatomic, strong) JXCategoryTitleView *categoryView;

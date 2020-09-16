@@ -9,6 +9,9 @@
 #import "GateHoldCoinViewController.h"
 #import "GateHoldCoinTopMessageCell.h"
 #import "GTHoldChartsStatisticsTableViewCell.h"
+#import "GateTopSelectView.h"
+#import "GTHoldCoinHeardView.h"
+#import "GTHoldCoinListTableViewCell.h"
 @interface GateHoldCoinViewController ()
 
 @end
@@ -18,15 +21,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navTitle  =@"持币";
-  
-       self.tableView.frame = CGRectMake(0,kTopHeight, scrWeiht, self.view.bounds.size.height-0);
+  GateTopSelectView * topSelectView = [[GateTopSelectView alloc] initWithFrame:CGRectMake(0, 0, scrWeiht, 40) categoryTitleViewStyle:CategoryZoomScale];
+     
+        [self.view addSubview:topSelectView];
+    
+//       self.tableView.frame = CGRectMake(0,kTopHeight, scrWeiht, self.view.bounds.size.height-0);
       
     
-     gateTableRegisterNib(self.tableView, @"GateHousBurstStatisticsTableViewCell");
-     gateTableRegisterNib(self.tableView, @"GateLineChartTableViewCell");
-    gateTableRegisterNib(self.tableView, @"GateDeliveryPositionAmountCell");
-      gateTableRegisterNib(self.tableView, @"GateHoldCoinTopMessageCell");
-    gateTableRegisterNib(self.tableView, @"GTHoldChartsStatisticsTableViewCell");
+        gateTableRegisterNib(self.tableView, @"GateHousBurstStatisticsTableViewCell");
+        gateTableRegisterNib(self.tableView, @"GateLineChartTableViewCell");
+        gateTableRegisterNib(self.tableView, @"GateDeliveryPositionAmountCell");
+        gateTableRegisterNib(self.tableView, @"GateHoldCoinTopMessageCell");
+        gateTableRegisterNib(self.tableView, @"GTHoldChartsStatisticsTableViewCell");
+     gateTableRegisterNib(self.tableView, @"GTHoldCoinListTableViewCell");
        GateRefreshNormalHeader * header = [GateRefreshNormalHeader headerWithRefreshingBlock:^{
            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                [self.tableView.mj_header endRefreshing];
@@ -46,14 +53,38 @@
 //    [self setDate];
 }
 
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+
+{
+    if (section == 2) {
+         
+          return 75.01;
+    }
+    return 0.01;
+}
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    if (section == 2) {
+        GTHoldCoinHeardView * coinHeardView = [GTHoldCoinHeardView loadHoldCoinHeardView];
+           coinHeardView.frame = CGRectMake(0, 0, scrWeiht, 75);
+            return coinHeardView;
+      
+    }
+      return [UIView new];
+   
+   
+}
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 2;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    
-    return 1 ;
+    if (section == 2) {
+           return 10;
+       }
+         return 1 ;
+   
 }
 
 
@@ -69,6 +100,15 @@
     }else if  (indexPath.section == 1){
         CGFloat height = [tableView
                           fd_heightForCellWithIdentifier:@"GTHoldChartsStatisticsTableViewCell"
+                          cacheByIndexPath:indexPath
+                          configuration:^(id cell) {
+
+                           }];
+        return height;
+    }else if  (indexPath.section == 2){
+          return 60;
+        CGFloat height = [tableView
+                          fd_heightForCellWithIdentifier:@"GTHoldCoinListTableViewCell"
                           cacheByIndexPath:indexPath
                           configuration:^(id cell) {
 
@@ -90,6 +130,11 @@
          }else if  (indexPath.section == 1){
                 GTHoldChartsStatisticsTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"GTHoldChartsStatisticsTableViewCell" forIndexPath:indexPath];
                                                            
+             return cell;
+             
+         }else if  (indexPath.section == 2){
+                GTHoldCoinListTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"GTHoldCoinListTableViewCell" forIndexPath:indexPath];
+             cell.chibiLb.text = [NSString stringWithFormat:@"0%ld  %@",indexPath.row + 1,@"1.08%%"];
              return cell;
              
          }

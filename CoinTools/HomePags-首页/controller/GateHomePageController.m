@@ -22,6 +22,7 @@
 #import "GateHomePageTopEnterViewCell.h"
 #import "GateFearIndexTableViewCell.h"
 #import "GateHoldCoinViewController.h"
+#import "GTTotalViewController.h"
 @interface GateHomePageController ()
 @property(nonatomic,strong)NSArray * classArry;
 @end
@@ -31,7 +32,12 @@
     GateHomePageController * vc = [[GateHomePageController alloc] init];
     [[self getCurrentVC].navigationController pushViewController:vc animated:YES];
 }
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    self.tableView.frame = CGRectMake(0, kTopHeight,  self.view.bounds.size.width, self.view.bounds.size.height);
+  
 
+}
 + (UIViewController *)getCurrentVC {
     UIViewController *result = nil;
 
@@ -63,7 +69,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.classArry = [NSArray arrayWithObjects:@"GateBurstViewController",@"GateNewDetailsViewController",@"GateBigOrderStatisticsViewController",@"GateWholeNetworkPositionStatisticsViewController",@"GateHoldCoinViewController" ,nil];
+    self.classArry = [NSArray arrayWithObjects:@"GTTotalViewController",@"GateBurstViewController",@"GateNewDetailsViewController",@"GateBigOrderStatisticsViewController",@"GateWholeNetworkPositionStatisticsViewController",@"GateHoldCoinViewController" ,nil];
     self.tableView.frame = CGRectMake(0,88 , scrWeiht, scrHeiht);
      self.tableView.backgroundColor = [UIColor whiteColor];
     gateTableRegisterClass(self.tableView, @"UITableViewCell");
@@ -71,7 +77,7 @@
     gateTableRegisterNib(self.tableView, @"GateFearIndexTableViewCell");
 
     UIView * imag = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 75, 25)];
-    [imag addSubview:[UIImageView wh_imageViewWithPNGImage:@"CoinTools.framework/GateScources.bundle/icon_logon_d_logo_145x51_@2x" frame:imag.frame]];
+    [imag addSubview:[UIImageView wh_imageViewWithPNGImage:getImageName(@"icon_logon_d_logo_145x51_@2x") frame:imag.frame]];
   self.navigationItem.titleView  = imag;
     
    
@@ -111,8 +117,9 @@
         @weakify(self)
         cell.selectBlock = ^(NSInteger index) {
             @strongify(self)
-            
-            [self.navigationController pushViewController:[self stringChangeToClass:self.classArry[index]] animated:YES];
+            GTTotalViewController * totalVc = [[GTTotalViewController alloc] init];
+            totalVc.index = index;
+            [self.navigationController pushViewController:totalVc animated:YES];
         };
            return cell;
         

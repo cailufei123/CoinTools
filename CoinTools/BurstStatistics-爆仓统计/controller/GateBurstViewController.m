@@ -26,7 +26,8 @@
     [super viewDidLoad];
     self.view.backgroundColor = UIColor.whiteColor;
     self.navTitle  =@"爆仓";
-    GateTopSelectView * topSelectView = [[GateTopSelectView alloc] initWithFrame:CGRectMake(0, kTopHeight, scrWeiht, 40) categoryTitleViewStyle:CategoryZoomScale];
+    GateTopSelectView * topSelectView = [[GateTopSelectView alloc] initWithFrame:CGRectMake(0, 0, scrWeiht, 40) categoryTitleViewStyle:CategoryZoomScale];
+   
     [self.view addSubview:topSelectView];
 //[UINib nibWithNibName:[NSString stringWithFormat:@"CoinTools.bundle/%@",] bundle:[NSBundle mainBundle]]
     gateTableRegisterNib(self.tableView, @"GateHoursTableViewCell");
@@ -35,9 +36,9 @@
      gateTableRegisterNib(self.tableView, @"GateHousBurstStatisticsTableViewCell");
      gateTableRegisterClass(self.tableView, @"GateCoinBurstStatisticsTableViewCell");
        gateTableRegisterNib(self.tableView, @"GateBurstListTableViewCell");
-     [topSelectView viewShadowPathWithColor:[UIColor grayColor] shadowOpacity:0.5 shadowRadius:6 shadowPathType:LeShadowPathBottom shadowPathWidth:8];
-    self.tableView.contentInset = UIEdgeInsetsMake(10, 0, 0, 0);
-    self.tableView.frame = CGRectMake(0,CGRectGetMaxY(topSelectView.frame) , scrWeiht, self.view.bounds.size.height-CGRectGetMaxY(topSelectView.frame));
+//     [topSelectView viewShadowPathWithColor:[UIColor grayColor] shadowOpacity:0.5 shadowRadius:6 shadowPathType:LeShadowPathBottom shadowPathWidth:8];
+//    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+//    self.tableView.frame = CGRectMake(0,CGRectGetMaxY(topSelectView.frame) , scrWeiht, self.view.bounds.size.height-CGRectGetMaxY(topSelectView.frame));
     self.tableView.backgroundColor = [UIColor whiteColor];
     
     self.littes = @[@"交易",@"类型",@"方向",@"价格",@"总额"];

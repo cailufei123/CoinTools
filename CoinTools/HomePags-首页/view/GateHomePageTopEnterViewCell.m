@@ -55,6 +55,7 @@
            gateCollectionRegisterNib(_collectionView, @"GateHomePageTopEnterViewCollectionViewCell");
            _collectionView.delegate = self;
           _collectionView.dataSource = self;
+       
        //注册头尾试图
              [_collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"header"];
              [_collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"footer"];

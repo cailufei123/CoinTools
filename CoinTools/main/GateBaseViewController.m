@@ -16,9 +16,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
     [self createTable];
 }
-
+- (UIView *)listView {
+  
+    return self.view;
+}
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    self.tableView.frame = CGRectMake(0, 40,  self.view.bounds.size.width, self.view.bounds.size.height-40);
+   
+}
 -(UITableView *)tableView{
     if (!_tableView) {
         _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];

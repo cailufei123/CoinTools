@@ -23,6 +23,8 @@
 
 #define getImage(hex) [UIImage imageNamed:[NSString stringWithFormat:@"CoinTools.framework/GateScources.bundle/%@",hex]]
 
+#define getImageName(hex) [NSString stringWithFormat:@"CoinTools.framework/GateScources.bundle/%@",hex]
+
 #define gateTableRegisterNib(tableView,nibName) [tableView registerNib:[UINib nibWithNibName:[NSString stringWithFormat:@"CoinTools.framework/%@",nibName] bundle:[NSBundle mainBundle]] forCellReuseIdentifier:nibName]
 
 #define gateTableRegisterClass(tableView,className) [tableView registerClass:NSClassFromString(className) forCellReuseIdentifier:className]
@@ -35,7 +37,8 @@
 
 #define urlWhitString(url) [NSURL URLWithString:url]
 
-#define loadXib [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:nil options:nil] firstObject];
+
+#define loadXib [[[NSBundle mainBundle] loadNibNamed:[NSString stringWithFormat:@"CoinTools.framework/%@",NSStringFromClass([self class])] owner:nil options:nil] firstObject];
 
 //#ifndef __OPTIMIZE__
 //    //这里执行的是debug模式下，打印日志，当前行

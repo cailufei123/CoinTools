@@ -12,6 +12,7 @@
 #import "GateTopSelectView.h"
 #import "GTHoldCoinHeardView.h"
 #import "GTHoldCoinListTableViewCell.h"
+#import "LNRefresh.h"
 @interface GateHoldCoinViewController ()
 
 @end
@@ -47,11 +48,25 @@
             });
             
          }];
-       self.tableView.mj_footer = footer;
-       self.tableView.mj_header = header;
+    self.tableView.backgroundColor = [UIColor whiteColor];
+//       self.tableView.mj_footer = footer;
+//       self.tableView.mj_header = header;
     self.tableView.mj_footer.hidden = YES;
 //    [self setDate];
+     __weak typeof(self) wself = self;
+    [self.tableView addPullToRefresh:[LNHeaderMeituanAnimator createAnimator] block:^{
+        
+         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [wself.tableView endRefreshing];
+            });
+    }];
 }
+//- (void)pullToRefresh {
+//    __weak UITableView *wtableView = self.tableView;
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        [wtableView pullDownDealFooterWithItemCount:self.dataArr.count cursor:@"11"];
+//    });
+//}
 
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section

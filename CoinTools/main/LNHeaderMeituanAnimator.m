@@ -7,7 +7,7 @@
 //
 
 #import "LNHeaderMeituanAnimator.h"
-#define instanceIncremental 70
+#define instanceIncremental 60
 @interface LNHeaderMeituanAnimator()
 @property (nonatomic, assign) CGRect GifViewRect;
 @property (nonatomic, strong) UIImageView *meituanGifView;

@@ -10,8 +10,13 @@
 #import "ZZDottedLineProgress.h"
 
 @interface GateFearIndexTableViewCell()
+@property (weak, nonatomic) IBOutlet UILabel *timeLb;
 
+@property (weak, nonatomic) IBOutlet UILabel *titleLb;
 @property (weak, nonatomic) IBOutlet ZZDottedLineProgress *prgressView;
+@property (weak, nonatomic) IBOutlet UILabel *yesterDayLb;
+@property (weak, nonatomic) IBOutlet UILabel *lastWeekLb;
+@property (weak, nonatomic) IBOutlet UILabel *LastMonthLb;
 
 @end
 @implementation GateFearIndexTableViewCell
@@ -40,8 +45,20 @@
                    self.prgressView.backgroundColor  = [UIColor cyanColor];
             self.prgressView.progress = 0.7;
     });
+    self.yesterDayLb.font = self.lastWeekLb.font = self.LastMonthLb.font = gateFont(14, Medium);
+      self.titleLb.textColor = self.yesterDayLb.textColor = self.lastWeekLb.textColor = self.LastMonthLb.textColor =  gateColor(@"333B46");
+   
+     self.titleLb.font =  gateFont(16, Medium); self.timeLb.font =  gateFont(11, Normal);
+    self.timeLb.text = @"于09-17 11：00更新"; self.titleLb.text = @"恐慌指数";
+     self.timeLb.textColor = gateColor(@"6F6C6C");
+   
   
+    self.yesterDayLb.attributedText = [@"昨日：正常" getMutableAttributedStringWhitSearchString:@"正常" searchStringColor:gateColor(@"43b261") searchStringFont:self.yesterDayLb.font];
+     self.lastWeekLb.attributedText = [@"上周：恐慌" getMutableAttributedStringWhitSearchString:@"恐慌" searchStringColor:gateColor(@"9A0076") searchStringFont:self.yesterDayLb.font];
+     self.LastMonthLb.attributedText = [@"上月：极度贪梦" getMutableAttributedStringWhitSearchString:@"极度贪梦" searchStringColor:gateColor(@"ff0351") searchStringFont:self.yesterDayLb.font];
     
+  
+    self.tuiMg.image = getImage(@"homeImages/614143f48bb9b1f9175454d575009884@3x");
 }
 
 

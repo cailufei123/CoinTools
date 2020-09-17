@@ -38,6 +38,20 @@
 		04CBE5B22511FCCB00E4DD40 /* LNRefresh.h in Headers */ = {isa = PBXBuildFile; fileRef = 04CBE59C2511FCCB00E4DD40 /* LNRefresh.h */; };
 		04CBE5B62512011400E4DD40 /* LNHeaderMeituanAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CBE5B42512011400E4DD40 /* LNHeaderMeituanAnimator.m */; };
 		04CBE5B72512011400E4DD40 /* LNHeaderMeituanAnimator.h in Headers */ = {isa = PBXBuildFile; fileRef = 04CBE5B52512011400E4DD40 /* LNHeaderMeituanAnimator.h */; };
+		04CBE5BB251216F300E4DD40 /* GTNewTopTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 04CBE5B8251216F300E4DD40 /* GTNewTopTableViewCell.h */; };
+		04CBE5BC251216F300E4DD40 /* GTNewTopTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CBE5B9251216F300E4DD40 /* GTNewTopTableViewCell.m */; };
+		04CBE5C7251219A900E4DD40 /* GTNewTopCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 04CBE5C4251219A900E4DD40 /* GTNewTopCollectionViewCell.h */; };
+		04CBE5C8251219A900E4DD40 /* GTNewTopCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CBE5C5251219A900E4DD40 /* GTNewTopCollectionViewCell.m */; };
+		04CBE5C9251219A900E4DD40 /* GTNewTopCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04CBE5C6251219A900E4DD40 /* GTNewTopCollectionViewCell.xib */; };
+		04CBE5CD2512450300E4DD40 /* GTNewTopDuiBiCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 04CBE5CA2512450300E4DD40 /* GTNewTopDuiBiCollectionViewCell.h */; };
+		04CBE5CE2512450300E4DD40 /* GTNewTopDuiBiCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CBE5CB2512450300E4DD40 /* GTNewTopDuiBiCollectionViewCell.m */; };
+		04CBE5CF2512450300E4DD40 /* GTNewTopDuiBiCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04CBE5CC2512450300E4DD40 /* GTNewTopDuiBiCollectionViewCell.xib */; };
+		04CBE5D32512594B00E4DD40 /* GTMainCoinQuotationListTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 04CBE5D02512594B00E4DD40 /* GTMainCoinQuotationListTableViewCell.h */; };
+		04CBE5D42512594B00E4DD40 /* GTMainCoinQuotationListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CBE5D12512594B00E4DD40 /* GTMainCoinQuotationListTableViewCell.m */; };
+		04CBE5D52512594B00E4DD40 /* GTMainCoinQuotationListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04CBE5D22512594B00E4DD40 /* GTMainCoinQuotationListTableViewCell.xib */; };
+		04CBE5D92512620400E4DD40 /* GTRightCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 04CBE5D62512620400E4DD40 /* GTRightCollectionViewCell.h */; };
+		04CBE5DA2512620400E4DD40 /* GTRightCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CBE5D72512620400E4DD40 /* GTRightCollectionViewCell.m */; };
+		04CBE5DB2512620400E4DD40 /* GTRightCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04CBE5D82512620400E4DD40 /* GTRightCollectionViewCell.xib */; };
 		04D34F24250B0C8600D940D1 /* GateHoldCoinViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 04D34E8D250B0C8500D940D1 /* GateHoldCoinViewController.h */; };
 		04D34F25250B0C8600D940D1 /* GateMarketValueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D34E8E250B0C8500D940D1 /* GateMarketValueViewController.m */; };
 		04D34F26250B0C8600D940D1 /* GateHoldCoinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D34E8F250B0C8500D940D1 /* GateHoldCoinViewController.m */; };
@@ -337,6 +351,20 @@
 		04CBE59C2511FCCB00E4DD40 /* LNRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNRefresh.h; sourceTree = "<group>"; };
 		04CBE5B42512011400E4DD40 /* LNHeaderMeituanAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNHeaderMeituanAnimator.m; sourceTree = "<group>"; };
 		04CBE5B52512011400E4DD40 /* LNHeaderMeituanAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNHeaderMeituanAnimator.h; sourceTree = "<group>"; };
+		04CBE5B8251216F300E4DD40 /* GTNewTopTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTNewTopTableViewCell.h; sourceTree = "<group>"; };
+		04CBE5B9251216F300E4DD40 /* GTNewTopTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTNewTopTableViewCell.m; sourceTree = "<group>"; };
+		04CBE5C4251219A900E4DD40 /* GTNewTopCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTNewTopCollectionViewCell.h; sourceTree = "<group>"; };
+		04CBE5C5251219A900E4DD40 /* GTNewTopCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTNewTopCollectionViewCell.m; sourceTree = "<group>"; };
+		04CBE5C6251219A900E4DD40 /* GTNewTopCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GTNewTopCollectionViewCell.xib; sourceTree = "<group>"; };
+		04CBE5CA2512450300E4DD40 /* GTNewTopDuiBiCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTNewTopDuiBiCollectionViewCell.h; sourceTree = "<group>"; };
+		04CBE5CB2512450300E4DD40 /* GTNewTopDuiBiCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTNewTopDuiBiCollectionViewCell.m; sourceTree = "<group>"; };
+		04CBE5CC2512450300E4DD40 /* GTNewTopDuiBiCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GTNewTopDuiBiCollectionViewCell.xib; sourceTree = "<group>"; };
+		04CBE5D02512594B00E4DD40 /* GTMainCoinQuotationListTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTMainCoinQuotationListTableViewCell.h; sourceTree = "<group>"; };
+		04CBE5D12512594B00E4DD40 /* GTMainCoinQuotationListTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTMainCoinQuotationListTableViewCell.m; sourceTree = "<group>"; };
+		04CBE5D22512594B00E4DD40 /* GTMainCoinQuotationListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GTMainCoinQuotationListTableViewCell.xib; sourceTree = "<group>"; };
+		04CBE5D62512620400E4DD40 /* GTRightCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTRightCollectionViewCell.h; sourceTree = "<group>"; };
+		04CBE5D72512620400E4DD40 /* GTRightCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTRightCollectionViewCell.m; sourceTree = "<group>"; };
+		04CBE5D82512620400E4DD40 /* GTRightCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GTRightCollectionViewCell.xib; sourceTree = "<group>"; };
 		04D34E8D250B0C8500D940D1 /* GateHoldCoinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GateHoldCoinViewController.h; sourceTree = "<group>"; };
 		04D34E8E250B0C8500D940D1 /* GateMarketValueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GateMarketValueViewController.m; sourceTree = "<group>"; };
 		04D34E8F250B0C8500D940D1 /* GateHoldCoinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GateHoldCoinViewController.m; sourceTree = "<group>"; };
@@ -717,12 +745,12 @@
 		04D34E91250B0C8500D940D1 /* view */ = {
 			isa = PBXGroup;
 			children = (
-				04D34E92250B0C8500D940D1 /* GateMarketValueCell.h */,
-				04D34E93250B0C8500D940D1 /* GateMarketValueCell.xib */,
-				04D34E94250B0C8500D940D1 /* GateMarketValueCell.m */,
 				04D350B3250B587700D940D1 /* GateHoldCoinTopMessageCell.h */,
 				04D350B4250B587700D940D1 /* GateHoldCoinTopMessageCell.m */,
 				04D350B5250B587700D940D1 /* GateHoldCoinTopMessageCell.xib */,
+				04D34E92250B0C8500D940D1 /* GateMarketValueCell.h */,
+				04D34E94250B0C8500D940D1 /* GateMarketValueCell.m */,
+				04D34E93250B0C8500D940D1 /* GateMarketValueCell.xib */,
 				04D350BB250B75CB00D940D1 /* GTHoldChartsStatisticsTableViewCell.h */,
 				04D350BC250B75CB00D940D1 /* GTHoldChartsStatisticsTableViewCell.m */,
 				04D350BD250B75CB00D940D1 /* GTHoldChartsStatisticsTableViewCell.xib */,
@@ -1152,6 +1180,20 @@
 				04D350A8250B201600D940D1 /* GateFearIndexTableViewCell.h */,
 				04D350A9250B201600D940D1 /* GateFearIndexTableViewCell.m */,
 				04D350AA250B201600D940D1 /* GateFearIndexTableViewCell.xib */,
+				04CBE5B8251216F300E4DD40 /* GTNewTopTableViewCell.h */,
+				04CBE5B9251216F300E4DD40 /* GTNewTopTableViewCell.m */,
+				04CBE5C4251219A900E4DD40 /* GTNewTopCollectionViewCell.h */,
+				04CBE5C5251219A900E4DD40 /* GTNewTopCollectionViewCell.m */,
+				04CBE5C6251219A900E4DD40 /* GTNewTopCollectionViewCell.xib */,
+				04CBE5CA2512450300E4DD40 /* GTNewTopDuiBiCollectionViewCell.h */,
+				04CBE5CB2512450300E4DD40 /* GTNewTopDuiBiCollectionViewCell.m */,
+				04CBE5CC2512450300E4DD40 /* GTNewTopDuiBiCollectionViewCell.xib */,
+				04CBE5D02512594B00E4DD40 /* GTMainCoinQuotationListTableViewCell.h */,
+				04CBE5D12512594B00E4DD40 /* GTMainCoinQuotationListTableViewCell.m */,
+				04CBE5D22512594B00E4DD40 /* GTMainCoinQuotationListTableViewCell.xib */,
+				04CBE5D62512620400E4DD40 /* GTRightCollectionViewCell.h */,
+				04CBE5D72512620400E4DD40 /* GTRightCollectionViewCell.m */,
+				04CBE5D82512620400E4DD40 /* GTRightCollectionViewCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1263,6 +1305,7 @@
 				04D34FA5250B0C8600D940D1 /* GateHoursCollectionViewCell.h in Headers */,
 				04D34F6A250B0C8600D940D1 /* GateRequestManager.h in Headers */,
 				04D34F48250B0C8600D940D1 /* pressView.h in Headers */,
+				04CBE5CD2512450300E4DD40 /* GTNewTopDuiBiCollectionViewCell.h in Headers */,
 				04D34F42250B0C8600D940D1 /* JXCategoryTitleBackgroundView.h in Headers */,
 				04D34F2B250B0C8600D940D1 /* GateWholeNetworkBigOrderStatisticsCell.h in Headers */,
 				04D3508D250B16EA00D940D1 /* GateViewController.h in Headers */,
@@ -1285,6 +1328,7 @@
 				04D34F79250B0C8600D940D1 /* SANavigationController.h in Headers */,
 				04BA82D0251077E600E1FE8F /* GTHoldCoinHeardView.h in Headers */,
 				04D34F6F250B0C8600D940D1 /* GatettttViewController.h in Headers */,
+				04CBE5C7251219A900E4DD40 /* GTNewTopCollectionViewCell.h in Headers */,
 				04BA82CC25104F5100E1FE8F /* GTTotalViewController.h in Headers */,
 				04D34F78250B0C8600D940D1 /* GateRefreshNormalHeader.h in Headers */,
 				04CBE59F2511FCCB00E4DD40 /* NSObject+LNRefresh.h in Headers */,
@@ -1318,6 +1362,7 @@
 				04CBE5AF2511FCCB00E4DD40 /* LNRefreshComponent.h in Headers */,
 				04D34F77250B0C8600D940D1 /* GateYAxisValueFormatter.h in Headers */,
 				04CBE5B02511FCCB00E4DD40 /* LNFooterAnimator.h in Headers */,
+				04CBE5BB251216F300E4DD40 /* GTNewTopTableViewCell.h in Headers */,
 				04D34F35250B0C8600D940D1 /* GateWholeNetworkBigOrderStatisticsCollectionCell.h in Headers */,
 				04D34F28250B0C8600D940D1 /* GateMarketValueCell.h in Headers */,
 				04D34F24250B0C8600D940D1 /* GateHoldCoinViewController.h in Headers */,
@@ -1350,7 +1395,9 @@
 				04D35020250B0F7300D940D1 /* UIDevice+WHDevice.h in Headers */,
 				04D3504F250B0F7300D940D1 /* UIViewController+HYDENavigation.h in Headers */,
 				04D3503B250B0F7300D940D1 /* NSDictionary+WHDictionary.h in Headers */,
+				04CBE5D32512594B00E4DD40 /* GTMainCoinQuotationListTableViewCell.h in Headers */,
 				04D3504A250B0F7300D940D1 /* UISegmentedControl+Category.h in Headers */,
+				04CBE5D92512620400E4DD40 /* GTRightCollectionViewCell.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1444,10 +1491,12 @@
 				04D34F2F250B0C8600D940D1 /* GateWholeNetworkBigOrderStatisticsCollectionCell.xib in Resources */,
 				04BA82D9251093DA00E1FE8F /* GTHoldCoinListTableViewCell.xib in Resources */,
 				04CBE59E2511FCCB00E4DD40 /* LNRefresh.bundle in Resources */,
+				04CBE5DB2512620400E4DD40 /* GTRightCollectionViewCell.xib in Resources */,
 				04D34F3D250B0C8600D940D1 /* GateDeliveryPositionAmountCell.xib in Resources */,
 				04D34F32250B0C8600D940D1 /* GateBigOrderDistributionDealCell.xib in Resources */,
 				04D35076250B16EA00D940D1 /* GatePrgessTableViewCell.xib in Resources */,
 				04D34F96250B0C8600D940D1 /* GateHousBurstStatisticsTableViewCell.xib in Resources */,
+				04CBE5CF2512450300E4DD40 /* GTNewTopDuiBiCollectionViewCell.xib in Resources */,
 				04D34F9B250B0C8600D940D1 /* GateHoursCollectionViewCell.xib in Resources */,
 				04D34F8D250B0C8600D940D1 /* GateBurstListTableViewCell.xib in Resources */,
 				04D350B8250B587700D940D1 /* GateHoldCoinTopMessageCell.xib in Resources */,
@@ -1457,12 +1506,14 @@
 				04D35083250B16EA00D940D1 /* GateData1TableViewCell.xib in Resources */,
 				04D34F8C250B0C8600D940D1 /* GateHoursTableViewCell.xib in Resources */,
 				04D3507F250B16EA00D940D1 /* GateData2TableViewCell.xib in Resources */,
+				04CBE5C9251219A900E4DD40 /* GTNewTopCollectionViewCell.xib in Resources */,
 				04D35085250B16EA00D940D1 /* GateLineChartTableViewCell.xib in Resources */,
 				04D34FA4250B0C8600D940D1 /* GateCoinBurstStatisticsSubCollectionViewCell.xib in Resources */,
 				04D350A3250B1A1900D940D1 /* GateHomePageTopEnterViewCollectionViewCell.xib in Resources */,
 				04D34F8F250B0C8600D940D1 /* GateBurstHouseTableViewCell.xib in Resources */,
 				04D350AD250B201700D940D1 /* GateFearIndexTableViewCell.xib in Resources */,
 				04D34F7C250B0C8600D940D1 /* GateScources.bundle in Resources */,
+				04CBE5D52512594B00E4DD40 /* GTMainCoinQuotationListTableViewCell.xib in Resources */,
 				04BA82D32510782600E1FE8F /* GTHoldCoinHeardView.xib in Resources */,
 				04D34F29250B0C8600D940D1 /* GateMarketValueCell.xib in Resources */,
 			);
@@ -1565,6 +1616,7 @@
 				04D35048250B0F7300D940D1 /* NSString+HYDESize.m in Sources */,
 				04D34F2C250B0C8600D940D1 /* GateThirtyDaysBigOrderStatisticsTableViewCell.m in Sources */,
 				04D34F30250B0C8600D940D1 /* GateThirtyDaysBigOrderStatisticsSelectView.m in Sources */,
+				04CBE5CE2512450300E4DD40 /* GTNewTopDuiBiCollectionViewCell.m in Sources */,
 				04D34F3C250B0C8600D940D1 /* GateDeliveryPositionAmountCell.m in Sources */,
 				04D34F44250B0C8600D940D1 /* JXCategoryTitleBackgroundCell.m in Sources */,
 				04CBE5B62512011400E4DD40 /* LNHeaderMeituanAnimator.m in Sources */,
@@ -1574,6 +1626,7 @@
 				04D350AC250B201700D940D1 /* GateFearIndexTableViewCell.m in Sources */,
 				04D35078250B16EA00D940D1 /* GateData1TableViewCell.m in Sources */,
 				04D3501F250B0F7300D940D1 /* NSDate+WHDate.m in Sources */,
+				04CBE5D42512594B00E4DD40 /* GTMainCoinQuotationListTableViewCell.m in Sources */,
 				04D34F9D250B0C8600D940D1 /* GateHousBurstStatisticsTableViewCell.m in Sources */,
 				04D3507A250B16EA00D940D1 /* GateHearView.m in Sources */,
 				04D35073250B16EA00D940D1 /* GateHomeModel.m in Sources */,
@@ -1627,6 +1680,7 @@
 				04D34F6B250B0C8600D940D1 /* GateRequestManager.m in Sources */,
 				04D34F2A250B0C8600D940D1 /* GateMarketValueCell.m in Sources */,
 				04D34F73250B0C8600D940D1 /* GateRefreshAutoNormalFooter.m in Sources */,
+				04CBE5DA2512620400E4DD40 /* GTRightCollectionViewCell.m in Sources */,
 				04D34F43250B0C8600D940D1 /* JXCategoryTitleBackgroundCellModel.m in Sources */,
 				04CBE5A12511FCCB00E4DD40 /* LNRefreshAnimator.m in Sources */,
 				04D34F76250B0C8600D940D1 /* GatettttViewController.m in Sources */,
@@ -1648,6 +1702,7 @@
 				04D3509D250B18E500D940D1 /* GateHomePageTopEnterView.m in Sources */,
 				04D34F25250B0C8600D940D1 /* GateMarketValueViewController.m in Sources */,
 				AD4E8D1D250C665600B027F8 /* CoinTool.swift in Sources */,
+				04CBE5BC251216F300E4DD40 /* GTNewTopTableViewCell.m in Sources */,
 				04D34F71250B0C8600D940D1 /* SANavigationController.m in Sources */,
 				04D34F99250B0C8600D940D1 /* GateTopSelectView.m in Sources */,
 				04CBE5A72511FCCB00E4DD40 /* LNFooterAnimator.m in Sources */,
@@ -1663,6 +1718,7 @@
 				04D35025250B0F7300D940D1 /* UINavigationController+WHNavigationController.m in Sources */,
 				04D35090250B16EA00D940D1 /* GateViewController.m in Sources */,
 				04CBE5A02511FCCB00E4DD40 /* LNRefreshHeader.m in Sources */,
+				04CBE5C8251219A900E4DD40 /* GTNewTopCollectionViewCell.m in Sources */,
 				04D34F33250B0C8600D940D1 /* GateWholeNetworkBigOrderStatisticsCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

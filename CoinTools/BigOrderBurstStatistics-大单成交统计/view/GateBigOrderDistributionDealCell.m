@@ -74,17 +74,17 @@
             if (i == 0) {
                 selectModel.color = UIColor.redColor;
                 selectModel.shape = square;
-                 selectModel.titleText = @"Kikfk和玉d";
+                 selectModel.titleText = @"多单";
             }
             if (i == 1) {
                 selectModel.color = UIColor.greenColor;
                 selectModel.shape = square;
-                 selectModel.titleText =@"Kikfk和玉d" ;
+                 selectModel.titleText =@"空单" ;
             }
             if (i == 2) {
                 selectModel.color = UIColor.orangeColor;
                 selectModel.shape = square;
-                  selectModel.titleText =@"Kikfk和玉d";
+                  selectModel.titleText =@"空单";
             }
             [arr addObject:selectModel];
     }

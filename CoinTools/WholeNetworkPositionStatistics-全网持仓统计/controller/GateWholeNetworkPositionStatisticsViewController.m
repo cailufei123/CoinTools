@@ -52,21 +52,28 @@
             });
             
          }];
-       self.tableView.mj_footer = footer;
-       self.tableView.mj_header = header;
+//       self.tableView.mj_footer = footer;
+//       self.tableView.mj_header = header;
     self.tableView.mj_footer.hidden = YES;
+    __weak typeof(self) wself = self;
+       [self.tableView addPullToRefresh:[LNHeaderMeituanAnimator createAnimator] block:^{
+           
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+           [wself.tableView endRefreshing];
+               });
+       }];
     [self setDate];
 }
 -(void)setDate{
     self.lineDatas = [NSMutableArray array];
     
     GateDiffLineModel * lineModel = [[GateDiffLineModel alloc] init];
-    lineModel.line = [NSArray arrayWithObjects:@[@"哈哈哈",@"2"],@[@"2",@"10"],@[@"3",@"120"], nil];
-    lineModel.name = @"hah"; lineModel.titleText =  @"hah";
+    lineModel.line = [NSArray arrayWithObjects:@[@"9/13",@"200"],@[@"9/14",@"400"],@[@"9/15",@"250"],@[@"9/16",@"120"], nil];
+    lineModel.name = @"Huobi合约"; lineModel.titleText =  @"OKEx合约";
     
     GateDiffLineModel * lineModel2 = [[GateDiffLineModel alloc] init];
-       lineModel2.line = [NSArray arrayWithObjects:@[@"哈哈哈",@"20"],@[@"2",@"30"],@[@"3",@"30"], nil];
-       lineModel2.name = @"hah"; lineModel2.titleText =  @"hah";
+       lineModel2.line = [NSArray arrayWithObjects:@[@"9/13",@"300"],@[@"9/14",@"150"],@[@"9/15",@"280"],@[@"9/16",@"600"], nil];
+        lineModel2.name = @"OKEx合约"; lineModel2.titleText =  @"OKEx合约";
     [self.lineDatas addObject:lineModel];
       [self.lineDatas addObject:lineModel2];
     

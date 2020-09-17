@@ -81,15 +81,15 @@
             GatePublicSelectModel *  selectModel = [[GatePublicSelectModel alloc] init];
             if (i == 0) {
                   selectModel.color = gateColor(@"5064f2");
-                selectModel.titleText = @"hahah";
+                selectModel.titleText = @"总量";
             }
             if (i == 1) {
                 selectModel.color = gateColor(@"07c69d");
-                selectModel.titleText = @"哈哈哈";
+                selectModel.titleText = @"当季";
             }
             if (i == 2) {
                 selectModel.color = UIColor.orangeColor;
-               selectModel.titleText = @"吼吼吼";
+               selectModel.titleText = @"";
             }
             [arr addObject:selectModel];
     }

@@ -11,6 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GateFearIndexTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *tuiMg;
 
 @end
 

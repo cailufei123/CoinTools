@@ -54,10 +54,17 @@
        [self.tableView.mj_header endRefreshing];
         }];
        }];
-       self.tableView.mj_header = header;
+//       self.tableView.mj_header = header;
+    
     
     [self.tableView.mj_header beginRefreshing];
-    
+    __weak typeof(self) wself = self;
+       [self.tableView addPullToRefresh:[LNHeaderMeituanAnimator createAnimator] block:^{
+           
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+           [wself.tableView endRefreshing];
+               });
+       }];
    
 }
 -(void)creatTopSelectView{

@@ -13,12 +13,15 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
    
-    
-  
+    self.bagView.backgroundColor = gateColor(@"ffe6e5");
+ 
+    self.moneyLb.textColor  =self.titleLb.textColor  = self.twentyFourHourNumberLb.textColor  = gateColor(@"333B46");
+    self.twentyFourHourNumberLb.font = self.moneyLb.font = gateFont(11, Normal);
+    self.titleLb.font = gateFont(12, Medium);
 }
 -(void)layoutSubviews{
     [super layoutSubviews];
-      [self viewShadowPathWithColor:[UIColor grayColor] shadowOpacity:0.5 shadowRadius:1 shadowPathType:LeShadowPathAround shadowPathWidth:1];
+//      [self viewShadowPathWithColor:[UIColor grayColor] shadowOpacity:0.5 shadowRadius:1 shadowPathType:LeShadowPathAround shadowPathWidth:1];
 }
 
 @end

@@ -21,11 +21,14 @@
     self.lineProgressView.label.hidden = YES;
     self.lineProgressView.animationText = YES;
     [self.lineProgressView initializeProgress];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        self.lineProgressView.progress = 0.6;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+         double val = ((double)arc4random() / UINT32_MAX);
+        self.lineProgressView.progress = val;
+        
     });
     
-    self.titleLb.text = @"OKex";  self.titleLb.textColor =  self.moneyLb.textColor = self.progressLb.textColor = gateColor(@"363a5a");
+    self.titleLb.text = @"Houbi合约";
+    self.moneyLb.text = @"$2155万";self.titleLb.textColor =  self.moneyLb.textColor = self.progressLb.textColor = gateColor(@"363a5a");
     self.moneyLb.font = self.progressLb.font = self.titleLb.font = gateFont(14, Normal);
 }
 

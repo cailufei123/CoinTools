@@ -60,6 +60,22 @@
         i++;
         
     }
+    if ( self.indexPath.row== 1) {
+        self.housLb.text = @"Huobi";
+        self.typeLb.text = @"BTC次周";
+         self.directionLb.text = @"平行";
+         self.priceLb.text = @"$11112.69";
+        self.totalLb.text = @"$￥552万";
+    }
+    if ( self.indexPath.row== 2) {
+        self.housLb.text = @"Bybit";
+        self.typeLb.text = @"BTC永续";
+         self.directionLb.text = @"平行";
+         self.priceLb.text = @"$11112.69";
+        self.totalLb.text = @"$￥552万";
+    }
+   
+    
   
 }
 @end

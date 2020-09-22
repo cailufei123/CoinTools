@@ -21,16 +21,30 @@
     self.lineProgressView.label.hidden = YES;
     self.lineProgressView.animationText = YES;
     [self.lineProgressView initializeProgress];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-         double val = ((double)arc4random() / UINT32_MAX);
-        self.lineProgressView.progress = val;
-        
-    });
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//         double val = ((double)arc4random() / UINT32_MAX);
+//        self.lineProgressView.progress = val;
+//
+//    });
     
     self.titleLb.text = @"Houbi合约";
     self.moneyLb.text = @"$2155万";self.titleLb.textColor =  self.moneyLb.textColor = self.progressLb.textColor = gateColor(@"363a5a");
     self.moneyLb.font = self.progressLb.font = self.titleLb.font = gateFont(14, Normal);
 }
 
+-(void)setBcoin_coin_burst_exchange_infoModel:(GTBcoin_coin_burst_exchange_infoModel *)bcoin_coin_burst_exchange_infoModel{
+  
+
+    self.titleLb.text = bcoin_coin_burst_exchange_infoModel.exchange;
+    self.moneyLb.text = bcoin_coin_burst_exchange_infoModel.burst_amt;
+    self.progressLb.text = [NSString stringWithFormat:@"%0.2lf%%",[bcoin_coin_burst_exchange_infoModel.exchange_amt_rate doubleValue]*100];
+    if ([bcoin_coin_burst_exchange_infoModel.exchange_amt_rate doubleValue]>=1) {
+          self.progressLb.text = @"100%";
+    }
+    if ([bcoin_coin_burst_exchange_infoModel.burst_amt doubleValue]>10000) {
+         self.moneyLb.text = [NSString stringWithFormat:@"%0.2lf万",[bcoin_coin_burst_exchange_infoModel.burst_amt doubleValue]/10000];
+    }
+      self.lineProgressView.progress =  [bcoin_coin_burst_exchange_infoModel.exchange_amt_rate doubleValue];
+}
 
 @end

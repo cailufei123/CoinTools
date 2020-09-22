@@ -24,6 +24,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (weak, nonatomic) IBOutlet UIView *coinHeyueBg;
 
+@property (weak, nonatomic) IBOutlet UIView *jinyingQuShiBg;
+
+@property (weak, nonatomic) IBOutlet UIView *chiCangZhibaioBg;
+@property (weak, nonatomic) IBOutlet UIView *rongZiBg;
+
 
 
 @property (weak, nonatomic) IBOutlet UILabel *coinTypeLb;
@@ -49,6 +54,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (weak, nonatomic) IBOutlet UILabel *coinHeyueLb;
 @property (weak, nonatomic) IBOutlet UIImageView *titleimageView;
+@property (weak, nonatomic) IBOutlet UILabel *jinyingQuShiLb;
+
+@property (weak, nonatomic) IBOutlet UILabel *chiCangZhibaioLb;
+@property (weak, nonatomic) IBOutlet UILabel *rongZiLb;
+
+
+
+@property (weak, nonatomic) GTBcoin_ms_coin_infoModel * bcoin_ms_coin_infoModel;
 @end
 
 NS_ASSUME_NONNULL_END

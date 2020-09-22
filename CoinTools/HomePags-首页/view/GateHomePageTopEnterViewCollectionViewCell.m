@@ -23,5 +23,8 @@
     [super layoutSubviews];
 //      [self viewShadowPathWithColor:[UIColor grayColor] shadowOpacity:0.5 shadowRadius:1 shadowPathType:LeShadowPathAround shadowPathWidth:1];
 }
-
+-(void)setBcoin_btc_base_infoModel:(GTBcoin_btc_base_infoModel *)bcoin_btc_base_infoModel{
+    self.titleLb.text = bcoin_btc_base_infoModel.data_type;
+    self.moneyLb.text = bcoin_btc_base_infoModel.data_result;
+}
 @end

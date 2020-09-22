@@ -31,7 +31,7 @@
         _nameLb.font = gateFont(12, Medium);
         _nameLb.numberOfLines = 2;
         _nameLb.textColor = gateColor(@"333B46");
-        _nameLb.textAlignment = NSTextAlignmentCenter;
+        _nameLb.textAlignment = NSTextAlignmentLeft;
        }
        return _nameLb;
 }
@@ -58,7 +58,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     self.autoresizesSubviews = NO;
-    self.leftTitles = [NSArray arrayWithObjects:@"币种",@"报价",@"市场情绪",@"持仓量",@"爆仓金额",@"多控人数比",@"实盘多空金额比",@"季度溢价",@"全网多空",@"永续合约", nil];
+    self.leftTitles = [NSArray arrayWithObjects:@"币种",@"报价",@"市场情绪",@"持仓量",@"爆仓金额",@"多控人数比",@"实盘多空金额比",@"季度溢价",@"全网多空",@"永续合约",@"OKEX\n精英趋向",@"OKEX\n持仓指标",@"融资融币汇率", nil];
     self.leftTableWight.constant = scrWeiht/4;
     [self setLeftTableView];
     [self setRightCoRllectionView];
@@ -66,6 +66,10 @@
     self.titleLb.textColor = gateColor(@"333B46");
     self.moreLb.textColor = gateColor(@"333B46");
     self.moreLb.font = gateFont(12, Medium);
+}
+-(void)setBcoin_ms_coin_info:(NSArray *)bcoin_ms_coin_info{
+    _bcoin_ms_coin_info = bcoin_ms_coin_info;
+    [self.rightCollectionView reloadData];
 }
 -(void)setLeftTableView{
 
@@ -91,7 +95,7 @@
                           layout.minimumInteritemSpacing =0;
 //                          layout.scrollDirection = UICollectionViewScrollDirectionVertical;
     
-                          layout.itemSize = CGSizeMake((scrWeiht)/4, 400);
+                          layout.itemSize = CGSizeMake((scrWeiht)/4, 400+120);
     layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     //                      [_collectionView setCollectionViewLayout:layout];
              [self.rightCollectionView setCollectionViewLayout:layout];
@@ -130,7 +134,7 @@ self.rightCollectionView.backgroundColor = gateColor(@"ffffff");
 #pragma mark -kkkkk
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 10;
+    return _bcoin_ms_coin_info.count;
     
 }
 #pragma mark - collectionViewDelegate
@@ -150,7 +154,7 @@ self.rightCollectionView.backgroundColor = gateColor(@"ffffff");
 #pragma mark -点击按钮
 - (UICollectionViewCell * )collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
  GTRightCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GTRightCollectionViewCell" forIndexPath:indexPath];
-   
+    cell.bcoin_ms_coin_infoModel = self.bcoin_ms_coin_info[indexPath.row];
   
     return cell;
     

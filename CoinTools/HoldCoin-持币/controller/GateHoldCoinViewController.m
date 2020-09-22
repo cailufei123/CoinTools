@@ -22,12 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navTitle  =@"持币";
-  GateTopSelectView * topSelectView = [[GateTopSelectView alloc] initWithFrame:CGRectMake(0, 0, scrWeiht, 40) categoryTitleViewStyle:CategoryZoomScale];
-     
-        [self.view addSubview:topSelectView];
-    
-//       self.tableView.frame = CGRectMake(0,kTopHeight, scrWeiht, self.view.bounds.size.height-0);
-      
+
     
         gateTableRegisterNib(self.tableView, @"GateHousBurstStatisticsTableViewCell");
         gateTableRegisterNib(self.tableView, @"GateLineChartTableViewCell");
@@ -60,6 +55,11 @@
         [wself.tableView endRefreshing];
             });
     }];
+    
+ 
+}
+-(void)selectitemOrindex:(NSInteger)index{
+    
 }
 //- (void)pullToRefresh {
 //    __weak UITableView *wtableView = self.tableView;

@@ -61,7 +61,8 @@
     _chartView.drawValueAboveBarEnabled = NO;
     _chartView.highlightFullBarEnabled = YES;
     _chartView.doubleTapToZoomEnabled = NO;//关闭缩放
-    
+    [_chartView animateWithYAxisDuration:1.0f];
+      [_chartView animateWithXAxisDuration:1.0f];
 //    _chartView. highlightFullBarEnabled
 
 //    NSNumberFormatter *leftAxisFormatter = [[NSNumberFormatter alloc] init];
@@ -127,33 +128,40 @@
     marker.minimumSize = CGSizeMake(80.f, 40.f);
     self.chartView.marker = marker;
        
-    [self drawData];
+  
     
     
     
-      
-    NSMutableArray * arr = [NSMutableArray array];
-          
-          for (int i = 0; i<2; i++) {
-              GatePublicSelectModel *  selectModel = [[GatePublicSelectModel alloc] init];
-              if (i == 0) {
-                  selectModel.color = gateColor(@"e75475");
-                  selectModel.shape = square;
-              }
-              if (i == 1) {
-                  selectModel.color =gateColor(@"5bc39b");
-                  selectModel.shape = square;
-              }
-              [arr addObject:selectModel];
-      }
-    
-      
-         self.bottomPublicSelectView.arr = arr;
+   
          [self.bottomSelectView addSubview:self.bottomPublicSelectView];
-          self.bottomPublicSelectView.selectIndex = 0;
-    }
+         
+}
 
-
+-(void)setBcoin_coin_30d_calendar_infos:(NSArray<GTBcoin_coin_30d_calendar_infoModel *> *)bcoin_coin_30d_calendar_infos{
+    _bcoin_coin_30d_calendar_infos = bcoin_coin_30d_calendar_infos;
+     NSMutableArray * arr = [NSMutableArray array];
+           
+           for (int i = 0; i<2; i++) {
+               GatePublicSelectModel *  selectModel = [[GatePublicSelectModel alloc] init];
+               if (i == 0) {
+                   selectModel.color = gateColor(@"e75475");
+                   selectModel.shape = square;
+                   selectModel.titleText = @"多头爆仓";
+               }
+               if (i == 1) {
+                   selectModel.color =gateColor(@"5bc39b");
+                   selectModel.shape = square;
+                    selectModel.titleText = @"空头爆仓";
+               }
+               [arr addObject:selectModel];
+       }
+     
+       
+          self.bottomPublicSelectView.arr = arr;
+      self.bottomPublicSelectView.selectIndex = 0;
+    self.xAxisValueFormatter.publicArr = bcoin_coin_30d_calendar_infos;
+      [self drawData];
+}
 
 -(GatePublicSelectView *)bottomPublicSelectView{
     if (!_bottomPublicSelectView) {
@@ -165,30 +173,87 @@
          @weakify(self)
         _bottomPublicSelectView.selectBlock = ^(NSInteger index, GatePublicSelectModel * _Nonnull publicSelectModel) {
             @strongify(self)
-                       BarChartDataSet * set =  (BarChartDataSet *) self.chartView.barData.dataSets[index];
-            set.visible = !publicSelectModel.selectEnabled;
+//            BarChartDataSet * set =  (BarChartDataSet *) self.chartView.barData.dataSets[index];
+//
+//
+//            set.visible = !publicSelectModel.selectEnabled;
+            
+            [self drawData1];
                        [self.chartView setNeedsDisplay];
+            
+            
         };
         
      }
     return _bottomPublicSelectView;
 }
+-(void)drawData1{
+  GatePublicSelectModel *  firstObjectPublicSelectModel  =  self.bottomPublicSelectView.arr.firstObject;
+              GatePublicSelectModel *  lastObjectPublicSelectModel  =  self.bottomPublicSelectView.arr.lastObject;
+              
+             
+                      
+                    
+        NSMutableArray *array = [NSMutableArray array];
+     for (int i = 0; i < self.bcoin_coin_30d_calendar_infos.count; i++) {
+        
+         GTBcoin_coin_30d_calendar_infoModel * coin_30d_calendar_infoModel  =  self.bcoin_coin_30d_calendar_infos[i];
+         if (coin_30d_calendar_infoModel.sell_amount.length && coin_30d_calendar_infoModel.buy_amount.length ) {
+               NSMutableArray * temps = [NSMutableArray array];
+            if (!firstObjectPublicSelectModel.selectEnabled) {
+                      [temps addObject:[NSNumber numberWithString:coin_30d_calendar_infoModel.buy_amount]];
+                  }
+            
+                if (!lastObjectPublicSelectModel.selectEnabled) {
+                    [temps addObject:[NSNumber numberWithString:coin_30d_calendar_infoModel.sell_amount]];
+                }
+             
+              [array addObject:[[BarChartDataEntry alloc] initWithX:i yValues:temps icon: [UIImage imageNamed:@"icon"]]];
+  
+         }
+        
+}
+        //set
+        BarChartDataSet *set = [[BarChartDataSet alloc] initWithEntries:array label:@"Bar DataSet"];
+     set.stackLabels = @[@"Births", @"Divorces"];
+//      set.barBorderWidth = 1.0;
+//        [set setColors:@[UIColor.redColor,UIColor.blackColor,UIColor.cyanColor]];
+    
+     NSMutableArray * tempColors = [NSMutableArray array];
+    if (!firstObjectPublicSelectModel.selectEnabled) {
+              [tempColors addObject:gateColor(@"e75475")];
+        }
+    
+        if (!lastObjectPublicSelectModel.selectEnabled) {
+//            [temps addObject:[NSNumber numberWithString:coin_30d_calendar_infoModel.sell_amount]];
+            [tempColors addObject:gateColor(@"5bc39b")];
+        }
+    if (tempColors.count) {
+          set.colors =tempColors;
+    }
+       
+         set.drawValuesEnabled = NO; //圆柱上是否显示文字
+        BarChartData *data = [[BarChartData alloc] initWithDataSet:set];
+          [data setBarWidth:0.5];
+        self.chartView.data = data;
+//    [self.chartView.data notifyDataChanged];
+     [self.chartView notifyDataSetChanged];
+    [self.chartView animateWithYAxisDuration:0.5];
+    }
 
 
 
  -(void)drawData{
-        NSArray *datas = @[@100,@90,@76,@100,@90,@76,@100,@90,@76,@100,@90,@76,@100,@90,@76,@100,@90,@76,@100,@90,@76,@100,@90,];
+       
         NSMutableArray *array = [NSMutableArray array];
-        for (int i = 0; i < datas.count; i++) {
-//            BarChartDataEntry *entry = [[BarChartDataEntry alloc] initWithX:i yValues:@[[datas[i] integerValue],[datas[i] integerValue]]];
-            double mult = (59 + 1);
-                  double val1 = (double) (arc4random_uniform(mult) + mult / 3);
-                  double val2 = (double) (arc4random_uniform(mult) + mult / 3);
-            
-            
-              [array addObject:[[BarChartDataEntry alloc] initWithX:i yValues:@[@(val1), @(val2)] icon: [UIImage imageNamed:@"icon"]]];
-//            [array addObject:entry];
-        }
+     for (int i = 0; i < self.bcoin_coin_30d_calendar_infos.count; i++) {
+         GTBcoin_coin_30d_calendar_infoModel * coin_30d_calendar_infoModel  =  self.bcoin_coin_30d_calendar_infos[i];
+         if (coin_30d_calendar_infoModel.sell_amount.length && coin_30d_calendar_infoModel.buy_amount.length ) {
+              [array addObject:[[BarChartDataEntry alloc] initWithX:i yValues:@[[NSNumber numberWithString:coin_30d_calendar_infoModel.buy_amount], [NSNumber numberWithString:coin_30d_calendar_infoModel.sell_amount]] icon: [UIImage imageNamed:@"icon"]]];
+  
+         }
+        
+}
         //set
         BarChartDataSet *set = [[BarChartDataSet alloc] initWithEntries:array label:@"Bar DataSet"];
      set.stackLabels = @[@"Births", @"Divorces"];
@@ -196,10 +261,10 @@
 //        [set setColors:@[UIColor.redColor,UIColor.blackColor,UIColor.cyanColor]];
          set.colors = @[gateColor(@"5bc39b"),gateColor(@"e75475")];
         //显示柱图值并格式化
-        NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
-        numberFormatter.positiveSuffix = @"分";
-        ChartDefaultValueFormatter *formatter = [[ChartDefaultValueFormatter alloc] initWithFormatter:numberFormatter];
-        [set setValueFormatter:formatter];
+//        NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+//        numberFormatter.positiveSuffix = @"分";
+//        ChartDefaultValueFormatter *formatter = [[ChartDefaultValueFormatter alloc] initWithFormatter:numberFormatter];
+//        [set setValueFormatter:formatter];
 //        set.highlightEnabled = YES;
          set.drawValuesEnabled = NO; //圆柱上是否显示文字
         BarChartData *data = [[BarChartData alloc] initWithDataSet:set];

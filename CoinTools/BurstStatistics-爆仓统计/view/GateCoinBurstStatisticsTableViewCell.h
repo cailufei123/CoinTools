@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "GTBurstModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GateCoinBurstStatisticsTableViewCell : UITableViewCell
-@property(nonatomic,strong)NSArray * arr;
+
+@property(nonatomic,strong)NSArray <GTBcoin_coin_burst_total_infoModel *>* bcoin_coin_burst_total_info;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -27,18 +27,25 @@
 - (JXCategoryTitleView *)categoryView {
     if (_categoryView == nil) {
         _categoryView = [[JXCategoryTitleView alloc] initWithFrame:self.frame];
-        _categoryView.delegate = self;
-        _categoryView.titleColor = gateColor(@"727272");
-         _categoryView.titleSelectedColor = gateColor(hearTitleColor);
-         _categoryView.titleColorGradientEnabled = YES;
-        _categoryView.titleFont = gateFont(16, Medium);
-         _categoryView.titleSelectedFont = gateFont(16, Medium);
-        
-       _categoryView.averageCellSpacingEnabled = NO;
-           JXCategoryIndicatorLineView *lineView = [[JXCategoryIndicatorLineView alloc] init];
-           lineView.indicatorColor = gateColor(@"00d9c2");
-           lineView.indicatorWidth = 20;
-           _categoryView.indicators = @[lineView];
+     
+                _categoryView.delegate = self;
+                _categoryView.backgroundColor  =[UIColor whiteColor];
+                _categoryView.titleColor = gateColor(gateDefaultColor);
+                 _categoryView.titleSelectedColor = gateColor(gateSelectColor);
+                 _categoryView.titleColorGradientEnabled = YES;
+                _categoryView.titleFont = gateFont(14, Normal);
+                 _categoryView.titleSelectedFont = gateFont(14, Normal);
+                _categoryView.averageCellSpacingEnabled = NO;
+                [_categoryView viewShadowPathWithColor:gateColor(@"f2f2f3") shadowOpacity:0.5 shadowRadius:6 shadowPathType:LeShadowPathBottom shadowPathWidth:8];
+      
+
+                     _categoryView.titleColorGradientEnabled = YES;
+                     _categoryView.titleLabelZoomEnabled = YES;
+                     _categoryView.titleLabelZoomScale = 1.2;
+           //          _categoryView.titleLabelStrokeWidthEnabled = YES;
+                     _categoryView.selectedAnimationEnabled = YES;
+              
+           
        
     }
     return _categoryView;

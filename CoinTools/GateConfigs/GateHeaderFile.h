@@ -39,6 +39,8 @@
 #import "GatePublicSelectModel.h"
 #import "GatePublicSelectView.h"
 #import "UIColor+HYDEGradientChange.h"
+#import "GTCurrencyTool.h"
+#import "GTHomeModel.h"
 //库
 #import "LNHeaderMeituanAnimator.h"
 #import  "LNRefresh.h"

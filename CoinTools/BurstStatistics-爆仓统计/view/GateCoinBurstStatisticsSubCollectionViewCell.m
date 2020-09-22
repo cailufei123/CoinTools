@@ -12,13 +12,10 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.nameLb.font = gateFont(14, Medium);
-    self.moneyLb.font = gateFont(20, Medium);
-    self.matchMoneyLb.font = gateFont(14, Normal);
-    
-    self.nameLb.text = @"BTC";
-       self.moneyLb.text = @"$2284万";
-       self.matchMoneyLb.text = @"2237个BTC";
+    self.nameLb.font = gateFont(12, Medium);
+    self.moneyLb.font = gateFont(16, Medium);
+    self.matchMoneyLb.font = gateFont(12, Normal);
+  
 }
 
 @end

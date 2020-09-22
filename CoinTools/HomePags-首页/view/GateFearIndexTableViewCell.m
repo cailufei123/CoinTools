@@ -8,12 +8,12 @@
 
 #import "GateFearIndexTableViewCell.h"
 #import "ZZDottedLineProgress.h"
-
+#import "GTPointerView.h"
 @interface GateFearIndexTableViewCell()
 @property (weak, nonatomic) IBOutlet UILabel *timeLb;
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLb;
-@property (weak, nonatomic) IBOutlet ZZDottedLineProgress *prgressView;
+@property (weak, nonatomic) IBOutlet UIView *prgressView;
 @property (weak, nonatomic) IBOutlet UILabel *yesterDayLb;
 @property (weak, nonatomic) IBOutlet UILabel *lastWeekLb;
 @property (weak, nonatomic) IBOutlet UILabel *LastMonthLb;
@@ -24,27 +24,34 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
 //    _progressView = [[ZZDottedLineProgress alloc] initWithFrame:CGRectMake(0, 0, 300, 300) startColor:[UIColor greenColor] endColor:[UIColor greenColor] startAngle:90 strokeWidth:4 strokeLength:20];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-          self.prgressView.startColor = [UIColor redColor];
-              self.prgressView.endColor = [UIColor orangeColor];
-              self.prgressView.startAngle = 90;
-              self.prgressView.strokeWidth = 10;
-            self.prgressView.strokeLength = 0;
-        //    self.prgressView.center = self.view.center;
-            //    _progressView.backgroundColor = [UIColor blackColor];
-                self.prgressView.roundStyle = YES;
-            //    _progressView.colorGradient = NO;
-                self.prgressView.showProgressText = YES;
-            //    _progressView.increaseFromLast = YES;
-            //    _progressView.notAnimated = YES;
-                self.prgressView.subdivCount = 90;
-            //    _progressView.animationDuration = 3;
-            //    _progressView.progress = 0.5;
-        //        [self.view addSubview:self.prgressView];
-            self.prgressView.pathBackColor  = [UIColor redColor];
-                   self.prgressView.backgroundColor  = [UIColor cyanColor];
-            self.prgressView.progress = 0.7;
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//          self.prgressView.startColor = [UIColor redColor];
+//              self.prgressView.endColor = [UIColor orangeColor];
+//              self.prgressView.startAngle = 90;
+//              self.prgressView.strokeWidth = 10;
+//            self.prgressView.strokeLength = 0;
+//        //    self.prgressView.center = self.view.center;
+//            //    _progressView.backgroundColor = [UIColor blackColor];
+//                self.prgressView.roundStyle = YES;
+//            //    _progressView.colorGradient = NO;
+//                self.prgressView.showProgressText = YES;
+//            //    _progressView.increaseFromLast = YES;
+//            //    _progressView.notAnimated = YES;
+//                self.prgressView.subdivCount = 90;
+//            //    _progressView.animationDuration = 3;
+//            //    _progressView.progress = 0.5;
+//        //        [self.view addSubview:self.prgressView];
+//            self.prgressView.pathBackColor  = [UIColor redColor];
+//                   self.prgressView.backgroundColor  = [UIColor cyanColor];
+//            self.prgressView.progress = 0.7;
+//    });
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
     });
+    GTPointerView * rr = [[GTPointerView alloc] initWithFrame:CGRectMake(0, 0, 150, 150/2)];
+    [self.prgressView addSubview:rr];
+    
+    
     self.yesterDayLb.font = self.lastWeekLb.font = self.LastMonthLb.font = gateFont(14, Medium);
       self.titleLb.textColor = self.yesterDayLb.textColor = self.lastWeekLb.textColor = self.LastMonthLb.textColor =  gateColor(@"333B46");
    

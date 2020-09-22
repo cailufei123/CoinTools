@@ -154,10 +154,18 @@
 //                              insets: UIEdgeInsetsMake(8.0, 8.0, 20.0, 8.0)];
     
     
+//      ChartMarkerImage * mark = [[ChartMarkerImage alloc] init];
+//    mark.image = getImage(@"AppIcon_40x40_@2x");
+//    mark.chartView = self.lineChartView;
+//    mark.offset = CGPointMake(100, 100);
+//      self.lineChartView.marker = mark;
+    
+    
     self. markers.chartView = self.lineChartView;
     self. markers.minimumSize = CGSizeMake(80.f, 40.f);
     self.lineChartView.marker = self.markers;
-
+ self.markers.offset = CGPointMake(100, 100);
+     self.markers.image = getImage(@"AppIcon_40x40_@2x");
      self.lineChartView.legend.form = ChartLegendFormLine;
             // 设置动画效果，可以设置 X 轴和 Y 轴的动画效果
             [self.lineChartView animateWithXAxisDuration:1.0f];
@@ -201,11 +209,13 @@
 
 -(BalloonMarker *)markers{
     if (!_markers) {
+      
         _markers = [[BalloonMarker alloc]
-        initWithColor: [UIColor colorWithWhite:180/255. alpha:1.0]
+                    initWithColor:[[UIColor blackColor]colorWithAlphaComponent:0.7 ]
         font: [UIFont systemFontOfSize:12.0]
         textColor: UIColor.whiteColor
-        insets: UIEdgeInsetsMake(8.0, 8.0, 20.0, 8.0)];
+        insets: UIEdgeInsetsMake(8.0, 8.0, 8.0, 8.0)];
+        _markers.image =getImage(@"icon_logon_d_logo_145x51_@3x");
     }
     return  _markers;
 }

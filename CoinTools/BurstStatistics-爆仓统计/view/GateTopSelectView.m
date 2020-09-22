@@ -23,7 +23,7 @@
     return self;
 }
 -(void)createCategoryView{
-    self.titles = @[@"全部",@"BTC", @"ETH", @"XRP", @"BCH",];
+  
       self.categoryView.titles = self.titles;
     [self addSubview:self.categoryView];
     
@@ -46,7 +46,7 @@
 }
 - (JXCategoryTitleView *)categoryView {
     if (_categoryView == nil) {
-        _categoryView = [[JXCategoryTitleView alloc] initWithFrame:CGRectMake(0, 0, scrWeiht, self.clf_height)];
+        _categoryView = [[JXCategoryTitleView alloc] initWithFrame:CGRectMake(0, 0, self.clf_width, self.clf_height)];
         _categoryView.delegate = self;
         _categoryView.backgroundColor  =[UIColor whiteColor];
         _categoryView.titleColor = gateColor(gateDefaultColor);

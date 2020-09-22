@@ -7,7 +7,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
          <BreakpointContent
-            uuid = "56ECFD11-2D07-4391-8A02-A5BAE977D489"
+            uuid = "83E6A832-E142-4AF2-8D93-603AB0F959DC"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -19,32 +19,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "53C06F94-8723-4ECF-9C94-D56AB38EE8AE"
+            uuid = "CA6A860E-FB48-4B41-8E33-345BCBE5802D"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CoinTools/HomePags-&#x9996;&#x9875;/view/GTMainCoinQuotationListTableViewCell.m"
+            filePath = "CoinTools/BurstStatistics-&#x7206;&#x4ed3;&#x7edf;&#x8ba1;/model/GTBurstModel.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "209"
-            endingLineNumber = "209"
-            landmarkName = "-tableView:cellForRowAtIndexPath:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "86EE1EF3-7D86-4CE0-A18F-42910245E7E4"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CoinTools/HomePags-&#x9996;&#x9875;/view/GTMainCoinQuotationListTableViewCell.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "206"
-            endingLineNumber = "206"
-            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "+modelCustomPropertyMapper"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

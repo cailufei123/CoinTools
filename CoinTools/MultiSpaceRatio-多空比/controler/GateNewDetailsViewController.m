@@ -33,9 +33,12 @@
     [super viewDidLoad];
     self.navTitle = @"合约";
     self.type = @"BTC";
-    [self creatTopSelectView];
+//    [self creatTopSelectView];
     [self registerCreateTable];
     [self loadData];
+}
+-(void)selectitemOrindex:(NSInteger)index{
+    
 }
 -(void)loadData{
     
@@ -43,11 +46,11 @@
  
         [GateRequestManager post:homeURL params:@{@"v_coin_type":self.type} success:^(id  _Nonnull response) {
             self.gateHomeModel =[GateHomeModel modelWithDictionary:response[@"data"]];
-           
-           
-            self.topSelectView.titles = @[@"BTC", @"ETH", @"XRP", @"BCH",@"LTC",@"EOX",@"TRX"];
-                self.categoryView.titles = self.titles;
-            [self.categoryView reloadData];
+         
+        
+//            self.topSelectView.titles = @[@"BTC", @"ETH", @"XRP", @"BCH",@"LTC",@"EOX",@"TRX"];
+//                self.categoryView.titles = self.titles;
+//            [self.categoryView reloadData];
             [self.tableView reloadData];
              [self.tableView.mj_header endRefreshing];
         } failure:^(NSError * _Nonnull failure) {
@@ -55,31 +58,41 @@
         }];
        }];
 //       self.tableView.mj_header = header;
+  
     
-    
-    [self.tableView.mj_header beginRefreshing];
+//    [self.tableView.mj_header beginRefreshing];
     __weak typeof(self) wself = self;
        [self.tableView addPullToRefresh:[LNHeaderMeituanAnimator createAnimator] block:^{
            
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                NSDictionary * dict =  [GTCurrencyTool readLocalFileWithName:@"CoinTools.framework/file"];
+                wself.gateHomeModel =[GateHomeModel  modelWithDictionary:dict[@"data"]];
+                wself.categoryView.titles = wself.titles;
+                         [wself.categoryView reloadData];
+                         [wself.tableView reloadData];
+                
            [wself.tableView endRefreshing];
                });
        }];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+         [wself.tableView startRefreshing];
+    });
+   
    
 }
--(void)creatTopSelectView{
-      self.topSelectView = [[GateTopSelectView alloc] initWithFrame:CGRectMake(0, 0, scrWeiht, 40) categoryTitleViewStyle:CategoryZoomScale];
-     [self.view addSubview:self.topSelectView];
-//     self.tableView.frame = CGRectMake(0,CGRectGetMaxY(self.topSelectView.frame) , scrWeiht, self.view.bounds.size.height-CGRectGetMaxY(self.topSelectView.frame));
-     self.tableView.backgroundColor = [UIColor whiteColor];
-    [self registerCreateTable];
-    @weakify(self)
-    self.topSelectView.selectBlock = ^(NSInteger index, NSString * _Nonnull title) {
-         @strongify(self)
-        self.type = title;
-         [self loadData];
-    };
-}
+//-(void)creatTopSelectView{
+//      self.topSelectView = [[GateTopSelectView alloc] initWithFrame:CGRectMake(0, 0, scrWeiht, 40) categoryTitleViewStyle:CategoryZoomScale];
+//     [self.view addSubview:self.topSelectView];
+////     self.tableView.frame = CGRectMake(0,CGRectGetMaxY(self.topSelectView.frame) , scrWeiht, self.view.bounds.size.height-CGRectGetMaxY(self.topSelectView.frame));
+//     self.tableView.backgroundColor = [UIColor whiteColor];
+//    [self registerCreateTable];
+//    @weakify(self)
+//    self.topSelectView.selectBlock = ^(NSInteger index, NSString * _Nonnull title) {
+//         @strongify(self)
+//        self.type = title;
+//          [self.tableView startRefreshing];
+//    };
+//}
 
 -(void)registerCreateTable{
     

@@ -23,14 +23,9 @@
     [super viewDidLoad];
     self.navTitle  =@"大单成交统计";
     self.view.backgroundColor = [UIColor whiteColor];
-    
-//    self.navigationItem.titleView = ;
-   
-    GateTopSelectView * topSelectView = [[GateTopSelectView alloc] initWithFrame:CGRectMake(0, 0, scrWeiht, 40) categoryTitleViewStyle:CategoryZoomScale];
-    
-       [self.view addSubview:topSelectView];
+
     self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 30, 0);
-//       self.tableView.frame = CGRectMake(0,CGRectGetMaxY(topSelectView.frame) , scrWeiht, self.view.bounds.size.height-CGRectGetMaxY(topSelectView.frame));
+
        self.tableView.backgroundColor = [UIColor whiteColor];
     
      gateTableRegisterNib(self.tableView, @"GateHousBurstStatisticsTableViewCell");
@@ -63,6 +58,9 @@
                });
        }];
     [self setDate];
+}
+-(void)selectitemOrindex:(NSInteger)index{
+    
 }
 -(void)setDate{
     self.lineDatas = [NSMutableArray array];

@@ -25,8 +25,11 @@
 #import "GTTotalViewController.h"
 #import "GTNewTopTableViewCell.h"
 #import "GTMainCoinQuotationListTableViewCell.h"
+#import "GTFearIndexViewController.h"
 @interface GateHomePageController ()
 @property(nonatomic,strong)NSArray * classArry;
+@property(nonatomic,strong)GTHomeModel * homeModel;
+
 @end
 
 @implementation GateHomePageController
@@ -111,12 +114,17 @@ if (@available(iOS 11.0, *)) {
   self.navigationItem.titleView  = imag;
     
     
-    __weak typeof(self) wself = self;
+        @weakify(self)
       [self.tableView addPullToRefresh:[LNHeaderMeituanAnimator createAnimator] block:^{
-           dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-          [wself.tableView endRefreshing];
-              });
-      }];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        @strongify(self)
+            NSDictionary * dict =  [GTCurrencyTool readLocalFileWithName:@"CoinTools.framework/home"];
+            self.homeModel =[GTHomeModel  modelWithDictionary:dict[@"data"]];
+            [self.tableView reloadData];
+            [self.tableView endRefreshing];
+        });
+    }];
+    [self.tableView startRefreshing];
    
 }
 
@@ -167,7 +175,9 @@ if (@available(iOS 11.0, *)) {
                             fd_heightForCellWithIdentifier:@"GateHomePageTopEnterViewCell"
                             cacheByIndexPath:indexPath
                             configuration:^(id cell) {
-
+          GateHomePageTopEnterViewCell * cell1 = cell;
+                    
+                cell1.bcoin_btc_base_info = self.homeModel.bcoin_btc_base_info;
                              }];
           return height;
  }
@@ -181,7 +191,7 @@ if (@available(iOS 11.0, *)) {
                              }];
           return height;
  }else  if (indexPath.section == 3){
-      return 440;
+      return 440+120;
       CGFloat height = [tableView
                             fd_heightForCellWithIdentifier:@"GTMainCoinQuotationListTableViewCell"
                             cacheByIndexPath:indexPath
@@ -203,7 +213,7 @@ if (@available(iOS 11.0, *)) {
         cell.selectBlock = ^(NSInteger index) {
             @weakify(self)
        
-           
+         
             GTTotalViewController * totalVc = [[GTTotalViewController alloc] init];
             totalVc.index = index;
             [self.navigationController pushViewController:totalVc animated:YES];
@@ -215,21 +225,24 @@ if (@available(iOS 11.0, *)) {
         
         GateHomePageTopEnterViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"GateHomePageTopEnterViewCell" forIndexPath:indexPath];
             
-            
+        cell.bcoin_btc_base_info = self.homeModel.bcoin_btc_base_info;
                   return cell;
     }else if (indexPath.section == 2){
         GateFearIndexTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"GateFearIndexTableViewCell" forIndexPath:indexPath];
         return cell;
     }else if (indexPath.section == 3){
         GTMainCoinQuotationListTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"GTMainCoinQuotationListTableViewCell" forIndexPath:indexPath];
-        
+        cell.bcoin_ms_coin_info =  self.homeModel.bcoin_ms_coin_info;
         return cell;
     }
     
     return nil;
    
 }
-
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    GTFearIndexViewController * fearIndexVc = [[GTFearIndexViewController alloc] init];
+    [self.navigationController pushViewController:fearIndexVc animated:YES];
+}
 - (UIViewController*)stringChangeToClass:(NSString *)str {
     id vc = [[NSClassFromString(str) alloc]init];
     if ([vc isKindOfClass:[UIViewController class]]) {

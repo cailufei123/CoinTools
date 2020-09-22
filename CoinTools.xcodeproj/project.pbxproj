@@ -9,6 +9,37 @@
 /* Begin PBXBuildFile section */
 		04796584251355E10051476C /* CoinTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD66B8F3250A799400D7C66E /* CoinTools.framework */; };
 		04796589251356200051476C /* CoinTools.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AD66B8F3250A799400D7C66E /* CoinTools.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		049514612514850000294FD7 /* zhPopupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0495145C2514850000294FD7 /* zhPopupController.m */; };
+		049514622514850000294FD7 /* zhPopupController.h in Headers */ = {isa = PBXBuildFile; fileRef = 0495145D2514850000294FD7 /* zhPopupController.h */; };
+		049514672514869700294FD7 /* GTMenuSelectView.h in Headers */ = {isa = PBXBuildFile; fileRef = 049514652514869700294FD7 /* GTMenuSelectView.h */; };
+		049514682514869700294FD7 /* GTMenuSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 049514662514869700294FD7 /* GTMenuSelectView.m */; };
+		0495146B2514878500294FD7 /* GTMenuSelectViewCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 049514692514878500294FD7 /* GTMenuSelectViewCollectionViewCell.h */; };
+		0495146C2514878500294FD7 /* GTMenuSelectViewCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0495146A2514878500294FD7 /* GTMenuSelectViewCollectionViewCell.m */; };
+		0495146F2514E16100294FD7 /* GTPointerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 0495146D2514E16100294FD7 /* GTPointerView.h */; };
+		049514702514E16100294FD7 /* GTPointerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0495146E2514E16100294FD7 /* GTPointerView.m */; };
+		049514792515A7C100294FD7 /* GTHomeModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 049514772515A7C100294FD7 /* GTHomeModel.h */; };
+		0495147A2515A7C100294FD7 /* GTHomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 049514782515A7C100294FD7 /* GTHomeModel.m */; };
+		049514832515B8DA00294FD7 /* GTCurrencyTool.h in Headers */ = {isa = PBXBuildFile; fileRef = 049514812515B8DA00294FD7 /* GTCurrencyTool.h */; };
+		049514842515B8DA00294FD7 /* GTCurrencyTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 049514822515B8DA00294FD7 /* GTCurrencyTool.m */; };
+		049514992516017E00294FD7 /* file.json in Resources */ = {isa = PBXBuildFile; fileRef = 049514932516017E00294FD7 /* file.json */; };
+		0495149A2516017E00294FD7 /* burstData.json in Resources */ = {isa = PBXBuildFile; fileRef = 049514942516017E00294FD7 /* burstData.json */; };
+		0495149B2516017E00294FD7 /* fearIndexDate.json in Resources */ = {isa = PBXBuildFile; fileRef = 049514952516017E00294FD7 /* fearIndexDate.json */; };
+		0495149C2516017E00294FD7 /* multiSpaceRatioData.json in Resources */ = {isa = PBXBuildFile; fileRef = 049514962516017E00294FD7 /* multiSpaceRatioData.json */; };
+		0495149D2516017E00294FD7 /* home.json in Resources */ = {isa = PBXBuildFile; fileRef = 049514972516017E00294FD7 /* home.json */; };
+		0495149E2516017E00294FD7 /* holdData.json in Resources */ = {isa = PBXBuildFile; fileRef = 049514982516017E00294FD7 /* holdData.json */; };
+		049514A12516082200294FD7 /* GTBurstModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 0495149F2516082200294FD7 /* GTBurstModel.h */; };
+		049514A22516082200294FD7 /* GTBurstModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 049514A02516082200294FD7 /* GTBurstModel.m */; };
+		049514AA2518722000294FD7 /* GTFearIndexViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 049514A82518722000294FD7 /* GTFearIndexViewController.h */; };
+		049514AB2518722000294FD7 /* GTFearIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049514A92518722000294FD7 /* GTFearIndexViewController.m */; };
+		049514AF2518728600294FD7 /* GTFearIndexLineChartsTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 049514AC2518728600294FD7 /* GTFearIndexLineChartsTableViewCell.h */; };
+		049514B02518728600294FD7 /* GTFearIndexLineChartsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 049514AD2518728600294FD7 /* GTFearIndexLineChartsTableViewCell.m */; };
+		049514B12518728600294FD7 /* GTFearIndexLineChartsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049514AE2518728600294FD7 /* GTFearIndexLineChartsTableViewCell.xib */; };
+		049514B42518886200294FD7 /* GTFearIndexModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 049514B22518886200294FD7 /* GTFearIndexModel.h */; };
+		049514B52518886200294FD7 /* GTFearIndexModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 049514B32518886200294FD7 /* GTFearIndexModel.m */; };
+		049514B82518A1C600294FD7 /* GTXAxisFearIndexValueFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 049514B62518A1C600294FD7 /* GTXAxisFearIndexValueFormatter.h */; };
+		049514B92518A1C600294FD7 /* GTXAxisFearIndexValueFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 049514B72518A1C600294FD7 /* GTXAxisFearIndexValueFormatter.m */; };
+		049514BC2518A1DD00294FD7 /* GTYxisFearIndexValueFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 049514BA2518A1DD00294FD7 /* GTYxisFearIndexValueFormatter.h */; };
+		049514BD2518A1DD00294FD7 /* GTYxisFearIndexValueFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 049514BB2518A1DD00294FD7 /* GTYxisFearIndexValueFormatter.m */; };
 		04BA82CC25104F5100E1FE8F /* GTTotalViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 04BA82CA25104F5100E1FE8F /* GTTotalViewController.h */; };
 		04BA82CD25104F5100E1FE8F /* GTTotalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BA82CB25104F5100E1FE8F /* GTTotalViewController.m */; };
 		04BA82D0251077E600E1FE8F /* GTHoldCoinHeardView.h in Headers */ = {isa = PBXBuildFile; fileRef = 04BA82CE251077E600E1FE8F /* GTHoldCoinHeardView.h */; };
@@ -320,6 +351,37 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0495145C2514850000294FD7 /* zhPopupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zhPopupController.m; sourceTree = "<group>"; };
+		0495145D2514850000294FD7 /* zhPopupController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zhPopupController.h; sourceTree = "<group>"; };
+		049514652514869700294FD7 /* GTMenuSelectView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTMenuSelectView.h; sourceTree = "<group>"; };
+		049514662514869700294FD7 /* GTMenuSelectView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTMenuSelectView.m; sourceTree = "<group>"; };
+		049514692514878500294FD7 /* GTMenuSelectViewCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTMenuSelectViewCollectionViewCell.h; sourceTree = "<group>"; };
+		0495146A2514878500294FD7 /* GTMenuSelectViewCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTMenuSelectViewCollectionViewCell.m; sourceTree = "<group>"; };
+		0495146D2514E16100294FD7 /* GTPointerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTPointerView.h; sourceTree = "<group>"; };
+		0495146E2514E16100294FD7 /* GTPointerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTPointerView.m; sourceTree = "<group>"; };
+		049514772515A7C100294FD7 /* GTHomeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTHomeModel.h; sourceTree = "<group>"; };
+		049514782515A7C100294FD7 /* GTHomeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTHomeModel.m; sourceTree = "<group>"; };
+		049514812515B8DA00294FD7 /* GTCurrencyTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTCurrencyTool.h; sourceTree = "<group>"; };
+		049514822515B8DA00294FD7 /* GTCurrencyTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTCurrencyTool.m; sourceTree = "<group>"; };
+		049514932516017E00294FD7 /* file.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = file.json; sourceTree = "<group>"; };
+		049514942516017E00294FD7 /* burstData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = burstData.json; sourceTree = "<group>"; };
+		049514952516017E00294FD7 /* fearIndexDate.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fearIndexDate.json; sourceTree = "<group>"; };
+		049514962516017E00294FD7 /* multiSpaceRatioData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = multiSpaceRatioData.json; sourceTree = "<group>"; };
+		049514972516017E00294FD7 /* home.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = home.json; sourceTree = "<group>"; };
+		049514982516017E00294FD7 /* holdData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = holdData.json; sourceTree = "<group>"; };
+		0495149F2516082200294FD7 /* GTBurstModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTBurstModel.h; sourceTree = "<group>"; };
+		049514A02516082200294FD7 /* GTBurstModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTBurstModel.m; sourceTree = "<group>"; };
+		049514A82518722000294FD7 /* GTFearIndexViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTFearIndexViewController.h; sourceTree = "<group>"; };
+		049514A92518722000294FD7 /* GTFearIndexViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTFearIndexViewController.m; sourceTree = "<group>"; };
+		049514AC2518728600294FD7 /* GTFearIndexLineChartsTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTFearIndexLineChartsTableViewCell.h; sourceTree = "<group>"; };
+		049514AD2518728600294FD7 /* GTFearIndexLineChartsTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTFearIndexLineChartsTableViewCell.m; sourceTree = "<group>"; };
+		049514AE2518728600294FD7 /* GTFearIndexLineChartsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GTFearIndexLineChartsTableViewCell.xib; sourceTree = "<group>"; };
+		049514B22518886200294FD7 /* GTFearIndexModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTFearIndexModel.h; sourceTree = "<group>"; };
+		049514B32518886200294FD7 /* GTFearIndexModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTFearIndexModel.m; sourceTree = "<group>"; };
+		049514B62518A1C600294FD7 /* GTXAxisFearIndexValueFormatter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTXAxisFearIndexValueFormatter.h; sourceTree = "<group>"; };
+		049514B72518A1C600294FD7 /* GTXAxisFearIndexValueFormatter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTXAxisFearIndexValueFormatter.m; sourceTree = "<group>"; };
+		049514BA2518A1DD00294FD7 /* GTYxisFearIndexValueFormatter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTYxisFearIndexValueFormatter.h; sourceTree = "<group>"; };
+		049514BB2518A1DD00294FD7 /* GTYxisFearIndexValueFormatter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTYxisFearIndexValueFormatter.m; sourceTree = "<group>"; };
 		04BA82CA25104F5100E1FE8F /* GTTotalViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTTotalViewController.h; sourceTree = "<group>"; };
 		04BA82CB25104F5100E1FE8F /* GTTotalViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTTotalViewController.m; sourceTree = "<group>"; };
 		04BA82CE251077E600E1FE8F /* GTHoldCoinHeardView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTHoldCoinHeardView.h; sourceTree = "<group>"; };
@@ -637,6 +699,98 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		049514592514850000294FD7 /* zhPopupController */ = {
+			isa = PBXGroup;
+			children = (
+				0495145A2514850000294FD7 /* Classes */,
+			);
+			path = zhPopupController;
+			sourceTree = "<group>";
+		};
+		0495145A2514850000294FD7 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				0495145C2514850000294FD7 /* zhPopupController.m */,
+				0495145D2514850000294FD7 /* zhPopupController.h */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		049514642514862A00294FD7 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				049514652514869700294FD7 /* GTMenuSelectView.h */,
+				049514662514869700294FD7 /* GTMenuSelectView.m */,
+				049514692514878500294FD7 /* GTMenuSelectViewCollectionViewCell.h */,
+				0495146A2514878500294FD7 /* GTMenuSelectViewCollectionViewCell.m */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		049514762515A7AE00294FD7 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				049514772515A7C100294FD7 /* GTHomeModel.h */,
+				049514782515A7C100294FD7 /* GTHomeModel.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		049514922516017E00294FD7 /* fileDocument */ = {
+			isa = PBXGroup;
+			children = (
+				049514932516017E00294FD7 /* file.json */,
+				049514942516017E00294FD7 /* burstData.json */,
+				049514952516017E00294FD7 /* fearIndexDate.json */,
+				049514962516017E00294FD7 /* multiSpaceRatioData.json */,
+				049514972516017E00294FD7 /* home.json */,
+				049514982516017E00294FD7 /* holdData.json */,
+			);
+			path = fileDocument;
+			sourceTree = "<group>";
+		};
+		049514A32518719E00294FD7 /* GTFearIndex-恐慌指数 */ = {
+			isa = PBXGroup;
+			children = (
+				049514A7251871F300294FD7 /* model */,
+				049514A6251871DF00294FD7 /* view */,
+				049514A4251871BD00294FD7 /* controller */,
+			);
+			path = "GTFearIndex-恐慌指数";
+			sourceTree = "<group>";
+		};
+		049514A4251871BD00294FD7 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				049514A82518722000294FD7 /* GTFearIndexViewController.h */,
+				049514A92518722000294FD7 /* GTFearIndexViewController.m */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		049514A6251871DF00294FD7 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				049514AC2518728600294FD7 /* GTFearIndexLineChartsTableViewCell.h */,
+				049514AD2518728600294FD7 /* GTFearIndexLineChartsTableViewCell.m */,
+				049514AE2518728600294FD7 /* GTFearIndexLineChartsTableViewCell.xib */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		049514A7251871F300294FD7 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				049514B22518886200294FD7 /* GTFearIndexModel.h */,
+				049514B32518886200294FD7 /* GTFearIndexModel.m */,
+				049514B62518A1C600294FD7 /* GTXAxisFearIndexValueFormatter.h */,
+				049514B72518A1C600294FD7 /* GTXAxisFearIndexValueFormatter.m */,
+				049514BA2518A1DD00294FD7 /* GTYxisFearIndexValueFormatter.h */,
+				049514BB2518A1DD00294FD7 /* GTYxisFearIndexValueFormatter.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
 		04BA82C825104EF500E1FE8F /* Total */ = {
 			isa = PBXGroup;
 			children = (
@@ -657,6 +811,7 @@
 		04CBE5852511FC6000E4DD40 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				049514592514850000294FD7 /* zhPopupController */,
 				04CBE5862511FCCB00E4DD40 /* LNRefresh */,
 			);
 			path = Library;
@@ -701,6 +856,7 @@
 		04D34E89250B0C8500D940D1 /* CoinTools */ = {
 			isa = PBXGroup;
 			children = (
+				049514A32518719E00294FD7 /* GTFearIndex-恐慌指数 */,
 				04CBE5852511FC6000E4DD40 /* Library */,
 				04BA82C825104EF500E1FE8F /* Total */,
 				04D34EA7250B0C8500D940D1 /* WholeNetworkPositionStatistics-全网持仓统计 */,
@@ -718,6 +874,7 @@
 				04D34FA6250B0D0200D940D1 /* CoinTools.h */,
 				04D34FA8250B0D7600D940D1 /* Info.plist */,
 				AD4E8D1C250C665600B027F8 /* CoinTool.swift */,
+				049514922516017E00294FD7 /* fileDocument */,
 			);
 			path = CoinTools;
 			sourceTree = "<group>";
@@ -891,23 +1048,26 @@
 		04D34EE3250B0C8500D940D1 /* main */ = {
 			isa = PBXGroup;
 			children = (
-				04CBE5B42512011400E4DD40 /* LNHeaderMeituanAnimator.m */,
-				04CBE5B52512011400E4DD40 /* LNHeaderMeituanAnimator.h */,
 				04D34EE4250B0C8500D940D1 /* GateBaseViewController.h */,
-				04D34EE5250B0C8500D940D1 /* GateRefreshAutoNormalFooter.h */,
-				04D34EE6250B0C8500D940D1 /* GateYAxisValueFormatter.m */,
-				04D34EE7250B0C8500D940D1 /* GatettttViewController.h */,
-				04D34EE8250B0C8500D940D1 /* GateXAxisValueFormatter.m */,
-				04D34EE9250B0C8500D940D1 /* SANavigationController.m */,
-				04D34EEA250B0C8500D940D1 /* GateRefreshNormalHeader.m */,
-				04D34EEB250B0C8500D940D1 /* GateRefreshAutoNormalFooter.m */,
 				04D34EEC250B0C8500D940D1 /* GateBaseViewController.m */,
-				04D34EED250B0C8500D940D1 /* GateXAxisValueFormatter.h */,
-				04D34EEE250B0C8500D940D1 /* GatettttViewController.m */,
-				04D34EEF250B0C8500D940D1 /* GateYAxisValueFormatter.h */,
-				04D34EF0250B0C8500D940D1 /* GateRefreshNormalHeader.h */,
-				04D34EF1250B0C8500D940D1 /* SANavigationController.h */,
 				04D34EF2250B0C8500D940D1 /* GateNumberFormatUtils.swift */,
+				04D34EE5250B0C8500D940D1 /* GateRefreshAutoNormalFooter.h */,
+				04D34EEB250B0C8500D940D1 /* GateRefreshAutoNormalFooter.m */,
+				04D34EF0250B0C8500D940D1 /* GateRefreshNormalHeader.h */,
+				04D34EEA250B0C8500D940D1 /* GateRefreshNormalHeader.m */,
+				04D34EE7250B0C8500D940D1 /* GatettttViewController.h */,
+				04D34EEE250B0C8500D940D1 /* GatettttViewController.m */,
+				04D34EED250B0C8500D940D1 /* GateXAxisValueFormatter.h */,
+				04D34EE8250B0C8500D940D1 /* GateXAxisValueFormatter.m */,
+				04D34EEF250B0C8500D940D1 /* GateYAxisValueFormatter.h */,
+				04D34EE6250B0C8500D940D1 /* GateYAxisValueFormatter.m */,
+				04CBE5B52512011400E4DD40 /* LNHeaderMeituanAnimator.h */,
+				04CBE5B42512011400E4DD40 /* LNHeaderMeituanAnimator.m */,
+				04D34EF1250B0C8500D940D1 /* SANavigationController.h */,
+				04D34EE9250B0C8500D940D1 /* SANavigationController.m */,
+				049514812515B8DA00294FD7 /* GTCurrencyTool.h */,
+				049514822515B8DA00294FD7 /* GTCurrencyTool.m */,
+				049514642514862A00294FD7 /* view */,
 			);
 			path = main;
 			sourceTree = "<group>";
@@ -938,6 +1098,8 @@
 				04D34F02250B0C8600D940D1 /* GateYHorstAxisValueFormatter.m */,
 				04D34F03250B0C8600D940D1 /* GateXHorstAxisValueFormatter.h */,
 				04D34F04250B0C8600D940D1 /* GateYHorstAxisValueFormatter.h */,
+				0495149F2516082200294FD7 /* GTBurstModel.h */,
+				049514A02516082200294FD7 /* GTBurstModel.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -981,66 +1143,66 @@
 		04D34FAD250B0F7200D940D1 /* Category+c */ = {
 			isa = PBXGroup;
 			children = (
-				04D34FAE250B0F7200D940D1 /* UIImageView+PlayGIF.h */,
-				04D34FAF250B0F7200D940D1 /* NSArray+WHArray.h */,
-				04D34FB0250B0F7200D940D1 /* UIDevice+WHDevice.m */,
-				04D34FB1250B0F7200D940D1 /* NSDate+WHDate.h */,
-				04D34FB2250B0F7200D940D1 /* UIImage+WHImage.h */,
-				04D34FB3250B0F7200D940D1 /* NSDate+Category.m */,
-				04D34FB4250B0F7200D940D1 /* NSString+WHString.m */,
-				04D34FB5250B0F7200D940D1 /* NSNumber+WHNumber.m */,
-				04D34FB6250B0F7200D940D1 /* NSDateFormatter+Category.h */,
-				04D34FB7250B0F7200D940D1 /* UITextView+YLTextView.h */,
-				04D34FB8250B0F7200D940D1 /* NSObject+WHObject.m */,
-				04D34FB9250B0F7200D940D1 /* UIScrollView+WHScrollView.h */,
-				04D34FBA250B0F7200D940D1 /* UIButton+WHButton.h */,
-				04D34FBB250B0F7200D940D1 /* UITableView+WHTableView.h */,
-				04D34FBC250B0F7200D940D1 /* UINavigationController+WHNavigationController.h */,
-				04D34FBD250B0F7200D940D1 /* UIColor+WHColor.h */,
 				04D34FBE250B0F7200D940D1 /* NSArray+decription.h */,
-				04D34FBF250B0F7200D940D1 /* UILabel+WHLabel.m */,
-				04D34FC0250B0F7200D940D1 /* NSTimer+WHTimer.h */,
-				04D34FC1250B0F7200D940D1 /* NSFileManager+WHFileManager.h */,
-				04D34FC2250B0F7200D940D1 /* UIBarButtonItem+LFExtension.h */,
-				04D34FC3250B0F7200D940D1 /* UIView+CLFExtension.m */,
-				04D34FC4250B0F7200D940D1 /* UIBarButtonItem+Item.h */,
-				04D34FC5250B0F7200D940D1 /* NSDictionary+WHDictionary.m */,
-				04D34FC6250B0F7200D940D1 /* WHMethods.m */,
-				04D34FC7250B0F7200D940D1 /* UIView+WHView.m */,
-				04D34FC8250B0F7200D940D1 /* UIImageView+WHImageView.m */,
-				04D34FC9250B0F7200D940D1 /* UIBarButtonItem+WHBarButtonItem.m */,
-				04D34FCA250B0F7200D940D1 /* UIViewController+WHVC.h */,
-				04D34FCB250B0F7200D940D1 /* NSDate+Category.h */,
-				04D34FCC250B0F7200D940D1 /* UIImage+WHImage.m */,
-				04D34FCD250B0F7200D940D1 /* NSDate+WHDate.m */,
-				04D34FCE250B0F7200D940D1 /* UIDevice+WHDevice.h */,
-				04D34FCF250B0F7200D940D1 /* NSArray+WHArray.m */,
-				04D34FD0250B0F7200D940D1 /* UIImageView+PlayGIF.m */,
 				04D34FD1250B0F7200D940D1 /* NSArray+decription.m */,
-				04D34FD2250B0F7200D940D1 /* UIColor+WHColor.m */,
-				04D34FD3250B0F7200D940D1 /* UINavigationController+WHNavigationController.m */,
-				04D34FD4250B0F7200D940D1 /* UITableView+WHTableView.m */,
-				04D34FD5250B0F7200D940D1 /* UIButton+WHButton.m */,
-				04D34FD6250B0F7200D940D1 /* UIScrollView+WHScrollView.m */,
-				04D34FD7250B0F7200D940D1 /* NSObject+WHObject.h */,
-				04D34FD8250B0F7200D940D1 /* UITextView+YLTextView.m */,
-				04D34FD9250B0F7200D940D1 /* NSNumber+WHNumber.h */,
-				04D34FDA250B0F7200D940D1 /* WHCategory.h */,
+				04D34FAF250B0F7200D940D1 /* NSArray+WHArray.h */,
+				04D34FCF250B0F7200D940D1 /* NSArray+WHArray.m */,
+				04D34FCB250B0F7200D940D1 /* NSDate+Category.h */,
+				04D34FB3250B0F7200D940D1 /* NSDate+Category.m */,
+				04D34FB1250B0F7200D940D1 /* NSDate+WHDate.h */,
+				04D34FCD250B0F7200D940D1 /* NSDate+WHDate.m */,
+				04D34FB6250B0F7200D940D1 /* NSDateFormatter+Category.h */,
 				04D34FDB250B0F7200D940D1 /* NSDateFormatter+Category.m */,
-				04D34FDC250B0F7200D940D1 /* NSString+WHString.h */,
-				04D34FDD250B0F7200D940D1 /* UIBarButtonItem+Item.m */,
-				04D34FDE250B0F7200D940D1 /* UIBarButtonItem+LFExtension.m */,
-				04D34FDF250B0F7200D940D1 /* UIView+CLFExtension.h */,
-				04D34FE0250B0F7200D940D1 /* NSFileManager+WHFileManager.m */,
-				04D34FE1250B0F7200D940D1 /* NSTimer+WHTimer.m */,
-				04D34FE2250B0F7200D940D1 /* UILabel+WHLabel.h */,
-				04D34FE3250B0F7200D940D1 /* UIBarButtonItem+WHBarButtonItem.h */,
-				04D34FE4250B0F7200D940D1 /* UIViewController+WHVC.m */,
-				04D34FE5250B0F7200D940D1 /* WHMethods.h */,
-				04D34FE6250B0F7200D940D1 /* UIView+WHView.h */,
-				04D34FE7250B0F7200D940D1 /* UIImageView+WHImageView.h */,
-				04D34FE8250B0F7200D940D1 /* WHMacro.h */,
 				04D34FE9250B0F7200D940D1 /* NSDictionary+WHDictionary.h */,
+				04D34FC5250B0F7200D940D1 /* NSDictionary+WHDictionary.m */,
+				04D34FC1250B0F7200D940D1 /* NSFileManager+WHFileManager.h */,
+				04D34FE0250B0F7200D940D1 /* NSFileManager+WHFileManager.m */,
+				04D34FD9250B0F7200D940D1 /* NSNumber+WHNumber.h */,
+				04D34FB5250B0F7200D940D1 /* NSNumber+WHNumber.m */,
+				04D34FD7250B0F7200D940D1 /* NSObject+WHObject.h */,
+				04D34FB8250B0F7200D940D1 /* NSObject+WHObject.m */,
+				04D34FDC250B0F7200D940D1 /* NSString+WHString.h */,
+				04D34FB4250B0F7200D940D1 /* NSString+WHString.m */,
+				04D34FC0250B0F7200D940D1 /* NSTimer+WHTimer.h */,
+				04D34FE1250B0F7200D940D1 /* NSTimer+WHTimer.m */,
+				04D34FC4250B0F7200D940D1 /* UIBarButtonItem+Item.h */,
+				04D34FDD250B0F7200D940D1 /* UIBarButtonItem+Item.m */,
+				04D34FC2250B0F7200D940D1 /* UIBarButtonItem+LFExtension.h */,
+				04D34FDE250B0F7200D940D1 /* UIBarButtonItem+LFExtension.m */,
+				04D34FE3250B0F7200D940D1 /* UIBarButtonItem+WHBarButtonItem.h */,
+				04D34FC9250B0F7200D940D1 /* UIBarButtonItem+WHBarButtonItem.m */,
+				04D34FBA250B0F7200D940D1 /* UIButton+WHButton.h */,
+				04D34FD5250B0F7200D940D1 /* UIButton+WHButton.m */,
+				04D34FBD250B0F7200D940D1 /* UIColor+WHColor.h */,
+				04D34FD2250B0F7200D940D1 /* UIColor+WHColor.m */,
+				04D34FCE250B0F7200D940D1 /* UIDevice+WHDevice.h */,
+				04D34FB0250B0F7200D940D1 /* UIDevice+WHDevice.m */,
+				04D34FB2250B0F7200D940D1 /* UIImage+WHImage.h */,
+				04D34FCC250B0F7200D940D1 /* UIImage+WHImage.m */,
+				04D34FAE250B0F7200D940D1 /* UIImageView+PlayGIF.h */,
+				04D34FD0250B0F7200D940D1 /* UIImageView+PlayGIF.m */,
+				04D34FE7250B0F7200D940D1 /* UIImageView+WHImageView.h */,
+				04D34FC8250B0F7200D940D1 /* UIImageView+WHImageView.m */,
+				04D34FE2250B0F7200D940D1 /* UILabel+WHLabel.h */,
+				04D34FBF250B0F7200D940D1 /* UILabel+WHLabel.m */,
+				04D34FBC250B0F7200D940D1 /* UINavigationController+WHNavigationController.h */,
+				04D34FD3250B0F7200D940D1 /* UINavigationController+WHNavigationController.m */,
+				04D34FB9250B0F7200D940D1 /* UIScrollView+WHScrollView.h */,
+				04D34FD6250B0F7200D940D1 /* UIScrollView+WHScrollView.m */,
+				04D34FBB250B0F7200D940D1 /* UITableView+WHTableView.h */,
+				04D34FD4250B0F7200D940D1 /* UITableView+WHTableView.m */,
+				04D34FB7250B0F7200D940D1 /* UITextView+YLTextView.h */,
+				04D34FD8250B0F7200D940D1 /* UITextView+YLTextView.m */,
+				04D34FDF250B0F7200D940D1 /* UIView+CLFExtension.h */,
+				04D34FC3250B0F7200D940D1 /* UIView+CLFExtension.m */,
+				04D34FE6250B0F7200D940D1 /* UIView+WHView.h */,
+				04D34FC7250B0F7200D940D1 /* UIView+WHView.m */,
+				04D34FCA250B0F7200D940D1 /* UIViewController+WHVC.h */,
+				04D34FE4250B0F7200D940D1 /* UIViewController+WHVC.m */,
+				04D34FDA250B0F7200D940D1 /* WHCategory.h */,
+				04D34FE8250B0F7200D940D1 /* WHMacro.h */,
+				04D34FE5250B0F7200D940D1 /* WHMethods.h */,
+				04D34FC6250B0F7200D940D1 /* WHMethods.m */,
 			);
 			path = "Category+c";
 			sourceTree = "<group>";
@@ -1101,28 +1263,28 @@
 		04D35055250B16EA00D940D1 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				04D3505C250B16EA00D940D1 /* BalloonMarker.swift */,
+				04D35062250B16EA00D940D1 /* GateData1TableViewCell.h */,
+				04D35059250B16EA00D940D1 /* GateData1TableViewCell.m */,
+				04D35064250B16EA00D940D1 /* GateData1TableViewCell.xib */,
+				04D3506A250B16EA00D940D1 /* GateData2TableViewCell.h */,
+				04D3505E250B16EA00D940D1 /* GateData2TableViewCell.m */,
+				04D35060250B16EA00D940D1 /* GateData2TableViewCell.xib */,
+				04D35063250B16EA00D940D1 /* GateHearCategoryView.h */,
+				04D35058250B16EA00D940D1 /* GateHearCategoryView.m */,
+				04D35067250B16EA00D940D1 /* GateHearView.h */,
+				04D3505B250B16EA00D940D1 /* GateHearView.m */,
+				04D3506B250B16EA00D940D1 /* GateLineChartTableViewCell.h */,
+				04D35061250B16EA00D940D1 /* GateLineChartTableViewCell.m */,
+				04D35066250B16EA00D940D1 /* GateLineChartTableViewCell.xib */,
+				04D35065250B16EA00D940D1 /* GatePrgessTableViewCell.h */,
 				04D35056250B16EA00D940D1 /* GatePrgessTableViewCell.m */,
 				04D35057250B16EA00D940D1 /* GatePrgessTableViewCell.xib */,
-				04D35058250B16EA00D940D1 /* GateHearCategoryView.m */,
-				04D35059250B16EA00D940D1 /* GateData1TableViewCell.m */,
 				04D3505A250B16EA00D940D1 /* GateSelectLineChartCollectionViewCell.h */,
-				04D3505B250B16EA00D940D1 /* GateHearView.m */,
-				04D3505C250B16EA00D940D1 /* BalloonMarker.swift */,
-				04D3505D250B16EA00D940D1 /* GateSelectLineChartCollectionViewCell.xib */,
-				04D3505E250B16EA00D940D1 /* GateData2TableViewCell.m */,
-				04D3505F250B16EA00D940D1 /* GateTopView.m */,
-				04D35060250B16EA00D940D1 /* GateData2TableViewCell.xib */,
-				04D35061250B16EA00D940D1 /* GateLineChartTableViewCell.m */,
-				04D35062250B16EA00D940D1 /* GateData1TableViewCell.h */,
-				04D35063250B16EA00D940D1 /* GateHearCategoryView.h */,
-				04D35064250B16EA00D940D1 /* GateData1TableViewCell.xib */,
-				04D35065250B16EA00D940D1 /* GatePrgessTableViewCell.h */,
-				04D35066250B16EA00D940D1 /* GateLineChartTableViewCell.xib */,
-				04D35067250B16EA00D940D1 /* GateHearView.h */,
 				04D35068250B16EA00D940D1 /* GateSelectLineChartCollectionViewCell.m */,
+				04D3505D250B16EA00D940D1 /* GateSelectLineChartCollectionViewCell.xib */,
 				04D35069250B16EA00D940D1 /* GateTopView.h */,
-				04D3506A250B16EA00D940D1 /* GateData2TableViewCell.h */,
-				04D3506B250B16EA00D940D1 /* GateLineChartTableViewCell.h */,
+				04D3505F250B16EA00D940D1 /* GateTopView.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1143,8 +1305,8 @@
 		04D35092250B17F600D940D1 /* HomePags-首页 */ = {
 			isa = PBXGroup;
 			children = (
+				049514762515A7AE00294FD7 /* model */,
 				04D35093250B17F600D940D1 /* controller */,
-				04D35094250B17F600D940D1 /* model */,
 				04D35095250B17F600D940D1 /* view */,
 			);
 			path = "HomePags-首页";
@@ -1157,13 +1319,6 @@
 				04D35096250B184E00D940D1 /* GateHomePageController.m */,
 			);
 			path = controller;
-			sourceTree = "<group>";
-		};
-		04D35094250B17F600D940D1 /* model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = model;
 			sourceTree = "<group>";
 		};
 		04D35095250B17F600D940D1 /* view */ = {
@@ -1194,6 +1349,8 @@
 				04CBE5D62512620400E4DD40 /* GTRightCollectionViewCell.h */,
 				04CBE5D72512620400E4DD40 /* GTRightCollectionViewCell.m */,
 				04CBE5D82512620400E4DD40 /* GTRightCollectionViewCell.xib */,
+				0495146D2514E16100294FD7 /* GTPointerView.h */,
+				0495146E2514E16100294FD7 /* GTPointerView.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1282,10 +1439,13 @@
 				04D3508B250B16EA00D940D1 /* GateNewDetailsViewController.h in Headers */,
 				04D34F4A250B0C8600D940D1 /* GatePublicSelectModel.h in Headers */,
 				04D3501D250B0F7300D940D1 /* NSDate+Category.h in Headers */,
+				049514B42518886200294FD7 /* GTFearIndexModel.h in Headers */,
 				04CBE5AA2511FCCB00E4DD40 /* LNRefreshFooter.h in Headers */,
 				04D35038250B0F7300D940D1 /* UIView+WHView.h in Headers */,
 				04D35079250B16EA00D940D1 /* GateSelectLineChartCollectionViewCell.h in Headers */,
+				049514B82518A1C600294FD7 /* GTXAxisFearIndexValueFormatter.h in Headers */,
 				04D3509C250B18E500D940D1 /* GateHomePageTopEnterView.h in Headers */,
+				049514792515A7C100294FD7 /* GTHomeModel.h in Headers */,
 				04D3508F250B16EA00D940D1 /* GateDetailsViewController.h in Headers */,
 				04D35004250B0F7300D940D1 /* UIImage+WHImage.h in Headers */,
 				04D35000250B0F7300D940D1 /* UIImageView+PlayGIF.h in Headers */,
@@ -1305,6 +1465,7 @@
 				04D34FA5250B0C8600D940D1 /* GateHoursCollectionViewCell.h in Headers */,
 				04D34F6A250B0C8600D940D1 /* GateRequestManager.h in Headers */,
 				04D34F48250B0C8600D940D1 /* pressView.h in Headers */,
+				049514A12516082200294FD7 /* GTBurstModel.h in Headers */,
 				04CBE5CD2512450300E4DD40 /* GTNewTopDuiBiCollectionViewCell.h in Headers */,
 				04D34F42250B0C8600D940D1 /* JXCategoryTitleBackgroundView.h in Headers */,
 				04D34F2B250B0C8600D940D1 /* GateWholeNetworkBigOrderStatisticsCell.h in Headers */,
@@ -1314,6 +1475,7 @@
 				04D34F52250B0C8600D940D1 /* GateHeaderFile.h in Headers */,
 				04D34F91250B0C8600D940D1 /* GateHousBurstStatisticsTableViewCell.h in Headers */,
 				04D34F4F250B0C8600D940D1 /* ConfigFile.pch in Headers */,
+				0495146F2514E16100294FD7 /* GTPointerView.h in Headers */,
 				04D34F50250B0C8600D940D1 /* URL.h in Headers */,
 				04D34F3E250B0C8600D940D1 /* GateDeliveryPositionAmountCell.h in Headers */,
 				04D34F3B250B0C8600D940D1 /* GateWholeNetworkPositionStatisticsViewController.h in Headers */,
@@ -1324,6 +1486,7 @@
 				04D35082250B16EA00D940D1 /* GateHearCategoryView.h in Headers */,
 				04D350A1250B1A1900D940D1 /* GateHomePageTopEnterViewCollectionViewCell.h in Headers */,
 				04D34F51250B0C8600D940D1 /* GateToolDefine.h in Headers */,
+				049514832515B8DA00294FD7 /* GTCurrencyTool.h in Headers */,
 				04BA82D7251093DA00E1FE8F /* GTHoldCoinListTableViewCell.h in Headers */,
 				04D34F79250B0C8600D940D1 /* SANavigationController.h in Headers */,
 				04BA82D0251077E600E1FE8F /* GTHoldCoinHeardView.h in Headers */,
@@ -1350,11 +1513,13 @@
 				04D34F9F250B0C8600D940D1 /* GateHoursTableViewCell.h in Headers */,
 				04D350A6250B1B9D00D940D1 /* GateHomePageTopEnterViewCell.h in Headers */,
 				04D35084250B16EA00D940D1 /* GatePrgessTableViewCell.h in Headers */,
+				049514BC2518A1DD00294FD7 /* GTYxisFearIndexValueFormatter.h in Headers */,
 				04D34FA3250B0C8600D940D1 /* GateBurstHouseTableViewCell.h in Headers */,
 				04D34FA1250B0C8600D940D1 /* GateThirtyDaysBurstStatisticsTableViewCell.h in Headers */,
 				04D34F75250B0C8600D940D1 /* GateXAxisValueFormatter.h in Headers */,
 				04D34F95250B0C8600D940D1 /* GateHoursSelectCategoryView.h in Headers */,
 				04D34F46250B0C8600D940D1 /* JXCategoryTitleBackgroundCellModel.h in Headers */,
+				049514672514869700294FD7 /* GTMenuSelectView.h in Headers */,
 				04D34F8A250B0C8600D940D1 /* GateTopSelectView.h in Headers */,
 				04D34F36250B0C8600D940D1 /* GateThirtyDaysBigOrderStatisticsSelectView.h in Headers */,
 				04CBE5B72512011400E4DD40 /* LNHeaderMeituanAnimator.h in Headers */,
@@ -1365,7 +1530,9 @@
 				04CBE5BB251216F300E4DD40 /* GTNewTopTableViewCell.h in Headers */,
 				04D34F35250B0C8600D940D1 /* GateWholeNetworkBigOrderStatisticsCollectionCell.h in Headers */,
 				04D34F28250B0C8600D940D1 /* GateMarketValueCell.h in Headers */,
+				049514AF2518728600294FD7 /* GTFearIndexLineChartsTableViewCell.h in Headers */,
 				04D34F24250B0C8600D940D1 /* GateHoldCoinViewController.h in Headers */,
+				049514AA2518722000294FD7 /* GTFearIndexViewController.h in Headers */,
 				04D35034250B0F7300D940D1 /* UILabel+WHLabel.h in Headers */,
 				04D3502E250B0F7300D940D1 /* NSString+WHString.h in Headers */,
 				04CBE5A42511FCCB00E4DD40 /* LNHeaderAnimator.h in Headers */,
@@ -1379,6 +1546,7 @@
 				04D350B6250B587700D940D1 /* GateHoldCoinTopMessageCell.h in Headers */,
 				04D35029250B0F7300D940D1 /* NSObject+WHObject.h in Headers */,
 				04D35010250B0F7300D940D1 /* NSArray+decription.h in Headers */,
+				049514622514850000294FD7 /* zhPopupController.h in Headers */,
 				04D3502B250B0F7300D940D1 /* NSNumber+WHNumber.h in Headers */,
 				04D35045250B0F7300D940D1 /* UIColor+HYDEGradientChange.h in Headers */,
 				04D35013250B0F7300D940D1 /* NSFileManager+WHFileManager.h in Headers */,
@@ -1394,6 +1562,7 @@
 				04D35046250B0F7300D940D1 /* NSString+GateAttribute.h in Headers */,
 				04D35020250B0F7300D940D1 /* UIDevice+WHDevice.h in Headers */,
 				04D3504F250B0F7300D940D1 /* UIViewController+HYDENavigation.h in Headers */,
+				0495146B2514878500294FD7 /* GTMenuSelectViewCollectionViewCell.h in Headers */,
 				04D3503B250B0F7300D940D1 /* NSDictionary+WHDictionary.h in Headers */,
 				04CBE5D32512594B00E4DD40 /* GTMainCoinQuotationListTableViewCell.h in Headers */,
 				04D3504A250B0F7300D940D1 /* UISegmentedControl+Category.h in Headers */,
@@ -1495,15 +1664,20 @@
 				04D34F3D250B0C8600D940D1 /* GateDeliveryPositionAmountCell.xib in Resources */,
 				04D34F32250B0C8600D940D1 /* GateBigOrderDistributionDealCell.xib in Resources */,
 				04D35076250B16EA00D940D1 /* GatePrgessTableViewCell.xib in Resources */,
+				049514B12518728600294FD7 /* GTFearIndexLineChartsTableViewCell.xib in Resources */,
 				04D34F96250B0C8600D940D1 /* GateHousBurstStatisticsTableViewCell.xib in Resources */,
 				04CBE5CF2512450300E4DD40 /* GTNewTopDuiBiCollectionViewCell.xib in Resources */,
+				0495149D2516017E00294FD7 /* home.json in Resources */,
 				04D34F9B250B0C8600D940D1 /* GateHoursCollectionViewCell.xib in Resources */,
 				04D34F8D250B0C8600D940D1 /* GateBurstListTableViewCell.xib in Resources */,
 				04D350B8250B587700D940D1 /* GateHoldCoinTopMessageCell.xib in Resources */,
 				04D350C0250B75CB00D940D1 /* GTHoldChartsStatisticsTableViewCell.xib in Resources */,
+				0495149B2516017E00294FD7 /* fearIndexDate.json in Resources */,
 				04D34F9C250B0C8600D940D1 /* GateThirtyDaysBurstStatisticsTableViewCell.xib in Resources */,
 				04D3507C250B16EA00D940D1 /* GateSelectLineChartCollectionViewCell.xib in Resources */,
+				0495149C2516017E00294FD7 /* multiSpaceRatioData.json in Resources */,
 				04D35083250B16EA00D940D1 /* GateData1TableViewCell.xib in Resources */,
+				0495149E2516017E00294FD7 /* holdData.json in Resources */,
 				04D34F8C250B0C8600D940D1 /* GateHoursTableViewCell.xib in Resources */,
 				04D3507F250B16EA00D940D1 /* GateData2TableViewCell.xib in Resources */,
 				04CBE5C9251219A900E4DD40 /* GTNewTopCollectionViewCell.xib in Resources */,
@@ -1514,7 +1688,9 @@
 				04D350AD250B201700D940D1 /* GateFearIndexTableViewCell.xib in Resources */,
 				04D34F7C250B0C8600D940D1 /* GateScources.bundle in Resources */,
 				04CBE5D52512594B00E4DD40 /* GTMainCoinQuotationListTableViewCell.xib in Resources */,
+				049514992516017E00294FD7 /* file.json in Resources */,
 				04BA82D32510782600E1FE8F /* GTHoldCoinHeardView.xib in Resources */,
+				0495149A2516017E00294FD7 /* burstData.json in Resources */,
 				04D34F29250B0C8600D940D1 /* GateMarketValueCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1609,18 +1785,24 @@
 				04CBE5A22511FCCB00E4DD40 /* LNRefreshFooter.m in Sources */,
 				04D35023250B0F7300D940D1 /* NSArray+decription.m in Sources */,
 				04D3502A250B0F7300D940D1 /* UITextView+YLTextView.m in Sources */,
+				049514612514850000294FD7 /* zhPopupController.m in Sources */,
 				04D35075250B16EA00D940D1 /* GatePrgessTableViewCell.m in Sources */,
 				04D34F40250B0C8600D940D1 /* GatePublicSelectView.m in Sources */,
+				049514842515B8DA00294FD7 /* GTCurrencyTool.m in Sources */,
 				04BA82D1251077E600E1FE8F /* GTHoldCoinHeardView.m in Sources */,
+				049514B52518886200294FD7 /* GTFearIndexModel.m in Sources */,
 				04D35049250B0F7300D940D1 /* UIFont+HYDENormalFont.m in Sources */,
 				04D35048250B0F7300D940D1 /* NSString+HYDESize.m in Sources */,
 				04D34F2C250B0C8600D940D1 /* GateThirtyDaysBigOrderStatisticsTableViewCell.m in Sources */,
 				04D34F30250B0C8600D940D1 /* GateThirtyDaysBigOrderStatisticsSelectView.m in Sources */,
 				04CBE5CE2512450300E4DD40 /* GTNewTopDuiBiCollectionViewCell.m in Sources */,
 				04D34F3C250B0C8600D940D1 /* GateDeliveryPositionAmountCell.m in Sources */,
+				049514682514869700294FD7 /* GTMenuSelectView.m in Sources */,
 				04D34F44250B0C8600D940D1 /* JXCategoryTitleBackgroundCell.m in Sources */,
 				04CBE5B62512011400E4DD40 /* LNHeaderMeituanAnimator.m in Sources */,
+				0495147A2515A7C100294FD7 /* GTHomeModel.m in Sources */,
 				04CBE5AE2511FCCB00E4DD40 /* LNHeaderAnimator.m in Sources */,
+				049514AB2518722000294FD7 /* GTFearIndexViewController.m in Sources */,
 				04D35007250B0F7300D940D1 /* NSNumber+WHNumber.m in Sources */,
 				04D35019250B0F7300D940D1 /* UIView+WHView.m in Sources */,
 				04D350AC250B201700D940D1 /* GateFearIndexTableViewCell.m in Sources */,
@@ -1628,6 +1810,7 @@
 				04D3501F250B0F7300D940D1 /* NSDate+WHDate.m in Sources */,
 				04CBE5D42512594B00E4DD40 /* GTMainCoinQuotationListTableViewCell.m in Sources */,
 				04D34F9D250B0C8600D940D1 /* GateHousBurstStatisticsTableViewCell.m in Sources */,
+				049514BD2518A1DD00294FD7 /* GTYxisFearIndexValueFormatter.m in Sources */,
 				04D3507A250B16EA00D940D1 /* GateHearView.m in Sources */,
 				04D35073250B16EA00D940D1 /* GateHomeModel.m in Sources */,
 				04D3501B250B0F7300D940D1 /* UIBarButtonItem+WHBarButtonItem.m in Sources */,
@@ -1647,11 +1830,13 @@
 				04CBE5A32511FCCB00E4DD40 /* LNRefreshConst.m in Sources */,
 				04D35098250B184E00D940D1 /* GateHomePageController.m in Sources */,
 				04D3502D250B0F7300D940D1 /* NSDateFormatter+Category.m in Sources */,
+				049514B92518A1C600294FD7 /* GTXAxisFearIndexValueFormatter.m in Sources */,
 				04D34F26250B0C8600D940D1 /* GateHoldCoinViewController.m in Sources */,
 				04D34FA0250B0C8600D940D1 /* GateHoursSelectCategoryView.m in Sources */,
 				04D35002250B0F7300D940D1 /* UIDevice+WHDevice.m in Sources */,
 				04D34F70250B0C8600D940D1 /* GateXAxisValueFormatter.m in Sources */,
 				04D3503E250B0F7300D940D1 /* NSString+GateAttribute.m in Sources */,
+				049514702514E16100294FD7 /* GTPointerView.m in Sources */,
 				04D34F8B250B0C8600D940D1 /* XYMarkerView.swift in Sources */,
 				04D34F97250B0C8600D940D1 /* GateHoursCollectionViewCell.m in Sources */,
 				04D3504D250B0F7300D940D1 /* UITableViewCell+GateTableViewCell.m in Sources */,
@@ -1659,6 +1844,7 @@
 				04D350A7250B1B9D00D940D1 /* GateHomePageTopEnterViewCell.m in Sources */,
 				04D35077250B16EA00D940D1 /* GateHearCategoryView.m in Sources */,
 				04D350BF250B75CB00D940D1 /* GTHoldChartsStatisticsTableViewCell.m in Sources */,
+				049514B02518728600294FD7 /* GTFearIndexLineChartsTableViewCell.m in Sources */,
 				04D350A2250B1A1900D940D1 /* GateHomePageTopEnterViewCollectionViewCell.m in Sources */,
 				04D35017250B0F7300D940D1 /* NSDictionary+WHDictionary.m in Sources */,
 				04D3501A250B0F7300D940D1 /* UIImageView+WHImageView.m in Sources */,
@@ -1669,6 +1855,7 @@
 				04D3503D250B0F7300D940D1 /* UIView+shadowPath.m in Sources */,
 				04D3501E250B0F7300D940D1 /* UIImage+WHImage.m in Sources */,
 				04D34F83250B0C8600D940D1 /* GateBurstViewController.m in Sources */,
+				049514A22516082200294FD7 /* GTBurstModel.m in Sources */,
 				04D35036250B0F7300D940D1 /* UIViewController+WHVC.m in Sources */,
 				04D35021250B0F7300D940D1 /* NSArray+WHArray.m in Sources */,
 				04D34F8E250B0C8600D940D1 /* GateHoursTableViewCell.m in Sources */,
@@ -1720,6 +1907,7 @@
 				04CBE5A02511FCCB00E4DD40 /* LNRefreshHeader.m in Sources */,
 				04CBE5C8251219A900E4DD40 /* GTNewTopCollectionViewCell.m in Sources */,
 				04D34F33250B0C8600D940D1 /* GateWholeNetworkBigOrderStatisticsCell.m in Sources */,
+				0495146C2514878500294FD7 /* GTMenuSelectViewCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

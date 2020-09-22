@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *titleLb;
 @property (weak, nonatomic) IBOutlet UILabel *moneyLb;
 @property (weak, nonatomic) IBOutlet UILabel *twentyFourHourNumberLb;
-
+@property (strong, nonatomic) GTBcoin_btc_base_infoModel * bcoin_btc_base_infoModel;
 @end
 
 NS_ASSUME_NONNULL_END

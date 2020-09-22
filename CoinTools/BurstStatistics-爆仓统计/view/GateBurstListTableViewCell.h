@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "GTBurstModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GateBurstListTableViewCell : UITableViewCell
@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *tageLb;
 @property (weak, nonatomic) IBOutlet UILabel *moneyLb2;
 @property (weak, nonatomic) IBOutlet UILabel *sheetLb;
-
+@property(nonatomic,strong)GTBcoin_coin_burst_list_infoModel* bcoin_coin_burst_list_infoModel;
 @end
 
 NS_ASSUME_NONNULL_END

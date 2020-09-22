@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface GateXHorstAxisValueFormatter : NSObject<IChartAxisValueFormatter>
 +(instancetype)getGateXHorstAxisValueFormatter;
-
+@property(nonatomic,strong)NSArray * publicArr;
 @end
 
 NS_ASSUME_NONNULL_END

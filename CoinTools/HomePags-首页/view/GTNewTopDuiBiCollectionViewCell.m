@@ -33,4 +33,8 @@
       });
 //      self.lineProgressView.progress = 0.6;
 }
+-(void)setBcoin_btc_base_infoModel:(GTBcoin_btc_base_infoModel *)bcoin_btc_base_infoModel{
+    self.titleLb.text = bcoin_btc_base_infoModel.data_type;
+    self.duibiLb.text = bcoin_btc_base_infoModel.data_result;
+}
 @end

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "GTBurstModel.h"
 #import "SYLineProgressView.h"
 NS_ASSUME_NONNULL_BEGIN
 
@@ -16,7 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *titleLb;
 @property (weak, nonatomic) IBOutlet UILabel *moneyLb;
 @property (weak, nonatomic) IBOutlet UILabel *progressLb;
-
+//@property(nonatomic,strong)NSArray <GTBcoin_coin_burst_exchange_infoModel *>* bcoin_coin_burst_exchange_info;
+@property(nonatomic,strong)GTBcoin_coin_burst_exchange_infoModel * bcoin_coin_burst_exchange_infoModel;
 @end
 
 

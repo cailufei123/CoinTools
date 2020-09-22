@@ -10,6 +10,7 @@
 #import "GateSelectLineChartCollectionViewCell.h"
 //#import "GatePublicSelectModel.h"
 #import "NSString+HYDESize.h"
+#define cornerRi 7
 @interface GatePublicSelectView ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property(nonatomic,strong)UICollectionView * collectionView;
 @property(nonatomic,strong)NSIndexPath * selectIndexPath;
@@ -103,7 +104,7 @@
 - (UICollectionViewCell * )collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
  GateSelectLineChartCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GateSelectLineChartCollectionViewCell" forIndexPath:indexPath];
     GatePublicSelectModel *  selectModel = self.arr[indexPath.row];
-    cell.innerView.cornerRadius = 7;
+    cell.innerView.cornerRadius = cornerRi-2;
     cell.nameLb.text = selectModel.titleText.length? selectModel.titleText:@"BTC交易";
     if (self.checkboxEnabled) {
          [self circularStyle:cell publicSelectModel:selectModel defaultStyle: selectModel.selectEnabled ?YES:NO];
@@ -172,7 +173,7 @@
    
     
     if (selectModel.shape == circular &&  self.specialCircularEnabled != YES) {
-         cell.selectBt.cornerRadius = 9;
+         cell.selectBt.cornerRadius = cornerRi;
          cell.selectBt.masksToBounds = NO;
          cell.selectBt.backgroundColor = [UIColor whiteColor];
          if (isDefault) {
@@ -196,7 +197,7 @@
     }else  if (selectModel.shape == specialCircular || self.specialCircularEnabled == YES) {
        
         cell.innerView.hidden = YES;
-               cell.selectBt.cornerRadius = 9;
+               cell.selectBt.cornerRadius = cornerRi;
          cell.selectBt.borderWidth = 0;
                if (isDefault) {
                    cell.nameLb.textColor = selectModel.selectColor;

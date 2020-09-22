@@ -20,4 +20,7 @@
 
 + (id)defaultDateFormatter;/*yyyy-MM-dd HH:mm:ss*/
 
++ (id)yyyy_MM_ddDateFormatter;
+
++ (id)mm_ddDateFormatter;
 @end

@@ -28,9 +28,7 @@
         self.navTitle  =@"大单成交统计";
         self.view.backgroundColor = [UIColor whiteColor];
 
-        GateTopSelectView * topSelectView = [[GateTopSelectView alloc] initWithFrame:CGRectMake(0, 0, scrWeiht, 40) categoryTitleViewStyle:CategoryZoomScale];
-
-        [self.view addSubview:topSelectView];
+       
         self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
 //        self.tableView.frame = CGRectMake(0,CGRectGetMaxY(topSelectView.frame) , scrWeiht, self.view.bounds.size.height-CGRectGetMaxY(topSelectView.frame));
         gateTableRegisterClass(self.tableView, @"GateWholeNetworkBigOrderStatisticsCell");
@@ -62,6 +60,9 @@
            [wself.tableView endRefreshing];
                });
        }];
+}
+-(void)selectitemOrindex:(NSInteger)index{
+    
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 5;

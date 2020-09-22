@@ -15,9 +15,10 @@
 #import "GateHoursSelectCategoryView.h"
 #import "GateCoinBurstStatisticsTableViewCell.h"
 #import "GateBurstListTableViewCell.h"
-
+#import "GTBurstModel.h"
 @interface GateBurstViewController ()
 @property(nonatomic,strong)NSArray * littes;
+@property(nonatomic,strong)GTBurstModel * burstModel;
 @end
 
 @implementation GateBurstViewController
@@ -26,9 +27,6 @@
     [super viewDidLoad];
     self.view.backgroundColor = UIColor.whiteColor;
     self.navTitle  =@"爆仓";
-    GateTopSelectView * topSelectView = [[GateTopSelectView alloc] initWithFrame:CGRectMake(0, 0, scrWeiht, 40) categoryTitleViewStyle:CategoryZoomScale];
-   
-    [self.view addSubview:topSelectView];
 //[UINib nibWithNibName:[NSString stringWithFormat:@"CoinTools.bundle/%@",] bundle:[NSBundle mainBundle]]
     gateTableRegisterNib(self.tableView, @"GateHoursTableViewCell");
       gateTableRegisterNib(self.tableView, @"GateBurstHouseTableViewCell");
@@ -55,15 +53,24 @@
          });
          
       }];
-//    self.tableView.mj_footer = footer;
-//    self.tableView.mj_header = header;
+
     __weak typeof(self) wself = self;
+    @weakify(self)
        [self.tableView addPullToRefresh:[LNHeaderMeituanAnimator createAnimator] block:^{
-           
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            @strongify(self)
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                
+                NSDictionary * dict =  [GTCurrencyTool readLocalFileWithName:@"CoinTools.framework/burstData"];
+                self.burstModel =[GTBurstModel  modelWithDictionary:dict[@"data"]];
+                [self.tableView reloadData];
+                
            [wself.tableView endRefreshing];
                });
        }];
+      [wself.tableView startRefreshing];
+}
+-(void)selectitemOrindex:(NSInteger)index{
+    
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -120,9 +127,9 @@
     }else if (section == 1) {
           return 3;
     }else if (section == 2){
-         return 1;
+        return self.burstModel.bcoin_coin_30d_calendar_info.count>0?1:0;
    }else if (section == 3){
-         return 10;
+       return self.burstModel.bcoin_coin_burst_exchange_info.count>0?self.burstModel.bcoin_coin_burst_exchange_info.count:0;
    }else if (section == 4){
          return 1;
    }else if (section == 5){
@@ -151,8 +158,9 @@
                                                      fd_heightForCellWithIdentifier:@"GateThirtyDaysBurstStatisticsTableViewCell"
                                                      cacheByIndexPath:indexPath
                                                      configuration:^(id cell) {
-                               //         cell.possArr = self.gateHomeModel.poss;
-                               //                           [(GateLineChartTableViewCell *)cell reloadCellWithData:self.listArray[indexPath.section]];
+                GateThirtyDaysBurstStatisticsTableViewCell *cell1 = cell;
+                
+                              cell1.bcoin_coin_30d_calendar_infos =  self.burstModel.bcoin_coin_30d_calendar_info;
                                                       }];
                                 return height;
        }else if (indexPath.section == 3){
@@ -164,9 +172,7 @@
                                                                  configuration:^(id cell) {
                 
                 GateCoinBurstStatisticsTableViewCell *cell1 = cell;
-                cell1.arr = @[];
-                                           //         cell.possArr = self.gateHomeModel.poss;
-                                           //                           [(GateLineChartTableViewCell *)cell reloadCellWithData:self.listArray[indexPath.section]];
+                cell1.bcoin_coin_burst_total_info = self.burstModel.bcoin_coin_burst_total_info;
                                                                   }];
                                             return height;
        }else if (indexPath.section == 5){
@@ -174,7 +180,8 @@
                                                                  fd_heightForCellWithIdentifier:@"GateBurstListTableViewCell"
                                                                  cacheByIndexPath:indexPath
                                                                  configuration:^(id cell) {
-                
+                GateBurstListTableViewCell*cell1 = cell;
+                 cell1.bcoin_coin_burst_list_infoModel = self.burstModel.bcoin_coin_burst_list_info[indexPath.row];
                                                                   }];
                                             return height;
        }else {
@@ -198,15 +205,19 @@
                               return cell;
        }else  if (indexPath.section == 2)  {
           GateThirtyDaysBurstStatisticsTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"GateThirtyDaysBurstStatisticsTableViewCell" forIndexPath:indexPath];
+           cell.bcoin_coin_30d_calendar_infos =  self.burstModel.bcoin_coin_30d_calendar_info;
                        return cell;
        }else  if (indexPath.section == 3)  {
           GateHousBurstStatisticsTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"GateHousBurstStatisticsTableViewCell" forIndexPath:indexPath];
+           cell.bcoin_coin_burst_exchange_infoModel = self.burstModel.bcoin_coin_burst_exchange_info[indexPath.row];
                        return cell;
        }else  if (indexPath.section == 4)  {
           GateCoinBurstStatisticsTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"GateCoinBurstStatisticsTableViewCell" forIndexPath:indexPath];
+           cell.bcoin_coin_burst_total_info = self.burstModel.bcoin_coin_burst_total_info;
                        return cell;
        }else  if (indexPath.section == 5)  {
           GateBurstListTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"GateBurstListTableViewCell" forIndexPath:indexPath];
+           cell.bcoin_coin_burst_list_infoModel = self.burstModel.bcoin_coin_burst_list_info[indexPath.row];
                        return cell;
        }else  {
           GateThirtyDaysBurstStatisticsTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"GateThirtyDaysBurstStatisticsTableViewCell" forIndexPath:indexPath];
@@ -214,7 +225,5 @@
        }
    
 }
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [self.tableView reloadData];
-}
+
 @end

@@ -30,5 +30,12 @@
 {
     return [self dateFormatterWithFormat:@"yyyy-MM-dd HH:mm:ss"];
 }
-
++ (id)yyyy_MM_ddDateFormatter
+{
+    return [self dateFormatterWithFormat:@"yyyy-MM-dd"];
+}
++ (id)mm_ddDateFormatter
+{
+    return [self dateFormatterWithFormat:@"MM-dd"];
+}
 @end

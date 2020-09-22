@@ -19,13 +19,25 @@
     [super awakeFromNib];
     // Initialization code
 }
+
+-(void)setBcoin_btc_base_info:(NSArray<GTBcoin_btc_base_infoModel *> *)bcoin_btc_base_info{
+    _bcoin_btc_base_info = bcoin_btc_base_info;
+    
+    [self.collectionView mas_updateConstraints:^(MASConstraintMaker *make) {
+       
+        NSInteger totalPage = (bcoin_btc_base_info.count + 4 - 1)/4;
+         make.height.mas_equalTo(totalPage * 71 + 2 * totalPage);
+    }];
+    
+    [self.collectionView reloadData];
+}
 -(UIView *)topView{
     if (!_topView) {
         _topView = [[UIView alloc] init];
         UILabel * lb = [[UILabel alloc] init];
         lb.textAlignment = NSTextAlignmentLeft;
         lb.text = @"BTC报价";lb.textColor = gateColor(@"333B46");
-        lb.font= gateFont(16, Medium);
+        lb.font= gateFont(14, Medium);
         
          [self.contentView addSubview:_topView];
         [_topView addSubview:lb];
@@ -48,12 +60,7 @@
     
     return self;
 }
--(void)setArr:(NSArray *)arr{
-    [self.collectionView mas_updateConstraints:^(MASConstraintMaker *make) {
-               make.height.mas_equalTo(335);
-//        arr.count * 80 + (arr.count -1) *  10
-           }];
-}
+
 -(void)collectionViewLyout{
     [self.topView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(0);
@@ -65,7 +72,7 @@
     [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(0);
         make.right.mas_equalTo(0);
-        make.height.mas_equalTo(144+74);
+        make.height.mas_equalTo(40);
         make.top.mas_equalTo(self.topView.mas_bottom).offset(0);
          make.bottom.mas_offset(0);
     }];
@@ -101,7 +108,7 @@
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    return 2;
+    return 1;
    
     
 }
@@ -109,10 +116,7 @@
 #pragma mark -kkkkk
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    if (section == 0) {
-         return 8;
-    }
-    return 4;
+    return self.bcoin_btc_base_info.count;
     
 }
 #pragma mark - collectionViewDelegate
@@ -128,14 +132,11 @@
 
     if (indexPath.section == 0) {
              GateHomePageTopEnterViewCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GateHomePageTopEnterViewCollectionViewCell" forIndexPath:indexPath];
-               cell.titleLb.text = @"爆仓数据";
-               cell.moneyLb.text = @"1H $3457万";
-               cell.twentyFourHourNumberLb.text = @"24H $357万";
+        cell.bcoin_btc_base_infoModel = self.bcoin_btc_base_info[indexPath.row];
                return cell;
     }else{
         GTNewTopDuiBiCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GTNewTopDuiBiCollectionViewCell" forIndexPath:indexPath];
-           cell.titleLb.text = @"实盘多空人数";
-          cell.duibiLb.text = @"多45%:空63%";
+           cell.bcoin_btc_base_infoModel = self.bcoin_btc_base_info[indexPath.row];
           return cell;
     }
       

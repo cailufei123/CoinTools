@@ -42,7 +42,7 @@
 -(UIButton *)moreBt{
     if (!_moreBt) {
         _moreBt = [[UIButton alloc] init];
-        [_moreBt setTitle:@"更多" forState:UIControlStateNormal];
+        [_moreBt setTitle:@"" forState:UIControlStateNormal];
         [_moreBt setTitleColor:UIColor.blackColor forState:UIControlStateNormal];
         _moreBt.titleLabel.textColor =  gateColor(@"606060");
 //        _moreBt.backgroundColor = [UIColor redColor];

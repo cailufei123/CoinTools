@@ -46,33 +46,33 @@
    
 }
 -(void)loadData{
-    [GateRequestManager post:homeURL params:@{@"v_coin_type":self.type} success:^(id  _Nonnull response) {
-        self.gateHomeModel =[GateHomeModel modelWithDictionary:response[@"data"]];
-        [self.tableView reloadData];
-    } failure:^(NSError * _Nonnull failure) {
-
-    }];
-   
-    [GateRequestManager get:homeURL block:^(NSError * _Nonnull error, NSDictionary * _Nonnull response) {
-        NSLog(@"%@", response);
-        
-//        NSDictionary * dic =   @{
-//            @"poss":
-//            @[
+//    [GateRequestManager post:homeURL params:@{@"v_coin_type":self.type} success:^(id  _Nonnull response) {
+//        self.gateHomeModel =[GateHomeModel modelWithDictionary:response[@"data"]];
+//        [self.tableView reloadData];
+//    } failure:^(NSError * _Nonnull failure) {
 //
-//
-//            @{@"line":@[@[@"2:00",@"344566343"],@[@"2:00",@"344566343"],@[@"2:00",@"34466343"],@[@"2:00",@"144566343"],@[@"2:00",@"44566343"],@[@"2:00",@"34566343"]]},
-//
-//             @{@"line":@[@[@"2:00",@"34456634"],@[@"2:00",@"3445663430"],@[@"2:00",@"344606343"],@[@"2:00",@"14456634"],@[@"2:00",@"54566343"],@[@"2:00",@"14566343"]]}
-//
-//
-//            ]
-//
-//        };
-//         self.gateHomeModel =[GateHomeModel modelWithDictionary:response];
-//                [self.tableView reloadData];
-       
-    }];
+//    }];
+//   
+//    [GateRequestManager get:homeURL block:^(NSError * _Nonnull error, NSDictionary * _Nonnull response) {
+//        NSLog(@"%@", response);
+//        
+////        NSDictionary * dic =   @{
+////            @"poss":
+////            @[
+////
+////
+////            @{@"line":@[@[@"2:00",@"344566343"],@[@"2:00",@"344566343"],@[@"2:00",@"34466343"],@[@"2:00",@"144566343"],@[@"2:00",@"44566343"],@[@"2:00",@"34566343"]]},
+////
+////             @{@"line":@[@[@"2:00",@"34456634"],@[@"2:00",@"3445663430"],@[@"2:00",@"344606343"],@[@"2:00",@"14456634"],@[@"2:00",@"54566343"],@[@"2:00",@"14566343"]]}
+////
+////
+////            ]
+////
+////        };
+////         self.gateHomeModel =[GateHomeModel modelWithDictionary:response];
+////                [self.tableView reloadData];
+//       
+//    }];
     
 //    
 //          GateHearCategoryView  * hearView  = [GateHearCategoryView loadHearCategoryView];
@@ -206,7 +206,7 @@
 {
    if (indexPath.section == 0) {
       GatePrgessTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GatePrgessTableViewCell" forIndexPath:indexPath];
-       cell.long_shortModel = self.gateHomeModel.long_short[indexPath.row];
+//       cell.long_shortModel = self.gateHomeModel.long_short[indexPath.row];
         return cell;
    }else if (indexPath.section == 1) {
       GateData1TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GateData1TableViewCell" forIndexPath:indexPath];

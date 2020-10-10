@@ -116,7 +116,7 @@ if (@available(iOS 11.0, *)) {
     
         @weakify(self)
       [self.tableView addPullToRefresh:[LNHeaderMeituanAnimator createAnimator] block:^{
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         @strongify(self)
             NSDictionary * dict =  [GTCurrencyTool readLocalFileWithName:@"CoinTools.framework/home"];
             self.homeModel =[GTHomeModel  modelWithDictionary:dict[@"data"]];

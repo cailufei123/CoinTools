@@ -116,17 +116,25 @@
     l.xEntrySpace = 6.0;
      l.stackSpace = 16.0;
    
-    
-   XYMarkerView *marker = [[XYMarkerView alloc]
-                                  initWithColor: [UIColor colorWithWhite:180/255. alpha:1.0]
-                                  font: [UIFont systemFontOfSize:12.0]
-                                  textColor: UIColor.whiteColor
-                                  insets: UIEdgeInsetsMake(8.0, 8.0, 20.0, 8.0)
-                                  xAxisValueFormatter: _chartView.xAxis.valueFormatter];
-    marker.chartView = self.chartView;
-    marker.arrowSize =  CGSizeMake(8,8);
-    marker.minimumSize = CGSizeMake(80.f, 40.f);
-    self.chartView.marker = marker;
+    ChartMarkerView * marker1 = [[ChartMarkerView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+    marker1.backgroundColor = [UIColor redColor];
+    marker1.chartView =  self.chartView;
+     marker1.offset = CGPointMake(10, 0);
+      self.chartView.marker = marker1;
+//   XYMarkerView *marker = [[XYMarkerView alloc]
+//                                  initWithColor: [UIColor colorWithWhite:180/255. alpha:1.0]
+//                                  font: [UIFont systemFontOfSize:12.0]
+//                                  textColor: UIColor.whiteColor
+//                                  insets: UIEdgeInsetsMake(8.0, 8.0, 8.0, 8.0)
+//                                  xAxisValueFormatter: _chartView.xAxis.valueFormatter];
+//      marker.image = getImage(@"ic_close_24x24_@3x");
+////      marker.image =getImage(@"icon_logon_d_logo_145x51_@3x");
+//    marker.chartView = self.chartView;
+//// marker.offset = CGPointMake(100, 100);
+//    marker.arrowSize =  CGSizeMake(8,8);
+//    marker.minimumSize = CGSizeMake(80.f, 40.f);
+//
+//    self.chartView.marker = marker;
        
   
     

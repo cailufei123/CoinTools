@@ -43,7 +43,7 @@
     _titles = titles;
     self.categoryView.titles = self.titles;
     [self.categoryView mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.width.mas_equalTo(titles.count * (150/4 ) );
+        make.width.mas_equalTo(titles.count * (150/4)+20 );
     }];
     [self.categoryView reloadData];
 }
@@ -73,8 +73,8 @@
         _categoryView.titleColor = gateColor(@"a2acc8");
         _categoryView.titleSelectedColor = gateColor(@"ffffff");
         _categoryView.titleColorGradientEnabled = YES;
-        _categoryView.titleFont = gateFont(14, Normal);
-        _categoryView.titleSelectedFont = gateFont(14, Normal);
+        _categoryView.titleFont = gateFont(12, Normal);
+        _categoryView.titleSelectedFont = gateFont(12, Normal);
         _categoryView.titleLabelAnchorPointStyle = JXCategoryTitleLabelAnchorPointStyleCenter;
         _categoryView.averageCellSpacingEnabled = NO;
         _categoryView.contentEdgeInsetLeft = 0;

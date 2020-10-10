@@ -35,4 +35,36 @@
     
 };
 
+
+
+@end
+@implementation GTSpaceRatioSubvModel : NSObject
+
+@end
+
+
+@implementation GTSpaceRatioModel : NSObject
++ (NSDictionary *)modelContainerPropertyGenericClass {
+    return @{@"BTC" : [GTSpaceRatioSubvModel class],@"EOS" : [GTSpaceRatioSubvModel class],@"BSV" : [GTSpaceRatioSubvModel class],@"XBT" : [GTSpaceRatioSubvModel class],@"LTC" : [GTSpaceRatioSubvModel class],@"XRP" : [GTSpaceRatioSubvModel class],@"ETH" : [GTSpaceRatioSubvModel class],@"ETC" : [GTSpaceRatioSubvModel class],@"BCH" : [GTSpaceRatioSubvModel class],@"TRX" : [GTSpaceRatioSubvModel class]};
+}
+@end
+
+@implementation bcoin_coin_long_short_infoModel : NSObject
+
+@end
+
+
+@implementation GTbcoin_coin_long_short_infoModel : NSObject
++ (NSDictionary *)modelContainerPropertyGenericClass {
+    return @{@"Okex_quarter" : [bcoin_coin_long_short_infoModel class],@"Huobi_quarter" : [bcoin_coin_long_short_infoModel class],@"Okex_swap" : [bcoin_coin_long_short_infoModel class]};
+}
+
+@end
+
+
+@implementation GTCoinSpaceRatioModel : NSObject
++ (NSDictionary *)modelContainerPropertyGenericClass {
+    return @{@"bcoin_all_long_short_info" : [GTSpaceRatioSubvModel class],@"bcoin_exchange_long_short_info" : [GTSpaceRatioSubvModel class]};
+}
+
 @end

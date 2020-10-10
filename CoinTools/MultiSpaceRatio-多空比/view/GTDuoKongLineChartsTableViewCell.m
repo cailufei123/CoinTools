@@ -1,24 +1,25 @@
 //
-//  GTFearIndexLineChartsTableViewCell.m
+//  GTDuoKongLineChartsTableViewCell.m
 //  CoinTools
 //
-//  Created by MAC on 2020/9/21.
+//  Created by MAC on 2020/10/10.
 //  Copyright © 2020 蔡路飞. All rights reserved.
 //
 
-#import "GTFearIndexLineChartsTableViewCell.h"
+#import "GTDuoKongLineChartsTableViewCell.h"
 #import <CoinTools/CoinTools-Swift.h>
 #import "GTYxisFearIndexValueFormatter.h"
 #import "GTXAxisFearIndexValueFormatter.h"
 
 @import Charts;
-@interface GTFearIndexLineChartsTableViewCell() <ChartViewDelegate, IChartAxisValueFormatter>
+@interface GTDuoKongLineChartsTableViewCell() <ChartViewDelegate, IChartAxisValueFormatter>
 @property (weak, nonatomic) IBOutlet CombinedChartView *chartView;
 @property(nonatomic,strong) GatePublicSelectView * topPublicSelectView;
 @property(nonatomic,strong) GTXAxisFearIndexValueFormatter * xXisFearIndexValueFormatter;
+@property(nonatomic,strong) GTYxisFearIndexValueFormatter * yXisFearIndexValueFormatter;
 @property (weak, nonatomic) IBOutlet UIView *selectView;
 @end
-@implementation GTFearIndexLineChartsTableViewCell
+@implementation GTDuoKongLineChartsTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -45,20 +46,35 @@
 
 //  _chartView.rightAxis.enabled = NO;
     ChartYAxis *rightAxis = _chartView.rightAxis;
-    rightAxis.drawGridLinesEnabled = NO;
-    rightAxis.axisMinimum = 0.0; // this replaces startAtZero = YES
-    rightAxis.axisLineColor = gateColor(gateGridColor);
-        rightAxis.labelTextColor = gateColor(axislabelTextColor);
+
     
+    
+    
+    self.yXisFearIndexValueFormatter = [GTYxisFearIndexValueFormatter getGTYxisFearIndexValueFormatter];
+    self.yXisFearIndexValueFormatter.formatterType = GTFormatterYRightDuoKong;
+    rightAxis.valueFormatter = self.yXisFearIndexValueFormatter;
+    rightAxis.drawGridLinesEnabled = YES;
+    rightAxis.axisMinimum = 0.0; // this replaces startAtZero = YES  //网格线的颜色
+    rightAxis.gridColor = gateColor(@"f6f6f9"); //网格线的颜色
+    rightAxis.axisLineColor = gateColor(gateGridColor);
+     rightAxis.labelTextColor = gateColor(axislabelTextColor);
 //    rightAxis.valueFormatter = [GTYxisFearIndexValueFormatter getGTYxisFearIndexValueFormatter];
     ChartYAxis *leftAxis = _chartView.leftAxis;
-  
-     leftAxis.valueFormatter = [GTYxisFearIndexValueFormatter getGTYxisFearIndexValueFormatter];
-    leftAxis.drawGridLinesEnabled = YES;
-    leftAxis.axisMinimum = 0.0; // this replaces startAtZero = YES  //网格线的颜色
-    leftAxis.gridColor = gateColor(@"f6f6f9"); //网格线的颜色
+//    self.yXisFearIndexValueFormatter = [GTYxisFearIndexValueFormatter getGTYxisFearIndexValueFormatter];
+//    self.yXisFearIndexValueFormatter.formatterType = GTFormatterYDuoKong;
+//    leftAxis.valueFormatter = self.yXisFearIndexValueFormatter;
+//    leftAxis.drawGridLinesEnabled = YES;
+//    leftAxis.axisMinimum = 0.0; // this replaces startAtZero = YES  //网格线的颜色
+//    leftAxis.gridColor = gateColor(@"f6f6f9"); //网格线的颜色
+//    leftAxis.axisLineColor = gateColor(gateGridColor);
+//     leftAxis.labelTextColor = gateColor(axislabelTextColor);
+    leftAxis.drawGridLinesEnabled = NO;
+    leftAxis.axisMinimum = 0.0; // this replaces startAtZero = YES
     leftAxis.axisLineColor = gateColor(gateGridColor);
-     leftAxis.labelTextColor = gateColor(axislabelTextColor);
+        leftAxis.labelTextColor = gateColor(axislabelTextColor);
+  GTYxisFearIndexValueFormatter *  yXisFearIndexValueFormatter = [GTYxisFearIndexValueFormatter getGTYxisFearIndexValueFormatter];
+       yXisFearIndexValueFormatter.formatterType = GTFormatterYLeftAxisDuoKong;
+       leftAxis.valueFormatter = yXisFearIndexValueFormatter;
     ChartXAxis *xAxis = _chartView.xAxis;
   
 //    xAxis.labelPosition = XAxisLabelPositionBothSided;
@@ -66,7 +82,9 @@
     xAxis.drawGridLinesEnabled = NO;
     xAxis.granularity = 1.0;
     self.xXisFearIndexValueFormatter = [GTXAxisFearIndexValueFormatter getGTXAxisFearIndexValueFormatter];
+    self.xXisFearIndexValueFormatter.formatterType = GTFormatterXDuoKong;
     xAxis.valueFormatter = self.xXisFearIndexValueFormatter;
+    
     xAxis.labelPosition  = XAxisLabelPositionBottom;
     xAxis.labelCount = 4;
   
@@ -75,7 +93,7 @@
     //    xAxis.labelRotationAngle = 50;
     xAxis.axisLineColor = gateColor(gateGridColor);
     xAxis.labelTextColor = gateColor(axislabelTextColor);
-   
+ 
    XYMarkerView *marker = [[XYMarkerView alloc]
                                   initWithColor: [UIColor colorWithWhite:180/255. alpha:1.0]
                                   font: [UIFont systemFontOfSize:12.0]
@@ -96,29 +114,38 @@
    
   
 }
--(void)setFearIndexModel:(GTFearIndexModel *)fearIndexModel{
-    _fearIndexModel = fearIndexModel;
-  
-    self.xXisFearIndexValueFormatter.publicArry = fearIndexModel.bcoin_btc_vix_data_info;
-    
+//-(void)setFearIndexModel:(GTFearIndexModel *)fearIndexModel{
+//    _fearIndexModel = fearIndexModel;
+//
+////    self.xXisFearIndexValueFormatter.publicArry = fearIndexModel.bcoin_btc_vix_data_info;
+////
+////    [self addFearIndexModel];
+////
+////      [self setChartData];
+//
+//}
+
+-(void)setBcoin_coin_long_short_infos:(NSArray *)bcoin_coin_long_short_infos{
+    _bcoin_coin_long_short_infos = bcoin_coin_long_short_infos;
+//      self.yXisFearIndexValueFormatter.publicArry = bcoin_coin_long_short_infos;
+     self.xXisFearIndexValueFormatter.publicArry = bcoin_coin_long_short_infos;
     [self addFearIndexModel];
-    
-      [self setChartData];
-//    [self.chartView.data notifyDataChanged];
-//              [self.chartView notifyDataSetChanged];
-//             [self.chartView animateWithXAxisDuration:2];
+      
+        [self setChartData];
 }
+
+
 -(void)addFearIndexModel{
-      NSMutableArray * arr = [NSMutableArray array];
-    GatePublicSelectModel * selectModel = [[GatePublicSelectModel alloc] init];
-    selectModel.color = gateColor(@"5065eb");
-    selectModel.titleText = @"贪梦恐慌指数";
-    GatePublicSelectModel * selectModel1 = [[GatePublicSelectModel alloc] init];
-       selectModel1.color = gateColor(@"f54b68");
-        selectModel1.titleText = @"BTC价格";
-      [arr addObject:selectModel];
-     [arr addObject:selectModel1];
-      self.topPublicSelectView.arr = arr;
+  NSMutableArray * arr = [NSMutableArray array];
+         GatePublicSelectModel * selectModel = [[GatePublicSelectModel alloc] init];
+         selectModel.color = gateColor(@"8734d9");
+         selectModel.titleText = @"开多比例";
+         GatePublicSelectModel * selectModel1 = [[GatePublicSelectModel alloc] init];
+            selectModel1.color = gateColor(@"5a7dee");
+             selectModel1.titleText = @"BTC报价";
+           [arr addObject:selectModel];
+          [arr addObject:selectModel1];
+           self.topPublicSelectView.arr = arr;
 }
 
 -(GatePublicSelectView *)topPublicSelectView{
@@ -130,10 +157,26 @@
       _topPublicSelectView.selectBlock = ^(NSInteger index, GatePublicSelectModel * _Nonnull publicSelectModel) {
           @strongify(self)
                      LineChartDataSet * set =  (LineChartDataSet *) self.chartView.lineData.dataSets[index];
-//          set.visible = !publicSelectModel.selectEnabled;
-//                     [self.chartView setNeedsDisplay];
+          set.visible = !publicSelectModel.selectEnabled;
+           self.chartView.leftAxis.enabled = YES;
+            self.chartView.rightAxis.enabled = YES;
+          GatePublicSelectModel * publicSelectModel1 = self.topPublicSelectView.arr.firstObject;
+        GatePublicSelectModel * publicSelectModel2 = self.topPublicSelectView.arr.lastObject;
+          if (!publicSelectModel1.selectEnabled) {
+               self.chartView.leftAxis.enabled = YES;
+          }else{
+                self.chartView.leftAxis.enabled = NO;
+          }
+          if (!publicSelectModel2.selectEnabled) {
+               self.chartView.rightAxis.enabled = YES;
+          }else{
+                self.chartView.rightAxis.enabled = NO;
+          }
+        
+//          [self generateLineData];
            [self.chartView.data notifyDataChanged];
            [self.chartView notifyDataSetChanged];
+           [self.chartView setNeedsDisplay];
           [self.chartView animateWithXAxisDuration:2];
       };
       
@@ -159,22 +202,29 @@
 
      NSMutableArray *entries = [[NSMutableArray alloc] init];
       NSMutableArray *entries1 = [[NSMutableArray alloc] init];
-    for (int index = 0; index <  self.fearIndexModel.bcoin_btc_vix_data_info.count; index++){
+   
+    
+   
+    for (int index = 0; index <  self.bcoin_coin_long_short_infos.count; index++){
          
-        GTBcoin_btc_vix_data_infoModel * bcoin_btc_vix_data_infoModel = self.fearIndexModel.bcoin_btc_vix_data_info[index];
-
-        [entries addObject:[[ChartDataEntry alloc] initWithX:index + 0.5  y:[bcoin_btc_vix_data_infoModel.offer doubleValue]]];
+        bcoin_coin_long_short_infoModel * bcoin_btc_vix_data_infoModel =  self.bcoin_coin_long_short_infos[index];
+      
+          [entries addObject:[[ChartDataEntry alloc] initWithX:index + 0.5  y:[bcoin_btc_vix_data_infoModel.offer doubleValue]]];
+ [entries1 addObject:[[ChartDataEntry alloc] initWithX:index + 0.5  y:[bcoin_btc_vix_data_infoModel.long_rate doubleValue]]];
         
-        [entries1 addObject:[[ChartDataEntry alloc] initWithX:index + 0.5  y:[bcoin_btc_vix_data_infoModel.vix_value doubleValue]]];
+      
 
     }
-    LineChartDataSet * set1 = [self getArr:entries lineChartDataSet:gateColor(@"5465eb")];
-     set1.axisDependency = AxisDependencyLeft;
+    LineChartDataSet * set1 = [self getArr:entries lineChartDataSet:gateColor(@"8734d9")];
+    set1.axisDependency = AxisDependencyRight;
   
-    LineChartDataSet * set2 = [self getArr:entries1 lineChartDataSet:gateColor(@"f54b68")];
-        set2.axisDependency = AxisDependencyRight;
+    LineChartDataSet * set2 = [self getArr:entries1 lineChartDataSet:gateColor(@"5a7dee")];
+        set2.axisDependency = AxisDependencyLeft;
+     [d addDataSet:set1];
       [d addDataSet:set2];
-      [d addDataSet:set1];
+
+     
+          
     return d;
 }
 
@@ -236,6 +286,7 @@
 {
     return @"344";
 }
+
 
 
 

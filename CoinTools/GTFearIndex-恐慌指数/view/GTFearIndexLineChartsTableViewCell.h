@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface GTFearIndexLineChartsTableViewCell : UITableViewCell
 @property(nonatomic,strong)GTFearIndexModel *fearIndexModel;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -7,7 +7,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
          <BreakpointContent
-            uuid = "83E6A832-E142-4AF2-8D93-603AB0F959DC"
+            uuid = "384D0110-BF24-437A-BDB8-182FA85F975E"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -19,16 +19,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "CA6A860E-FB48-4B41-8E33-345BCBE5802D"
+            uuid = "87FB9800-011D-446D-B89F-90B4A0E8B808"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CoinTools/BurstStatistics-&#x7206;&#x4ed3;&#x7edf;&#x8ba1;/model/GTBurstModel.m"
+            filePath = "CoinTools/MultiSpaceRatio-&#x591a;&#x7a7a;&#x6bd4;/controler/GTMultiSpaceRatioViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "14"
-            endingLineNumber = "14"
-            landmarkName = "+modelCustomPropertyMapper"
+            startingLineNumber = "202"
+            endingLineNumber = "202"
+            landmarkName = "-tableView:viewForHeaderInSection:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

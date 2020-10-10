@@ -21,7 +21,7 @@
     AFHTTPSessionManager * mgr = [AFHTTPSessionManager manager];
    mgr.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json",@"text/text",@"text/plain", @"text/javascript",@"application/x-json",@"text/html", nil];
     
-    mgr.requestSerializer.timeoutInterval = 0;
+    mgr.requestSerializer.timeoutInterval = 10;
    // mgr.operationQueue.maxConcurrentOperationCount = MaxOperationCountQueue;
     
     // 2.发送GET请求

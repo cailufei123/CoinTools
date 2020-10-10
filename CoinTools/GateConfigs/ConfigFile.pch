@@ -16,10 +16,10 @@
 #define isRelease 0  //1 正式 ，0测试
 
 #if isRelease
-#define basesURL @"https://api.carelink.cn"
+#define basesURL @"http://api.gatebigdata.com"
 #else
 
-#define basesURL @"http://192.168.110.99"
+#define basesURL @"https://api.gatebigdata.com"
 
 
 

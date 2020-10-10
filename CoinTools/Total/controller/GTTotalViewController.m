@@ -14,6 +14,7 @@
 #import "GateBigOrderStatisticsViewController.h"//大单
 #import "GateNewDetailsViewController.h"//合约
 #import "GateHoldCoinViewController.h"//持币
+#import "GTMultiSpaceRatioViewController.h"//多空比
 @interface GTTotalViewController ()<JXCategoryViewDelegate,JXCategoryListContainerViewDelegate>
 @property (nonatomic, strong) NSArray *titles;
 //@property(nonatomic,strong) GateTopSelectView * topSelectView;
@@ -50,7 +51,7 @@
 
 -(NSArray *)controllerList{
     if (!_controllerList) {
-        _controllerList = [NSArray arrayWithObjects:[[GateBurstViewController alloc] init],[[GateWholeNetworkPositionStatisticsViewController alloc] init],[[GateBigOrderStatisticsViewController alloc] init],[[GateNewDetailsViewController alloc] init],[[GateHoldCoinViewController alloc] init], nil];
+        _controllerList = [NSArray arrayWithObjects:[[GateBurstViewController alloc] init],[[GateWholeNetworkPositionStatisticsViewController alloc] init],[[GateBigOrderStatisticsViewController alloc] init],[[GTMultiSpaceRatioViewController alloc] init],[[GateHoldCoinViewController alloc] init], nil];
     }
     return _controllerList;
 }

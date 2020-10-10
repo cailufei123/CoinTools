@@ -44,7 +44,7 @@
     
     GateRefreshNormalHeader * header = [GateRefreshNormalHeader headerWithRefreshingBlock:^{
  
-        [GateRequestManager post:homeURL params:@{@"v_coin_type":self.type} success:^(id  _Nonnull response) {
+        [GateRequestManager post:duokongURL params:@{@"v_coin_type":self.type} success:^(id  _Nonnull response) {
             self.gateHomeModel =[GateHomeModel modelWithDictionary:response[@"data"]];
          
         
@@ -214,7 +214,7 @@
 {
    if (indexPath.section == 0) {
       GatePrgessTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GatePrgessTableViewCell" forIndexPath:indexPath];
-       cell.long_shortModel = self.gateHomeModel.long_short[indexPath.row];
+//       cell.long_shortModel = self.gateHomeModel.long_short[indexPath.row];
         return cell;
    }else if (indexPath.section == 1) {
       GateData1TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GateData1TableViewCell" forIndexPath:indexPath];

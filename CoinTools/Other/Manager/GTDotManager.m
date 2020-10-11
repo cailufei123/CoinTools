@@ -26,7 +26,6 @@ entry:(ChartDataEntry * _Nonnull)entry
         for (int i =0; i<lineChartDataSets.count; i++) {
             
             LineChartDataSet *set = lineChartDataSets[i];
-            
             ChartDataEntry *entry = set.entries[ x ];
             UIView * rr = [[UIView alloc] init];
            

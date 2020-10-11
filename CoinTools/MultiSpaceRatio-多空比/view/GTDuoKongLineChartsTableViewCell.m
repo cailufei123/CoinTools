@@ -13,6 +13,7 @@
 #import "GTDotManager.h"
 @import Charts;
 @interface GTDuoKongLineChartsTableViewCell() <ChartViewDelegate, IChartAxisValueFormatter>
+
 @property (weak, nonatomic) IBOutlet CombinedChartView *chartView;
 @property(nonatomic,strong) GatePublicSelectView * topPublicSelectView;
 @property(nonatomic,strong) GTXAxisFearIndexValueFormatter * xXisFearIndexValueFormatter;
@@ -25,6 +26,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    
     [_chartView setExtraOffsetsWithLeft:0 top:0 right:0 bottom:0];
    
    _chartView.delegate = self;
@@ -105,7 +107,7 @@
   
        marker1.xAxisValueFormatter = self.xXisFearIndexValueFormatter;
        [marker1 layercornerRadius:5];
-       marker1.alpha = 0.5;
+       marker1.alpha = 0.8;
        marker1.backgroundColor = [UIColor blackColor];
        marker1.chartView =  self.chartView;
         marker1.offset = CGPointMake(10, 0);
@@ -136,12 +138,14 @@
 
 -(void)setBcoin_coin_long_short_infos:(NSArray *)bcoin_coin_long_short_infos{
     self.marker1.possArr = bcoin_coin_long_short_infos;
+   
     _bcoin_coin_long_short_infos = bcoin_coin_long_short_infos;
 //      self.yXisFearIndexValueFormatter.publicArry = bcoin_coin_long_short_infos;
      self.xXisFearIndexValueFormatter.publicArry = bcoin_coin_long_short_infos;
     [self addFearIndexModel];
       
         [self setChartData];
+     self.marker1.selectModels = self.topPublicSelectView.arr;
 }
 
 
@@ -236,7 +240,7 @@
 //        dispatch_group_enter(grpupT);
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
            
-            for (int index = 0; index < 10; index++){
+            for (int index = 0; index < self.bcoin_coin_long_short_infos.count; index++){
                     
                    bcoin_coin_long_short_infoModel * bcoin_btc_vix_data_infoModel =  self.bcoin_coin_long_short_infos[index];
                  

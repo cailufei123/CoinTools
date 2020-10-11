@@ -215,12 +215,12 @@
                                                    
                                                    
                                                };
-              if (self.bcoin_coin_long_short_infos.count>=section-1) {
-                   NSArray * arr = self.bcoin_coin_long_short_infos[section-1];
-                               bcoin_coin_long_short_infoModel *coin_long_short_infoModel =  arr.firstObject;
-                                             
-                               selectCategoryView.title = [NSString stringWithFormat:@"%@永续%@多空",coin_long_short_infoModel.exchange_future_type,self.type];
-              }
+//              if (self.bcoin_coin_long_short_infos.count>=section-1) {
+//                   NSArray * arr = self.bcoin_coin_long_short_infos[section-1];
+//                               bcoin_coin_long_short_infoModel *coin_long_short_infoModel =  arr.firstObject;
+//                                             
+//                               selectCategoryView.title = [NSString stringWithFormat:@"%@永续%@多空",coin_long_short_infoModel.exchange_future_type,self.type];
+//              }
              
          
                                                    return selectCategoryView;

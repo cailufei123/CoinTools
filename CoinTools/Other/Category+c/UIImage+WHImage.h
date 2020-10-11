@@ -144,4 +144,9 @@ typedef void (^UIImageSizeRequestCompleted) (NSURL* imgURL, CGSize size);
 + (UIImage *)imageWithColor:(UIColor *)color;
 
 - (UIImage *)circleImage;
+
+
+
+//使用该方法不会模糊，根据屏幕密度计算
++ (UIImage *)convertViewToImage:(UIView *)view ;
 @end

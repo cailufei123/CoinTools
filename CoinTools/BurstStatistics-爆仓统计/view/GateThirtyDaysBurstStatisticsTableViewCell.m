@@ -14,6 +14,7 @@
 @property(nonatomic,strong)GateXHorstAxisValueFormatter * xAxisValueFormatter ;
 @property(nonatomic,strong)GateYHorstAxisValueFormatter * yAxisValueFormatter ;
 @property(nonatomic,strong) GatePublicSelectView * bottomPublicSelectView;
+@property(nonatomic,strong) GTChartPMarkerView * marker1;
 @end
 @implementation GateThirtyDaysBurstStatisticsTableViewCell
 
@@ -116,26 +117,18 @@
     l.xEntrySpace = 6.0;
      l.stackSpace = 16.0;
    
-    ChartMarkerView * marker1 = [[ChartMarkerView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
-    marker1.backgroundColor = [UIColor redColor];
+    
+    GTChartPMarkerView * marker1 = [GTChartPMarkerView loadFromNib:@"GTChartPMarkerView"];
+    self.marker1 = marker1;
+    marker1.xAxisValueFormatter = self.xAxisValueFormatter;
+    [marker1 layercornerRadius:5];
+    marker1.alpha = 0.5;
+    marker1.backgroundColor = [UIColor blackColor];
     marker1.chartView =  self.chartView;
      marker1.offset = CGPointMake(10, 0);
       self.chartView.marker = marker1;
-//   XYMarkerView *marker = [[XYMarkerView alloc]
-//                                  initWithColor: [UIColor colorWithWhite:180/255. alpha:1.0]
-//                                  font: [UIFont systemFontOfSize:12.0]
-//                                  textColor: UIColor.whiteColor
-//                                  insets: UIEdgeInsetsMake(8.0, 8.0, 8.0, 8.0)
-//                                  xAxisValueFormatter: _chartView.xAxis.valueFormatter];
-//      marker.image = getImage(@"ic_close_24x24_@3x");
-////      marker.image =getImage(@"icon_logon_d_logo_145x51_@3x");
-//    marker.chartView = self.chartView;
-//// marker.offset = CGPointMake(100, 100);
-//    marker.arrowSize =  CGSizeMake(8,8);
-//    marker.minimumSize = CGSizeMake(80.f, 40.f);
-//
-//    self.chartView.marker = marker;
-       
+   
+
   
     
     
@@ -283,7 +276,7 @@
     #pragma mark - ChartViewDelegate
     #pragma mark 图表中数值被选中
     -(void)chartValueSelected:(ChartViewBase *)chartView entry:(ChartDataEntry *)entry highlight:(ChartHighlight *)highlight{
-        
+     NSLog(@"%@",[self.yAxisValueFormatter stringForValue:entry.y axis:nil])   ;
     //    NSLog(@"图表中数值被选中");
     }
 

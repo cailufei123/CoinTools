@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet CombinedChartView *chartView;
 @property(nonatomic,strong) GatePublicSelectView * topPublicSelectView;
 @property(nonatomic,strong) GTXAxisFearIndexValueFormatter * xXisFearIndexValueFormatter;
+@property(nonatomic,strong) GTYxisFearIndexValueFormatter * yXisFearIndexValueFormatter;
 @property (weak, nonatomic) IBOutlet UIView *selectView;
 @end
 @implementation GTFearIndexLineChartsTableViewCell
@@ -52,8 +53,8 @@
     
 //    rightAxis.valueFormatter = [GTYxisFearIndexValueFormatter getGTYxisFearIndexValueFormatter];
     ChartYAxis *leftAxis = _chartView.leftAxis;
-  
-     leftAxis.valueFormatter = [GTYxisFearIndexValueFormatter getGTYxisFearIndexValueFormatter];
+    self.yXisFearIndexValueFormatter = [GTYxisFearIndexValueFormatter getGTYxisFearIndexValueFormatter];
+     leftAxis.valueFormatter = self.yXisFearIndexValueFormatter;
     leftAxis.drawGridLinesEnabled = YES;
     leftAxis.axisMinimum = 0.0; // this replaces startAtZero = YES  //网格线的颜色
     leftAxis.gridColor = gateColor(@"f6f6f9"); //网格线的颜色
@@ -173,8 +174,9 @@
   
     LineChartDataSet * set2 = [self getArr:entries1 lineChartDataSet:gateColor(@"f54b68")];
         set2.axisDependency = AxisDependencyRight;
-      [d addDataSet:set2];
       [d addDataSet:set1];
+      [d addDataSet:set2];
+    
     return d;
 }
 
@@ -222,6 +224,11 @@
 - (void)chartValueSelected:(ChartViewBase * __nonnull)chartView entry:(ChartDataEntry * __nonnull)entry highlight:(ChartHighlight * __nonnull)highlight
 {
     NSLog(@"chartValueSelected");
+    NSLog(@"%@",[self.xXisFearIndexValueFormatter stringForValue:entry.x axis:chartView.xAxis])   ;
+    
+    NSLog(@"%@",[self.yXisFearIndexValueFormatter stringForValue:entry.y axis:self.chartView.leftAxis])   ;
+    ;
+//      setLabel("x: " + xAxisValueFormatter!.stringForValue(entry.x, axis: YAxis()) + ", y: " + yFormatter.string(from: NSNumber(floatLiteral: entry.y))!)
 }
 
 - (void)chartValueNothingSelected:(ChartViewBase * __nonnull)chartView

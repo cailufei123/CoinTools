@@ -10,14 +10,16 @@
 #import <CoinTools/CoinTools-Swift.h>
 #import "GTYxisFearIndexValueFormatter.h"
 #import "GTXAxisFearIndexValueFormatter.h"
-
+#import "GTDotManager.h"
 @import Charts;
 @interface GTDuoKongLineChartsTableViewCell() <ChartViewDelegate, IChartAxisValueFormatter>
 @property (weak, nonatomic) IBOutlet CombinedChartView *chartView;
 @property(nonatomic,strong) GatePublicSelectView * topPublicSelectView;
 @property(nonatomic,strong) GTXAxisFearIndexValueFormatter * xXisFearIndexValueFormatter;
+@property(nonatomic,strong)  GTYxisFearIndexValueFormatter *  yLeftXisFearIndexValueFormatter;
 @property(nonatomic,strong) GTYxisFearIndexValueFormatter * yXisFearIndexValueFormatter;
 @property (weak, nonatomic) IBOutlet UIView *selectView;
+@property(nonatomic,strong) GTChartPMarkerView * marker1;
 @end
 @implementation GTDuoKongLineChartsTableViewCell
 
@@ -49,7 +51,6 @@
 
     
     
-    
     self.yXisFearIndexValueFormatter = [GTYxisFearIndexValueFormatter getGTYxisFearIndexValueFormatter];
     self.yXisFearIndexValueFormatter.formatterType = GTFormatterYRightDuoKong;
     rightAxis.valueFormatter = self.yXisFearIndexValueFormatter;
@@ -72,9 +73,9 @@
     leftAxis.axisMinimum = 0.0; // this replaces startAtZero = YES
     leftAxis.axisLineColor = gateColor(gateGridColor);
         leftAxis.labelTextColor = gateColor(axislabelTextColor);
-  GTYxisFearIndexValueFormatter *  yXisFearIndexValueFormatter = [GTYxisFearIndexValueFormatter getGTYxisFearIndexValueFormatter];
-       yXisFearIndexValueFormatter.formatterType = GTFormatterYLeftAxisDuoKong;
-       leftAxis.valueFormatter = yXisFearIndexValueFormatter;
+    self.yLeftXisFearIndexValueFormatter = [GTYxisFearIndexValueFormatter getGTYxisFearIndexValueFormatter];
+       self.yLeftXisFearIndexValueFormatter .formatterType = GTFormatterYLeftAxisDuoKong;
+       leftAxis.valueFormatter = self.yLeftXisFearIndexValueFormatter ;
     ChartXAxis *xAxis = _chartView.xAxis;
   
 //    xAxis.labelPosition = XAxisLabelPositionBothSided;
@@ -94,16 +95,24 @@
     xAxis.axisLineColor = gateColor(gateGridColor);
     xAxis.labelTextColor = gateColor(axislabelTextColor);
  
-   XYMarkerView *marker = [[XYMarkerView alloc]
-                                  initWithColor: [UIColor colorWithWhite:180/255. alpha:1.0]
-                                  font: [UIFont systemFontOfSize:12.0]
-                                  textColor: UIColor.whiteColor
-                                  insets: UIEdgeInsetsMake(8.0, 8.0, 20.0, 8.0)
-                                  xAxisValueFormatter: _chartView.xAxis.valueFormatter];
-    marker.chartView = self.chartView;
-    marker.arrowSize =  CGSizeMake(8,8);
-    marker.minimumSize = CGSizeMake(80.f, 40.f);
-    self.chartView.marker = marker;
+       GTChartPMarkerView * marker1 = [GTChartPMarkerView loadFromNib:@"GTChartPMarkerView"];
+       self.marker1 = marker1;
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//          marker1.frame = CGRectMake(0, 0,120, 80);
+//        [marker1 layoutIfNeeded];
+////          [marker1 setNeedsLayout];
+//    });
+  
+       marker1.xAxisValueFormatter = self.xXisFearIndexValueFormatter;
+       [marker1 layercornerRadius:5];
+       marker1.alpha = 0.5;
+       marker1.backgroundColor = [UIColor blackColor];
+       marker1.chartView =  self.chartView;
+        marker1.offset = CGPointMake(10, 0);
+         self.chartView.marker = marker1;
+      
+
+     
       [self.chartView animateWithXAxisDuration:2.0f];
     
     
@@ -126,6 +135,7 @@
 //}
 
 -(void)setBcoin_coin_long_short_infos:(NSArray *)bcoin_coin_long_short_infos{
+    self.marker1.possArr = bcoin_coin_long_short_infos;
     _bcoin_coin_long_short_infos = bcoin_coin_long_short_infos;
 //      self.yXisFearIndexValueFormatter.publicArry = bcoin_coin_long_short_infos;
      self.xXisFearIndexValueFormatter.publicArry = bcoin_coin_long_short_infos;
@@ -190,39 +200,88 @@
 - (void)setChartData
 {
     CombinedChartData *data = [[CombinedChartData alloc] init];
-   
-    data.lineData = [self generateLineData];
-    _chartView.data = data;
+   // 全局并发队列的获取方法
+//     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+//      dispatch_async(queue), ^{
+//          // 这里放异步执行任务代码
+//      });
+    
+ [self generateLineDataBlock:^(LineChartData *lineChartData) {
+        data.lineData  = lineChartData;
+          _chartView.data = data;
+     [self.chartView.data notifyDataChanged];
+//               [self.chartView notifyDataSetChanged];
+//               [self.chartView setNeedsDisplay];
+//              [self.chartView animateWithXAxisDuration:2];
+    }];
+  
 }
 
 
-- (LineChartData *)generateLineData
+- (LineChartData *)generateLineDataBlock:(void(^)(LineChartData * lineChartData))finishblock
 {
     LineChartData *d = [[LineChartData alloc] init];
 
      NSMutableArray *entries = [[NSMutableArray alloc] init];
       NSMutableArray *entries1 = [[NSMutableArray alloc] init];
+    
+    
+   dispatch_queue_t queueT = dispatch_queue_create("group.queue", DISPATCH_QUEUE_CONCURRENT);//一个并发队列
+   dispatch_group_t grpupT = dispatch_group_create();//一个线程组
    
     
+//    dispatch_group_async(grpupT, queueT, ^{
+//        NSLog(@"group——当前线程一");
+//        //模仿网络请求代码
+//        dispatch_group_enter(grpupT);
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+           
+            for (int index = 0; index < 10; index++){
+                    
+                   bcoin_coin_long_short_infoModel * bcoin_btc_vix_data_infoModel =  self.bcoin_coin_long_short_infos[index];
+                 
+                     [entries addObject:[[ChartDataEntry alloc] initWithX:index + 0.5  y:[bcoin_btc_vix_data_infoModel.offer doubleValue]]];
+            [entries1 addObject:[[ChartDataEntry alloc] initWithX:index + 0.5  y:[bcoin_btc_vix_data_infoModel.long_rate doubleValue]]];
+                   
+                 
+
+               }
+            
+//            dispatch_group_leave(grpupT);
+            
+              LineChartDataSet * set1 = [self getArr:entries lineChartDataSet:gateColor(@"8734d9")];
+              set1.axisDependency = AxisDependencyRight;
+            
+              LineChartDataSet * set2 = [self getArr:entries1 lineChartDataSet:gateColor(@"5a7dee")];
+                  set2.axisDependency = AxisDependencyLeft;
+               [d addDataSet:set1];
+                [d addDataSet:set2];
+            finishblock(d);
+            
+        });
+
+//    });
+    
+//    dispatch_group_notify(grpupT, queueT, ^{
+//
+//        NSLog(@"此时还是在子线程中");
+////        dispatch_async(dispatch_get_main_queue(), ^{
+////            NSLog(@"回到主线程");
+//
+//
+//              LineChartDataSet * set1 = [self getArr:entries lineChartDataSet:gateColor(@"8734d9")];
+//              set1.axisDependency = AxisDependencyRight;
+//            
+//              LineChartDataSet * set2 = [self getArr:entries1 lineChartDataSet:gateColor(@"5a7dee")];
+//                  set2.axisDependency = AxisDependencyLeft;
+//               [d addDataSet:set1];
+//                [d addDataSet:set2];
+//            finishblock(d);
+//
+////        });
+//
+//    });
    
-    for (int index = 0; index <  self.bcoin_coin_long_short_infos.count; index++){
-         
-        bcoin_coin_long_short_infoModel * bcoin_btc_vix_data_infoModel =  self.bcoin_coin_long_short_infos[index];
-      
-          [entries addObject:[[ChartDataEntry alloc] initWithX:index + 0.5  y:[bcoin_btc_vix_data_infoModel.offer doubleValue]]];
- [entries1 addObject:[[ChartDataEntry alloc] initWithX:index + 0.5  y:[bcoin_btc_vix_data_infoModel.long_rate doubleValue]]];
-        
-      
-
-    }
-    LineChartDataSet * set1 = [self getArr:entries lineChartDataSet:gateColor(@"8734d9")];
-    set1.axisDependency = AxisDependencyRight;
-  
-    LineChartDataSet * set2 = [self getArr:entries1 lineChartDataSet:gateColor(@"5a7dee")];
-        set2.axisDependency = AxisDependencyLeft;
-     [d addDataSet:set1];
-      [d addDataSet:set2];
-
      
           
     return d;
@@ -245,7 +304,7 @@
         set.drawValuesEnabled = NO;
         set.highlightEnabled = YES;
         set.highlightColor = [UIColor.grayColor colorWithAlphaComponent:0.5];
-        set.highlightLineWidth = 10;
+        set.highlightLineWidth = 5;
         set.drawHorizontalHighlightIndicatorEnabled = NO;
         set.valueFont = [UIFont systemFontOfSize:10.f];
         set.valueTextColor = [UIColor colorWithRed:240/255.f green:238/255.f blue:70/255.f alpha:1.f];
@@ -269,10 +328,6 @@
 }
 #pragma mark - ChartViewDelegate
 
-- (void)chartValueSelected:(ChartViewBase * __nonnull)chartView entry:(ChartDataEntry * __nonnull)entry highlight:(ChartHighlight * __nonnull)highlight
-{
-    NSLog(@"chartValueSelected");
-}
 
 - (void)chartValueNothingSelected:(ChartViewBase * __nonnull)chartView
 {
@@ -288,7 +343,14 @@
 }
 
 
+- (void)chartValueSelected:(ChartViewBase * _Nonnull)chartView
+                     entry:(ChartDataEntry * _Nonnull)entry
+                 highlight:(ChartHighlight * _Nonnull)highlight {
 
+    
+    [GTDotManager chartDotManagerValueSelected: self.chartView entry:entry highlight:highlight publicSelectModels:self.topPublicSelectView.arr];
+    
+}
 
 
 @end

@@ -41,4 +41,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)NSArray<GTBcoin_ms_coin_infoModel*> * bcoin_ms_coin_info;//主流行情
 @end
 
+
+
+
 NS_ASSUME_NONNULL_END

@@ -100,14 +100,14 @@
                                          [wself.tableView endRefreshing];
                        }];
              }else{
-                 
+                  [self.bcoin_coin_long_short_infos removeAllObjects];
                  [GateRequestManager get:v_coin_typeURL(self.type) block:^(NSError * _Nonnull error, NSDictionary * _Nonnull response) {
                     
                              wself.coinSpaceRatioModel =[GTCoinSpaceRatioModel modelWithDictionary:response[@"data"]];
                    
                             if (!error) {
                                 
-                [self.bcoin_coin_long_short_infos removeAllObjects];
+               
                 [self.bcoin_coin_long_short_infos addObject: wself.coinSpaceRatioModel.bcoin_coin_long_short_info.Huobi_quarter];
                 [self.bcoin_coin_long_short_infos addObject: wself.coinSpaceRatioModel.bcoin_coin_long_short_info.Okex_quarter];
                 [self.bcoin_coin_long_short_infos addObject: wself.coinSpaceRatioModel.bcoin_coin_long_short_info.Okex_swap];
@@ -215,10 +215,13 @@
                                                    
                                                    
                                                };
-              NSArray * arr = self.bcoin_coin_long_short_infos[section-1];
-              bcoin_coin_long_short_infoModel *coin_long_short_infoModel =  arr.firstObject;
-                            
-              selectCategoryView.title = [NSString stringWithFormat:@"%@永续%@多空",coin_long_short_infoModel.exchange_future_type,self.type];
+              if (self.bcoin_coin_long_short_infos.count>=section-1) {
+                   NSArray * arr = self.bcoin_coin_long_short_infos[section-1];
+                               bcoin_coin_long_short_infoModel *coin_long_short_infoModel =  arr.firstObject;
+                                             
+                               selectCategoryView.title = [NSString stringWithFormat:@"%@永续%@多空",coin_long_short_infoModel.exchange_future_type,self.type];
+              }
+             
          
                                                    return selectCategoryView;
           }

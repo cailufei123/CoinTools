@@ -279,33 +279,7 @@
     #pragma mark 图表中数值被选中
     -(void)chartValueSelected:(ChartViewBase *)chartView entry:(ChartDataEntry *)entry highlight:(ChartHighlight *)highlight{
      NSLog(@"%@",[self.yAxisValueFormatter stringForValue:entry.y axis:nil])   ;
-        NSString * str = [NSString stringWithFormat:@"时间:%@",[self.xAxisValueFormatter stringForValue:entry.x axis:XAxis()]]
-        ;
-  
-        self.marker1.publicView.s
-           models.append(getPublicSelectModel(selectEnabled: false, color: UIColor.red, titleText: str))
-           
-           
-           
-           let bcoin_btc_vix_data_infoModel:GTBcoin_coin_30d_calendar_infoModel =  self.possArr[NSInteger(entry.x)]!.buy_amount.as! GTBcoin_coin_30d_calendar_infoModel
-                             guard let long_rate =  Double(bcoin_btc_vix_data_infoModel.long_rate) else { return  }
-                           
 
-                            let tt = String(format:"%.2f",long_rate*100)//123.32
-                        
-                                    let str1 = "开多比例:\(tt)\("%")"
-                           
-                            models.append(getPublicSelectModel(selectEnabled: true, color: selectModels.last?.color ?? UIColor.blue, titleText: str1))
-                            
-                            let str2 =  "\(bcoin_btc_vix_data_infoModel.coin_type)报价:\(bcoin_btc_vix_data_infoModel.offer)"
-                            
-                            models.append(getPublicSelectModel(selectEnabled: true, color: selectModels.first?.color ?? UIColor.blue, titleText: str2))
-                            
-           
-             publicView.publicSelectModels = models as! [Any];
-           
-           self.frame = CGRect(x: 0, y: 0,width: 130, height: models.count*20);
-                            self.layoutIfNeeded();
     }
 
     #pragma mark 图表中的空白区域被选中

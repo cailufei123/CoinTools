@@ -44,5 +44,5 @@
 //库
 #import "LNHeaderMeituanAnimator.h"
 #import  "LNRefresh.h"
-
+#import "GTStyleManager.h"
 #endif /* HeaderFile_h */

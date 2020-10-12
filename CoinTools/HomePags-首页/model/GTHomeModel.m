@@ -22,8 +22,41 @@
 
 
 @implementation GTHomeModel
+//+ (NSDictionary *)modelContainerPropertyGenericClass {
+//    return @{@"bcoin_btc_base_info" : [GTBcoin_btc_base_infoModel class],@"bcoin_btc_offer_info" : [GTBcoin_btc_offer_infoModel class],@"bcoin_ms_coin_info" : [GTBcoin_ms_coin_infoModel class]};
+//}
+
+@end
+
+
+@implementation GTHomebigtitleModel : NSObject
+@end
+
+
+@implementation GTHomeTitleModel : NSObject
+@end
+
+@implementation GTAlldatalistModel : NSObject
 + (NSDictionary *)modelContainerPropertyGenericClass {
-    return @{@"bcoin_btc_base_info" : [GTBcoin_btc_base_infoModel class],@"bcoin_btc_offer_info" : [GTBcoin_btc_offer_infoModel class],@"bcoin_ms_coin_info" : [GTBcoin_ms_coin_infoModel class]};
+    return @{@"datalist" : [GTHomeTitleModel class]};
+}
+
+@end
+@implementation GTHomepageboxModel : NSObject
++ (NSDictionary *)modelContainerPropertyGenericClass {
+    return @{@"alldatalist" : [GTAlldatalistModel class]};
 }
 @end
+
+
+
+
+
+@implementation GTHomepaglistModel : NSObject
++ (NSDictionary *)modelContainerPropertyGenericClass {
+    return @{@"alldatalist" : [GTAlldatalistModel class]};
+}
+@end
+
+
 

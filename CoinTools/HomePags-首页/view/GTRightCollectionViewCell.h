@@ -61,7 +61,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 
-@property (weak, nonatomic) GTBcoin_ms_coin_infoModel * bcoin_ms_coin_infoModel;
+@property (weak, nonatomic)   GTAlldatalistModel *alldatalistModel ;
 @end
 
 NS_ASSUME_NONNULL_END

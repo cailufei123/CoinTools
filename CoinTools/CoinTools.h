@@ -21,4 +21,6 @@ FOUNDATION_EXPORT const unsigned char CoinToolsVersionString[];
 #import <CoinTools/GateBaseViewController.h>
 #import <CoinTools/GateHomePageController.h>
 #import <CoinTools/GTChartPMarkerPublicView.h>
+#import <CoinTools/GTChartPMarkerPublicView.h>
+
 @import Charts;

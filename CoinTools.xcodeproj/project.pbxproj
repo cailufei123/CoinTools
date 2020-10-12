@@ -15,6 +15,12 @@
 		044D252C2531854D004ACA98 /* GTDuoKongLineChartsTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 044D25292531854D004ACA98 /* GTDuoKongLineChartsTableViewCell.h */; };
 		044D252D2531854D004ACA98 /* GTDuoKongLineChartsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 044D252A2531854D004ACA98 /* GTDuoKongLineChartsTableViewCell.m */; };
 		044D252E2531854D004ACA98 /* GTDuoKongLineChartsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044D252B2531854D004ACA98 /* GTDuoKongLineChartsTableViewCell.xib */; };
+		044D2547253441AC004ACA98 /* GTStyleManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 044D2545253441AC004ACA98 /* GTStyleManager.h */; };
+		044D2548253441AC004ACA98 /* GTStyleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 044D2546253441AC004ACA98 /* GTStyleManager.m */; };
+		044D254B253448FE004ACA98 /* NSArray+NilSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 044D2549253448FE004ACA98 /* NSArray+NilSafe.m */; };
+		044D254C253448FE004ACA98 /* NSArray+NilSafe.h in Headers */ = {isa = PBXBuildFile; fileRef = 044D254A253448FE004ACA98 /* NSArray+NilSafe.h */; };
+		044D254F25344915004ACA98 /* NSObject+Swizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = 044D254D25344915004ACA98 /* NSObject+Swizzling.m */; };
+		044D255025344915004ACA98 /* NSObject+Swizzling.h in Headers */ = {isa = PBXBuildFile; fileRef = 044D254E25344915004ACA98 /* NSObject+Swizzling.h */; };
 		04796584251355E10051476C /* CoinTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD66B8F3250A799400D7C66E /* CoinTools.framework */; };
 		04796589251356200051476C /* CoinTools.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AD66B8F3250A799400D7C66E /* CoinTools.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		049514612514850000294FD7 /* zhPopupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0495145C2514850000294FD7 /* zhPopupController.m */; };
@@ -376,6 +382,12 @@
 		044D25292531854D004ACA98 /* GTDuoKongLineChartsTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTDuoKongLineChartsTableViewCell.h; sourceTree = "<group>"; };
 		044D252A2531854D004ACA98 /* GTDuoKongLineChartsTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTDuoKongLineChartsTableViewCell.m; sourceTree = "<group>"; };
 		044D252B2531854D004ACA98 /* GTDuoKongLineChartsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GTDuoKongLineChartsTableViewCell.xib; sourceTree = "<group>"; };
+		044D2545253441AC004ACA98 /* GTStyleManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTStyleManager.h; sourceTree = "<group>"; };
+		044D2546253441AC004ACA98 /* GTStyleManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTStyleManager.m; sourceTree = "<group>"; };
+		044D2549253448FE004ACA98 /* NSArray+NilSafe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+NilSafe.m"; sourceTree = "<group>"; };
+		044D254A253448FE004ACA98 /* NSArray+NilSafe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+NilSafe.h"; sourceTree = "<group>"; };
+		044D254D25344915004ACA98 /* NSObject+Swizzling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Swizzling.m"; sourceTree = "<group>"; };
+		044D254E25344915004ACA98 /* NSObject+Swizzling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Swizzling.h"; sourceTree = "<group>"; };
 		0495145C2514850000294FD7 /* zhPopupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zhPopupController.m; sourceTree = "<group>"; };
 		0495145D2514850000294FD7 /* zhPopupController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zhPopupController.h; sourceTree = "<group>"; };
 		049514652514869700294FD7 /* GTMenuSelectView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTMenuSelectView.h; sourceTree = "<group>"; };
@@ -1251,26 +1263,30 @@
 		04D34FEB250B0F7300D940D1 /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				04D34FEC250B0F7300D940D1 /* NSString+HYDESize.h */,
-				04D34FED250B0F7300D940D1 /* UIView+shadowPath.m */,
-				04D34FEE250B0F7300D940D1 /* NSString+GateAttribute.m */,
+				044D254E25344915004ACA98 /* NSObject+Swizzling.h */,
+				044D254D25344915004ACA98 /* NSObject+Swizzling.m */,
+				044D254A253448FE004ACA98 /* NSArray+NilSafe.h */,
+				044D2549253448FE004ACA98 /* NSArray+NilSafe.m */,
 				04D34FEF250B0F7300D940D1 /* NSDictionary+Extend.h */,
-				04D34FF0250B0F7300D940D1 /* UISegmentedControl+Category.m */,
-				04D34FF1250B0F7300D940D1 /* UIFont+HYDENormalFont.h */,
-				04D34FF2250B0F7300D940D1 /* UITableViewCell+GateTableViewCell.h */,
-				04D34FF3250B0F7300D940D1 /* UIView+HYDEBottomBorder.m */,
-				04D34FF4250B0F7300D940D1 /* UIViewController+HYDENavigation.m */,
-				04D34FF5250B0F7300D940D1 /* UIColor+HYDEGradientChange.h */,
+				04D34FFB250B0F7300D940D1 /* NSDictionary+Extend.m */,
 				04D34FF6250B0F7300D940D1 /* NSString+GateAttribute.h */,
-				04D34FF7250B0F7300D940D1 /* UIView+shadowPath.h */,
+				04D34FEE250B0F7300D940D1 /* NSString+GateAttribute.m */,
+				04D34FEC250B0F7300D940D1 /* NSString+HYDESize.h */,
 				04D34FF8250B0F7300D940D1 /* NSString+HYDESize.m */,
+				04D34FF5250B0F7300D940D1 /* UIColor+HYDEGradientChange.h */,
+				04D34FFE250B0F7300D940D1 /* UIColor+HYDEGradientChange.m */,
+				04D34FF1250B0F7300D940D1 /* UIFont+HYDENormalFont.h */,
 				04D34FF9250B0F7300D940D1 /* UIFont+HYDENormalFont.m */,
 				04D34FFA250B0F7300D940D1 /* UISegmentedControl+Category.h */,
-				04D34FFB250B0F7300D940D1 /* NSDictionary+Extend.m */,
-				04D34FFC250B0F7300D940D1 /* UIView+HYDEBottomBorder.h */,
+				04D34FF0250B0F7300D940D1 /* UISegmentedControl+Category.m */,
+				04D34FF2250B0F7300D940D1 /* UITableViewCell+GateTableViewCell.h */,
 				04D34FFD250B0F7300D940D1 /* UITableViewCell+GateTableViewCell.m */,
-				04D34FFE250B0F7300D940D1 /* UIColor+HYDEGradientChange.m */,
+				04D34FFC250B0F7300D940D1 /* UIView+HYDEBottomBorder.h */,
+				04D34FF3250B0F7300D940D1 /* UIView+HYDEBottomBorder.m */,
+				04D34FF7250B0F7300D940D1 /* UIView+shadowPath.h */,
+				04D34FED250B0F7300D940D1 /* UIView+shadowPath.m */,
 				04D34FFF250B0F7300D940D1 /* UIViewController+HYDENavigation.h */,
+				04D34FF4250B0F7300D940D1 /* UIViewController+HYDENavigation.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1431,6 +1447,8 @@
 			children = (
 				AD3A25672532CBA30099C5AC /* GTDotManager.h */,
 				AD3A25682532CBA30099C5AC /* GTDotManager.m */,
+				044D2545253441AC004ACA98 /* GTStyleManager.h */,
+				044D2546253441AC004ACA98 /* GTStyleManager.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -1493,6 +1511,7 @@
 				04D3501D250B0F7300D940D1 /* NSDate+Category.h in Headers */,
 				049514B42518886200294FD7 /* GTFearIndexModel.h in Headers */,
 				04CBE5AA2511FCCB00E4DD40 /* LNRefreshFooter.h in Headers */,
+				044D2547253441AC004ACA98 /* GTStyleManager.h in Headers */,
 				04D35038250B0F7300D940D1 /* UIView+WHView.h in Headers */,
 				04D35079250B16EA00D940D1 /* GateSelectLineChartCollectionViewCell.h in Headers */,
 				049514B82518A1C600294FD7 /* GTXAxisFearIndexValueFormatter.h in Headers */,
@@ -1561,6 +1580,7 @@
 				04D34F87250B0C8600D940D1 /* GateXHorstAxisValueFormatter.h in Headers */,
 				04CBE5B12511FCCB00E4DD40 /* LNRefreshHandler.h in Headers */,
 				04D350AB250B201600D940D1 /* GateFearIndexTableViewCell.h in Headers */,
+				044D254C253448FE004ACA98 /* NSArray+NilSafe.h in Headers */,
 				04D34F34250B0C8600D940D1 /* GateBigOrderDistributionDealCell.h in Headers */,
 				04D35089250B16EA00D940D1 /* GateData2TableViewCell.h in Headers */,
 				04D34F41250B0C8600D940D1 /* JXCategoryTitleBackgroundCell.h in Headers */,
@@ -1589,6 +1609,7 @@
 				049514AF2518728600294FD7 /* GTFearIndexLineChartsTableViewCell.h in Headers */,
 				04D34F24250B0C8600D940D1 /* GateHoldCoinViewController.h in Headers */,
 				049514AA2518722000294FD7 /* GTFearIndexViewController.h in Headers */,
+				044D255025344915004ACA98 /* NSObject+Swizzling.h in Headers */,
 				04D35034250B0F7300D940D1 /* UILabel+WHLabel.h in Headers */,
 				04D3502E250B0F7300D940D1 /* NSString+WHString.h in Headers */,
 				AD3A25692532CBA40099C5AC /* GTDotManager.h in Headers */,
@@ -1854,6 +1875,7 @@
 				049514B52518886200294FD7 /* GTFearIndexModel.m in Sources */,
 				AD3A256A2532CBA40099C5AC /* GTDotManager.m in Sources */,
 				04D35049250B0F7300D940D1 /* UIFont+HYDENormalFont.m in Sources */,
+				044D254F25344915004ACA98 /* NSObject+Swizzling.m in Sources */,
 				04D35048250B0F7300D940D1 /* NSString+HYDESize.m in Sources */,
 				04D34F2C250B0C8600D940D1 /* GateThirtyDaysBigOrderStatisticsTableViewCell.m in Sources */,
 				04D34F30250B0C8600D940D1 /* GateThirtyDaysBigOrderStatisticsSelectView.m in Sources */,
@@ -1875,6 +1897,7 @@
 				049514BD2518A1DD00294FD7 /* GTYxisFearIndexValueFormatter.m in Sources */,
 				04D3507A250B16EA00D940D1 /* GateHearView.m in Sources */,
 				04D35073250B16EA00D940D1 /* GateHomeModel.m in Sources */,
+				044D254B253448FE004ACA98 /* NSArray+NilSafe.m in Sources */,
 				04D3501B250B0F7300D940D1 /* UIBarButtonItem+WHBarButtonItem.m in Sources */,
 				04D3508E250B16EA00D940D1 /* GateNewDetailsViewController.m in Sources */,
 				04D34F3A250B0C8600D940D1 /* GateWholeNetworkPositionStatisticsViewController.m in Sources */,
@@ -1890,6 +1913,7 @@
 				04D34F38250B0C8600D940D1 /* GateBigOrderStatisticsViewController.m in Sources */,
 				044D2528253148BB004ACA98 /* GTMultiSpaceRatioViewController.m in Sources */,
 				04D34F9E250B0C8600D940D1 /* GateBurstListTableViewCell.m in Sources */,
+				044D2548253441AC004ACA98 /* GTStyleManager.m in Sources */,
 				04CBE5A32511FCCB00E4DD40 /* LNRefreshConst.m in Sources */,
 				04D35098250B184E00D940D1 /* GateHomePageController.m in Sources */,
 				04D3502D250B0F7300D940D1 /* NSDateFormatter+Category.m in Sources */,

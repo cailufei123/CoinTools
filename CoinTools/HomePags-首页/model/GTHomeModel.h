@@ -35,11 +35,53 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,copy)NSString *data_result;
 @end
 
-@interface GTHomeModel : NSObject
-@property(nonatomic,strong)NSArray<GTBcoin_btc_base_infoModel*> * bcoin_btc_base_info;//BTC报价
-@property(nonatomic,strong)NSArray<GTBcoin_btc_offer_infoModel*> * bcoin_btc_offer_info;//恐慌指数
-@property(nonatomic,strong)NSArray<GTBcoin_ms_coin_infoModel*> * bcoin_ms_coin_info;//主流行情
+
+
+@interface GTHomebigtitleModel : NSObject
+
+
+
+
 @end
+
+
+
+
+
+@interface GTHomeTitleModel : NSObject
+@property(nonatomic,assign)NSInteger size;//":"12",
+@property(nonatomic,copy)NSString *content;//":"爆仓数据",
+@property(nonatomic,assign)BOOL blod;//":"1",
+ @property(nonatomic,copy)NSString *color;//":
+@end
+
+@interface GTAlldatalistModel : NSObject
+@property(nonatomic,strong) NSArray<GTHomeTitleModel *> * datalist;
+@property(nonatomic,strong) GTHomeTitleModel * title;
+@end
+@interface GTHomepageboxModel : NSObject
+@property(nonatomic,strong) NSArray<GTAlldatalistModel *> * alldatalist;
+@end
+
+
+
+
+
+@interface GTHomepaglistModel : NSObject
+@property(nonatomic,strong) NSArray<GTAlldatalistModel *> * alldatalist;
+
+@end
+@interface GTHomeModel : NSObject
+
+@property(nonatomic,strong)GTHomebigtitleModel * homebigtitle;//
+@property(nonatomic,strong)GTHomepageboxModel * homepagebox;//
+@property(nonatomic,strong)GTHomepaglistModel * homepaglist;//
+
+@end
+
+
+
+
 
 
 

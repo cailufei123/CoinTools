@@ -120,14 +120,15 @@
     
     GTChartPMarkerView * marker1 = [GTChartPMarkerView loadFromNib:@"GTChartPMarkerView"];
     self.marker1 = marker1;
-    marker1.xAxisValueFormatter = self.xAxisValueFormatter;
+    marker1.aleartType = GTChartPMarkerViewCalendarPermissionBaoCang;
+//    marker1.ale = self.xAxisValueFormatter;
     [marker1 layercornerRadius:5];
     marker1.alpha = 0.5;
     marker1.backgroundColor = [UIColor blackColor];
     marker1.chartView =  self.chartView;
      marker1.offset = CGPointMake(10, 0);
       self.chartView.marker = marker1;
-   
+    marker1.xAxisValueFormatter = self.xAxisValueFormatter;
 
   
     
@@ -140,6 +141,7 @@
 
 -(void)setBcoin_coin_30d_calendar_infos:(NSArray<GTBcoin_coin_30d_calendar_infoModel *> *)bcoin_coin_30d_calendar_infos{
     _bcoin_coin_30d_calendar_infos = bcoin_coin_30d_calendar_infos;
+    self.marker1.possArr = bcoin_coin_30d_calendar_infos;
      NSMutableArray * arr = [NSMutableArray array];
            
            for (int i = 0; i<2; i++) {
@@ -277,7 +279,33 @@
     #pragma mark 图表中数值被选中
     -(void)chartValueSelected:(ChartViewBase *)chartView entry:(ChartDataEntry *)entry highlight:(ChartHighlight *)highlight{
      NSLog(@"%@",[self.yAxisValueFormatter stringForValue:entry.y axis:nil])   ;
-    //    NSLog(@"图表中数值被选中");
+        NSString * str = [NSString stringWithFormat:@"时间:%@",[self.xAxisValueFormatter stringForValue:entry.x axis:XAxis()]]
+        ;
+  
+        self.marker1.publicView.s
+           models.append(getPublicSelectModel(selectEnabled: false, color: UIColor.red, titleText: str))
+           
+           
+           
+           let bcoin_btc_vix_data_infoModel:GTBcoin_coin_30d_calendar_infoModel =  self.possArr[NSInteger(entry.x)]!.buy_amount.as! GTBcoin_coin_30d_calendar_infoModel
+                             guard let long_rate =  Double(bcoin_btc_vix_data_infoModel.long_rate) else { return  }
+                           
+
+                            let tt = String(format:"%.2f",long_rate*100)//123.32
+                        
+                                    let str1 = "开多比例:\(tt)\("%")"
+                           
+                            models.append(getPublicSelectModel(selectEnabled: true, color: selectModels.last?.color ?? UIColor.blue, titleText: str1))
+                            
+                            let str2 =  "\(bcoin_btc_vix_data_infoModel.coin_type)报价:\(bcoin_btc_vix_data_infoModel.offer)"
+                            
+                            models.append(getPublicSelectModel(selectEnabled: true, color: selectModels.first?.color ?? UIColor.blue, titleText: str2))
+                            
+           
+             publicView.publicSelectModels = models as! [Any];
+           
+           self.frame = CGRect(x: 0, y: 0,width: 130, height: models.count*20);
+                            self.layoutIfNeeded();
     }
 
     #pragma mark 图表中的空白区域被选中

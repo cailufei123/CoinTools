@@ -71,8 +71,9 @@
 
 
     __weak typeof(self) wself = self;
+    @weakify(self)
          [self.tableView addPullToRefresh:[LNHeaderMeituanAnimator createAnimator] block:^{
-          
+           @strongify(self)
                 
              if(self.topSelectView.categoryView.selectedIndex == 0){
                  
@@ -106,11 +107,11 @@
                              wself.coinSpaceRatioModel =[GTCoinSpaceRatioModel modelWithDictionary:response[@"data"]];
                    
                             if (!error) {
+              
+                            wself.coinSpaceRatioModel.bcoin_coin_long_short_info.Huobi_quarter.count<=0?:[self.bcoin_coin_long_short_infos addObject: wself.coinSpaceRatioModel.bcoin_coin_long_short_info.Huobi_quarter];
                                 
-               
-                [self.bcoin_coin_long_short_infos addObject: wself.coinSpaceRatioModel.bcoin_coin_long_short_info.Huobi_quarter];
-                [self.bcoin_coin_long_short_infos addObject: wself.coinSpaceRatioModel.bcoin_coin_long_short_info.Okex_quarter];
-                [self.bcoin_coin_long_short_infos addObject: wself.coinSpaceRatioModel.bcoin_coin_long_short_info.Okex_swap];
+                wself.coinSpaceRatioModel.bcoin_coin_long_short_info.Okex_quarter.count<=0?:[self.bcoin_coin_long_short_infos addObject: wself.coinSpaceRatioModel.bcoin_coin_long_short_info.Okex_quarter];
+               wself.coinSpaceRatioModel.bcoin_coin_long_short_info.Okex_swap.count<=0?: [self.bcoin_coin_long_short_infos addObject: wself.coinSpaceRatioModel.bcoin_coin_long_short_info.Okex_swap];
                             
                             }
                                                       
@@ -194,10 +195,15 @@
                GateHoursSelectCategoryView * selectCategoryView = [[GateHoursSelectCategoryView alloc] initWithFrame:CGRectMake(0, 0, scrWeiht-100, 50)];
                 selectCategoryView.categoryView.defaultSelectedIndex = self.selectIndex;
                                                selectCategoryView.titles =  @[@"1天内",@"1周内"];
-                                           
+                                            
                                                selectCategoryView.selectblock = ^(NSInteger index) {
-                                                   
-                                                   [GateRequestManager get:v_coin_type_v_tsURL(self.type,@"5m") block:^(NSError * _Nonnull error, NSDictionary * _Nonnull response) {
+                                                  NSString * time = @"1d";
+                                                                                              if (index == 0) {
+                                                                                                  time =  @"1d";
+                                                                                              }else{
+                                                                                                  time =  @"1dw";
+                                                                                              }
+                                                   [GateRequestManager get:v_coin_type_v_pic_tsURL(self.type, @"5m", time) block:^(NSError * _Nonnull error, NSDictionary * _Nonnull response) {
                                                        self.spaceRatioModel =[GTSpaceRatioModel modelWithDictionary:response[@"data"]];
                                                                                                                            if (!error) {
                                                                                                                           

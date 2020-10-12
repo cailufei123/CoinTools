@@ -15,7 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *titleLb;
 @property (weak, nonatomic) IBOutlet UILabel *duibiLb;
 @property (weak, nonatomic) IBOutlet SYLineProgressView *lineProgressView;
-@property (strong, nonatomic) GTBcoin_btc_base_infoModel * bcoin_btc_base_infoModel;
+@property (weak, nonatomic) IBOutlet UIView *bgView;
+
+@property (strong, nonatomic) GTAlldatalistModel * alldatalistModel;
 @end
 
 NS_ASSUME_NONNULL_END

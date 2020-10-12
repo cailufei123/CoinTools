@@ -16,7 +16,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UITableView *leftTableView;
 @property (weak, nonatomic) IBOutlet UICollectionView *rightCollectionView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftTableWight;
-@property(nonatomic,strong)NSArray<GTBcoin_ms_coin_infoModel*> * bcoin_ms_coin_info;//主流行情
+//@property(nonatomic,strong)NSArray<GTBcoin_ms_coin_infoModel*> * bcoin_ms_coin_info;//主流行情
+
+@property(nonatomic,strong)GTHomepaglistModel * homepaglist;//
 @end
 @interface LeftTableViewTableViewCell : UITableViewCell
 

@@ -27,7 +27,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-     self.titles = @[@"爆仓",@"持仓", @"大单", @"合约", @"持币",];
+     self.titles = @[@"爆仓数据",@"合约持仓", @"多空比", @"大单成交", @"持币",];
    self.topCategoryView = [[GateTopSelectView alloc] initWithFrame:CGRectMake(0, kTopHeight, scrWeiht, 40) categoryTitleViewStyle:CategoryStyleDefault];
     self.topCategoryView.categoryView.titles = self.titles;
     self.topCategoryView.lineView.hidden = NO;
@@ -51,7 +51,7 @@
 
 -(NSArray *)controllerList{
     if (!_controllerList) {
-        _controllerList = [NSArray arrayWithObjects:[[GateBurstViewController alloc] init],[[GateWholeNetworkPositionStatisticsViewController alloc] init],[[GateBigOrderStatisticsViewController alloc] init],[[GTMultiSpaceRatioViewController alloc] init],[[GateHoldCoinViewController alloc] init], nil];
+        _controllerList = [NSArray arrayWithObjects:[[GateBurstViewController alloc] init],[[GateWholeNetworkPositionStatisticsViewController alloc] init],[[GTMultiSpaceRatioViewController alloc] init],[[GateBigOrderStatisticsViewController alloc] init],[[GateHoldCoinViewController alloc] init], nil];
     }
     return _controllerList;
 }

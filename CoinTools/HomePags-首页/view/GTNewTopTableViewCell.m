@@ -21,9 +21,9 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
      self.selectionStyle = UITableViewCellSelectionStyleNone;
     self.imgs = [NSArray arrayWithObjects:@"zhadan@3x-2",@"RectangleCopy@3x" ,@"icon_huabanfuben@3x" ,@"jingjiren_chengjiaoguanli@3x" ,@"shujuzhongxinshujucangku@3x" ,nil];
-    self.titles = [NSArray arrayWithObjects:@"爆仓",@"持仓",@"多空",@"大单成交",@"持币", nil];
+    self.titles = [NSArray arrayWithObjects:@"爆仓数据",@"合约持仓", @"多空比", @"大单成交", @"持币", nil];
      [self collectionViewLyout];
-    
+   
     return self;
 }
 -(void)setArr:(NSArray *)arr{

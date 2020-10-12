@@ -115,3 +115,102 @@ NS_ASSUME_NONNULL_BEGIN
 
 NS_ASSUME_NONNULL_END
 
+//{
+//  "bcoin_all_long_short_info" : [
+//    {
+//      "short_rate" : "0.2673",
+//      "coin_type" : "BTC",
+//      "time_type" : "5m",
+//      "long_rate" : "0.7328"
+//    },
+//    {
+//      "short_rate" : "0.5784",
+//      "coin_type" : "BTC",
+//      "time_type" : "1h",
+//      "long_rate" : "0.4217"
+//    },
+//    {
+//      "short_rate" : "0.5601",
+//      "coin_type" : "BTC",
+//      "time_type" : "4h",
+//      "long_rate" : "0.4399"
+//    }
+//  ],
+//  "bcoin_coin_long_short_info" : {
+//
+//  },
+//  "bcoin_exchange_long_short_info" : [
+//    {
+//      "exchange" : "Okex",
+//      "future_type" : "quarter",
+//      "coin_type" : "BTC",
+//      "time_type" : "5m",
+//      "long_rate" : "0.7415",
+//      "short_rate" : "0.2585"
+//    },
+//    {
+//      "exchange" : "Huobi",
+//      "future_type" : "quarter",
+//      "coin_type" : "BTC",
+//      "time_type" : "5m",
+//      "long_rate" : "0.5352",
+//      "short_rate" : "0.4648"
+//    },
+//    {
+//      "exchange" : "Okex",
+//      "future_type" : "swap",
+//      "coin_type" : "BTC",
+//      "time_type" : "5m",
+//      "long_rate" : "0.5374",
+//      "short_rate" : "0.4626"
+//    },
+//    {
+//      "exchange" : "Huobi",
+//      "future_type" : "quarter",
+//      "coin_type" : "BTC",
+//      "time_type" : "1h",
+//      "long_rate" : "0.4316",
+//      "short_rate" : "0.5684"
+//    },
+//    {
+//      "exchange" : "Okex",
+//      "future_type" : "swap",
+//      "coin_type" : "BTC",
+//      "time_type" : "1h",
+//      "long_rate" : "0.494",
+//      "short_rate" : "0.506"
+//    },
+//    {
+//      "exchange" : "Okex",
+//      "future_type" : "quarter",
+//      "coin_type" : "BTC",
+//      "time_type" : "1h",
+//      "long_rate" : "0.3587",
+//      "short_rate" : "0.6413"
+//    },
+//    {
+//      "exchange" : "Huobi",
+//      "future_type" : "quarter",
+//      "coin_type" : "BTC",
+//      "time_type" : "4h",
+//      "long_rate" : "0.4241",
+//      "short_rate" : "0.5759"
+//    },
+//    {
+//      "exchange" : "Okex",
+//      "future_type" : "quarter",
+//      "coin_type" : "BTC",
+//      "time_type" : "4h",
+//      "long_rate" : "0.4233",
+//      "short_rate" : "0.5767"
+//    },
+//    {
+//      "exchange" : "Okex",
+//      "future_type" : "swap",
+//      "coin_type" : "BTC",
+//      "time_type" : "4h",
+//      "long_rate" : "0.4674",
+//      "short_rate" : "0.5326"
+//    }
+//  ]
+//}

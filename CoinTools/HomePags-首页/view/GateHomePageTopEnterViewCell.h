@@ -12,7 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface GateHomePageTopEnterViewCell : UITableViewCell
 @property(nonatomic,strong)void(^selectBlock)(NSInteger index);
-@property(nonatomic,strong)NSArray<GTBcoin_btc_base_infoModel*> * bcoin_btc_base_info;//BTC报价
+
+@property(nonatomic,strong)GTHomepageboxModel * homepagebox;//
 @end
 
 NS_ASSUME_NONNULL_END

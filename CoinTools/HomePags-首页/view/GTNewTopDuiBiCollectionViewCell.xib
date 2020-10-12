@@ -11,29 +11,29 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="GTNewTopDuiBiCollectionViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="40" height="107"/>
+            <rect key="frame" x="0.0" y="0.0" width="229" height="107"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="40" height="107"/>
+                <rect key="frame" x="0.0" y="0.0" width="229" height="107"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="unO-po-pZ2">
-                        <rect key="frame" x="0.0" y="0.0" width="40" height="107"/>
+                        <rect key="frame" x="0.0" y="0.0" width="229" height="107"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1小时 552万" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dbI-Sf-6e9">
-                                <rect key="frame" x="5" y="32" width="30" height="21"/>
+                                <rect key="frame" x="5" y="32" width="219" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="爆仓数据" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sRG-Th-6PW">
-                                <rect key="frame" x="5" y="5" width="30" height="21"/>
+                                <rect key="frame" x="5" y="5" width="219" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bkl-5w-Psr" customClass="SYLineProgressView">
-                                <rect key="frame" x="10" y="59" width="20" height="6"/>
+                                <rect key="frame" x="10" y="62" width="209" height="6"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="6" id="nL7-Ht-unj"/>
@@ -44,7 +44,7 @@
                         <constraints>
                             <constraint firstItem="dbI-Sf-6e9" firstAttribute="top" secondItem="sRG-Th-6PW" secondAttribute="bottom" constant="6" id="2Dy-gT-5h8"/>
                             <constraint firstAttribute="trailing" secondItem="bkl-5w-Psr" secondAttribute="trailing" constant="10" id="DPs-kq-aAR"/>
-                            <constraint firstItem="bkl-5w-Psr" firstAttribute="top" secondItem="dbI-Sf-6e9" secondAttribute="bottom" constant="6" id="Lk8-8k-GLT"/>
+                            <constraint firstItem="bkl-5w-Psr" firstAttribute="top" secondItem="dbI-Sf-6e9" secondAttribute="bottom" constant="9" id="Lk8-8k-GLT"/>
                             <constraint firstAttribute="trailing" secondItem="sRG-Th-6PW" secondAttribute="trailing" constant="5" id="O35-4V-oaP"/>
                             <constraint firstItem="bkl-5w-Psr" firstAttribute="leading" secondItem="unO-po-pZ2" secondAttribute="leading" constant="10" id="Xbv-uR-jal"/>
                             <constraint firstItem="dbI-Sf-6e9" firstAttribute="leading" secondItem="unO-po-pZ2" secondAttribute="leading" constant="5" id="lmB-sk-TAN"/>
@@ -62,13 +62,14 @@
                 <constraint firstAttribute="bottom" secondItem="unO-po-pZ2" secondAttribute="bottom" id="jZN-Bq-OtA"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
-            <size key="customSize" width="40" height="107"/>
+            <size key="customSize" width="229" height="107"/>
             <connections>
+                <outlet property="bgView" destination="unO-po-pZ2" id="qG6-Sh-GWc"/>
                 <outlet property="duibiLb" destination="dbI-Sf-6e9" id="59Y-a8-3Kx"/>
                 <outlet property="lineProgressView" destination="bkl-5w-Psr" id="D6X-Cn-uYN"/>
                 <outlet property="titleLb" destination="sRG-Th-6PW" id="jde-fu-HHP"/>
             </connections>
-            <point key="canvasLocation" x="42.028985507246382" y="28.459821428571427"/>
+            <point key="canvasLocation" x="178.98550724637681" y="28.459821428571427"/>
         </collectionViewCell>
     </objects>
 </document>

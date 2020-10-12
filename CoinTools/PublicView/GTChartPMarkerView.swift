@@ -12,16 +12,29 @@
  
 import UIKit
 import YYKit
+
+
+
+
  open class GTChartPMarkerView: MarkerView {
+  @objc(GTChartPMarkerViewCalendarPermission)
+ public enum AleartType: Int {
+         case duoKong = 0
+         case baoCang
+       
+     }
+//    @objc public enum AleartType
+  
       @objc open var xAxisValueFormatter: IAxisValueFormatter?
      @objc open var models: NSMutableArray = NSMutableArray()
     @objc open var possArr: [Any] = [Any]()
     @objc open var lineChartView: LineChartView?
       @objc open var chartsView: CombinedChartView?
       @objc open var selectModels: [GatePublicSelectModel] = [GatePublicSelectModel]()
-    
+    @objc open var aleartType = AleartType.duoKong
+//     open var aleartTypew  = Bear.Black
 //     @objc open var lineChartView: BarLineChartViewBase?
-    @IBOutlet weak var publicView: GTChartPMarkerPublicView!
+    @IBOutlet  @objc open weak var publicView: GTChartPMarkerPublicView!
     open override func awakeFromNib() {
         super.awakeFromNib()
         publicView.backgroundColor = UIColor .red
@@ -37,37 +50,29 @@ import YYKit
        }
     open override func refreshContent(entry: ChartDataEntry, highlight: Highlight)
        {
-
-     
+//        aleartTypew.rawValue;
+  
+        
         models.removeAllObjects()
-       let str = "时间:\(String(self.xAxisValueFormatter!.stringForValue(entry.x, axis: XAxis())))"
-        models.append(getPublicSelectModel(selectEnabled: false, color: UIColor.red, titleText: str))
-        
-         
-        let bcoin_btc_vix_data_infoModel:bcoin_coin_long_short_infoModel =  self.possArr[NSInteger(entry.x)] as! bcoin_coin_long_short_infoModel
-         guard let long_rate =  Double(bcoin_btc_vix_data_infoModel.long_rate) else { return  }
-       
+        switch aleartType {
+            
+        case .baoCang:
+            burstViewAleart(entry: entry)
+            
+            break
+            
+        case .duoKong:
+            multiSpaceRatioAlert(entry: entry)
+            break
+        default: break
+            
+        }
+      
 
-        let tt = String(format:"%.2f",long_rate*100)//123.32
-        
-        
-        
-                let str1 = "开多比例:\(tt)\("%")"
-        
-      
-      
-       
-        models.append(getPublicSelectModel(selectEnabled: true, color: selectModels.last?.color ?? UIColor.blue, titleText: str1))
-        
-        let str2 =  "\(bcoin_btc_vix_data_infoModel.coin_type)报价:\(bcoin_btc_vix_data_infoModel.offer)"
-        
-        models.append(getPublicSelectModel(selectEnabled: true, color: selectModels.first?.color ?? UIColor.blue, titleText: str2))
-        
-        publicView.publicSelectModels = models as! [Any];
-        self.frame = CGRect(x: 0, y: 0,width: 130, height: models.count*20);
-        self.layoutIfNeeded();
-//
-       }
+}
+    
+   
+   
     
     func getPublicSelectModel(selectEnabled:Bool,color:UIColor,titleText:String) -> GatePublicSelectModel {
         let publicSelectModel:GatePublicSelectModel = GatePublicSelectModel()
@@ -83,3 +88,39 @@ import YYKit
 
 
 
+
+
+extension GTChartPMarkerView{
+    func multiSpaceRatioAlert(entry: ChartDataEntry)  {//多空比
+                     let str = "时间:\(String(self.xAxisValueFormatter!.stringForValue(entry.x, axis: XAxis())))"
+                  models.append(getPublicSelectModel(selectEnabled: false, color: UIColor.red, titleText: str))
+                  
+                   
+                  let bcoin_btc_vix_data_infoModel:bcoin_coin_long_short_infoModel =  self.possArr[NSInteger(entry.x)] as! bcoin_coin_long_short_infoModel
+                   guard let long_rate =  Double(bcoin_btc_vix_data_infoModel.long_rate) else { return  }
+                 
+
+                  let tt = String(format:"%.2f",long_rate*100)//123.32
+              
+                          let str1 = "开多比例:\(tt)\("%")"
+                 
+                  models.append(getPublicSelectModel(selectEnabled: true, color: selectModels.last?.color ?? UIColor.blue, titleText: str1))
+                  
+                  let str2 =  "\(bcoin_btc_vix_data_infoModel.coin_type)报价:\(bcoin_btc_vix_data_infoModel.offer)"
+                  
+                  models.append(getPublicSelectModel(selectEnabled: true, color: selectModels.first?.color ?? UIColor.blue, titleText: str2))
+                  
+                  publicView.publicSelectModels = models as! [Any];
+                  self.frame = CGRect(x: 0, y: 0,width: 130, height: models.count*20);
+                  self.layoutIfNeeded();
+          }
+    
+    
+    func burstViewAleart(entry: ChartDataEntry)  {//BurstStatistics-爆仓统计
+           
+       
+        
+       }
+      
+}
+ 

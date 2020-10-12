@@ -19,18 +19,20 @@
     [super awakeFromNib];
     // Initialization code
 }
+-(void)setHomepagebox:(GTHomepageboxModel *)homepagebox{
+    _homepagebox = homepagebox;
 
--(void)setBcoin_btc_base_info:(NSArray<GTBcoin_btc_base_infoModel *> *)bcoin_btc_base_info{
-    _bcoin_btc_base_info = bcoin_btc_base_info;
-    
-    [self.collectionView mas_updateConstraints:^(MASConstraintMaker *make) {
        
-        NSInteger totalPage = (bcoin_btc_base_info.count + 4 - 1)/4;
-         make.height.mas_equalTo(totalPage * 71 + 2 * totalPage);
-    }];
-    
-    [self.collectionView reloadData];
+       [self.collectionView mas_updateConstraints:^(MASConstraintMaker *make) {
+          
+           NSInteger totalPage = (homepagebox.alldatalist.count + 4 - 1)/4;
+            make.height.mas_equalTo(totalPage * 71 + 2 * totalPage);
+       }];
+       
+       [self.collectionView reloadData];
+     
 }
+
 -(UIView *)topView{
     if (!_topView) {
         _topView = [[UIView alloc] init];
@@ -116,7 +118,7 @@
 #pragma mark -kkkkk
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return self.bcoin_btc_base_info.count;
+    return self.homepagebox.alldatalist.count;
     
 }
 #pragma mark - collectionViewDelegate
@@ -129,17 +131,17 @@
 
 #pragma mark -点击按钮
 - (UICollectionViewCell * )collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-
-    if (indexPath.section == 0) {
-             GateHomePageTopEnterViewCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GateHomePageTopEnterViewCollectionViewCell" forIndexPath:indexPath];
-        cell.bcoin_btc_base_infoModel = self.bcoin_btc_base_info[indexPath.row];
-               return cell;
-    }else{
+ GTAlldatalistModel * alldatalistModel = self.homepagebox.alldatalist[indexPath.row];
+    GTHomeTitleModel * homeTitleModel  = alldatalistModel.datalist.firstObject;
+    if ([homeTitleModel.content containsString:@":"]) {
         GTNewTopDuiBiCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GTNewTopDuiBiCollectionViewCell" forIndexPath:indexPath];
-           cell.bcoin_btc_base_infoModel = self.bcoin_btc_base_info[indexPath.row];
-          return cell;
+         cell.alldatalistModel = alldatalistModel;
+        return cell;
+    }else{
+        GateHomePageTopEnterViewCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GateHomePageTopEnterViewCollectionViewCell" forIndexPath:indexPath];
+            cell.alldatalistModel = alldatalistModel;
+                   return cell;
     }
-      
    
   
     

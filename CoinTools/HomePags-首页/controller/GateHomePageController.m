@@ -116,13 +116,34 @@ if (@available(iOS 11.0, *)) {
     
         @weakify(self)
       [self.tableView addPullToRefresh:[LNHeaderMeituanAnimator createAnimator] block:^{
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        @strongify(self)
-            NSDictionary * dict =  [GTCurrencyTool readLocalFileWithName:@"CoinTools.framework/home"];
-            self.homeModel =[GTHomeModel  modelWithDictionary:dict[@"data"]];
-            [self.tableView reloadData];
-            [self.tableView endRefreshing];
-        });
+          
+          
+          
+
+           [GateRequestManager get:homepagegURL block:^(NSError * _Nonnull error, NSDictionary * _Nonnull response) {
+                 @strongify(self)
+               self.homeModel = [GTHomeModel modelWithDictionary:response[@"data"]];
+             
+               if (!error) {
+                    
+               }
+              
+            
+               
+                    [self.tableView reloadData];
+                                 
+                            [self.tableView endRefreshing];
+          }];
+          
+          
+          
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        @strongify(self)
+//            NSDictionary * dict =  [GTCurrencyTool readLocalFileWithName:@"CoinTools.framework/home"];
+//            self.homeModel =[GTHomeModel  modelWithDictionary:dict[@"data"]];
+//            [self.tableView reloadData];
+//            [self.tableView endRefreshing];
+//        });
     }];
     [self.tableView startRefreshing];
    
@@ -177,7 +198,7 @@ if (@available(iOS 11.0, *)) {
                             configuration:^(id cell) {
           GateHomePageTopEnterViewCell * cell1 = cell;
                     
-                cell1.bcoin_btc_base_info = self.homeModel.bcoin_btc_base_info;
+ cell1.homepagebox = self.homeModel.homepagebox;
                              }];
           return height;
  }
@@ -225,14 +246,14 @@ if (@available(iOS 11.0, *)) {
         
         GateHomePageTopEnterViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"GateHomePageTopEnterViewCell" forIndexPath:indexPath];
             
-        cell.bcoin_btc_base_info = self.homeModel.bcoin_btc_base_info;
+        cell.homepagebox = self.homeModel.homepagebox;
                   return cell;
     }else if (indexPath.section == 2){
         GateFearIndexTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"GateFearIndexTableViewCell" forIndexPath:indexPath];
         return cell;
     }else if (indexPath.section == 3){
         GTMainCoinQuotationListTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"GTMainCoinQuotationListTableViewCell" forIndexPath:indexPath];
-        cell.bcoin_ms_coin_info =  self.homeModel.bcoin_ms_coin_info;
+      cell.homepaglist = self.homeModel.homepaglist;
         return cell;
     }
     

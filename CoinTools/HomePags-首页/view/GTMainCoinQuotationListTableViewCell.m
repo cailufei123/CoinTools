@@ -58,7 +58,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     self.autoresizesSubviews = NO;
-    self.leftTitles = [NSArray arrayWithObjects:@"币种",@"报价",@"市场情绪",@"持仓量",@"爆仓金额",@"多控人数比",@"实盘多空金额比",@"季度溢价",@"全网多空",@"永续合约",@"OKEX\n精英趋向",@"OKEX\n持仓指标",@"融资融币汇率", nil];
+//    self.leftTitles = [NSArray arrayWithObjects:@"币种",@"报价",@"市场情绪",@"持仓量",@"爆仓金额",@"多控人数比",@"实盘多空金额比",@"季度溢价",@"全网多空",@"永续合约",@"OKEX\n精英趋向",@"OKEX\n持仓指标",@"融资融币汇率", nil];
     self.leftTableWight.constant = scrWeiht/4;
     [self setLeftTableView];
     [self setRightCoRllectionView];
@@ -67,10 +67,14 @@
     self.moreLb.textColor = gateColor(@"333B46");
     self.moreLb.font = gateFont(12, Medium);
 }
--(void)setBcoin_ms_coin_info:(NSArray *)bcoin_ms_coin_info{
-    _bcoin_ms_coin_info = bcoin_ms_coin_info;
-    [self.rightCollectionView reloadData];
+
+- (void)setHomepaglist:(GTHomepaglistModel *)homepaglist{
+    _homepaglist = homepaglist;
+    self.leftTitles = homepaglist.alldatalist.firstObject.datalist;
+     [self.leftTableView reloadData];
+       [self.rightCollectionView reloadData];
 }
+
 -(void)setLeftTableView{
 
         self.leftTableView.backgroundColor = UIColor.whiteColor;
@@ -134,7 +138,7 @@ self.rightCollectionView.backgroundColor = gateColor(@"ffffff");
 #pragma mark -kkkkk
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return _bcoin_ms_coin_info.count;
+    return self.homepaglist.alldatalist.count - 1;
     
 }
 #pragma mark - collectionViewDelegate
@@ -153,8 +157,9 @@ self.rightCollectionView.backgroundColor = gateColor(@"ffffff");
 }
 #pragma mark -点击按钮
 - (UICollectionViewCell * )collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
- GTRightCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GTRightCollectionViewCell" forIndexPath:indexPath];
-    cell.bcoin_ms_coin_infoModel = self.bcoin_ms_coin_info[indexPath.row];
+//    GTAlldatalistModel *alldatalistModel = self.homepaglist.alldatalist[indexPath.row];
+   GTRightCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GTRightCollectionViewCell" forIndexPath:indexPath];
+    cell.alldatalistModel = self.homepaglist.alldatalist[indexPath.row+1];
   
     return cell;
     
@@ -199,13 +204,22 @@ self.rightCollectionView.backgroundColor = gateColor(@"ffffff");
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return  self.leftTitles.count;
+    return  self.leftTitles.count + 1;
 }
 
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
      LeftTableViewTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"LeftTableViewTableViewCell" forIndexPath:indexPath];
-    cell.nameLb.text= self.leftTitles[indexPath.row];
+    
+    if (indexPath.row == 0) {
+        cell.nameLb.text= self.homepaglist.alldatalist.firstObject.title.content;
+         [GTStyleManager setStyleWhit:self.homepaglist.alldatalist.firstObject.title forLale:cell.nameLb];
+    }else{
+          GTHomeTitleModel * homeTitleModel = self.leftTitles[indexPath.row-1];
+         cell.nameLb.text= homeTitleModel.content;
+          [GTStyleManager setStyleWhit:homeTitleModel forLale:cell.nameLb];
+    }
+  
     if (indexPath.row%2 == 0) {
           cell.backgroundColor = gateColor(@"F5F5F5");
           cell.nameLb.backgroundColor = gateColor(@"F5F5F5");

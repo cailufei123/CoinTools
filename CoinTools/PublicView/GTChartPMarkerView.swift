@@ -23,8 +23,16 @@ import YYKit
          case baoCang
        
      }
+    
+//   @objc open var cycleSelectBlock:(_ models : [Any]) -> NSArray = {_ in }
+
+//    @objc open var cycleSelectBlock:(_ models : [Any]) -> NSArray = {_ in }
 //    @objc public enum AleartType
-  
+    
+//    @objc open var parameterEnclosure:((_ model :String) -> String)?
+    @objc open var  cycleSelectBlock = {(index : NSInteger) ->Array<Any> in
+    return []
+    }
       @objc open var xAxisValueFormatter: IAxisValueFormatter?
      @objc open var models: NSMutableArray = NSMutableArray()
     @objc open var possArr: [Any] = [Any]()
@@ -41,7 +49,8 @@ import YYKit
         self.autoresizesSubviews = false
 
       
-    }
+        
+}
   
    @objc public static func loadFromNib(_ nibname : String? = nil) -> Self {
 //           let loadName = nibname == nil ? "\(self)" : nibname!
@@ -57,8 +66,9 @@ import YYKit
         switch aleartType {
             
         case .baoCang:
-            burstViewAleart(entry: entry)
-            
+           
+          burstViewAleart(entry: entry)
+
             break
             
         case .duoKong:
@@ -118,7 +128,31 @@ extension GTChartPMarkerView{
     
     func burstViewAleart(entry: ChartDataEntry)  {//BurstStatistics-爆仓统计
            
+        let srtingArr = cycleSelectBlock(NSInteger(entry.x))
+        let str = "时间:\(String(self.xAxisValueFormatter!.stringForValue(entry.x, axis: XAxis())))"
+            models.append(getPublicSelectModel(selectEnabled: false, color: UIColor.red, titleText: str))
+
        
+           
+ let buy_amount:[String:Any] =  srtingArr.first as! [String : Any]
+          
+        
+        let str1 = "多头:\(buy_amount["title"] ?? "")"
+        
+        
+     
+                 
+        models.append(getPublicSelectModel(selectEnabled: true, color:  buy_amount["color"] as! UIColor, titleText: str1))
+                
+        let sell_amount:[String:Any] =  srtingArr.last as! [String : Any]
+        let str2 = "空头:\(sell_amount["title"] ?? "")"
+          
+            
+            models.append(getPublicSelectModel(selectEnabled: true, color:  sell_amount["color"] as! UIColor, titleText: str2))
+            
+            publicView.publicSelectModels = models as! [Any];
+            self.frame = CGRect(x: 0, y: 0,width: 130, height: models.count*20);
+            self.layoutIfNeeded();
         
        }
       

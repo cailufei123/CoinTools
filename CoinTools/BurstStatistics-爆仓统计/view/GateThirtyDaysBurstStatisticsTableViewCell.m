@@ -120,10 +120,19 @@
     
     GTChartPMarkerView * marker1 = [GTChartPMarkerView loadFromNib:@"GTChartPMarkerView"];
     self.marker1 = marker1;
+  @weakify(self)
     marker1.aleartType = GTChartPMarkerViewCalendarPermissionBaoCang;
-//    marker1.ale = self.xAxisValueFormatter;
+    marker1.cycleSelectBlock = ^NSArray * _Nonnull(NSInteger index) {
+         @strongify(self)
+        NSMutableArray * arr = [NSMutableArray array];
+        GTBcoin_coin_30d_calendar_infoModel *   bcoin_coin_30d_calendar_infoModel = self.bcoin_coin_30d_calendar_infos[index];
+      
+        [arr addObject:@{@"title":bcoin_coin_30d_calendar_infoModel.buy_amount,@"color":gateColor(@"e75475")}];
+        [arr addObject:@{@"title":bcoin_coin_30d_calendar_infoModel.sell_amount,@"color":gateColor(@"5bc39b")}];
+          return arr;
+      };
     [marker1 layercornerRadius:5];
-    marker1.alpha = 0.5;
+    marker1.alpha = 0.8;
     marker1.backgroundColor = [UIColor blackColor];
     marker1.chartView =  self.chartView;
      marker1.offset = CGPointMake(10, 0);

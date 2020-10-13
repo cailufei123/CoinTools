@@ -58,6 +58,9 @@
     });
 
 }
+-(NSInteger)selectedIndex{
+     return self.topSelectView.categoryView.selectedIndex;
+}
 
 //-(void)selectitemOrindex:(NSInteger)index{
 //      self.claseBt.transform = CGAffineTransformIdentity;

@@ -87,12 +87,20 @@
                             <constraint firstItem="LJF-gI-7YP" firstAttribute="centerY" secondItem="Wcg-IR-NtW" secondAttribute="centerY" id="vvc-w6-k9O"/>
                         </constraints>
                     </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JH8-Hc-KPA">
+                        <rect key="frame" x="64" y="188.5" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="JH8-Hc-KPA" firstAttribute="top" secondItem="yVE-KU-LzR" secondAttribute="bottom" constant="20" id="Axn-BI-A67"/>
                     <constraint firstItem="Wcg-IR-NtW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="B4p-3v-kr6"/>
                     <constraint firstItem="Wcg-IR-NtW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="HXf-Xe-wY7"/>
                     <constraint firstItem="yVE-KU-LzR" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="V2e-ti-0C9"/>
                     <constraint firstItem="TAj-fT-93N" firstAttribute="leading" secondItem="yVE-KU-LzR" secondAttribute="trailing" constant="30" id="VHm-uj-lKm"/>
+                    <constraint firstItem="JH8-Hc-KPA" firstAttribute="centerX" secondItem="yVE-KU-LzR" secondAttribute="centerX" id="dpN-9S-7ZU"/>
                     <constraint firstItem="yVE-KU-LzR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="qgh-02-17x"/>
                     <constraint firstAttribute="trailing" secondItem="TAj-fT-93N" secondAttribute="trailing" constant="10" id="tlT-Nn-YAd"/>
                     <constraint firstItem="TAj-fT-93N" firstAttribute="top" secondItem="Wcg-IR-NtW" secondAttribute="bottom" constant="20" id="y3L-TG-WNH"/>
@@ -106,6 +114,7 @@
                 <outlet property="prgressView" destination="yVE-KU-LzR" id="aTS-0w-tew"/>
                 <outlet property="timeLb" destination="LJF-gI-7YP" id="cl4-1C-3aC"/>
                 <outlet property="titleLb" destination="bnz-LQ-lLd" id="LyG-0z-G5f"/>
+                <outlet property="totayFearIndexLb" destination="JH8-Hc-KPA" id="Idi-yd-Jch"/>
                 <outlet property="yesterDayLb" destination="SR9-PE-0tz" id="saf-NK-3lM"/>
             </connections>
             <point key="canvasLocation" x="160.86956521739131" y="84.375"/>

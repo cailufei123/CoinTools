@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface GateFearIndexTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *tuiMg;
-
+@property(nonatomic,strong)GTHomevixModel * homevix;//
 @end
 
 NS_ASSUME_NONNULL_END

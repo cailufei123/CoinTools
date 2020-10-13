@@ -250,6 +250,7 @@ if (@available(iOS 11.0, *)) {
                   return cell;
     }else if (indexPath.section == 2){
         GateFearIndexTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"GateFearIndexTableViewCell" forIndexPath:indexPath];
+        cell.homevix = self.homeModel.homevix;
         return cell;
     }else if (indexPath.section == 3){
         GTMainCoinQuotationListTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"GTMainCoinQuotationListTableViewCell" forIndexPath:indexPath];
@@ -262,6 +263,7 @@ if (@available(iOS 11.0, *)) {
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     GTFearIndexViewController * fearIndexVc = [[GTFearIndexViewController alloc] init];
+    fearIndexVc.homevix =  self.homeModel.homevix;
     [self.navigationController pushViewController:fearIndexVc animated:YES];
 }
 - (UIViewController*)stringChangeToClass:(NSString *)str {

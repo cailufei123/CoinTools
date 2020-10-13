@@ -37,13 +37,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 
-@interface GTHomebigtitleModel : NSObject
-
-
-
-
-@end
-
 
 
 
@@ -65,6 +58,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 
+@interface GTHomevixModel : NSObject
+
+
+@property(nonatomic,strong) NSArray<GTAlldatalistModel *> * alldatalist;
+
+@end
+
 
 
 @interface GTHomepaglistModel : NSObject
@@ -73,7 +73,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 @interface GTHomeModel : NSObject
 
-@property(nonatomic,strong)GTHomebigtitleModel * homebigtitle;//
+@property(nonatomic,strong)GTHomevixModel * homevix;//
 @property(nonatomic,strong)GTHomepageboxModel * homepagebox;//
 @property(nonatomic,strong)GTHomepaglistModel * homepaglist;//
 

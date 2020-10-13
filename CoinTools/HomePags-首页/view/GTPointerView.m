@@ -31,7 +31,7 @@
 @property (nonatomic, assign) CGFloat percent; // 百分比 0 - 100
 
 @property (nonatomic, strong) UIImageView *typeImageView; // 模式图片
-@property (nonatomic, strong)  UIView * pointer;
+ @property (nonatomic, strong)  UIView * pointer;
 
 @end
 @implementation GTPointerView
@@ -43,7 +43,9 @@
 //     [self lyoutBageView];
 //      [self initSubView];
 //}
-
+-(void)setPointerRatio:(double)pointerRatio{
+    self.pointer.transform = CGAffineTransformMakeRotation(M_PI * (1+pointerRatio));
+}
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -54,7 +56,7 @@
          [self lyoutBageView];
           [self initSubView];
         
-       [UIView animateWithDuration:2 animations:^{
+        [UIView animateWithDuration:0.1 animations:^{
            self.pointer.transform = CGAffineTransformMakeRotation(M_PI * 1.6);
         }];
             

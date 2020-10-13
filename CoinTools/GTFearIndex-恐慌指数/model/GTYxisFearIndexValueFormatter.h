@@ -6,8 +6,10 @@
 //  Copyright © 2020 蔡路飞. All rights reserved.
 //
 typedef NS_ENUM(NSInteger, GTFormatterYType) {
-   GTFormatterYRightDuoKong,
+   GTFormatterYRightDuoKong = 0,
     GTFormatterYLeftAxisDuoKong,
+    GTFormatterYLeftAxisKongHuang,
+    GTFormatterYRightKongHuang,
 };
 #import "GateHomeModel.h"
 #import <Foundation/Foundation.h>

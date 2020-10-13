@@ -29,7 +29,10 @@
 @end
 
 
-@implementation GTHomebigtitleModel : NSObject
+@implementation GTHomevixModel : NSObject
++ (NSDictionary *)modelContainerPropertyGenericClass {
+    return @{@"alldatalist" : [GTAlldatalistModel class]};
+}
 @end
 
 

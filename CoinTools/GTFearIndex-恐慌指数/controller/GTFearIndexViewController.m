@@ -9,6 +9,8 @@
 #import "GTFearIndexViewController.h"
 #import "GTFearIndexLineChartsTableViewCell.h"
 #import "GTFearIndexModel.h"
+#import "GTFearIndexIndicatorTableViewCell.h"
+#import "GateHoursSelectCategoryView.h"
 @interface GTFearIndexViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong)UITableView *tableView;
 @property(nonatomic,strong)GTFearIndexModel *fearIndexModel;
@@ -81,6 +83,7 @@ if (@available(iOS 11.0, *)) {
      self.tableView.backgroundColor = gateColor(@"f5f5f5");
 
     gateTableRegisterNib(self.tableView, @"GTFearIndexLineChartsTableViewCell");
+     gateTableRegisterNib(self.tableView, @"GTFearIndexIndicatorTableViewCell");
   
     UIView * imag = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 75, 25)];
     [imag addSubview:[UIImageView wh_imageViewWithPNGImage:getImageName(@"icon_logon_d_logo_145x51_@2x") frame:imag.frame]];
@@ -104,18 +107,29 @@ if (@available(iOS 11.0, *)) {
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 
 {
-    if (section == 2||section == 3){
-          return 10.01;
+    if (section == 1) {
+            return 60;
+    }else{
+        return 0.01;
     }
-    return 0.01;
-  
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     return [UIView new];
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-     return [UIView new];
+    if (section == 0) {
+         return [UIView new];
+    }else{
+        GateHoursSelectCategoryView * selectCategoryView = [[GateHoursSelectCategoryView alloc] initWithFrame:CGRectMake(0, 0, scrWeiht-100, 50)];
+                              selectCategoryView.titles =  @[@"1H",@"4H",@"24H"];
+                             selectCategoryView.selectblock = ^(NSInteger index) {
+                                 
+                             };
+                 
+                                 return selectCategoryView;
+    }
+     
    
 }
 
@@ -125,7 +139,7 @@ if (@available(iOS 11.0, *)) {
 
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -135,21 +149,35 @@ if (@available(iOS 11.0, *)) {
 
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 230;
-   CGFloat height = [tableView
-                      fd_heightForCellWithIdentifier:@"GTFearIndexLineChartsTableViewCell"
-                      cacheByIndexPath:indexPath
-                      configuration:^(id cell) {
+//    return 230;
+//   CGFloat height = [tableView
+//                      fd_heightForCellWithIdentifier:@"GTFearIndexLineChartsTableViewCell"
+//                      cacheByIndexPath:indexPath
+//                      configuration:^(id cell) {
+//
+//                       }];
+      
+    if (indexPath.section == 0) {
+        return 150;
+    }else{
+        return 230;
+    }
+    
 
-                       }];
     
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
    
+       
+    if (indexPath.section == 0) {
+         GTFearIndexIndicatorTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"GTFearIndexIndicatorTableViewCell" forIndexPath:indexPath];
+        cell.homevix = self.homevix;
+                         return cell;
+    }else{
         GTFearIndexLineChartsTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"GTFearIndexLineChartsTableViewCell" forIndexPath:indexPath];
-    cell.fearIndexModel = self.fearIndexModel;
-                  return cell;
-        
+           cell.fearIndexModel = self.fearIndexModel;
+                         return cell;
+    }
     
 
    

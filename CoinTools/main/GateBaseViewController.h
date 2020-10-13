@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface GateBaseViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong)UITableView *tableView;
+@property(nonatomic,assign)NSInteger  selectedIndex;
 -(void)selectitemOrindex:(NSInteger )index;
 
 @end

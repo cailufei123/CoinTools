@@ -15,7 +15,8 @@
     if (self.formatterType == GTFormatterYRightDuoKong) {
 //        bcoin_coin_long_short_infoModel * coin_long_short_infoModel = self.publicArry[(NSInteger)value];
            
-       return  [self formatToTwoDecimal:[NSNumber numberWithDouble:value]];
+
+         return  [self formatDecimalNumber:[NSString stringWithFormat:@"%lf",value]];
     } else  if (self.formatterType == GTFormatterYLeftAxisDuoKong) {
           return  [self formatPercentage:value];
     } else{
@@ -33,39 +34,52 @@
     }
    
 }
+- (NSString *)formatDecimalNumber:(NSString *)string {
+ if (!string || string.length == 0) {
+ return string;
+ }
+  
+ NSNumber *number = @([string doubleValue]);
+ NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+ formatter.numberStyle = kCFNumberFormatterDecimalStyle;
+ formatter.positiveFormat = @"###,##0.00";
+  
+ NSString *amountString = [formatter stringFromNumber:number];
+ return amountString;
+}
 - (NSString *)formatPercentage:(double)value {
     return [NSString stringWithFormat:@"%0.2lf",value * 100];
 }
 
-- (NSString *)formatToTwoDecimal:(id)count {
-    NSString *originNumber;
-    if ([count isKindOfClass:[NSString class]] || [count isKindOfClass:[NSNumber class]]) {
-        NSInteger i = [count integerValue];
-        originNumber = [NSString stringWithFormat:@"%ld",(long)i];
-    } else {
-        return @"$0.00";
-    }
-    NSDecimalNumber *one = [NSDecimalNumber decimalNumberWithString:originNumber];
-    NSDecimalNumber *two = [NSDecimalNumber decimalNumberWithString:@"100"];
-    NSDecimalNumber *thr = [one decimalNumberByDividingBy:two];
-    
-    NSNumberFormatter *formatter = [[NSNumberFormatter alloc]init];
-    formatter.positiveFormat = @",###.##";
-    NSString *money = [formatter stringFromNumber:[NSNumber numberWithDouble:[thr doubleValue]]];
-    
-    NSString *result = [NSString stringWithFormat:@"$%@",money];
-    
-    if (![result containsString:@"."]) {  //被整除的情况
-        result = [NSString stringWithFormat:@"%@.00",result];
-    } else {                              //小数不足两位
-        NSArray *array = [result componentsSeparatedByString:@"."];
-        NSString *subNumber = array.lastObject;
-        if (subNumber.length == 1) {
-            result = [NSString stringWithFormat:@"%@.%@0",array.firstObject, array.lastObject];
-        }
-    }
-    return result;
-}
+//- (NSString *)formatToTwoDecimal:(id)count {
+//    NSString *originNumber;
+//    if ([count isKindOfClass:[NSString class]] || [count isKindOfClass:[NSNumber class]]) {
+//        NSInteger i = [count integerValue];
+//        originNumber = [NSString stringWithFormat:@"%ld",(long)i];
+//    } else {
+//        return @"$0.00";
+//    }
+//    NSDecimalNumber *one = [NSDecimalNumber decimalNumberWithString:originNumber];
+//    NSDecimalNumber *two = [NSDecimalNumber decimalNumberWithString:@"100"];
+//    NSDecimalNumber *thr = [one decimalNumberByDividingBy:two];
+//
+//    NSNumberFormatter *formatter = [[NSNumberFormatter alloc]init];
+//    formatter.positiveFormat = @",###.##";
+//    NSString *money = [formatter stringFromNumber:[NSNumber numberWithDouble:[thr doubleValue]]];
+//
+//    NSString *result = [NSString stringWithFormat:@"$%@",money];
+//
+//    if (![result containsString:@"."]) {  //被整除的情况
+//        result = [NSString stringWithFormat:@"%@.00",result];
+//    } else {                              //小数不足两位
+//        NSArray *array = [result componentsSeparatedByString:@"."];
+//        NSString *subNumber = array.lastObject;
+//        if (subNumber.length == 1) {
+//            result = [NSString stringWithFormat:@"%@.%@0",array.firstObject, array.lastObject];
+//        }
+//    }
+//    return result;
+//}
 +(instancetype)getGTYxisFearIndexValueFormatter{
     return  [[self alloc] init];
 }

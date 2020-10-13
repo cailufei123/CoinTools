@@ -21,6 +21,7 @@ import YYKit
  public enum AleartType: Int {
          case duoKong = 0
          case baoCang
+         case kongHuang
        
      }
     
@@ -73,6 +74,9 @@ import YYKit
             
         case .duoKong:
             multiSpaceRatioAlert(entry: entry)
+            break
+            case .kongHuang:
+            twoParameters(entry: entry, firstStr: "BTC价格", lastStr: "贪梦恐慌指数")
             break
         default: break
             
@@ -155,6 +159,35 @@ extension GTChartPMarkerView{
             self.layoutIfNeeded();
         
        }
+    func twoParameters(entry: ChartDataEntry,firstStr: String,lastStr: String)  {//BurstStatistics-爆仓统计
+              
+           let srtingArr = cycleSelectBlock(NSInteger(entry.x))
+           let str = "时间:\(String(self.xAxisValueFormatter!.stringForValue(entry.x, axis: XAxis())))"
+               models.append(getPublicSelectModel(selectEnabled: false, color: UIColor.red, titleText: str))
+
+          
+              
+    let buy_amount:[String:Any] =  srtingArr.first as! [String : Any]
+             
+           
+           let str1 = "\(firstStr):\(buy_amount["title"] ?? "")"
+           
+           
+        
+                    
+           models.append(getPublicSelectModel(selectEnabled: true, color:  buy_amount["color"] as! UIColor, titleText: str1))
+                   
+           let sell_amount:[String:Any] =  srtingArr.last as! [String : Any]
+           let str2 = "\(lastStr):\(sell_amount["title"] ?? "")"
+             
+               
+               models.append(getPublicSelectModel(selectEnabled: true, color:  sell_amount["color"] as! UIColor, titleText: str2))
+               
+               publicView.publicSelectModels = models as! [Any];
+               self.frame = CGRect(x: 0, y: 0,width: 130, height: models.count*20);
+               self.layoutIfNeeded();
+           
+          }
       
 }
  

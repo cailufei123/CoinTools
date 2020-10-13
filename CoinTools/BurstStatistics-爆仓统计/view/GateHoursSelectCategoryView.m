@@ -43,7 +43,8 @@
     _titles = titles;
     self.categoryView.titles = self.titles;
     [self.categoryView mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.width.mas_equalTo(titles.count * (150/4)+20 );
+//        make.width.mas_equalTo(titles.count * (150/4)+20 );
+         make.width.mas_equalTo(titles.count * 40 );
     }];
     [self.categoryView reloadData];
 }
@@ -80,7 +81,7 @@
         _categoryView.contentEdgeInsetLeft = 0;
         _categoryView.contentEdgeInsetRight = 0;
         _categoryView.cellSpacing = 10;
-       
+        _categoryView.cellWidth = 20;
 //JXCategoryIndicatorBackgroundView *backgroundView = [[JXCategoryIndicatorBackgroundView alloc] init];
 //     backgroundView.indicatorHeight = 20;
 //        backgroundView.indicatorColor = [UIColor blueColor];

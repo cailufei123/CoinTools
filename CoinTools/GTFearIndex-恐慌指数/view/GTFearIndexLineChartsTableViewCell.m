@@ -23,9 +23,10 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    [_chartView setExtraOffsetsWithLeft:0 top:0 right:0 bottom:0];
+    [_chartView setExtraOffsetsWithLeft:20 top:0 right:0 bottom:0];
    
    _chartView.delegate = self;
+
  _chartView.legend.formToTextSpace = 50;
     _chartView.chartDescription.enabled = NO;
     _chartView.legend.enabled = NO; //是否有图例。默认YES
@@ -50,11 +51,12 @@
     rightAxis.axisMinimum = 0.0; // this replaces startAtZero = YES
     rightAxis.axisLineColor = gateColor(gateGridColor);
         rightAxis.labelTextColor = gateColor(axislabelTextColor);
-    
+    self.yXisFearIndexValueFormatter = [GTYxisFearIndexValueFormatter getGTYxisFearIndexValueFormatter];
+     rightAxis.valueFormatter = self.yXisFearIndexValueFormatter;
 //    rightAxis.valueFormatter = [GTYxisFearIndexValueFormatter getGTYxisFearIndexValueFormatter];
     ChartYAxis *leftAxis = _chartView.leftAxis;
-    self.yXisFearIndexValueFormatter = [GTYxisFearIndexValueFormatter getGTYxisFearIndexValueFormatter];
-     leftAxis.valueFormatter = self.yXisFearIndexValueFormatter;
+    
+    
     leftAxis.drawGridLinesEnabled = YES;
     leftAxis.axisMinimum = 0.0; // this replaces startAtZero = YES  //网格线的颜色
     leftAxis.gridColor = gateColor(@"f6f6f9"); //网格线的颜色
@@ -64,12 +66,14 @@
   
 //    xAxis.labelPosition = XAxisLabelPositionBothSided;
     xAxis.axisMinimum = -0.5;
+//     xAxis.axisMaxLabels = 4;
     xAxis.drawGridLinesEnabled = NO;
     xAxis.granularity = 1.0;
     self.xXisFearIndexValueFormatter = [GTXAxisFearIndexValueFormatter getGTXAxisFearIndexValueFormatter];
+  
     xAxis.valueFormatter = self.xXisFearIndexValueFormatter;
     xAxis.labelPosition  = XAxisLabelPositionBottom;
-    xAxis.labelCount = 4;
+    xAxis.labelCount = 3;
   
 
 //     xAxis.centerAxisLabelsEnabled = YES;
@@ -77,18 +81,35 @@
     xAxis.axisLineColor = gateColor(gateGridColor);
     xAxis.labelTextColor = gateColor(axislabelTextColor);
    
-   XYMarkerView *marker = [[XYMarkerView alloc]
-                                  initWithColor: [UIColor colorWithWhite:180/255. alpha:1.0]
-                                  font: [UIFont systemFontOfSize:12.0]
-                                  textColor: UIColor.whiteColor
-                                  insets: UIEdgeInsetsMake(8.0, 8.0, 20.0, 8.0)
-                                  xAxisValueFormatter: _chartView.xAxis.valueFormatter];
-    marker.chartView = self.chartView;
-    marker.arrowSize =  CGSizeMake(8,8);
-    marker.minimumSize = CGSizeMake(80.f, 40.f);
-    self.chartView.marker = marker;
-      [self.chartView animateWithXAxisDuration:2.0f];
+    GTChartPMarkerView * marker1 = [GTChartPMarkerView loadFromNib:@"GTChartPMarkerView"];
+//     self.marker1 = marker1;
     
+    
+   @weakify(self)
+     marker1.aleartType = GTChartPMarkerViewCalendarPermissionKongHuang;
+     marker1.cycleSelectBlock = ^NSArray * _Nonnull(NSInteger index) {
+          @strongify(self)
+         NSMutableArray * arr = [NSMutableArray array];
+         
+         GTBcoin_btc_vix_data_infoModel * bcoin_btc_vix_data_infoModel = self.fearIndexModel.bcoin_btc_vix_data_info[index];
+
+          
+        
+       
+         [arr addObject:@{@"title":bcoin_btc_vix_data_infoModel.offer,@"color":gateColor(@"44775a")}];
+         [arr addObject:@{@"title":bcoin_btc_vix_data_infoModel.vix_value,@"color":gateColor(@"5b95f1")}];
+           return arr;
+       };
+     [marker1 layercornerRadius:5];
+     marker1.alpha = 0.8;
+     marker1.backgroundColor = [UIColor blackColor];
+     marker1.chartView =  self.chartView;
+      marker1.offset = CGPointMake(10, 0);
+       self.chartView.marker = marker1;
+    marker1.aleartType = GTChartPMarkerViewCalendarPermissionKongHuang;
+     marker1.xAxisValueFormatter = self.xXisFearIndexValueFormatter;
+
+
     
 
     [self.selectView addSubview:self.topPublicSelectView];
@@ -112,10 +133,10 @@
 -(void)addFearIndexModel{
       NSMutableArray * arr = [NSMutableArray array];
     GatePublicSelectModel * selectModel = [[GatePublicSelectModel alloc] init];
-    selectModel.color = gateColor(@"5065eb");
+    selectModel.color = gateColor(@"5b95f1");
     selectModel.titleText = @"贪梦恐慌指数";
     GatePublicSelectModel * selectModel1 = [[GatePublicSelectModel alloc] init];
-       selectModel1.color = gateColor(@"f54b68");
+       selectModel1.color = gateColor(@"44775a");
         selectModel1.titleText = @"BTC价格";
       [arr addObject:selectModel];
      [arr addObject:selectModel1];
@@ -130,12 +151,23 @@
        @weakify(self)
       _topPublicSelectView.selectBlock = ^(NSInteger index, GatePublicSelectModel * _Nonnull publicSelectModel) {
           @strongify(self)
-                     LineChartDataSet * set =  (LineChartDataSet *) self.chartView.lineData.dataSets[index];
-//          set.visible = !publicSelectModel.selectEnabled;
-//                     [self.chartView setNeedsDisplay];
-           [self.chartView.data notifyDataChanged];
-           [self.chartView notifyDataSetChanged];
-          [self.chartView animateWithXAxisDuration:2];
+  LineChartDataSet * set =  (LineChartDataSet *) self.chartView.lineData.dataSets[index];
+                               set.visible = !publicSelectModel.selectEnabled;
+                               GatePublicSelectModel * publicSelectModel1 = self.topPublicSelectView.arr.firstObject;
+                             GatePublicSelectModel * publicSelectModel2 = self.topPublicSelectView.arr.lastObject;
+                               if (!publicSelectModel1.selectEnabled) {
+                                    self.chartView.leftAxis.enabled = YES;
+                               }else{
+                                     self.chartView.leftAxis.enabled = NO;
+                               }
+                               if (!publicSelectModel2.selectEnabled) {
+                                    self.chartView.rightAxis.enabled = YES;
+                               }else{
+                                     self.chartView.rightAxis.enabled = NO;
+                               }
+                             
+
+          [self.chartView animateWithXAxisDuration:1];
       };
       
    }
@@ -169,14 +201,17 @@
         [entries1 addObject:[[ChartDataEntry alloc] initWithX:index + 0.5  y:[bcoin_btc_vix_data_infoModel.vix_value doubleValue]]];
 
     }
-    LineChartDataSet * set1 = [self getArr:entries lineChartDataSet:gateColor(@"5465eb")];
-     set1.axisDependency = AxisDependencyLeft;
+    LineChartDataSet * set1 = [self getArr:entries lineChartDataSet:gateColor(@"44775a")];
+     set1.axisDependency = AxisDependencyRight;
   
-    LineChartDataSet * set2 = [self getArr:entries1 lineChartDataSet:gateColor(@"f54b68")];
-        set2.axisDependency = AxisDependencyRight;
+    LineChartDataSet * set2 = [self getArr:entries1 lineChartDataSet:gateColor(@"5b95f1")];
+        set2.axisDependency = AxisDependencyLeft;
       [d addDataSet:set1];
       [d addDataSet:set2];
-    
+       set1.drawFilledEnabled = YES;// 填充颜色的透明度
+//     set1.lineWidth = 0;
+     set2.drawFilledEnabled = NO;// 填充颜色的透明度
+     
     return d;
 }
 
@@ -189,6 +224,7 @@
         set.circleRadius = 3.0;
         set.circleHoleRadius = 2.5;
 //        set.fillColor = [UIColor redColor];
+     
         set.mode = LineChartModeCubicBezier;
         set.drawValuesEnabled = YES;
         set.drawCirclesEnabled = NO;
@@ -197,7 +233,7 @@
         set.drawValuesEnabled = NO;
         set.highlightEnabled = YES;
         set.highlightColor = [UIColor.grayColor colorWithAlphaComponent:0.5];
-        set.highlightLineWidth = 10;
+        set.highlightLineWidth = 5;
         set.drawHorizontalHighlightIndicatorEnabled = NO;
         set.valueFont = [UIFont systemFontOfSize:10.f];
         set.valueTextColor = [UIColor colorWithRed:240/255.f green:238/255.f blue:70/255.f alpha:1.f];
@@ -207,7 +243,7 @@
                       set.fillAlpha = 0.5;
     NSArray *gradientColors = @[
         (id)[ChartColorTemplates colorFromString:@"#ffffff"].CGColor,
-                                    (id)[UIColor redColor].CGColor,
+                                    (id)[ChartColorTemplates colorFromString:@"#44775a"].CGColor,
                                      
                                      ];
          CGGradientRef gradient = CGGradientCreateWithColors(nil, (CFArrayRef)gradientColors, nil);
@@ -215,7 +251,7 @@
 //         set.fillAlpha = 1.f;
          set.fill = [ChartFill fillWithLinearGradient:gradient angle:90.f];
          set.drawFilledEnabled = NO;// 填充颜色的透明度
-        set.axisDependency = AxisDependencyLeft;
+//        set.axisDependency = AxisDependencyLeft;
 
     return set;
 }

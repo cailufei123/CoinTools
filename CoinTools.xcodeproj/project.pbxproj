@@ -21,6 +21,14 @@
 		044D254C253448FE004ACA98 /* NSArray+NilSafe.h in Headers */ = {isa = PBXBuildFile; fileRef = 044D254A253448FE004ACA98 /* NSArray+NilSafe.h */; };
 		044D254F25344915004ACA98 /* NSObject+Swizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = 044D254D25344915004ACA98 /* NSObject+Swizzling.m */; };
 		044D255025344915004ACA98 /* NSObject+Swizzling.h in Headers */ = {isa = PBXBuildFile; fileRef = 044D254E25344915004ACA98 /* NSObject+Swizzling.h */; };
+		044D255325353AF9004ACA98 /* GTHeYueMessageTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 044D255125353AF9004ACA98 /* GTHeYueMessageTableViewCell.h */; };
+		044D255425353AF9004ACA98 /* GTHeYueMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 044D255225353AF9004ACA98 /* GTHeYueMessageTableViewCell.m */; };
+		044D255825353B51004ACA98 /* GTHeYueMessageCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 044D255525353B51004ACA98 /* GTHeYueMessageCollectionViewCell.h */; };
+		044D255925353B51004ACA98 /* GTHeYueMessageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 044D255625353B51004ACA98 /* GTHeYueMessageCollectionViewCell.m */; };
+		044D255A25353B51004ACA98 /* GTHeYueMessageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044D255725353B51004ACA98 /* GTHeYueMessageCollectionViewCell.xib */; };
+		044D255E25356E73004ACA98 /* GTFearIndexIndicatorTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 044D255B25356E73004ACA98 /* GTFearIndexIndicatorTableViewCell.h */; };
+		044D255F25356E73004ACA98 /* GTFearIndexIndicatorTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 044D255C25356E73004ACA98 /* GTFearIndexIndicatorTableViewCell.m */; };
+		044D256025356E73004ACA98 /* GTFearIndexIndicatorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044D255D25356E73004ACA98 /* GTFearIndexIndicatorTableViewCell.xib */; };
 		04796584251355E10051476C /* CoinTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD66B8F3250A799400D7C66E /* CoinTools.framework */; };
 		04796589251356200051476C /* CoinTools.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AD66B8F3250A799400D7C66E /* CoinTools.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		049514612514850000294FD7 /* zhPopupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0495145C2514850000294FD7 /* zhPopupController.m */; };
@@ -388,6 +396,14 @@
 		044D254A253448FE004ACA98 /* NSArray+NilSafe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+NilSafe.h"; sourceTree = "<group>"; };
 		044D254D25344915004ACA98 /* NSObject+Swizzling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Swizzling.m"; sourceTree = "<group>"; };
 		044D254E25344915004ACA98 /* NSObject+Swizzling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Swizzling.h"; sourceTree = "<group>"; };
+		044D255125353AF9004ACA98 /* GTHeYueMessageTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTHeYueMessageTableViewCell.h; sourceTree = "<group>"; };
+		044D255225353AF9004ACA98 /* GTHeYueMessageTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTHeYueMessageTableViewCell.m; sourceTree = "<group>"; };
+		044D255525353B51004ACA98 /* GTHeYueMessageCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTHeYueMessageCollectionViewCell.h; sourceTree = "<group>"; };
+		044D255625353B51004ACA98 /* GTHeYueMessageCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTHeYueMessageCollectionViewCell.m; sourceTree = "<group>"; };
+		044D255725353B51004ACA98 /* GTHeYueMessageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GTHeYueMessageCollectionViewCell.xib; sourceTree = "<group>"; };
+		044D255B25356E73004ACA98 /* GTFearIndexIndicatorTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTFearIndexIndicatorTableViewCell.h; sourceTree = "<group>"; };
+		044D255C25356E73004ACA98 /* GTFearIndexIndicatorTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTFearIndexIndicatorTableViewCell.m; sourceTree = "<group>"; };
+		044D255D25356E73004ACA98 /* GTFearIndexIndicatorTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GTFearIndexIndicatorTableViewCell.xib; sourceTree = "<group>"; };
 		0495145C2514850000294FD7 /* zhPopupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zhPopupController.m; sourceTree = "<group>"; };
 		0495145D2514850000294FD7 /* zhPopupController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zhPopupController.h; sourceTree = "<group>"; };
 		049514652514869700294FD7 /* GTMenuSelectView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTMenuSelectView.h; sourceTree = "<group>"; };
@@ -820,6 +836,9 @@
 				049514AC2518728600294FD7 /* GTFearIndexLineChartsTableViewCell.h */,
 				049514AD2518728600294FD7 /* GTFearIndexLineChartsTableViewCell.m */,
 				049514AE2518728600294FD7 /* GTFearIndexLineChartsTableViewCell.xib */,
+				044D255B25356E73004ACA98 /* GTFearIndexIndicatorTableViewCell.h */,
+				044D255C25356E73004ACA98 /* GTFearIndexIndicatorTableViewCell.m */,
+				044D255D25356E73004ACA98 /* GTFearIndexIndicatorTableViewCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1189,6 +1208,11 @@
 				04D34F16250B0C8600D940D1 /* GateTopSelectView.m */,
 				04D34F0D250B0C8600D940D1 /* mark.h */,
 				04D34F08250B0C8600D940D1 /* XYMarkerView.swift */,
+				044D255125353AF9004ACA98 /* GTHeYueMessageTableViewCell.h */,
+				044D255225353AF9004ACA98 /* GTHeYueMessageTableViewCell.m */,
+				044D255525353B51004ACA98 /* GTHeYueMessageCollectionViewCell.h */,
+				044D255625353B51004ACA98 /* GTHeYueMessageCollectionViewCell.m */,
+				044D255725353B51004ACA98 /* GTHeYueMessageCollectionViewCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1588,16 +1612,19 @@
 				04D350A6250B1B9D00D940D1 /* GateHomePageTopEnterViewCell.h in Headers */,
 				04D35084250B16EA00D940D1 /* GatePrgessTableViewCell.h in Headers */,
 				049514BC2518A1DD00294FD7 /* GTYxisFearIndexValueFormatter.h in Headers */,
+				044D255825353B51004ACA98 /* GTHeYueMessageCollectionViewCell.h in Headers */,
 				04D34FA3250B0C8600D940D1 /* GateBurstHouseTableViewCell.h in Headers */,
 				04D34FA1250B0C8600D940D1 /* GateThirtyDaysBurstStatisticsTableViewCell.h in Headers */,
 				04D34F75250B0C8600D940D1 /* GateXAxisValueFormatter.h in Headers */,
 				04D34F95250B0C8600D940D1 /* GateHoursSelectCategoryView.h in Headers */,
+				044D255325353AF9004ACA98 /* GTHeYueMessageTableViewCell.h in Headers */,
 				04D34F46250B0C8600D940D1 /* JXCategoryTitleBackgroundCellModel.h in Headers */,
 				049514672514869700294FD7 /* GTMenuSelectView.h in Headers */,
 				04D34F8A250B0C8600D940D1 /* GateTopSelectView.h in Headers */,
 				044D252225314343004ACA98 /* GTTopTotalTableViewCell.h in Headers */,
 				04D34F36250B0C8600D940D1 /* GateThirtyDaysBigOrderStatisticsSelectView.h in Headers */,
 				04CBE5B72512011400E4DD40 /* LNHeaderMeituanAnimator.h in Headers */,
+				044D255E25356E73004ACA98 /* GTFearIndexIndicatorTableViewCell.h in Headers */,
 				04D35088250B16EA00D940D1 /* GateTopView.h in Headers */,
 				04CBE5AF2511FCCB00E4DD40 /* LNRefreshComponent.h in Headers */,
 				044D2527253148BB004ACA98 /* GTMultiSpaceRatioViewController.h in Headers */,
@@ -1751,7 +1778,9 @@
 				04D34F9B250B0C8600D940D1 /* GateHoursCollectionViewCell.xib in Resources */,
 				04D34F8D250B0C8600D940D1 /* GateBurstListTableViewCell.xib in Resources */,
 				04D350B8250B587700D940D1 /* GateHoldCoinTopMessageCell.xib in Resources */,
+				044D256025356E73004ACA98 /* GTFearIndexIndicatorTableViewCell.xib in Resources */,
 				04D350C0250B75CB00D940D1 /* GTHoldChartsStatisticsTableViewCell.xib in Resources */,
+				044D255A25353B51004ACA98 /* GTHeYueMessageCollectionViewCell.xib in Resources */,
 				0495149B2516017E00294FD7 /* fearIndexDate.json in Resources */,
 				04D34F9C250B0C8600D940D1 /* GateThirtyDaysBurstStatisticsTableViewCell.xib in Resources */,
 				04D3507C250B16EA00D940D1 /* GateSelectLineChartCollectionViewCell.xib in Resources */,
@@ -1906,6 +1935,7 @@
 				04D34F4B250B0C8600D940D1 /* pressView.m in Sources */,
 				04D35033250B0F7300D940D1 /* NSTimer+WHTimer.m in Sources */,
 				04D35015250B0F7300D940D1 /* UIView+CLFExtension.m in Sources */,
+				044D255925353B51004ACA98 /* GTHeYueMessageCollectionViewCell.m in Sources */,
 				04D35018250B0F7300D940D1 /* WHMethods.m in Sources */,
 				04D34F94250B0C8600D940D1 /* GateThirtyDaysBurstStatisticsTableViewCell.m in Sources */,
 				04D34F2E250B0C8600D940D1 /* GateBigOrderDistributionDealCell.m in Sources */,
@@ -1945,6 +1975,7 @@
 				04D34F83250B0C8600D940D1 /* GateBurstViewController.m in Sources */,
 				049514A22516082200294FD7 /* GTBurstModel.m in Sources */,
 				04D35036250B0F7300D940D1 /* UIViewController+WHVC.m in Sources */,
+				044D255F25356E73004ACA98 /* GTFearIndexIndicatorTableViewCell.m in Sources */,
 				04D35021250B0F7300D940D1 /* NSArray+WHArray.m in Sources */,
 				04D34F8E250B0C8600D940D1 /* GateHoursTableViewCell.m in Sources */,
 				AD3A25732532D5020099C5AC /* GTChartPMarkerViewTableViewCell.m in Sources */,
@@ -1980,6 +2011,7 @@
 				AD4E8D1D250C665600B027F8 /* CoinTool.swift in Sources */,
 				04CBE5BC251216F300E4DD40 /* GTNewTopTableViewCell.m in Sources */,
 				04D34F71250B0C8600D940D1 /* SANavigationController.m in Sources */,
+				044D255425353AF9004ACA98 /* GTHeYueMessageTableViewCell.m in Sources */,
 				04D34F99250B0C8600D940D1 /* GateTopSelectView.m in Sources */,
 				04CBE5A72511FCCB00E4DD40 /* LNFooterAnimator.m in Sources */,
 				04D35087250B16EA00D940D1 /* GateSelectLineChartCollectionViewCell.m in Sources */,

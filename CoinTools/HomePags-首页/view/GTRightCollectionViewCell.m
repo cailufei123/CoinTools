@@ -74,52 +74,53 @@ self.coinMarketLb.textColor = gateColor(@"25CC25");
 }
 
 
--(void)setAlldatalistModel:(GTAlldatalistModel *)alldatalistModel{
-    self.coinTypeLb.text  = alldatalistModel.title.content;
-    [GTStyleManager setStyleWhit:alldatalistModel.title forLale:self.coinTypeLb];
-    
-    self.coinPriceLb.text  = [alldatalistModel.datalist[0].content isNotBlank]?alldatalistModel.datalist[0].content:@"";
-     [GTStyleManager setStyleWhit:alldatalistModel.datalist[0] forLale:self.coinPriceLb];
-  
-  
-    self.coinPriceBiLb.text = [alldatalistModel.datalist[1].content isNotBlank]?alldatalistModel.datalist[1].content:@"";
-   [GTStyleManager setStyleWhit:alldatalistModel.datalist[1] forLale:self.coinPriceBiLb];
-    
-    self.coinMarketLb.text =  [alldatalistModel.datalist[2].content isNotBlank]?alldatalistModel.datalist[2].content:@"";
-     [GTStyleManager setStyleWhit:alldatalistModel.datalist[2] forLale:self.coinMarketLb];
-    
-    self.coinQuantitymoney1.text =[alldatalistModel.datalist[3].content isNotBlank]?alldatalistModel.datalist[3].content:@"";
-     [GTStyleManager setStyleWhit:alldatalistModel.datalist[3] forLale:self.coinQuantitymoney1];
-    
-    self.coinQuantitymoney2.text =[alldatalistModel.datalist[4].content isNotBlank]?alldatalistModel.datalist[4].content:@"";
-     [GTStyleManager setStyleWhit:alldatalistModel.datalist[4] forLale:self.coinQuantitymoney2];
-    
-    self.coinBurstPrice1.text =[alldatalistModel.datalist[5].content isNotBlank]?alldatalistModel.datalist[5].content:@"";
-      [GTStyleManager setStyleWhit:alldatalistModel.datalist[5] forLale:self.coinBurstPrice1];
-    
-    self.coinBurstPrice24.text =[alldatalistModel.datalist[6].content isNotBlank]?alldatalistModel.datalist[6].content:@"";
-      [GTStyleManager setStyleWhit:alldatalistModel.datalist[6] forLale:self.coinBurstPrice24];
-    
-    self.coinPeopleLb.text =[alldatalistModel.datalist[7].content isNotBlank]?alldatalistModel.datalist[7].content:@"";
-     [GTStyleManager setStyleWhit:alldatalistModel.datalist[7] forLale:self.coinPeopleLb];
-    self.coinDuibiLb.text =[alldatalistModel.datalist[8].content isNotBlank]?alldatalistModel.datalist[8].content:@"";
-         [GTStyleManager setStyleWhit:alldatalistModel.datalist[8] forLale:self.coinDuibiLb];
-    self.coinJiduLb.text =[alldatalistModel.datalist[9].content isNotBlank]?alldatalistModel.datalist[9].content :@"";
-      [GTStyleManager setStyleWhit:alldatalistModel.datalist[9] forLale:self.coinJiduLb];
-    self.coinWholeNetworkLb.text =[alldatalistModel.datalist[10].content isNotBlank]?alldatalistModel.datalist[10].content:@"";
-    [GTStyleManager setStyleWhit:alldatalistModel.datalist[10] forLale:self.coinWholeNetworkLb];
-    self.coinHeyueLb.text =  [alldatalistModel.datalist[11].content isNotBlank]?alldatalistModel.datalist[11].content:@"";
-     [GTStyleManager setStyleWhit:alldatalistModel.datalist[11] forLale:self.coinHeyueLb];
-    
-    self.jinyingQuShiLb.text = [alldatalistModel.datalist[12].content isNotBlank]?alldatalistModel.datalist[12].content:@"";
-     [GTStyleManager setStyleWhit:alldatalistModel.datalist[12] forLale:self.jinyingQuShiLb];
-    
-    self.chiCangZhibaioLb.text = [alldatalistModel.datalist[13].content isNotBlank]?alldatalistModel.datalist[13].content:@"";
-//     [GTStyleManager setStyleWhit:alldatalistModel.datalist[13] forLale:self.chiCangZhibaioLb];
-////    self.rongZiLb.text =[alldatalistModel.datalist[14].content isNotBlank]?alldatalistModel.datalist[14].content :@"";
-////      [GTStyleManager setStyleWhit:alldatalistModel.datalist[14] forLale:self.rongZiLb];
-    
-}
+
+//-(void)setAlldatalistModel:(GTAlldatalistModel *)alldatalistModel{
+//    self.coinTypeLb.text  = alldatalistModel.title.content;
+//    [GTStyleManager setStyleWhit:alldatalistModel.title forLale:self.coinTypeLb];
+//    
+//    self.coinPriceLb.text  = [alldatalistModel.datalist[0].content isNotBlank]?alldatalistModel.datalist[0].content:@"";
+//     [GTStyleManager setStyleWhit:alldatalistModel.datalist[0] forLale:self.coinPriceLb];
+//  
+//  
+//    self.coinPriceBiLb.text = [alldatalistModel.datalist[1].content isNotBlank]?alldatalistModel.datalist[1].content:@"";
+//   [GTStyleManager setStyleWhit:alldatalistModel.datalist[1] forLale:self.coinPriceBiLb];
+//    
+//    self.coinMarketLb.text =  [alldatalistModel.datalist[2].content isNotBlank]?alldatalistModel.datalist[2].content:@"";
+//     [GTStyleManager setStyleWhit:alldatalistModel.datalist[2] forLale:self.coinMarketLb];
+//    
+//    self.coinQuantitymoney1.text =[alldatalistModel.datalist[3].content isNotBlank]?alldatalistModel.datalist[3].content:@"";
+//     [GTStyleManager setStyleWhit:alldatalistModel.datalist[3] forLale:self.coinQuantitymoney1];
+//    
+//    self.coinQuantitymoney2.text =[alldatalistModel.datalist[4].content isNotBlank]?alldatalistModel.datalist[4].content:@"";
+//     [GTStyleManager setStyleWhit:alldatalistModel.datalist[4] forLale:self.coinQuantitymoney2];
+//    
+//    self.coinBurstPrice1.text =[alldatalistModel.datalist[5].content isNotBlank]?alldatalistModel.datalist[5].content:@"";
+//      [GTStyleManager setStyleWhit:alldatalistModel.datalist[5] forLale:self.coinBurstPrice1];
+//    
+//    self.coinBurstPrice24.text =[alldatalistModel.datalist[6].content isNotBlank]?alldatalistModel.datalist[6].content:@"";
+//      [GTStyleManager setStyleWhit:alldatalistModel.datalist[6] forLale:self.coinBurstPrice24];
+//    
+//    self.coinPeopleLb.text =[alldatalistModel.datalist[7].content isNotBlank]?alldatalistModel.datalist[7].content:@"";
+//     [GTStyleManager setStyleWhit:alldatalistModel.datalist[7] forLale:self.coinPeopleLb];
+//    self.coinDuibiLb.text =[alldatalistModel.datalist[8].content isNotBlank]?alldatalistModel.datalist[8].content:@"";
+//         [GTStyleManager setStyleWhit:alldatalistModel.datalist[8] forLale:self.coinDuibiLb];
+//    self.coinJiduLb.text =[alldatalistModel.datalist[9].content isNotBlank]?alldatalistModel.datalist[9].content :@"";
+//      [GTStyleManager setStyleWhit:alldatalistModel.datalist[9] forLale:self.coinJiduLb];
+//    self.coinWholeNetworkLb.text =[alldatalistModel.datalist[10].content isNotBlank]?alldatalistModel.datalist[10].content:@"";
+//    [GTStyleManager setStyleWhit:alldatalistModel.datalist[10] forLale:self.coinWholeNetworkLb];
+//    self.coinHeyueLb.text =  [alldatalistModel.datalist[11].content isNotBlank]?alldatalistModel.datalist[11].content:@"";
+//     [GTStyleManager setStyleWhit:alldatalistModel.datalist[11] forLale:self.coinHeyueLb];
+//    
+//    self.jinyingQuShiLb.text = [alldatalistModel.datalist[12].content isNotBlank]?alldatalistModel.datalist[12].content:@"";
+//     [GTStyleManager setStyleWhit:alldatalistModel.datalist[12] forLale:self.jinyingQuShiLb];
+//    
+//    self.chiCangZhibaioLb.text = [alldatalistModel.datalist[13].content isNotBlank]?alldatalistModel.datalist[13].content:@"";
+////     [GTStyleManager setStyleWhit:alldatalistModel.datalist[13] forLale:self.chiCangZhibaioLb];
+//////    self.rongZiLb.text =[alldatalistModel.datalist[14].content isNotBlank]?alldatalistModel.datalist[14].content :@"";
+//////      [GTStyleManager setStyleWhit:alldatalistModel.datalist[14] forLale:self.rongZiLb];
+//    
+//}
 -(void)setBcoin_ms_coin_infoModel:(GTBcoin_ms_coin_infoModel *)bcoin_ms_coin_infoModel{
     
     self.coinTypeLb.text  = bcoin_ms_coin_infoModel.coin_type;

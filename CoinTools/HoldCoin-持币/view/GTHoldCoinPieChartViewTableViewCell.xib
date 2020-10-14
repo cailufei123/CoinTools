@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="312" id="KGk-i7-Jjw" customClass="GTHoldCoinPieChartViewTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="411" height="312"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="411" height="312"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nGN-06-Ad9" customClass="PieChartView" customModule="Charts">
+                        <rect key="frame" x="0.0" y="0.0" width="251" height="251"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="nGN-06-Ad9" secondAttribute="height" multiplier="1:1" id="0FU-kd-S3I"/>
+                        </constraints>
+                    </view>
+                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pv5-uG-vIV">
+                        <rect key="frame" x="251" y="0.0" width="160" height="312"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </tableView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="pv5-uG-vIV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="AQL-ib-xhR"/>
+                    <constraint firstItem="nGN-06-Ad9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="g8i-0b-gKm"/>
+                    <constraint firstItem="nGN-06-Ad9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="gFj-op-0yP"/>
+                    <constraint firstAttribute="bottom" secondItem="pv5-uG-vIV" secondAttribute="bottom" id="hYQ-UZ-kZN"/>
+                    <constraint firstAttribute="trailing" secondItem="nGN-06-Ad9" secondAttribute="trailing" constant="160" id="hla-wx-bKO"/>
+                    <constraint firstItem="pv5-uG-vIV" firstAttribute="leading" secondItem="nGN-06-Ad9" secondAttribute="trailing" id="keV-4j-R5r"/>
+                    <constraint firstAttribute="trailing" secondItem="pv5-uG-vIV" secondAttribute="trailing" id="nTR-Bq-cj7"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="pieChartView" destination="nGN-06-Ad9" id="jHA-fj-2bj"/>
+                <outlet property="topTableView" destination="pv5-uG-vIV" id="1fA-rc-Sbi"/>
+            </connections>
+            <point key="canvasLocation" x="142.75362318840581" y="-62.276785714285708"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

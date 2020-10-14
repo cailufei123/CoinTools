@@ -9,6 +9,7 @@
 #import "GTMainCoinQuotationListTableViewCell.h"
 #import "GTRightCollectionViewCell.h"
 #import "GTRightCollectionViewCell.h"
+#import "GTNewRightCollectionViewCell.h"
 @interface LeftTableViewTableViewCell()
 @property (strong, nonatomic)  UILabel *nameLb;
 @end
@@ -115,10 +116,11 @@
     self.rightCollectionView.autoresizesSubviews = NO;
     self.rightCollectionView.showsVerticalScrollIndicator = NO;
 self.rightCollectionView.backgroundColor = gateColor(@"ffffff");
-               gateCollectionRegisterNib(self.rightCollectionView, @"GTRightCollectionViewCell");
+               gateCollectionRegisterNib(self.rightCollectionView, @"GTNewRightCollectionViewCell");
                self.rightCollectionView.delegate = self;
               self.rightCollectionView.dataSource = self;
 //           if (@available(iOS 11.0, *)) {
+ 
                
 //                            }
            //注册头尾试图
@@ -138,6 +140,7 @@ self.rightCollectionView.backgroundColor = gateColor(@"ffffff");
 #pragma mark -kkkkk
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
+    return 10;
     return self.homepaglist.alldatalist.count - 1;
     
 }
@@ -158,8 +161,8 @@ self.rightCollectionView.backgroundColor = gateColor(@"ffffff");
 #pragma mark -点击按钮
 - (UICollectionViewCell * )collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
 //    GTAlldatalistModel *alldatalistModel = self.homepaglist.alldatalist[indexPath.row];
-   GTRightCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GTRightCollectionViewCell" forIndexPath:indexPath];
-    cell.alldatalistModel = self.homepaglist.alldatalist[indexPath.row+1];
+    GTNewRightCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GTNewRightCollectionViewCell" forIndexPath:indexPath];
+//    cell.alldatalistModel = self.homepaglist.alldatalist[indexPath.row+1];
   
     return cell;
     

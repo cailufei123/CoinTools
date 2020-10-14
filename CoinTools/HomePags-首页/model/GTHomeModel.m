@@ -41,7 +41,7 @@
 
 @implementation GTAlldatalistModel : NSObject
 + (NSDictionary *)modelContainerPropertyGenericClass {
-    return @{@"datalist" : [GTHomeTitleModel class]};
+    return @{@"datalist" : [NSArray<GTHomeTitleModel*> class]};
 }
 
 @end

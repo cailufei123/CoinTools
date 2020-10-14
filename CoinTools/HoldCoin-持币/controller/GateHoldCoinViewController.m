@@ -13,6 +13,9 @@
 #import "GTHoldCoinHeardView.h"
 #import "GTHoldCoinListTableViewCell.h"
 #import "LNRefresh.h"
+#import "GTHoldCoinPieChartViewTableViewCell.h"
+#import "GateHoursSelectCategoryView.h"
+
 @interface GateHoldCoinViewController ()
 
 @end
@@ -30,6 +33,8 @@
         gateTableRegisterNib(self.tableView, @"GateHoldCoinTopMessageCell");
         gateTableRegisterNib(self.tableView, @"GTHoldChartsStatisticsTableViewCell");
      gateTableRegisterNib(self.tableView, @"GTHoldCoinListTableViewCell");
+    gateTableRegisterNib(self.tableView, @"GTHoldCoinPieChartViewTableViewCell");
+    
        GateRefreshNormalHeader * header = [GateRefreshNormalHeader headerWithRefreshingBlock:^{
            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                [self.tableView.mj_header endRefreshing];
@@ -72,30 +77,43 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 
 {
-    if (section == 2) {
+    if (section == 3) {
          
           return 75.01;
+    }
+    if (section == 2) {
+         
+          return 60;
     }
     return 0.01;
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    if (section == 2) {
+    if (section == 3) {
         GTHoldCoinHeardView * coinHeardView = [GTHoldCoinHeardView loadHoldCoinHeardView];
            coinHeardView.frame = CGRectMake(0, 0, scrWeiht, 75);
             return coinHeardView;
       
+    }else if (section == 2){
+        GateHoursSelectCategoryView * selectCategoryView = [[GateHoursSelectCategoryView alloc] initWithFrame:CGRectMake(0, 0, scrWeiht-100, 50)];
+                   selectCategoryView.titles =  @[];
+               
+                   selectCategoryView.selectblock = ^(NSInteger index) {
+                       
+                   };
+                       return selectCategoryView;
     }
+   
       return [UIView new];
    
    
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 3;
+    return 4;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section == 2) {
+    if (section == 3) {
            return 10;
        }
          return 1 ;
@@ -120,7 +138,11 @@
 
                            }];
         return height;
-    }else if  (indexPath.section == 2){
+    }
+    else if  (indexPath.section == 2){
+        return (scrWeiht - 150);
+       
+    }else if  (indexPath.section == 3){
           return 60;
         CGFloat height = [tableView
                           fd_heightForCellWithIdentifier:@"GTHoldCoinListTableViewCell"
@@ -148,6 +170,13 @@
              return cell;
              
          }else if  (indexPath.section == 2){
+                GTHoldCoinPieChartViewTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"GTHoldCoinPieChartViewTableViewCell" forIndexPath:indexPath];
+                                                           
+             return cell;
+             
+         }
+         
+         else if  (indexPath.section == 3){
                 GTHoldCoinListTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"GTHoldCoinListTableViewCell" forIndexPath:indexPath];
              cell.chibiLb.text = [NSString stringWithFormat:@"0%ld  %@",indexPath.row + 1,@"1.08%%"];
              return cell;

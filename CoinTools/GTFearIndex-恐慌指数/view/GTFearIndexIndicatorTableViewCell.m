@@ -50,48 +50,48 @@
      return self.shapeLayer;
 }
 
--(void)setHomevix:(GTHomevixModel *)homevix{
-    self.shapeLayer2.strokeColor = self.shapeLayer1.strokeColor = [homevix.alldatalist[0].datalist[0].color isNotBlank] ?gateColor(homevix.alldatalist[0].datalist[0].color).CGColor:gateColor(@"44775a").CGColor;
- 
-
-    
-    self.titleLb.text = homevix.alldatalist[0].datalist[0].content;
-      [GTStyleManager setStyleWhit:homevix.alldatalist[0].datalist[0] forLale: self.titleLb];
-    
-    self.totayFearIndexLb.text = homevix.alldatalist[0].datalist[1].content;
-    [GTStyleManager setStyleWhit:homevix.alldatalist[0].datalist[1] forLale: self.totayFearIndexLb];
-    
-    
-    
-    
-    self.yesterDayTitleLb.text = homevix.alldatalist[1].title.content;
-       [GTStyleManager setStyleWhit:homevix.alldatalist[1].title forLale: self.yesterDayTitleLb];
-    
-    
-    self.yesterDayLb.text = homevix.alldatalist[1].datalist[1].content;
-     [GTStyleManager setStyleWhit:homevix.alldatalist[1].datalist[1] forLale: self.yesterDayLb];
-    
-    
-    
-      self.lastWeekTitleLb.text = homevix.alldatalist[2].title.content;
-    [GTStyleManager setStyleWhit:homevix.alldatalist[2].title forLale: self.lastWeekTitleLb];
-    
-    self.lastWeekLb.text = homevix.alldatalist[2].datalist[1].content;
-     [GTStyleManager setStyleWhit: homevix.alldatalist[2].datalist[1] forLale: self.lastWeekTitleLb];
-    
-    
-    
-    
-    [GTStyleManager setStyleWhit:homevix.alldatalist[3].title forLale: self.LastMonthLb];
-       
-    
-      self.LastMonthTitleLb.text = homevix.alldatalist[3].title.content;
-     [GTStyleManager setStyleWhit:homevix.alldatalist[3].title forLale: self.LastMonthTitleLb];
-    
-       self.LastMonthLb.text = homevix.alldatalist[3].datalist[1].content;
-       
-    [GTStyleManager setStyleWhit:homevix.alldatalist[3].datalist[1] forLale: self.LastMonthLb];
-  
-   
-}
+//-(void)setHomevix:(GTHomevixModel *)homevix{
+//    self.shapeLayer2.strokeColor = self.shapeLayer1.strokeColor = [homevix.alldatalist[0].datalist[0].color isNotBlank] ?gateColor(homevix.alldatalist[0].datalist[0].color).CGColor:gateColor(@"44775a").CGColor;
+// 
+//
+//    
+//    self.titleLb.text = homevix.alldatalist[0].datalist[0].content;
+//      [GTStyleManager setStyleWhit:homevix.alldatalist[0].datalist[0] forLale: self.titleLb];
+//    
+//    self.totayFearIndexLb.text = homevix.alldatalist[0].datalist[1].content;
+//    [GTStyleManager setStyleWhit:homevix.alldatalist[0].datalist[1] forLale: self.totayFearIndexLb];
+//    
+//    
+//    
+//    
+//    self.yesterDayTitleLb.text = homevix.alldatalist[1].title.content;
+//       [GTStyleManager setStyleWhit:homevix.alldatalist[1].title forLale: self.yesterDayTitleLb];
+//    
+//    
+//    self.yesterDayLb.text = homevix.alldatalist[1].datalist[1].content;
+//     [GTStyleManager setStyleWhit:homevix.alldatalist[1].datalist[1] forLale: self.yesterDayLb];
+//    
+//    
+//    
+//      self.lastWeekTitleLb.text = homevix.alldatalist[2].title.content;
+//    [GTStyleManager setStyleWhit:homevix.alldatalist[2].title forLale: self.lastWeekTitleLb];
+//    
+//    self.lastWeekLb.text = homevix.alldatalist[2].datalist[1].content;
+//     [GTStyleManager setStyleWhit: homevix.alldatalist[2].datalist[1] forLale: self.lastWeekTitleLb];
+//    
+//    
+//    
+//    
+//    [GTStyleManager setStyleWhit:homevix.alldatalist[3].title forLale: self.LastMonthLb];
+//       
+//    
+//      self.LastMonthTitleLb.text = homevix.alldatalist[3].title.content;
+//     [GTStyleManager setStyleWhit:homevix.alldatalist[3].title forLale: self.LastMonthTitleLb];
+//    
+//       self.LastMonthLb.text = homevix.alldatalist[3].datalist[1].content;
+//       
+//    [GTStyleManager setStyleWhit:homevix.alldatalist[3].datalist[1] forLale: self.LastMonthLb];
+//  
+//   
+//}
 @end

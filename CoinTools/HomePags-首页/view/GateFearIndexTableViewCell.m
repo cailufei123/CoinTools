@@ -69,30 +69,30 @@
     self.tuiMg.image = getImage(@"homeImages/614143f48bb9b1f9175454d575009884@3x");
 }
 
--(void)setHomevix:(GTHomevixModel *)homevix{
-//    GTAlldatalistModel * alldatalistModel = homevix.alldatalist[0].datalist;
-    self.rr.pointerRatio = [homevix.alldatalist[0].datalist.firstObject.content doubleValue]/100;
-    self.totayFearIndexLb.text = homevix.alldatalist[0].datalist[1].content;
-    [GTStyleManager setStyleWhit:homevix.alldatalist[0].datalist[1] forLale: self.totayFearIndexLb];
-    
-    
-     [GTStyleManager setStyleWhit:homevix.alldatalist[1].title forLale: self.yesterDayLb];
-    
-    self.yesterDayLb.attributedText = [[NSString stringWithFormat:@"%@%@",homevix.alldatalist[1].title.content,homevix.alldatalist[1].datalist[1].content] getMutableAttributedStringWhitSearchString:homevix.alldatalist[1].datalist[1].content searchStringColor: gateColor([homevix.alldatalist[1].datalist[1].color isNotBlank]?homevix.alldatalist[1].datalist[1].color:@"333B46") searchStringFont: self.yesterDayLb.font];
-    
-    
-    
-    
-    [GTStyleManager setStyleWhit:homevix.alldatalist[2].title forLale: self.lastWeekLb];
-    
-    self.lastWeekLb.attributedText = [[NSString stringWithFormat:@"%@%@",homevix.alldatalist[2].title.content,homevix.alldatalist[2].datalist[1].content] getMutableAttributedStringWhitSearchString:homevix.alldatalist[2].datalist[1].content searchStringColor: gateColor([homevix.alldatalist[2].datalist[1].color isNotBlank]?homevix.alldatalist[2].datalist[1].color:@"333B46") searchStringFont: self.yesterDayLb.font];
-    
-    [GTStyleManager setStyleWhit:homevix.alldatalist[3].title forLale: self.LastMonthLb];
-       
-       self.LastMonthLb.attributedText = [[NSString stringWithFormat:@"%@%@",homevix.alldatalist[3].title.content,homevix.alldatalist[3].datalist[1].content] getMutableAttributedStringWhitSearchString:homevix.alldatalist[3].datalist[1].content searchStringColor: gateColor([homevix.alldatalist[3].datalist[1].color isNotBlank]?homevix.alldatalist[3].datalist[1].color:@"333B46") searchStringFont: self.yesterDayLb.font];
-       
-    
-  
-   
-}
+//-(void)setHomevix:(GTHomevixModel *)homevix{
+////    GTAlldatalistModel * alldatalistModel = homevix.alldatalist[0].datalist;
+//    self.rr.pointerRatio = [homevix.alldatalist[0].datalist.firstObject.content doubleValue]/100;
+//    self.totayFearIndexLb.text = homevix.alldatalist[0].datalist[1].content;
+//    [GTStyleManager setStyleWhit:homevix.alldatalist[0].datalist[1] forLale: self.totayFearIndexLb];
+//    
+//    
+//     [GTStyleManager setStyleWhit:homevix.alldatalist[1].title forLale: self.yesterDayLb];
+//    
+//    self.yesterDayLb.attributedText = [[NSString stringWithFormat:@"%@%@",homevix.alldatalist[1].title.content,homevix.alldatalist[1].datalist[1].content] getMutableAttributedStringWhitSearchString:homevix.alldatalist[1].datalist[1].content searchStringColor: gateColor([homevix.alldatalist[1].datalist[1].color isNotBlank]?homevix.alldatalist[1].datalist[1].color:@"333B46") searchStringFont: self.yesterDayLb.font];
+//    
+//    
+//    
+//    
+//    [GTStyleManager setStyleWhit:homevix.alldatalist[2].title forLale: self.lastWeekLb];
+//    
+//    self.lastWeekLb.attributedText = [[NSString stringWithFormat:@"%@%@",homevix.alldatalist[2].title.content,homevix.alldatalist[2].datalist[1].content] getMutableAttributedStringWhitSearchString:homevix.alldatalist[2].datalist[1].content searchStringColor: gateColor([homevix.alldatalist[2].datalist[1].color isNotBlank]?homevix.alldatalist[2].datalist[1].color:@"333B46") searchStringFont: self.yesterDayLb.font];
+//    
+//    [GTStyleManager setStyleWhit:homevix.alldatalist[3].title forLale: self.LastMonthLb];
+//       
+//       self.LastMonthLb.attributedText = [[NSString stringWithFormat:@"%@%@",homevix.alldatalist[3].title.content,homevix.alldatalist[3].datalist[1].content] getMutableAttributedStringWhitSearchString:homevix.alldatalist[3].datalist[1].content searchStringColor: gateColor([homevix.alldatalist[3].datalist[1].color isNotBlank]?homevix.alldatalist[3].datalist[1].color:@"333B46") searchStringFont: self.yesterDayLb.font];
+//       
+//    
+//  
+//   
+//}
 @end

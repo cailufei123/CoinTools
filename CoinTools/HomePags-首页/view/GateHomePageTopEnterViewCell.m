@@ -130,22 +130,22 @@
 //
 
 #pragma mark -点击按钮
-- (UICollectionViewCell * )collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
- GTAlldatalistModel * alldatalistModel = self.homepagebox.alldatalist[indexPath.row];
-    GTHomeTitleModel * homeTitleModel  = alldatalistModel.datalist.firstObject;
-    if ([homeTitleModel.content containsString:@":"]) {
-        GTNewTopDuiBiCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GTNewTopDuiBiCollectionViewCell" forIndexPath:indexPath];
-         cell.alldatalistModel = alldatalistModel;
-        return cell;
-    }else{
-        GateHomePageTopEnterViewCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GateHomePageTopEnterViewCollectionViewCell" forIndexPath:indexPath];
-            cell.alldatalistModel = alldatalistModel;
-                   return cell;
-    }
-   
-  
-    
-}
+//- (UICollectionViewCell * )collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+// GTAlldatalistModel * alldatalistModel = self.homepagebox.alldatalist[indexPath.row];
+//    GTHomeTitleModel * homeTitleModel  = alldatalistModel.datalist.firstObject;
+//    if ([homeTitleModel.content containsString:@":"]) {
+//        GTNewTopDuiBiCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GTNewTopDuiBiCollectionViewCell" forIndexPath:indexPath];
+//         cell.alldatalistModel = alldatalistModel;
+//        return cell;
+//    }else{
+//        GateHomePageTopEnterViewCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GateHomePageTopEnterViewCollectionViewCell" forIndexPath:indexPath];
+//            cell.alldatalistModel = alldatalistModel;
+//                   return cell;
+//    }
+//   
+//  
+//    
+//}
 
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{

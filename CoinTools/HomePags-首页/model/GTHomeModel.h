@@ -49,7 +49,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface GTAlldatalistModel : NSObject
-@property(nonatomic,strong) NSArray<GTHomeTitleModel *> * datalist;
+@property(nonatomic,strong) NSArray<NSArray<GTHomeTitleModel*>  *> * datalist;
 @property(nonatomic,strong) GTHomeTitleModel * title;
 @end
 @interface GTHomepageboxModel : NSObject

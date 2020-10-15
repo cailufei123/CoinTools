@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTNewTopCollectionViewCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *titleImageView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLb;
-@property(nonatomic,strong)NSString * titleImage;
+//@property(nonatomic,strong)NSString * titleImage;
 @property(nonatomic,strong)NSString * titleText;
 @end
 

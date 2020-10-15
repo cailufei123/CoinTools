@@ -32,6 +32,11 @@
 //        arr.count * 80 + (arr.count -1) *  10
            }];
 }
+-(void)setHomepage_navigation:(GTHomepage_navigationModel *)homepage_navigation{
+    _homepage_navigation = homepage_navigation;
+    [self.collectionView reloadData];
+    
+}
 -(void)collectionViewLyout{
     [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(0);
@@ -78,7 +83,7 @@
 #pragma mark -kkkkk
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return self.titles.count;
+    return self.homepage_navigation.alldatalist.firstObject.datalist.firstObject.count;
     
 }
 #pragma mark - collectionViewDelegate
@@ -92,9 +97,11 @@
 #pragma mark -点击按钮
 - (UICollectionViewCell * )collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
  GTNewTopCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GTNewTopCollectionViewCell" forIndexPath:indexPath];
-   
-    cell.titleImage = [NSString stringWithFormat:@"homeImages/%@",self.imgs[indexPath.row]];
-     cell.titleText = self.titles[indexPath.row];
+    NSString * iamgename = [NSString stringWithFormat:@"homeImages/%@",self.imgs[indexPath.row]];
+    GTHomeTitleModel * homeTitleModel = [GTDataManager getItemModelWhit:self.homepage_navigation.alldatalist.firstObject.datalist.firstObject] [indexPath.row];
+    [cell.titleImageView setImageWithURL:urlWhitString(homeTitleModel.url) placeholder:getImage(iamgename)] ;
+//    [NSString stringWithFormat:@"homeImages/%@",self.imgs[indexPath.row]]
+     cell.titleText = homeTitleModel.content;
     return cell;
     
 }

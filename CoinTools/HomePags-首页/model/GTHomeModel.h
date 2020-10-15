@@ -46,6 +46,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,copy)NSString *content;//":"爆仓数据",
 @property(nonatomic,assign)BOOL blod;//":"1",
  @property(nonatomic,copy)NSString *color;//":
+@property(nonatomic,copy)NSString *url;
 @end
 
 @interface GTAlldatalistModel : NSObject
@@ -71,11 +72,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong) NSArray<GTAlldatalistModel *> * alldatalist;
 
 @end
+
+@interface GTHomepage_navigationModel : NSObject
+@property(nonatomic,strong) NSArray<GTAlldatalistModel *> * alldatalist;
+
+@end
+
 @interface GTHomeModel : NSObject
 
-@property(nonatomic,strong)GTHomevixModel * homevix;//
+@property(nonatomic,strong)GTHomevixModel * homepagevix;//
 @property(nonatomic,strong)GTHomepageboxModel * homepagebox;//
 @property(nonatomic,strong)GTHomepaglistModel * homepaglist;//
+@property(nonatomic,strong)GTHomepage_navigationModel * homepage_navigation;//
 
 @end
 

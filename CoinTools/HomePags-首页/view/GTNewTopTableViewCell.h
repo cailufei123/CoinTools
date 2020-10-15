@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface GTNewTopTableViewCell : UITableViewCell
 @property(nonatomic,strong)void(^selectBlock)(NSInteger index);
+@property(nonatomic,strong)GTHomepage_navigationModel * homepage_navigation;//
 @end
 
 NS_ASSUME_NONNULL_END

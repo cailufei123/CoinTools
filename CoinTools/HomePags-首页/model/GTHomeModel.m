@@ -59,7 +59,13 @@
 + (NSDictionary *)modelContainerPropertyGenericClass {
     return @{@"alldatalist" : [GTAlldatalistModel class]};
 }
+
 @end
 
 
+@implementation GTHomepage_navigationModel : NSObject
 
++ (NSDictionary *)modelContainerPropertyGenericClass {
+    return @{@"alldatalist" : [GTAlldatalistModel class]};
+}
+@end

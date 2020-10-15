@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -50,14 +51,38 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FE9-T2-7xB">
+                                <rect key="frame" x="62" y="0.0" width="41.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="er2-Uq-95k">
+                                <rect key="frame" x="62" y="29" width="41.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mtT-pg-Ipr">
+                                <rect key="frame" x="62" y="58" width="41.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="8wX-VV-2Q4" firstAttribute="leading" secondItem="EWP-oJ-TAy" secondAttribute="leading" id="55r-Ba-WWf"/>
+                            <constraint firstItem="er2-Uq-95k" firstAttribute="leading" secondItem="EWP-oJ-TAy" secondAttribute="trailing" id="5UG-mB-3G4"/>
+                            <constraint firstItem="er2-Uq-95k" firstAttribute="centerY" secondItem="EWP-oJ-TAy" secondAttribute="centerY" id="6Xa-nU-EeP"/>
+                            <constraint firstItem="mtT-pg-Ipr" firstAttribute="leading" secondItem="8wX-VV-2Q4" secondAttribute="trailing" id="7C8-9a-AlH"/>
                             <constraint firstAttribute="bottom" secondItem="8wX-VV-2Q4" secondAttribute="bottom" id="8Yj-9u-3mA"/>
                             <constraint firstItem="8wX-VV-2Q4" firstAttribute="top" secondItem="EWP-oJ-TAy" secondAttribute="bottom" constant="8" id="Bow-hT-ric"/>
                             <constraint firstItem="SR9-PE-0tz" firstAttribute="leading" secondItem="TAj-fT-93N" secondAttribute="leading" constant="20" id="F8F-Ez-3sE"/>
+                            <constraint firstItem="mtT-pg-Ipr" firstAttribute="centerY" secondItem="8wX-VV-2Q4" secondAttribute="centerY" id="L0a-oc-dJa"/>
+                            <constraint firstItem="FE9-T2-7xB" firstAttribute="leading" secondItem="SR9-PE-0tz" secondAttribute="trailing" id="NpA-L7-jGv"/>
                             <constraint firstItem="SR9-PE-0tz" firstAttribute="top" secondItem="TAj-fT-93N" secondAttribute="top" id="avC-lj-lj0"/>
+                            <constraint firstItem="FE9-T2-7xB" firstAttribute="centerY" secondItem="SR9-PE-0tz" secondAttribute="centerY" id="nGM-Z5-3n9"/>
                             <constraint firstItem="EWP-oJ-TAy" firstAttribute="leading" secondItem="SR9-PE-0tz" secondAttribute="leading" id="u48-IV-IQ1"/>
                             <constraint firstItem="EWP-oJ-TAy" firstAttribute="top" secondItem="SR9-PE-0tz" secondAttribute="bottom" constant="8" id="vrh-GS-TXM"/>
                         </constraints>
@@ -78,7 +103,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="bnz-LQ-lLd" firstAttribute="leading" secondItem="Wcg-IR-NtW" secondAttribute="leading" id="0by-mG-Pes"/>
                             <constraint firstAttribute="trailing" secondItem="LJF-gI-7YP" secondAttribute="trailing" id="dMR-b2-Rrf"/>
@@ -110,14 +135,22 @@
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
                 <outlet property="LastMonthLb" destination="8wX-VV-2Q4" id="HqC-Ek-f5C"/>
+                <outlet property="LastMonthLb1" destination="mtT-pg-Ipr" id="7mt-7f-8Un"/>
                 <outlet property="lastWeekLb" destination="EWP-oJ-TAy" id="7mP-Xa-pEJ"/>
+                <outlet property="lastWeekLb11" destination="er2-Uq-95k" id="YuH-oB-u1e"/>
                 <outlet property="prgressView" destination="yVE-KU-LzR" id="aTS-0w-tew"/>
                 <outlet property="timeLb" destination="LJF-gI-7YP" id="cl4-1C-3aC"/>
                 <outlet property="titleLb" destination="bnz-LQ-lLd" id="LyG-0z-G5f"/>
                 <outlet property="totayFearIndexLb" destination="JH8-Hc-KPA" id="Idi-yd-Jch"/>
                 <outlet property="yesterDayLb" destination="SR9-PE-0tz" id="saf-NK-3lM"/>
+                <outlet property="yesterDayLb1" destination="FE9-T2-7xB" id="MJi-JY-7pg"/>
             </connections>
             <point key="canvasLocation" x="160.86956521739131" y="84.375"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

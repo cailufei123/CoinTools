@@ -28,23 +28,19 @@
     self.moneyLb.text = bcoin_btc_base_infoModel.data_result;
 }
 
-//-(void)setAlldatalistModel:(GTAlldatalistModel *)alldatalistModel{
-//    
-//    self.titleLb.text = alldatalistModel.title.content;
-//    self.titleLb.textColor =   gateColor(alldatalistModel.title.color);
-//    self.titleLb.font = gateFont(alldatalistModel.title.size, alldatalistModel.title.blod?Medium: Normal);
-//    
-//    
-//    self.moneyLb.text =  alldatalistModel.datalist.firstObject.content;
-//    self.moneyLb.textColor =   gateColor(alldatalistModel.datalist.firstObject.color);
-//    self.moneyLb.font = gateFont(alldatalistModel.datalist.firstObject.size, alldatalistModel.datalist.firstObject.blod?Medium: Normal);
-//    
-//    
-//    self.twentyFourHourNumberLb.text =  alldatalistModel.datalist.lastObject.content;
-//    self.moneyLb.textColor =   gateColor(alldatalistModel.datalist.lastObject.color);
-//    self.moneyLb.font = gateFont(alldatalistModel.datalist.lastObject.size, alldatalistModel.datalist.lastObject.blod?Medium: Normal);
-//   
-//
-//   
-//}
+-(void)setAlldatalistModel:(GTAlldatalistModel *)alldatalistModel{
+    GTHomeTitleModel * homeTitleModel  =  [GTDataManager getItemModelWhit:alldatalistModel.datalist.firstObject].firstObject;
+    GTHomeTitleModel * homeTitleModel2  =  [GTDataManager getItemModelWhit:alldatalistModel.datalist.lastObject].firstObject;
+    self.titleLb.text = alldatalistModel.title.content;
+    [GTStyleManager setStyleWhit:alldatalistModel.title forLale: self.titleLb];
+    
+    self.moneyLb.text =  homeTitleModel.content;
+    [GTStyleManager setStyleWhit:homeTitleModel forLale: self.moneyLb];
+    
+    self.twentyFourHourNumberLb.text =  homeTitleModel2.content;
+    [GTStyleManager setStyleWhit:homeTitleModel2 forLale: self.twentyFourHourNumberLb];
+   
+
+   
+}
 @end

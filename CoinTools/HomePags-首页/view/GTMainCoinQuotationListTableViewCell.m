@@ -67,6 +67,7 @@
     self.titleLb.textColor = gateColor(@"333B46");
     self.moreLb.textColor = gateColor(@"333B46");
     self.moreLb.font = gateFont(12, Medium);
+    self.titleLb.text = [GTDataManager getLanguageData:@"zhuiLiuHangQing"];
 }
 
 - (void)setHomepaglist:(GTHomepaglistModel *)homepaglist{
@@ -140,7 +141,6 @@ self.rightCollectionView.backgroundColor = gateColor(@"ffffff");
 #pragma mark -kkkkk
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 10;
     return self.homepaglist.alldatalist.count - 1;
     
 }
@@ -162,8 +162,8 @@ self.rightCollectionView.backgroundColor = gateColor(@"ffffff");
 - (UICollectionViewCell * )collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
 //    GTAlldatalistModel *alldatalistModel = self.homepaglist.alldatalist[indexPath.row];
     GTNewRightCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GTNewRightCollectionViewCell" forIndexPath:indexPath];
-//    cell.alldatalistModel = self.homepaglist.alldatalist[indexPath.row+1];
-  
+//    cell.datalist = self.homepaglist.alldatalist[indexPath.row+1].datalist;
+    cell.alldatalistModel = self.homepaglist.alldatalist[indexPath.row+1];
     return cell;
     
 }
@@ -214,23 +214,30 @@ self.rightCollectionView.backgroundColor = gateColor(@"ffffff");
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
      LeftTableViewTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"LeftTableViewTableViewCell" forIndexPath:indexPath];
     
+
     if (indexPath.row == 0) {
-        cell.nameLb.text= self.homepaglist.alldatalist.firstObject.title.content;
-         [GTStyleManager setStyleWhit:self.homepaglist.alldatalist.firstObject.title forLale:cell.nameLb];
-    }else{
-          GTHomeTitleModel * homeTitleModel = self.leftTitles[indexPath.row-1];
-         cell.nameLb.text= homeTitleModel.content;
-          [GTStyleManager setStyleWhit:homeTitleModel forLale:cell.nameLb];
+        
+        cell.nameLb.text= _homepaglist.alldatalist.firstObject.title.content;
+        [GTStyleManager setStyleWhit:_homepaglist.alldatalist.firstObject.title forLale:cell.nameLb];
+        }else{
+
+        cell.nameLb.text=  [GTDataManager getItemModelWhit:self.leftTitles[indexPath.row-1]].firstObject.content;
+        [GTStyleManager setStyleWhit:[GTDataManager getItemModelWhit:self.leftTitles[indexPath.row-1]].firstObject forLale:cell.nameLb];
     }
-  
+
+       
+    
     if (indexPath.row%2 == 0) {
-          cell.backgroundColor = gateColor(@"F5F5F5");
-          cell.nameLb.backgroundColor = gateColor(@"F5F5F5");
-    }else{
+        cell.backgroundColor = gateColor(@"F5F5F5");
+        cell.nameLb.backgroundColor = gateColor(@"F5F5F5");
+        }else{
         cell.backgroundColor = gateColor(@"ffffff");
-          cell.nameLb.backgroundColor = gateColor(@"ffffff");
-    }
-   return cell;
+        cell.nameLb.backgroundColor = gateColor(@"ffffff");
+     }
+    
+     return cell;
+    
+    
 }
 
 

@@ -45,4 +45,5 @@
 #import "LNHeaderMeituanAnimator.h"
 #import  "LNRefresh.h"
 #import "GTStyleManager.h"
+#import "GTDataManager.h"
 #endif /* HeaderFile_h */

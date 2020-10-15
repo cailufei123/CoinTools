@@ -19,16 +19,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F511832C-2A16-4095-BEDB-EC67F6B53D1D"
+            uuid = "03D63A32-45DD-4975-83BA-30CDB30D9B04"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CoinTools/HomePags-&#x9996;&#x9875;/view/GTMainCoinQuotationListTableViewCell.m"
+            filePath = "CoinTools/HomePags-&#x9996;&#x9875;/view/GTNewRightCollectionViewCell.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
-            landmarkName = "-setHomepaglist:"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "GTNewRightCollectionViewCell"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9E700337-1D96-4891-AAB1-59B6A4EB7F71"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CoinTools/HomePags-&#x9996;&#x9875;/view/GateFearIndexTableViewCell.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "-setHomevix:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

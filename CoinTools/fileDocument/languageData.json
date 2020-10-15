@@ -1,0 +1,26 @@
+{
+    
+    "Chinese"  :{
+        "BTCbaoJia": "BTC报价",
+        "kongHuangZhiShu": "恐慌指数",
+        "zhuiLiuHangQing": "主流行情",
+    },
+    "English"  :{
+        "BTCbaoJia": "BTC offer",
+        "kongHuangZhiShu": "Panic index",
+        "zhuiLiuHangQing": "Mainstream market",
+    },
+    "Korean" :{
+        "BTCbaoJia": "BTC 오퍼 를 내다",
+        "kongHuangZhiShu": "공황 지수",
+        "zhuiLiuHangQing": "주류 시세",
+    },
+    "Japanese"  :{
+        "BTCbaoJia": "BTC オファー",
+        "kongHuangZhiShu": "パニック指数",
+        "zhuiLiuHangQing": "本流相場",
+    }
+    
+   
+}
+

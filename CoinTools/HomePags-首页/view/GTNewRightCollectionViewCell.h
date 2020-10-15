@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTNewRightCollectionViewCell : UICollectionViewCell<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
+
+@property(nonatomic,strong) GTAlldatalistModel * alldatalistModel;
 @end
 
 NS_ASSUME_NONNULL_END

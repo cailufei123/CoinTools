@@ -38,7 +38,9 @@
         _topView = [[UIView alloc] init];
         UILabel * lb = [[UILabel alloc] init];
         lb.textAlignment = NSTextAlignmentLeft;
-        lb.text = @"BTC报价";lb.textColor = gateColor(@"333B46");
+        
+        lb.text = [GTDataManager getLanguageData:@"BTCbaoJia"];
+        lb.textColor = gateColor(@"333B46");
         lb.font= gateFont(14, Medium);
         
          [self.contentView addSubview:_topView];
@@ -130,22 +132,22 @@
 //
 
 #pragma mark -点击按钮
-//- (UICollectionViewCell * )collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-// GTAlldatalistModel * alldatalistModel = self.homepagebox.alldatalist[indexPath.row];
-//    GTHomeTitleModel * homeTitleModel  = alldatalistModel.datalist.firstObject;
-//    if ([homeTitleModel.content containsString:@":"]) {
-//        GTNewTopDuiBiCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GTNewTopDuiBiCollectionViewCell" forIndexPath:indexPath];
-//         cell.alldatalistModel = alldatalistModel;
-//        return cell;
-//    }else{
-//        GateHomePageTopEnterViewCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GateHomePageTopEnterViewCollectionViewCell" forIndexPath:indexPath];
-//            cell.alldatalistModel = alldatalistModel;
-//                   return cell;
-//    }
-//   
-//  
-//    
-//}
+- (UICollectionViewCell * )collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+ GTAlldatalistModel * alldatalistModel = self.homepagebox.alldatalist[indexPath.row];
+    GTHomeTitleModel * homeTitleModel  =  [GTDataManager getItemModelWhit:alldatalistModel.datalist.firstObject].firstObject;
+    if ([homeTitleModel.content containsString:@":"]) {
+        GTNewTopDuiBiCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GTNewTopDuiBiCollectionViewCell" forIndexPath:indexPath];
+         cell.alldatalistModel = alldatalistModel;
+        return cell;
+    }else{
+        GateHomePageTopEnterViewCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GateHomePageTopEnterViewCollectionViewCell" forIndexPath:indexPath];
+            cell.alldatalistModel = alldatalistModel;
+                   return cell;
+    }
+   
+  
+    
+}
 
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{

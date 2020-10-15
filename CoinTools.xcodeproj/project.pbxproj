@@ -32,6 +32,9 @@
 		044D256425368CA9004ACA98 /* GTHoldCoinPieChartViewTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 044D256125368CA9004ACA98 /* GTHoldCoinPieChartViewTableViewCell.h */; };
 		044D256525368CA9004ACA98 /* GTHoldCoinPieChartViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 044D256225368CA9004ACA98 /* GTHoldCoinPieChartViewTableViewCell.m */; };
 		044D256625368CA9004ACA98 /* GTHoldCoinPieChartViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044D256325368CA9004ACA98 /* GTHoldCoinPieChartViewTableViewCell.xib */; };
+		0466FC372537DD540091A1A9 /* GTDataManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 0466FC352537DD540091A1A9 /* GTDataManager.h */; };
+		0466FC382537DD540091A1A9 /* GTDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0466FC362537DD540091A1A9 /* GTDataManager.m */; };
+		0466FC3B253817E10091A1A9 /* languageData.json in Resources */ = {isa = PBXBuildFile; fileRef = 0466FC3A253817E10091A1A9 /* languageData.json */; };
 		04796584251355E10051476C /* CoinTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD66B8F3250A799400D7C66E /* CoinTools.framework */; };
 		04796589251356200051476C /* CoinTools.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AD66B8F3250A799400D7C66E /* CoinTools.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		049514612514850000294FD7 /* zhPopupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0495145C2514850000294FD7 /* zhPopupController.m */; };
@@ -419,6 +422,9 @@
 		044D256125368CA9004ACA98 /* GTHoldCoinPieChartViewTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTHoldCoinPieChartViewTableViewCell.h; sourceTree = "<group>"; };
 		044D256225368CA9004ACA98 /* GTHoldCoinPieChartViewTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTHoldCoinPieChartViewTableViewCell.m; sourceTree = "<group>"; };
 		044D256325368CA9004ACA98 /* GTHoldCoinPieChartViewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GTHoldCoinPieChartViewTableViewCell.xib; sourceTree = "<group>"; };
+		0466FC352537DD540091A1A9 /* GTDataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTDataManager.h; sourceTree = "<group>"; };
+		0466FC362537DD540091A1A9 /* GTDataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTDataManager.m; sourceTree = "<group>"; };
+		0466FC3A253817E10091A1A9 /* languageData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = languageData.json; sourceTree = "<group>"; };
 		0495145C2514850000294FD7 /* zhPopupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zhPopupController.m; sourceTree = "<group>"; };
 		0495145D2514850000294FD7 /* zhPopupController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zhPopupController.h; sourceTree = "<group>"; };
 		049514652514869700294FD7 /* GTMenuSelectView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTMenuSelectView.h; sourceTree = "<group>"; };
@@ -825,6 +831,7 @@
 		049514922516017E00294FD7 /* fileDocument */ = {
 			isa = PBXGroup;
 			children = (
+				0466FC3A253817E10091A1A9 /* languageData.json */,
 				049514932516017E00294FD7 /* file.json */,
 				049514942516017E00294FD7 /* burstData.json */,
 				049514952516017E00294FD7 /* fearIndexDate.json */,
@@ -1509,6 +1516,8 @@
 				AD3A25682532CBA30099C5AC /* GTDotManager.m */,
 				044D2545253441AC004ACA98 /* GTStyleManager.h */,
 				044D2546253441AC004ACA98 /* GTStyleManager.m */,
+				0466FC352537DD540091A1A9 /* GTDataManager.h */,
+				0466FC362537DD540091A1A9 /* GTDataManager.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -1680,6 +1689,7 @@
 				04D35034250B0F7300D940D1 /* UILabel+WHLabel.h in Headers */,
 				04D3502E250B0F7300D940D1 /* NSString+WHString.h in Headers */,
 				AD3A25692532CBA40099C5AC /* GTDotManager.h in Headers */,
+				0466FC372537DD540091A1A9 /* GTDataManager.h in Headers */,
 				04CBE5A42511FCCB00E4DD40 /* LNHeaderAnimator.h in Headers */,
 				04D3500D250B0F7300D940D1 /* UITableView+WHTableView.h in Headers */,
 				04CBE5AC2511FCCB00E4DD40 /* LNRefreshAnimator.h in Headers */,
@@ -1839,6 +1849,7 @@
 				04D34FA4250B0C8600D940D1 /* GateCoinBurstStatisticsSubCollectionViewCell.xib in Resources */,
 				04D350A3250B1A1900D940D1 /* GateHomePageTopEnterViewCollectionViewCell.xib in Resources */,
 				04D34F8F250B0C8600D940D1 /* GateBurstHouseTableViewCell.xib in Resources */,
+				0466FC3B253817E10091A1A9 /* languageData.json in Resources */,
 				04D350AD250B201700D940D1 /* GateFearIndexTableViewCell.xib in Resources */,
 				04D34F7C250B0C8600D940D1 /* GateScources.bundle in Resources */,
 				04CBE5D52512594B00E4DD40 /* GTMainCoinQuotationListTableViewCell.xib in Resources */,
@@ -2061,6 +2072,7 @@
 				04D34F71250B0C8600D940D1 /* SANavigationController.m in Sources */,
 				044D255425353AF9004ACA98 /* GTHeYueMessageTableViewCell.m in Sources */,
 				04D34F99250B0C8600D940D1 /* GateTopSelectView.m in Sources */,
+				0466FC382537DD540091A1A9 /* GTDataManager.m in Sources */,
 				04CBE5A72511FCCB00E4DD40 /* LNFooterAnimator.m in Sources */,
 				04D35087250B16EA00D940D1 /* GateSelectLineChartCollectionViewCell.m in Sources */,
 				044D252D2531854D004ACA98 /* GTDuoKongLineChartsTableViewCell.m in Sources */,

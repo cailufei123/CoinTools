@@ -129,13 +129,13 @@ if (@available(iOS 11.0, *)) {
                }
               
             
-               
+               [self.tableView endRefreshing];
                     [self.tableView reloadData];
                                  
-                            [self.tableView endRefreshing];
+                          
           }];
           
-         
+        
           
 //        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 //        @strongify(self)
@@ -246,11 +246,11 @@ if (@available(iOS 11.0, *)) {
         
         GateHomePageTopEnterViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"GateHomePageTopEnterViewCell" forIndexPath:indexPath];
             
-//        cell.homepagebox = self.homeModel.homepagebox;
+        cell.homepagebox = self.homeModel.homepagebox;
                   return cell;
     }else if (indexPath.section == 2){
         GateFearIndexTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"GateFearIndexTableViewCell" forIndexPath:indexPath];
-//        cell.homevix = self.homeModel.homevix;
+        cell.homevix = self.homeModel.homevix;
         return cell;
     }else if (indexPath.section == 3){
         GTMainCoinQuotationListTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"GTMainCoinQuotationListTableViewCell" forIndexPath:indexPath];

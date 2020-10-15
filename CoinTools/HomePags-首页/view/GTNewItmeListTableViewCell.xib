@@ -17,6 +17,13 @@
                 <rect key="frame" x="0.0" y="0.0" width="412" height="288"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="6-6.png" translatesAutoresizingMaskIntoConstraints="NO" id="yqO-v9-ZjZ">
+                        <rect key="frame" x="165" y="122.5" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="Pen-vo-CBX"/>
+                            <constraint firstAttribute="width" constant="20" id="sIL-BY-ETj"/>
+                        </constraints>
+                    </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dfl-37-d0e">
                         <rect key="frame" x="185" y="122" width="42" height="44"/>
                         <subviews>
@@ -47,14 +54,20 @@
                 <constraints>
                     <constraint firstItem="Dfl-37-d0e" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="2Vz-YL-hFm"/>
                     <constraint firstItem="Dfl-37-d0e" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Gfa-Mh-OQX"/>
+                    <constraint firstItem="Dfl-37-d0e" firstAttribute="leading" secondItem="yqO-v9-ZjZ" secondAttribute="trailing" id="JAP-xO-DHt"/>
+                    <constraint firstItem="yqO-v9-ZjZ" firstAttribute="centerY" secondItem="icS-rE-h9I" secondAttribute="centerY" id="LLp-K4-Jsp"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
                 <outlet property="firstLb" destination="icS-rE-h9I" id="ieG-wP-sds"/>
                 <outlet property="secondLb" destination="hVY-hJ-NKo" id="5mY-xE-Rms"/>
+                <outlet property="titleImgaeView" destination="yqO-v9-ZjZ" id="QAa-p7-e2C"/>
             </connections>
             <point key="canvasLocation" x="204.34782608695653" y="158.03571428571428"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="6-6.png" width="15" height="15"/>
+    </resources>
 </document>

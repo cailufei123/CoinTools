@@ -20,7 +20,8 @@
     if (@available(iOS 11.0, *)) {
         self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
                   }
-    self.tableView.bounces = NO;
+//    self.tableView.bounces = NO;
+    self.tableView.scrollEnabled = NO;
             self.tableView.showsVerticalScrollIndicator = NO;
             self.tableView.estimatedRowHeight = 0;
             self.tableView.estimatedSectionHeaderHeight = 0;
@@ -31,7 +32,14 @@
            gateTableRegisterNib(self.tableView, @"GTNewItmeListTableViewCell");
     
 }
-
+//-(void)setDatalist:(NSArray<NSArray<GTHomeTitleModel *> *> *)datalist{
+//    _datalist = datalist;
+//    [self.tableView reloadData];
+//}
+-(void)setAlldatalistModel:(GTAlldatalistModel *)alldatalistModel{
+    _alldatalistModel = alldatalistModel;
+    [self.tableView reloadData];
+}
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     return [UIView new];
@@ -65,22 +73,33 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return  10;
+    return  _alldatalistModel.datalist.count+1;
 }
 
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
     GTNewItmeListTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"GTNewItmeListTableViewCell" forIndexPath:indexPath];
-    if (indexPath.row%2 == 0) {
-          cell.backgroundColor = gateColor(@"F5F5F5");
-//          cell.nameLb.backgroundColor = gateColor(@"F5F5F5");
+    if (indexPath.row == 0) {
+        cell.firstLb.text  = _alldatalistModel.title.content;
+        [GTStyleManager setStyleWhit: _alldatalistModel.title forLale: cell.secondLb];
+        cell.secondLb.text = @"";
     }else{
-        cell.backgroundColor = gateColor(@"ffffff");
-//          cell.nameLb.backgroundColor = gateColor(@"ffffff");
+        cell.firstLb.text  = [[GTDataManager getItemModelWhit: _alldatalistModel.datalist[indexPath.row-1]].firstObject.content isNotBlank]?[GTDataManager getItemModelWhit:_alldatalistModel.datalist[indexPath.row-1]].firstObject.content:@"";
+        cell.secondLb.text = [[GTDataManager getItemModelWhit:_alldatalistModel.datalist[indexPath.row-1]].lastObject.content isNotBlank]?[GTDataManager getItemModelWhit:_alldatalistModel.datalist[indexPath.row-1]].lastObject.content:@"";
+        [GTStyleManager setStyleWhit:[GTDataManager getItemModelWhit:_alldatalistModel.datalist[indexPath.row-1]].firstObject forLale: cell.firstLb];
+        [GTStyleManager setStyleWhit:[GTDataManager getItemModelWhit:_alldatalistModel.datalist[indexPath.row-1]].lastObject forLale: cell.secondLb];
+        if ([GTDataManager getItemModelWhit:_alldatalistModel.datalist[indexPath.row-1]].count<=1) {
+            cell.secondLb.text = @"";
+        }
     }
    
-   cell.firstLb.text  =@"333";
-    cell.secondLb.text  =@"444";
+    if (indexPath.row%2 == 0) {
+         cell.backgroundColor = gateColor(@"F5F5F5");
+    }else{
+        cell.backgroundColor = gateColor(@"ffffff");
+    }
+   
+    
    return cell;
 }
 

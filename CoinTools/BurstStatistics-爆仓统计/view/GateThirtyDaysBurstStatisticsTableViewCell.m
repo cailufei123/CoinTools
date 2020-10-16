@@ -131,6 +131,7 @@
         [arr addObject:@{@"title":bcoin_coin_30d_calendar_infoModel.sell_amount,@"color":gateColor(@"5bc39b")}];
           return arr;
       };
+ 
     [marker1 layercornerRadius:5];
     marker1.alpha = 0.8;
     marker1.backgroundColor = [UIColor blackColor];

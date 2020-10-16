@@ -29,7 +29,7 @@
 @interface GateHomePageController ()
 @property(nonatomic,strong)NSArray * classArry;
 @property(nonatomic,strong)GTHomeModel * homeModel;
-
+@property (nonatomic, assign) BOOL isError;
 @end
 
 @implementation GateHomePageController
@@ -58,7 +58,8 @@ if (@available(iOS 11.0, *)) {
     self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
               }else {
     self.automaticallyAdjustsScrollViewInsets = NO;
-        }
+        
+    }
      
         self.tableView.showsVerticalScrollIndicator = NO;
         self.tableView.estimatedRowHeight = 0;
@@ -113,42 +114,42 @@ if (@available(iOS 11.0, *)) {
     [imag addSubview:[UIImageView wh_imageViewWithPNGImage:getImageName(@"icon_logon_d_logo_145x51_@2x") frame:imag.frame]];
   self.navigationItem.titleView  = imag;
     
-  
-        @weakify(self)
-      [self.tableView addPullToRefresh:[LNHeaderMeituanAnimator createAnimator] block:^{
-          
-          
-          
-
-           [GateRequestManager get:homepagegURL block:^(NSError * _Nonnull error, NSDictionary * _Nonnull response) {
-                 @strongify(self)
-               self.homeModel = [GTHomeModel modelWithDictionary:response[@"data"]];
-             
-               if (!error) {
-                    
-               }
-              
-            
-               [self.tableView endRefreshing];
-                    [self.tableView reloadData];
-                                 
-                          
-          }];
-          
-        
-          
-//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        @strongify(self)
-//            NSDictionary * dict =  [GTCurrencyTool readLocalFileWithName:@"CoinTools.framework/home"];
-//            self.homeModel =[GTHomeModel  modelWithDictionary:dict[@"data"]];
-//            [self.tableView reloadData];
-//            [self.tableView endRefreshing];
-//        });
+    [EasyLodingView showLodingText:@"" imageName:getImageName(@"loading_0_30x30_@3x") config:^EasyLodingConfig *{
+      
+        return [EasyLodingConfig shared].setLodingType(LodingShowTypeImageAround).setTintColor(UIColor.redColor).setBgColor([[UIColor grayColor] colorWithAlphaComponent:0.2]);
     }];
-    [self.tableView startRefreshing];
+    [self loadData];
+    @weakify(self)
+  [self.tableView addPullToRefresh:[LNHeaderMeituanAnimator createAnimator] block:^{
+      @strongify(self)
+      [self loadData];
+}];
+
+      
    
 }
+-(void)loadData{
+    @weakify(self)
 
+     [GateRequestManager get:homepagegURL block:^(NSError * _Nonnull error, NSDictionary * _Nonnull response) {
+           @strongify(self)
+        
+       
+         if (!error) {
+             self.isError = NO;
+             self.homeModel = [GTHomeModel modelWithDictionary:response[@"data"]];
+         }else{
+             self.isError = YES;
+         }
+        
+      
+         [self.tableView endRefreshing];
+         [self.tableView cyl_reloadData];
+                           
+         [EasyLodingView hidenLoding];
+    }];
+    
+}
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 
 {
@@ -178,7 +179,7 @@ if (@available(iOS 11.0, *)) {
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-     return 1;
+    return   self.homeModel?1:0;
 }
 
 
@@ -246,16 +247,27 @@ if (@available(iOS 11.0, *)) {
     }else if (indexPath.section == 1){
         
         GateHomePageTopEnterViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"GateHomePageTopEnterViewCell" forIndexPath:indexPath];
-            
+      
+        cell.lb.text = [GTDataManager getItemModelWhit:self.homeModel.homepagebigtitle.alldatalist.firstObject.datalist.firstObject][0].content;
+       
+        [GTStyleManager setStyleWhit:[GTDataManager getItemModelWhit:self.homeModel.homepagebigtitle.alldatalist.firstObject.datalist.firstObject][0] forLale:cell.lb];
         cell.homepagebox = self.homeModel.homepagebox;
                   return cell;
     }else if (indexPath.section == 2){
         GateFearIndexTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"GateFearIndexTableViewCell" forIndexPath:indexPath];
+        
+        cell.titleLb.text = [GTDataManager getItemModelWhit:self.homeModel.homepagebigtitle.alldatalist.firstObject.datalist.firstObject][1].content;
+       
+        [GTStyleManager setStyleWhit:[GTDataManager getItemModelWhit:self.homeModel.homepagebigtitle.alldatalist.firstObject.datalist.firstObject][1] forLale:cell.titleLb];
         cell.homevix = self.homeModel.homepagevix;
         return cell;
     }else if (indexPath.section == 3){
+      
         GTMainCoinQuotationListTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"GTMainCoinQuotationListTableViewCell" forIndexPath:indexPath];
       cell.homepaglist = self.homeModel.homepaglist;
+        cell.titleLb.text = [GTDataManager getItemModelWhit:self.homeModel.homepagebigtitle.alldatalist.firstObject.datalist.firstObject][2].content;
+       
+        [GTStyleManager setStyleWhit:[GTDataManager getItemModelWhit:self.homeModel.homepagebigtitle.alldatalist.firstObject.datalist.firstObject][2] forLale:cell.titleLb];
         return cell;
     }
     
@@ -274,5 +286,23 @@ if (@available(iOS 11.0, *)) {
     }
     return nil;
 }
+#pragma mark CYLTableViewPlaceHolderDelegate
 
+- (UIView *)makePlaceHolderView{
+    __block UIView *emptyView ;
+    @weakify(self)
+    emptyView =  [HYDEEmptyViewManager showEnptyWith:self.isError?NoNetwork:NoData reloadBlock:^{
+        @strongify(self)
+
+        [self.tableView startRefreshing];
+    }];
+    return emptyView;
+}
+- (BOOL)enableScrollWhenPlaceHolderViewShowing{
+    return YES;
+}
+
+- (BOOL)removePlaceHolderView{
+    return YES;
+}
 @end

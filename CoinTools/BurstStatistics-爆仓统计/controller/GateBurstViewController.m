@@ -29,13 +29,13 @@
     self.view.backgroundColor = UIColor.whiteColor;
     self.navTitle  =@"爆仓";
 //[UINib nibWithNibName:[NSString stringWithFormat:@"CoinTools.bundle/%@",] bundle:[NSBundle mainBundle]]
-    gateTableRegisterNib(self.tableView, @"GateHoursTableViewCell");
-      gateTableRegisterNib(self.tableView, @"GateBurstHouseTableViewCell");
-     gateTableRegisterNib(self.tableView, @"GateThirtyDaysBurstStatisticsTableViewCell");
-     gateTableRegisterNib(self.tableView, @"GateHousBurstStatisticsTableViewCell");
-     gateTableRegisterClass(self.tableView, @"GateCoinBurstStatisticsTableViewCell");
-     gateTableRegisterClass(self.tableView, @"GTHeYueMessageTableViewCell");
-       gateTableRegisterNib(self.tableView, @"GateBurstListTableViewCell");
+        gateTableRegisterNib(self.tableView, @"GateHoursTableViewCell");
+        gateTableRegisterNib(self.tableView, @"GateBurstHouseTableViewCell");
+        gateTableRegisterNib(self.tableView, @"GateThirtyDaysBurstStatisticsTableViewCell");
+        gateTableRegisterNib(self.tableView, @"GateHousBurstStatisticsTableViewCell");
+        gateTableRegisterClass(self.tableView, @"GateCoinBurstStatisticsTableViewCell");
+        gateTableRegisterClass(self.tableView, @"GTHeYueMessageTableViewCell");
+        gateTableRegisterNib(self.tableView, @"GateBurstListTableViewCell");
 //     [topSelectView viewShadowPathWithColor:[UIColor grayColor] shadowOpacity:0.5 shadowRadius:6 shadowPathType:LeShadowPathBottom shadowPathWidth:8];
 //    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
 //    self.tableView.frame = CGRectMake(0,CGRectGetMaxY(topSelectView.frame) , scrWeiht, self.view.bounds.size.height-CGRectGetMaxY(topSelectView.frame));
@@ -64,7 +64,7 @@
                 
                 NSDictionary * dict =  [GTCurrencyTool readLocalFileWithName:@"CoinTools.framework/burstData"];
                 self.burstModel =[GTBurstModel  modelWithDictionary:dict[@"data"]];
-                [self.tableView reloadData];
+                [self.tableView cyl_reloadData];
                 
            [wself.tableView endRefreshing];
                });
@@ -123,6 +123,7 @@
    
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+//    return 0;
     if (self.selectedIndex == 0) {
         return 6;
     }else{
@@ -133,6 +134,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+//    return  0;
     if (section == 0) {
           return 1;
     }else if (section == 1) {
@@ -165,6 +167,7 @@
    }else {
          return 1;
    }
+    
 }
 
 

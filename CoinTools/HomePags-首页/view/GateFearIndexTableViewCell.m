@@ -12,7 +12,7 @@
 @interface GateFearIndexTableViewCell()
 @property (weak, nonatomic) IBOutlet UILabel *timeLb;
 
-@property (weak, nonatomic) IBOutlet UILabel *titleLb;
+
 @property (weak, nonatomic) IBOutlet UIView *prgressView;
 @property (weak, nonatomic) IBOutlet UILabel *yesterDayLb;
 @property (weak, nonatomic) IBOutlet UILabel *lastWeekLb;

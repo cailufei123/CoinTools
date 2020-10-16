@@ -96,7 +96,7 @@ if (@available(iOS 11.0, *)) {
         @strongify(self)
             NSDictionary * dict =  [GTCurrencyTool readLocalFileWithName:@"CoinTools.framework/fearIndexDate"];
             self.fearIndexModel =[GTFearIndexModel  modelWithDictionary:dict[@"data"]];
-            [self.tableView reloadData];
+            [self.tableView cyl_reloadData];
             [self.tableView endRefreshing];
         });
     }];

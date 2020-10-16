@@ -35,6 +35,65 @@
 		0466FC372537DD540091A1A9 /* GTDataManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 0466FC352537DD540091A1A9 /* GTDataManager.h */; };
 		0466FC382537DD540091A1A9 /* GTDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0466FC362537DD540091A1A9 /* GTDataManager.m */; };
 		0466FC3B253817E10091A1A9 /* languageData.json in Resources */ = {isa = PBXBuildFile; fileRef = 0466FC3A253817E10091A1A9 /* languageData.json */; };
+		0466FCA2253964980091A1A9 /* EasyTextConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 0466FC6F253964980091A1A9 /* EasyTextConfig.m */; };
+		0466FCA3253964980091A1A9 /* EasyTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0466FC70253964980091A1A9 /* EasyTextView.m */; };
+		0466FCA4253964980091A1A9 /* EasyTextTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 0466FC71253964980091A1A9 /* EasyTextTypes.h */; };
+		0466FCA5253964980091A1A9 /* EasyTextBgView.h in Headers */ = {isa = PBXBuildFile; fileRef = 0466FC72253964980091A1A9 /* EasyTextBgView.h */; };
+		0466FCA6253964980091A1A9 /* EasyTextGlobalConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 0466FC73253964980091A1A9 /* EasyTextGlobalConfig.m */; };
+		0466FCA7253964980091A1A9 /* EasyTextConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 0466FC74253964980091A1A9 /* EasyTextConfig.h */; };
+		0466FCA8253964980091A1A9 /* EasyTextBgView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0466FC75253964980091A1A9 /* EasyTextBgView.m */; };
+		0466FCA9253964980091A1A9 /* EasyTextTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 0466FC76253964980091A1A9 /* EasyTextTypes.m */; };
+		0466FCAA253964980091A1A9 /* EasyTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 0466FC77253964980091A1A9 /* EasyTextView.h */; };
+		0466FCAB253964980091A1A9 /* EasyTextGlobalConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 0466FC78253964980091A1A9 /* EasyTextGlobalConfig.h */; };
+		0466FCAC253964980091A1A9 /* EasyEmptyPart.h in Headers */ = {isa = PBXBuildFile; fileRef = 0466FC7A253964980091A1A9 /* EasyEmptyPart.h */; };
+		0466FCAD253964980091A1A9 /* EasyEmptyConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 0466FC7B253964980091A1A9 /* EasyEmptyConfig.m */; };
+		0466FCAE253964980091A1A9 /* EasyEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0466FC7C253964980091A1A9 /* EasyEmptyView.m */; };
+		0466FCAF253964980091A1A9 /* EasyEmptyTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 0466FC7D253964980091A1A9 /* EasyEmptyTypes.h */; };
+		0466FCB0253964980091A1A9 /* EasyEmptyGlobalConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 0466FC7E253964980091A1A9 /* EasyEmptyGlobalConfig.h */; };
+		0466FCB1253964980091A1A9 /* EasyEmptyPart.m in Sources */ = {isa = PBXBuildFile; fileRef = 0466FC7F253964980091A1A9 /* EasyEmptyPart.m */; };
+		0466FCB2253964980091A1A9 /* EasyEmptyView.h in Headers */ = {isa = PBXBuildFile; fileRef = 0466FC80253964980091A1A9 /* EasyEmptyView.h */; };
+		0466FCB3253964980091A1A9 /* EasyEmptyConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 0466FC81253964980091A1A9 /* EasyEmptyConfig.h */; };
+		0466FCB4253964980091A1A9 /* EasyEmptyGlobalConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 0466FC82253964980091A1A9 /* EasyEmptyGlobalConfig.m */; };
+		0466FCB5253964980091A1A9 /* EasyEmptyTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 0466FC83253964980091A1A9 /* EasyEmptyTypes.m */; };
+		0466FCB6253964980091A1A9 /* EasyAlertTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 0466FC85253964980091A1A9 /* EasyAlertTypes.m */; };
+		0466FCB7253964980091A1A9 /* EasyAlertConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 0466FC86253964980091A1A9 /* EasyAlertConfig.h */; };
+		0466FCB8253964980091A1A9 /* EasyAlertPart.h in Headers */ = {isa = PBXBuildFile; fileRef = 0466FC87253964980091A1A9 /* EasyAlertPart.h */; };
+		0466FCB9253964980091A1A9 /* EasyAlertGlobalConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 0466FC88253964980091A1A9 /* EasyAlertGlobalConfig.h */; };
+		0466FCBA253964980091A1A9 /* EasyAlertItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0466FC89253964980091A1A9 /* EasyAlertItem.m */; };
+		0466FCBB253964980091A1A9 /* EasyAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0466FC8A253964980091A1A9 /* EasyAlertView.m */; };
+		0466FCBC253964980091A1A9 /* EasyAlertTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 0466FC8B253964980091A1A9 /* EasyAlertTypes.h */; };
+		0466FCBD253964980091A1A9 /* EasyAlertConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 0466FC8C253964980091A1A9 /* EasyAlertConfig.m */; };
+		0466FCBE253964980091A1A9 /* EasyAlertItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 0466FC8D253964980091A1A9 /* EasyAlertItem.h */; };
+		0466FCBF253964980091A1A9 /* EasyAlertGlobalConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 0466FC8E253964980091A1A9 /* EasyAlertGlobalConfig.m */; };
+		0466FCC0253964980091A1A9 /* EasyAlertPart.m in Sources */ = {isa = PBXBuildFile; fileRef = 0466FC8F253964980091A1A9 /* EasyAlertPart.m */; };
+		0466FCC1253964980091A1A9 /* EasyAlertView.h in Headers */ = {isa = PBXBuildFile; fileRef = 0466FC90253964980091A1A9 /* EasyAlertView.h */; };
+		0466FCC2253964980091A1A9 /* UIView+EasyShowExt.h in Headers */ = {isa = PBXBuildFile; fileRef = 0466FC92253964980091A1A9 /* UIView+EasyShowExt.h */; };
+		0466FCC3253964980091A1A9 /* EasyShowUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0466FC93253964980091A1A9 /* EasyShowUtils.m */; };
+		0466FCC4253964980091A1A9 /* EasyShowLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0466FC94253964980091A1A9 /* EasyShowLabel.m */; };
+		0466FCC5253964980091A1A9 /* UIView+EasyShowExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 0466FC95253964980091A1A9 /* UIView+EasyShowExt.m */; };
+		0466FCC6253964980091A1A9 /* EasyShowLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 0466FC96253964980091A1A9 /* EasyShowLabel.h */; };
+		0466FCC7253964980091A1A9 /* EasyShowUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 0466FC97253964980091A1A9 /* EasyShowUtils.h */; };
+		0466FCC8253964980091A1A9 /* EasyShowView.h in Headers */ = {isa = PBXBuildFile; fileRef = 0466FC98253964980091A1A9 /* EasyShowView.h */; };
+		0466FCC9253964980091A1A9 /* EasyLodingView.h in Headers */ = {isa = PBXBuildFile; fileRef = 0466FC9A253964980091A1A9 /* EasyLodingView.h */; };
+		0466FCCA253964980091A1A9 /* EasyLodingTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 0466FC9B253964980091A1A9 /* EasyLodingTypes.m */; };
+		0466FCCB253964980091A1A9 /* EasyLodingConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 0466FC9C253964980091A1A9 /* EasyLodingConfig.h */; };
+		0466FCCC253964980091A1A9 /* EasyLodingGlobalConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 0466FC9D253964980091A1A9 /* EasyLodingGlobalConfig.h */; };
+		0466FCCD253964980091A1A9 /* EasyLodingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0466FC9E253964980091A1A9 /* EasyLodingView.m */; };
+		0466FCCE253964980091A1A9 /* EasyLodingConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 0466FC9F253964980091A1A9 /* EasyLodingConfig.m */; };
+		0466FCCF253964980091A1A9 /* EasyLodingTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 0466FCA0253964980091A1A9 /* EasyLodingTypes.h */; };
+		0466FCD0253964980091A1A9 /* EasyLodingGlobalConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 0466FCA1253964980091A1A9 /* EasyLodingGlobalConfig.m */; };
+		0466FCF0253974950091A1A9 /* UITableView+CYLTableViewPlaceHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 0466FCEC253974950091A1A9 /* UITableView+CYLTableViewPlaceHolder.m */; };
+		0466FCF1253974950091A1A9 /* CYLTableViewPlaceHolder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0466FCED253974950091A1A9 /* CYLTableViewPlaceHolder.h */; };
+		0466FCF2253974950091A1A9 /* CYLTableViewPlaceHolderDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 0466FCEE253974950091A1A9 /* CYLTableViewPlaceHolderDelegate.h */; };
+		0466FCF3253974950091A1A9 /* UITableView+CYLTableViewPlaceHolder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0466FCEF253974950091A1A9 /* UITableView+CYLTableViewPlaceHolder.h */; };
+		0466FCFA253975410091A1A9 /* XLBaseTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0466FCF6253975410091A1A9 /* XLBaseTableController.m */; };
+		0466FCFB253975410091A1A9 /* UIScrollView+EmptyDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 0466FCF7253975410091A1A9 /* UIScrollView+EmptyDataSet.m */; };
+		0466FCFC253975410091A1A9 /* XLBaseTableController.h in Headers */ = {isa = PBXBuildFile; fileRef = 0466FCF8253975410091A1A9 /* XLBaseTableController.h */; };
+		0466FCFD253975410091A1A9 /* UIScrollView+EmptyDataSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 0466FCF9253975410091A1A9 /* UIScrollView+EmptyDataSet.h */; };
+		0466FD04253979F30091A1A9 /* HYDEEmptyPlaceHolderView.h in Headers */ = {isa = PBXBuildFile; fileRef = 0466FD00253979F30091A1A9 /* HYDEEmptyPlaceHolderView.h */; };
+		0466FD05253979F30091A1A9 /* HYDEEmptyViewManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 0466FD01253979F30091A1A9 /* HYDEEmptyViewManager.h */; };
+		0466FD06253979F30091A1A9 /* HYDEEmptyPlaceHolderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0466FD02253979F30091A1A9 /* HYDEEmptyPlaceHolderView.m */; };
+		0466FD07253979F30091A1A9 /* HYDEEmptyViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0466FD03253979F30091A1A9 /* HYDEEmptyViewManager.m */; };
 		04796584251355E10051476C /* CoinTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD66B8F3250A799400D7C66E /* CoinTools.framework */; };
 		04796589251356200051476C /* CoinTools.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AD66B8F3250A799400D7C66E /* CoinTools.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		049514612514850000294FD7 /* zhPopupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0495145C2514850000294FD7 /* zhPopupController.m */; };
@@ -425,6 +484,65 @@
 		0466FC352537DD540091A1A9 /* GTDataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTDataManager.h; sourceTree = "<group>"; };
 		0466FC362537DD540091A1A9 /* GTDataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTDataManager.m; sourceTree = "<group>"; };
 		0466FC3A253817E10091A1A9 /* languageData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = languageData.json; sourceTree = "<group>"; };
+		0466FC6F253964980091A1A9 /* EasyTextConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EasyTextConfig.m; sourceTree = "<group>"; };
+		0466FC70253964980091A1A9 /* EasyTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EasyTextView.m; sourceTree = "<group>"; };
+		0466FC71253964980091A1A9 /* EasyTextTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EasyTextTypes.h; sourceTree = "<group>"; };
+		0466FC72253964980091A1A9 /* EasyTextBgView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EasyTextBgView.h; sourceTree = "<group>"; };
+		0466FC73253964980091A1A9 /* EasyTextGlobalConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EasyTextGlobalConfig.m; sourceTree = "<group>"; };
+		0466FC74253964980091A1A9 /* EasyTextConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EasyTextConfig.h; sourceTree = "<group>"; };
+		0466FC75253964980091A1A9 /* EasyTextBgView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EasyTextBgView.m; sourceTree = "<group>"; };
+		0466FC76253964980091A1A9 /* EasyTextTypes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EasyTextTypes.m; sourceTree = "<group>"; };
+		0466FC77253964980091A1A9 /* EasyTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EasyTextView.h; sourceTree = "<group>"; };
+		0466FC78253964980091A1A9 /* EasyTextGlobalConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EasyTextGlobalConfig.h; sourceTree = "<group>"; };
+		0466FC7A253964980091A1A9 /* EasyEmptyPart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EasyEmptyPart.h; sourceTree = "<group>"; };
+		0466FC7B253964980091A1A9 /* EasyEmptyConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EasyEmptyConfig.m; sourceTree = "<group>"; };
+		0466FC7C253964980091A1A9 /* EasyEmptyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EasyEmptyView.m; sourceTree = "<group>"; };
+		0466FC7D253964980091A1A9 /* EasyEmptyTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EasyEmptyTypes.h; sourceTree = "<group>"; };
+		0466FC7E253964980091A1A9 /* EasyEmptyGlobalConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EasyEmptyGlobalConfig.h; sourceTree = "<group>"; };
+		0466FC7F253964980091A1A9 /* EasyEmptyPart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EasyEmptyPart.m; sourceTree = "<group>"; };
+		0466FC80253964980091A1A9 /* EasyEmptyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EasyEmptyView.h; sourceTree = "<group>"; };
+		0466FC81253964980091A1A9 /* EasyEmptyConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EasyEmptyConfig.h; sourceTree = "<group>"; };
+		0466FC82253964980091A1A9 /* EasyEmptyGlobalConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EasyEmptyGlobalConfig.m; sourceTree = "<group>"; };
+		0466FC83253964980091A1A9 /* EasyEmptyTypes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EasyEmptyTypes.m; sourceTree = "<group>"; };
+		0466FC85253964980091A1A9 /* EasyAlertTypes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EasyAlertTypes.m; sourceTree = "<group>"; };
+		0466FC86253964980091A1A9 /* EasyAlertConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EasyAlertConfig.h; sourceTree = "<group>"; };
+		0466FC87253964980091A1A9 /* EasyAlertPart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EasyAlertPart.h; sourceTree = "<group>"; };
+		0466FC88253964980091A1A9 /* EasyAlertGlobalConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EasyAlertGlobalConfig.h; sourceTree = "<group>"; };
+		0466FC89253964980091A1A9 /* EasyAlertItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EasyAlertItem.m; sourceTree = "<group>"; };
+		0466FC8A253964980091A1A9 /* EasyAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EasyAlertView.m; sourceTree = "<group>"; };
+		0466FC8B253964980091A1A9 /* EasyAlertTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EasyAlertTypes.h; sourceTree = "<group>"; };
+		0466FC8C253964980091A1A9 /* EasyAlertConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EasyAlertConfig.m; sourceTree = "<group>"; };
+		0466FC8D253964980091A1A9 /* EasyAlertItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EasyAlertItem.h; sourceTree = "<group>"; };
+		0466FC8E253964980091A1A9 /* EasyAlertGlobalConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EasyAlertGlobalConfig.m; sourceTree = "<group>"; };
+		0466FC8F253964980091A1A9 /* EasyAlertPart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EasyAlertPart.m; sourceTree = "<group>"; };
+		0466FC90253964980091A1A9 /* EasyAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EasyAlertView.h; sourceTree = "<group>"; };
+		0466FC92253964980091A1A9 /* UIView+EasyShowExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+EasyShowExt.h"; sourceTree = "<group>"; };
+		0466FC93253964980091A1A9 /* EasyShowUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EasyShowUtils.m; sourceTree = "<group>"; };
+		0466FC94253964980091A1A9 /* EasyShowLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EasyShowLabel.m; sourceTree = "<group>"; };
+		0466FC95253964980091A1A9 /* UIView+EasyShowExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+EasyShowExt.m"; sourceTree = "<group>"; };
+		0466FC96253964980091A1A9 /* EasyShowLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EasyShowLabel.h; sourceTree = "<group>"; };
+		0466FC97253964980091A1A9 /* EasyShowUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EasyShowUtils.h; sourceTree = "<group>"; };
+		0466FC98253964980091A1A9 /* EasyShowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EasyShowView.h; sourceTree = "<group>"; };
+		0466FC9A253964980091A1A9 /* EasyLodingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EasyLodingView.h; sourceTree = "<group>"; };
+		0466FC9B253964980091A1A9 /* EasyLodingTypes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EasyLodingTypes.m; sourceTree = "<group>"; };
+		0466FC9C253964980091A1A9 /* EasyLodingConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EasyLodingConfig.h; sourceTree = "<group>"; };
+		0466FC9D253964980091A1A9 /* EasyLodingGlobalConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EasyLodingGlobalConfig.h; sourceTree = "<group>"; };
+		0466FC9E253964980091A1A9 /* EasyLodingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EasyLodingView.m; sourceTree = "<group>"; };
+		0466FC9F253964980091A1A9 /* EasyLodingConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EasyLodingConfig.m; sourceTree = "<group>"; };
+		0466FCA0253964980091A1A9 /* EasyLodingTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EasyLodingTypes.h; sourceTree = "<group>"; };
+		0466FCA1253964980091A1A9 /* EasyLodingGlobalConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EasyLodingGlobalConfig.m; sourceTree = "<group>"; };
+		0466FCEC253974950091A1A9 /* UITableView+CYLTableViewPlaceHolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+CYLTableViewPlaceHolder.m"; sourceTree = "<group>"; };
+		0466FCED253974950091A1A9 /* CYLTableViewPlaceHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYLTableViewPlaceHolder.h; sourceTree = "<group>"; };
+		0466FCEE253974950091A1A9 /* CYLTableViewPlaceHolderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYLTableViewPlaceHolderDelegate.h; sourceTree = "<group>"; };
+		0466FCEF253974950091A1A9 /* UITableView+CYLTableViewPlaceHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+CYLTableViewPlaceHolder.h"; sourceTree = "<group>"; };
+		0466FCF6253975410091A1A9 /* XLBaseTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLBaseTableController.m; sourceTree = "<group>"; };
+		0466FCF7253975410091A1A9 /* UIScrollView+EmptyDataSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+EmptyDataSet.m"; sourceTree = "<group>"; };
+		0466FCF8253975410091A1A9 /* XLBaseTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLBaseTableController.h; sourceTree = "<group>"; };
+		0466FCF9253975410091A1A9 /* UIScrollView+EmptyDataSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+EmptyDataSet.h"; sourceTree = "<group>"; };
+		0466FD00253979F30091A1A9 /* HYDEEmptyPlaceHolderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYDEEmptyPlaceHolderView.h; sourceTree = "<group>"; };
+		0466FD01253979F30091A1A9 /* HYDEEmptyViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYDEEmptyViewManager.h; sourceTree = "<group>"; };
+		0466FD02253979F30091A1A9 /* HYDEEmptyPlaceHolderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYDEEmptyPlaceHolderView.m; sourceTree = "<group>"; };
+		0466FD03253979F30091A1A9 /* HYDEEmptyViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYDEEmptyViewManager.m; sourceTree = "<group>"; };
 		0495145C2514850000294FD7 /* zhPopupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zhPopupController.m; sourceTree = "<group>"; };
 		0495145D2514850000294FD7 /* zhPopupController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zhPopupController.h; sourceTree = "<group>"; };
 		049514652514869700294FD7 /* GTMenuSelectView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTMenuSelectView.h; sourceTree = "<group>"; };
@@ -791,6 +909,133 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0466FC6D253964980091A1A9 /* EasyShowView */ = {
+			isa = PBXGroup;
+			children = (
+				0466FC6E253964980091A1A9 /* EasyText */,
+				0466FC79253964980091A1A9 /* EasyEmpty */,
+				0466FC84253964980091A1A9 /* EasyAlert */,
+				0466FC91253964980091A1A9 /* EasyShowUtils */,
+				0466FC98253964980091A1A9 /* EasyShowView.h */,
+				0466FC99253964980091A1A9 /* EasyLoding */,
+			);
+			path = EasyShowView;
+			sourceTree = "<group>";
+		};
+		0466FC6E253964980091A1A9 /* EasyText */ = {
+			isa = PBXGroup;
+			children = (
+				0466FC6F253964980091A1A9 /* EasyTextConfig.m */,
+				0466FC70253964980091A1A9 /* EasyTextView.m */,
+				0466FC71253964980091A1A9 /* EasyTextTypes.h */,
+				0466FC72253964980091A1A9 /* EasyTextBgView.h */,
+				0466FC73253964980091A1A9 /* EasyTextGlobalConfig.m */,
+				0466FC74253964980091A1A9 /* EasyTextConfig.h */,
+				0466FC75253964980091A1A9 /* EasyTextBgView.m */,
+				0466FC76253964980091A1A9 /* EasyTextTypes.m */,
+				0466FC77253964980091A1A9 /* EasyTextView.h */,
+				0466FC78253964980091A1A9 /* EasyTextGlobalConfig.h */,
+			);
+			path = EasyText;
+			sourceTree = "<group>";
+		};
+		0466FC79253964980091A1A9 /* EasyEmpty */ = {
+			isa = PBXGroup;
+			children = (
+				0466FC7A253964980091A1A9 /* EasyEmptyPart.h */,
+				0466FC7B253964980091A1A9 /* EasyEmptyConfig.m */,
+				0466FC7C253964980091A1A9 /* EasyEmptyView.m */,
+				0466FC7D253964980091A1A9 /* EasyEmptyTypes.h */,
+				0466FC7E253964980091A1A9 /* EasyEmptyGlobalConfig.h */,
+				0466FC7F253964980091A1A9 /* EasyEmptyPart.m */,
+				0466FC80253964980091A1A9 /* EasyEmptyView.h */,
+				0466FC81253964980091A1A9 /* EasyEmptyConfig.h */,
+				0466FC82253964980091A1A9 /* EasyEmptyGlobalConfig.m */,
+				0466FC83253964980091A1A9 /* EasyEmptyTypes.m */,
+			);
+			path = EasyEmpty;
+			sourceTree = "<group>";
+		};
+		0466FC84253964980091A1A9 /* EasyAlert */ = {
+			isa = PBXGroup;
+			children = (
+				0466FC85253964980091A1A9 /* EasyAlertTypes.m */,
+				0466FC86253964980091A1A9 /* EasyAlertConfig.h */,
+				0466FC87253964980091A1A9 /* EasyAlertPart.h */,
+				0466FC88253964980091A1A9 /* EasyAlertGlobalConfig.h */,
+				0466FC89253964980091A1A9 /* EasyAlertItem.m */,
+				0466FC8A253964980091A1A9 /* EasyAlertView.m */,
+				0466FC8B253964980091A1A9 /* EasyAlertTypes.h */,
+				0466FC8C253964980091A1A9 /* EasyAlertConfig.m */,
+				0466FC8D253964980091A1A9 /* EasyAlertItem.h */,
+				0466FC8E253964980091A1A9 /* EasyAlertGlobalConfig.m */,
+				0466FC8F253964980091A1A9 /* EasyAlertPart.m */,
+				0466FC90253964980091A1A9 /* EasyAlertView.h */,
+			);
+			path = EasyAlert;
+			sourceTree = "<group>";
+		};
+		0466FC91253964980091A1A9 /* EasyShowUtils */ = {
+			isa = PBXGroup;
+			children = (
+				0466FC92253964980091A1A9 /* UIView+EasyShowExt.h */,
+				0466FC93253964980091A1A9 /* EasyShowUtils.m */,
+				0466FC94253964980091A1A9 /* EasyShowLabel.m */,
+				0466FC95253964980091A1A9 /* UIView+EasyShowExt.m */,
+				0466FC96253964980091A1A9 /* EasyShowLabel.h */,
+				0466FC97253964980091A1A9 /* EasyShowUtils.h */,
+			);
+			path = EasyShowUtils;
+			sourceTree = "<group>";
+		};
+		0466FC99253964980091A1A9 /* EasyLoding */ = {
+			isa = PBXGroup;
+			children = (
+				0466FC9A253964980091A1A9 /* EasyLodingView.h */,
+				0466FC9B253964980091A1A9 /* EasyLodingTypes.m */,
+				0466FC9C253964980091A1A9 /* EasyLodingConfig.h */,
+				0466FC9D253964980091A1A9 /* EasyLodingGlobalConfig.h */,
+				0466FC9E253964980091A1A9 /* EasyLodingView.m */,
+				0466FC9F253964980091A1A9 /* EasyLodingConfig.m */,
+				0466FCA0253964980091A1A9 /* EasyLodingTypes.h */,
+				0466FCA1253964980091A1A9 /* EasyLodingGlobalConfig.m */,
+			);
+			path = EasyLoding;
+			sourceTree = "<group>";
+		};
+		0466FCEB253974950091A1A9 /* CYLTableViewPlaceHolder */ = {
+			isa = PBXGroup;
+			children = (
+				0466FCEC253974950091A1A9 /* UITableView+CYLTableViewPlaceHolder.m */,
+				0466FCED253974950091A1A9 /* CYLTableViewPlaceHolder.h */,
+				0466FCEE253974950091A1A9 /* CYLTableViewPlaceHolderDelegate.h */,
+				0466FCEF253974950091A1A9 /* UITableView+CYLTableViewPlaceHolder.h */,
+			);
+			path = CYLTableViewPlaceHolder;
+			sourceTree = "<group>";
+		};
+		0466FCF5253975410091A1A9 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				0466FCF6253975410091A1A9 /* XLBaseTableController.m */,
+				0466FCF7253975410091A1A9 /* UIScrollView+EmptyDataSet.m */,
+				0466FCF8253975410091A1A9 /* XLBaseTableController.h */,
+				0466FCF9253975410091A1A9 /* UIScrollView+EmptyDataSet.h */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		0466FCFF253979F30091A1A9 /* empty */ = {
+			isa = PBXGroup;
+			children = (
+				0466FD00253979F30091A1A9 /* HYDEEmptyPlaceHolderView.h */,
+				0466FD02253979F30091A1A9 /* HYDEEmptyPlaceHolderView.m */,
+				0466FD01253979F30091A1A9 /* HYDEEmptyViewManager.h */,
+				0466FD03253979F30091A1A9 /* HYDEEmptyViewManager.m */,
+			);
+			path = empty;
+			sourceTree = "<group>";
+		};
 		049514592514850000294FD7 /* zhPopupController */ = {
 			isa = PBXGroup;
 			children = (
@@ -907,6 +1152,9 @@
 		04CBE5852511FC6000E4DD40 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				0466FCF5253975410091A1A9 /* Base */,
+				0466FCEB253974950091A1A9 /* CYLTableViewPlaceHolder */,
+				0466FC6D253964980091A1A9 /* EasyShowView */,
 				049514592514850000294FD7 /* zhPopupController */,
 				04CBE5862511FCCB00E4DD40 /* LNRefresh */,
 			);
@@ -1102,6 +1350,7 @@
 		04D34EB1250B0C8500D940D1 /* PublicView */ = {
 			isa = PBXGroup;
 			children = (
+				0466FCFF253979F30091A1A9 /* empty */,
 				04D34EB2250B0C8500D940D1 /* GatePublicSelectView.m */,
 				04D34EB3250B0C8500D940D1 /* TitleBackground */,
 				04D34EBB250B0C8500D940D1 /* pressView.h */,
@@ -1567,6 +1816,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0466FCC9253964980091A1A9 /* EasyLodingView.h in Headers */,
 				04D35074250B16EA00D940D1 /* GateHomeModel.h in Headers */,
 				04D350B2250B257100D940D1 /* ZZDottedLineProgress.h in Headers */,
 				04F80BA12536E06000D99E3A /* GTNewItmeListTableViewCell.h in Headers */,
@@ -1575,8 +1825,11 @@
 				04D3500E250B0F7300D940D1 /* UINavigationController+WHNavigationController.h in Headers */,
 				AD3A256D2532D3DF0099C5AC /* GTChartPMarkerPublicView.h in Headers */,
 				04D35099250B184E00D940D1 /* GateHomePageController.h in Headers */,
+				0466FCFD253975410091A1A9 /* UIScrollView+EmptyDataSet.h in Headers */,
 				04F80B822536C66700D99E3A /* GTTopTableViewTableViewCell.h in Headers */,
 				04D34F6C250B0C8600D940D1 /* GateBaseViewController.h in Headers */,
+				0466FCC8253964980091A1A9 /* EasyShowView.h in Headers */,
+				0466FCAB253964980091A1A9 /* EasyTextGlobalConfig.h in Headers */,
 				04D3508B250B16EA00D940D1 /* GateNewDetailsViewController.h in Headers */,
 				04D34F4A250B0C8600D940D1 /* GatePublicSelectModel.h in Headers */,
 				04D3501D250B0F7300D940D1 /* NSDate+Category.h in Headers */,
@@ -1587,9 +1840,12 @@
 				04D35079250B16EA00D940D1 /* GateSelectLineChartCollectionViewCell.h in Headers */,
 				049514B82518A1C600294FD7 /* GTXAxisFearIndexValueFormatter.h in Headers */,
 				04D3509C250B18E500D940D1 /* GateHomePageTopEnterView.h in Headers */,
+				0466FCCF253964980091A1A9 /* EasyLodingTypes.h in Headers */,
 				049514792515A7C100294FD7 /* GTHomeModel.h in Headers */,
+				0466FCB0253964980091A1A9 /* EasyEmptyGlobalConfig.h in Headers */,
 				04D3508F250B16EA00D940D1 /* GateDetailsViewController.h in Headers */,
 				04D35004250B0F7300D940D1 /* UIImage+WHImage.h in Headers */,
+				0466FCA5253964980091A1A9 /* EasyTextBgView.h in Headers */,
 				04D35000250B0F7300D940D1 /* UIImageView+PlayGIF.h in Headers */,
 				04D350BE250B75CB00D940D1 /* GTHoldChartsStatisticsTableViewCell.h in Headers */,
 				04D35012250B0F7300D940D1 /* NSTimer+WHTimer.h in Headers */,
@@ -1605,6 +1861,7 @@
 				04F80B9A2536DA2900D99E3A /* GTNewRightCollectionViewCell.h in Headers */,
 				04D34F31250B0C8600D940D1 /* GateThirtyDaysBigOrderStatisticsTableViewCell.h in Headers */,
 				04D34F27250B0C8600D940D1 /* GateMarketValueViewController.h in Headers */,
+				0466FCA7253964980091A1A9 /* EasyTextConfig.h in Headers */,
 				04D34FA5250B0C8600D940D1 /* GateHoursCollectionViewCell.h in Headers */,
 				04D34F6A250B0C8600D940D1 /* GateRequestManager.h in Headers */,
 				04D34F48250B0C8600D940D1 /* pressView.h in Headers */,
@@ -1614,20 +1871,29 @@
 				04D34F2B250B0C8600D940D1 /* GateWholeNetworkBigOrderStatisticsCell.h in Headers */,
 				04D3508D250B16EA00D940D1 /* GateViewController.h in Headers */,
 				04D35081250B16EA00D940D1 /* GateData1TableViewCell.h in Headers */,
+				0466FCF2253974950091A1A9 /* CYLTableViewPlaceHolderDelegate.h in Headers */,
 				04CBE5AB2511FCCB00E4DD40 /* LNRefreshHeader.h in Headers */,
 				04D34F52250B0C8600D940D1 /* GateHeaderFile.h in Headers */,
 				04D34F91250B0C8600D940D1 /* GateHousBurstStatisticsTableViewCell.h in Headers */,
+				0466FCBE253964980091A1A9 /* EasyAlertItem.h in Headers */,
+				0466FD04253979F30091A1A9 /* HYDEEmptyPlaceHolderView.h in Headers */,
+				0466FCB3253964980091A1A9 /* EasyEmptyConfig.h in Headers */,
 				04D34F4F250B0C8600D940D1 /* ConfigFile.pch in Headers */,
+				0466FCF3253974950091A1A9 /* UITableView+CYLTableViewPlaceHolder.h in Headers */,
 				0495146F2514E16100294FD7 /* GTPointerView.h in Headers */,
 				04D34F50250B0C8600D940D1 /* URL.h in Headers */,
 				044D256425368CA9004ACA98 /* GTHoldCoinPieChartViewTableViewCell.h in Headers */,
 				04D34F3E250B0C8600D940D1 /* GateDeliveryPositionAmountCell.h in Headers */,
+				0466FCAA253964980091A1A9 /* EasyTextView.h in Headers */,
 				04D34F3B250B0C8600D940D1 /* GateWholeNetworkPositionStatisticsViewController.h in Headers */,
+				0466FCC6253964980091A1A9 /* EasyShowLabel.h in Headers */,
 				04D34F6D250B0C8600D940D1 /* GateRefreshAutoNormalFooter.h in Headers */,
+				0466FCA4253964980091A1A9 /* EasyTextTypes.h in Headers */,
 				04D34F49250B0C8600D940D1 /* GatePublicSelectView.h in Headers */,
 				044D252C2531854D004ACA98 /* GTDuoKongLineChartsTableViewCell.h in Headers */,
 				04D34F39250B0C8600D940D1 /* GateBigOrderStatisticsViewController.h in Headers */,
 				04D34F89250B0C8600D940D1 /* GateCoinBurstStatisticsTableViewCell.h in Headers */,
+				0466FCAF253964980091A1A9 /* EasyEmptyTypes.h in Headers */,
 				04D35082250B16EA00D940D1 /* GateHearCategoryView.h in Headers */,
 				04D350A1250B1A1900D940D1 /* GateHomePageTopEnterViewCollectionViewCell.h in Headers */,
 				04D34F51250B0C8600D940D1 /* GateToolDefine.h in Headers */,
@@ -1651,33 +1917,43 @@
 				04CBE5B22511FCCB00E4DD40 /* LNRefresh.h in Headers */,
 				AD3A25722532D5020099C5AC /* GTChartPMarkerViewTableViewCell.h in Headers */,
 				04D34F87250B0C8600D940D1 /* GateXHorstAxisValueFormatter.h in Headers */,
+				0466FCB8253964980091A1A9 /* EasyAlertPart.h in Headers */,
 				04CBE5B12511FCCB00E4DD40 /* LNRefreshHandler.h in Headers */,
 				04D350AB250B201600D940D1 /* GateFearIndexTableViewCell.h in Headers */,
+				0466FCC7253964980091A1A9 /* EasyShowUtils.h in Headers */,
+				0466FCC1253964980091A1A9 /* EasyAlertView.h in Headers */,
 				044D254C253448FE004ACA98 /* NSArray+NilSafe.h in Headers */,
 				04D34F34250B0C8600D940D1 /* GateBigOrderDistributionDealCell.h in Headers */,
 				04D35089250B16EA00D940D1 /* GateData2TableViewCell.h in Headers */,
 				04D34F41250B0C8600D940D1 /* JXCategoryTitleBackgroundCell.h in Headers */,
+				0466FCB2253964980091A1A9 /* EasyEmptyView.h in Headers */,
 				04D34F9F250B0C8600D940D1 /* GateHoursTableViewCell.h in Headers */,
 				04D350A6250B1B9D00D940D1 /* GateHomePageTopEnterViewCell.h in Headers */,
 				04D35084250B16EA00D940D1 /* GatePrgessTableViewCell.h in Headers */,
 				049514BC2518A1DD00294FD7 /* GTYxisFearIndexValueFormatter.h in Headers */,
 				044D255825353B51004ACA98 /* GTHeYueMessageCollectionViewCell.h in Headers */,
+				0466FCFC253975410091A1A9 /* XLBaseTableController.h in Headers */,
 				04D34FA3250B0C8600D940D1 /* GateBurstHouseTableViewCell.h in Headers */,
 				04D34FA1250B0C8600D940D1 /* GateThirtyDaysBurstStatisticsTableViewCell.h in Headers */,
 				04D34F75250B0C8600D940D1 /* GateXAxisValueFormatter.h in Headers */,
 				04D34F95250B0C8600D940D1 /* GateHoursSelectCategoryView.h in Headers */,
 				044D255325353AF9004ACA98 /* GTHeYueMessageTableViewCell.h in Headers */,
+				0466FCB9253964980091A1A9 /* EasyAlertGlobalConfig.h in Headers */,
 				04D34F46250B0C8600D940D1 /* JXCategoryTitleBackgroundCellModel.h in Headers */,
 				049514672514869700294FD7 /* GTMenuSelectView.h in Headers */,
 				04D34F8A250B0C8600D940D1 /* GateTopSelectView.h in Headers */,
 				044D252225314343004ACA98 /* GTTopTotalTableViewCell.h in Headers */,
 				04D34F36250B0C8600D940D1 /* GateThirtyDaysBigOrderStatisticsSelectView.h in Headers */,
+				0466FCCB253964980091A1A9 /* EasyLodingConfig.h in Headers */,
+				0466FCC2253964980091A1A9 /* UIView+EasyShowExt.h in Headers */,
 				04CBE5B72512011400E4DD40 /* LNHeaderMeituanAnimator.h in Headers */,
 				044D255E25356E73004ACA98 /* GTFearIndexIndicatorTableViewCell.h in Headers */,
 				04D35088250B16EA00D940D1 /* GateTopView.h in Headers */,
+				0466FD05253979F30091A1A9 /* HYDEEmptyViewManager.h in Headers */,
 				04CBE5AF2511FCCB00E4DD40 /* LNRefreshComponent.h in Headers */,
 				044D2527253148BB004ACA98 /* GTMultiSpaceRatioViewController.h in Headers */,
 				04D34F77250B0C8600D940D1 /* GateYAxisValueFormatter.h in Headers */,
+				0466FCAC253964980091A1A9 /* EasyEmptyPart.h in Headers */,
 				04CBE5B02511FCCB00E4DD40 /* LNFooterAnimator.h in Headers */,
 				04CBE5BB251216F300E4DD40 /* GTNewTopTableViewCell.h in Headers */,
 				04D34F35250B0C8600D940D1 /* GateWholeNetworkBigOrderStatisticsCollectionCell.h in Headers */,
@@ -1687,11 +1963,13 @@
 				049514AA2518722000294FD7 /* GTFearIndexViewController.h in Headers */,
 				044D255025344915004ACA98 /* NSObject+Swizzling.h in Headers */,
 				04D35034250B0F7300D940D1 /* UILabel+WHLabel.h in Headers */,
+				0466FCF1253974950091A1A9 /* CYLTableViewPlaceHolder.h in Headers */,
 				04D3502E250B0F7300D940D1 /* NSString+WHString.h in Headers */,
 				AD3A25692532CBA40099C5AC /* GTDotManager.h in Headers */,
 				0466FC372537DD540091A1A9 /* GTDataManager.h in Headers */,
 				04CBE5A42511FCCB00E4DD40 /* LNHeaderAnimator.h in Headers */,
 				04D3500D250B0F7300D940D1 /* UITableView+WHTableView.h in Headers */,
+				0466FCBC253964980091A1A9 /* EasyAlertTypes.h in Headers */,
 				04CBE5AC2511FCCB00E4DD40 /* LNRefreshAnimator.h in Headers */,
 				04D35003250B0F7300D940D1 /* NSDate+WHDate.h in Headers */,
 				04D35001250B0F7300D940D1 /* NSArray+WHArray.h in Headers */,
@@ -1702,6 +1980,7 @@
 				04D35029250B0F7300D940D1 /* NSObject+WHObject.h in Headers */,
 				04D35010250B0F7300D940D1 /* NSArray+decription.h in Headers */,
 				049514622514850000294FD7 /* zhPopupController.h in Headers */,
+				0466FCCC253964980091A1A9 /* EasyLodingGlobalConfig.h in Headers */,
 				04D3502B250B0F7300D940D1 /* NSNumber+WHNumber.h in Headers */,
 				04D35045250B0F7300D940D1 /* UIColor+HYDEGradientChange.h in Headers */,
 				04D35013250B0F7300D940D1 /* NSFileManager+WHFileManager.h in Headers */,
@@ -1710,6 +1989,7 @@
 				04D3508A250B16EA00D940D1 /* GateLineChartTableViewCell.h in Headers */,
 				04D3500C250B0F7300D940D1 /* UIButton+WHButton.h in Headers */,
 				04D3501C250B0F7300D940D1 /* UIViewController+WHVC.h in Headers */,
+				0466FCB7253964980091A1A9 /* EasyAlertConfig.h in Headers */,
 				04D35016250B0F7300D940D1 /* UIBarButtonItem+Item.h in Headers */,
 				04D3500B250B0F7300D940D1 /* UIScrollView+WHScrollView.h in Headers */,
 				04D3504C250B0F7300D940D1 /* UIView+HYDEBottomBorder.h in Headers */,
@@ -1946,6 +2226,7 @@
 				04D35030250B0F7300D940D1 /* UIBarButtonItem+LFExtension.m in Sources */,
 				04D35032250B0F7300D940D1 /* NSFileManager+WHFileManager.m in Sources */,
 				04BA82D8251093DA00E1FE8F /* GTHoldCoinListTableViewCell.m in Sources */,
+				0466FCCA253964980091A1A9 /* EasyLodingTypes.m in Sources */,
 				04D350B7250B587700D940D1 /* GateHoldCoinTopMessageCell.m in Sources */,
 				04D35080250B16EA00D940D1 /* GateLineChartTableViewCell.m in Sources */,
 				04CBE5A22511FCCB00E4DD40 /* LNRefreshFooter.m in Sources */,
@@ -1953,16 +2234,21 @@
 				04D3502A250B0F7300D940D1 /* UITextView+YLTextView.m in Sources */,
 				049514612514850000294FD7 /* zhPopupController.m in Sources */,
 				04D35075250B16EA00D940D1 /* GatePrgessTableViewCell.m in Sources */,
+				0466FCB6253964980091A1A9 /* EasyAlertTypes.m in Sources */,
+				0466FD06253979F30091A1A9 /* HYDEEmptyPlaceHolderView.m in Sources */,
 				04D34F40250B0C8600D940D1 /* GatePublicSelectView.m in Sources */,
 				049514842515B8DA00294FD7 /* GTCurrencyTool.m in Sources */,
 				04BA82D1251077E600E1FE8F /* GTHoldCoinHeardView.m in Sources */,
 				049514B52518886200294FD7 /* GTFearIndexModel.m in Sources */,
 				AD3A256A2532CBA40099C5AC /* GTDotManager.m in Sources */,
 				04D35049250B0F7300D940D1 /* UIFont+HYDENormalFont.m in Sources */,
+				0466FCB5253964980091A1A9 /* EasyEmptyTypes.m in Sources */,
 				044D254F25344915004ACA98 /* NSObject+Swizzling.m in Sources */,
 				04D35048250B0F7300D940D1 /* NSString+HYDESize.m in Sources */,
+				0466FCB4253964980091A1A9 /* EasyEmptyGlobalConfig.m in Sources */,
 				04D34F2C250B0C8600D940D1 /* GateThirtyDaysBigOrderStatisticsTableViewCell.m in Sources */,
 				04D34F30250B0C8600D940D1 /* GateThirtyDaysBigOrderStatisticsSelectView.m in Sources */,
+				0466FCA9253964980091A1A9 /* EasyTextTypes.m in Sources */,
 				04CBE5CE2512450300E4DD40 /* GTNewTopDuiBiCollectionViewCell.m in Sources */,
 				04D34F3C250B0C8600D940D1 /* GateDeliveryPositionAmountCell.m in Sources */,
 				049514682514869700294FD7 /* GTMenuSelectView.m in Sources */,
@@ -1981,6 +2267,7 @@
 				049514BD2518A1DD00294FD7 /* GTYxisFearIndexValueFormatter.m in Sources */,
 				04D3507A250B16EA00D940D1 /* GateHearView.m in Sources */,
 				04D35073250B16EA00D940D1 /* GateHomeModel.m in Sources */,
+				0466FCA3253964980091A1A9 /* EasyTextView.m in Sources */,
 				044D256525368CA9004ACA98 /* GTHoldCoinPieChartViewTableViewCell.m in Sources */,
 				044D254B253448FE004ACA98 /* NSArray+NilSafe.m in Sources */,
 				04D3501B250B0F7300D940D1 /* UIBarButtonItem+WHBarButtonItem.m in Sources */,
@@ -1989,9 +2276,11 @@
 				04D3500A250B0F7300D940D1 /* NSObject+WHObject.m in Sources */,
 				04F80B832536C66700D99E3A /* GTTopTableViewTableViewCell.m in Sources */,
 				04D34F45250B0C8600D940D1 /* JXCategoryTitleBackgroundView.m in Sources */,
+				0466FCBA253964980091A1A9 /* EasyAlertItem.m in Sources */,
 				04D34F4B250B0C8600D940D1 /* pressView.m in Sources */,
 				04D35033250B0F7300D940D1 /* NSTimer+WHTimer.m in Sources */,
 				04D35015250B0F7300D940D1 /* UIView+CLFExtension.m in Sources */,
+				0466FCBF253964980091A1A9 /* EasyAlertGlobalConfig.m in Sources */,
 				044D255925353B51004ACA98 /* GTHeYueMessageCollectionViewCell.m in Sources */,
 				04D35018250B0F7300D940D1 /* WHMethods.m in Sources */,
 				04D34F94250B0C8600D940D1 /* GateThirtyDaysBurstStatisticsTableViewCell.m in Sources */,
@@ -2005,14 +2294,19 @@
 				04D35098250B184E00D940D1 /* GateHomePageController.m in Sources */,
 				04D3502D250B0F7300D940D1 /* NSDateFormatter+Category.m in Sources */,
 				049514B92518A1C600294FD7 /* GTXAxisFearIndexValueFormatter.m in Sources */,
+				0466FD07253979F30091A1A9 /* HYDEEmptyViewManager.m in Sources */,
+				0466FCA6253964980091A1A9 /* EasyTextGlobalConfig.m in Sources */,
 				04D34F26250B0C8600D940D1 /* GateHoldCoinViewController.m in Sources */,
+				0466FCC5253964980091A1A9 /* UIView+EasyShowExt.m in Sources */,
 				04D34FA0250B0C8600D940D1 /* GateHoursSelectCategoryView.m in Sources */,
 				04D35002250B0F7300D940D1 /* UIDevice+WHDevice.m in Sources */,
 				04D34F70250B0C8600D940D1 /* GateXAxisValueFormatter.m in Sources */,
 				04D3503E250B0F7300D940D1 /* NSString+GateAttribute.m in Sources */,
+				0466FCAE253964980091A1A9 /* EasyEmptyView.m in Sources */,
 				049514702514E16100294FD7 /* GTPointerView.m in Sources */,
 				04D34F8B250B0C8600D940D1 /* XYMarkerView.swift in Sources */,
 				04D34F97250B0C8600D940D1 /* GateHoursCollectionViewCell.m in Sources */,
+				0466FCFA253975410091A1A9 /* XLBaseTableController.m in Sources */,
 				04D3504D250B0F7300D940D1 /* UITableViewCell+GateTableViewCell.m in Sources */,
 				04D35026250B0F7300D940D1 /* UITableView+WHTableView.m in Sources */,
 				04D350A7250B1B9D00D940D1 /* GateHomePageTopEnterViewCell.m in Sources */,
@@ -2021,22 +2315,29 @@
 				049514B02518728600294FD7 /* GTFearIndexLineChartsTableViewCell.m in Sources */,
 				04D350A2250B1A1900D940D1 /* GateHomePageTopEnterViewCollectionViewCell.m in Sources */,
 				04D35017250B0F7300D940D1 /* NSDictionary+WHDictionary.m in Sources */,
+				0466FCC0253964980091A1A9 /* EasyAlertPart.m in Sources */,
 				04D3501A250B0F7300D940D1 /* UIImageView+WHImageView.m in Sources */,
+				0466FCB1253964980091A1A9 /* EasyEmptyPart.m in Sources */,
 				04D34F9A250B0C8600D940D1 /* GateCoinBurstStatisticsTableViewCell.m in Sources */,
 				04D34F7A250B0C8600D940D1 /* GateNumberFormatUtils.swift in Sources */,
 				04CBE5A82511FCCB00E4DD40 /* NSObject+LNRefresh.m in Sources */,
 				04D35040250B0F7300D940D1 /* UISegmentedControl+Category.m in Sources */,
 				04D3503D250B0F7300D940D1 /* UIView+shadowPath.m in Sources */,
+				0466FCA8253964980091A1A9 /* EasyTextBgView.m in Sources */,
+				0466FCA2253964980091A1A9 /* EasyTextConfig.m in Sources */,
 				04D3501E250B0F7300D940D1 /* UIImage+WHImage.m in Sources */,
 				04F80BA22536E06000D99E3A /* GTNewItmeListTableViewCell.m in Sources */,
 				044D252325314343004ACA98 /* GTTopTotalTableViewCell.m in Sources */,
 				04D34F83250B0C8600D940D1 /* GateBurstViewController.m in Sources */,
+				0466FCFB253975410091A1A9 /* UIScrollView+EmptyDataSet.m in Sources */,
 				049514A22516082200294FD7 /* GTBurstModel.m in Sources */,
 				04D35036250B0F7300D940D1 /* UIViewController+WHVC.m in Sources */,
 				044D255F25356E73004ACA98 /* GTFearIndexIndicatorTableViewCell.m in Sources */,
 				04D35021250B0F7300D940D1 /* NSArray+WHArray.m in Sources */,
 				04D34F8E250B0C8600D940D1 /* GateHoursTableViewCell.m in Sources */,
 				AD3A25732532D5020099C5AC /* GTChartPMarkerViewTableViewCell.m in Sources */,
+				0466FCBB253964980091A1A9 /* EasyAlertView.m in Sources */,
+				0466FCC3253964980091A1A9 /* EasyShowUtils.m in Sources */,
 				04D35006250B0F7300D940D1 /* NSString+WHString.m in Sources */,
 				04D34F98250B0C8600D940D1 /* GateBurstHouseTableViewCell.m in Sources */,
 				04D34F85250B0C8600D940D1 /* GateXHorstAxisValueFormatter.m in Sources */,
@@ -2053,14 +2354,18 @@
 				04D35044250B0F7300D940D1 /* UIViewController+HYDENavigation.m in Sources */,
 				04F80B9B2536DA2900D99E3A /* GTNewRightCollectionViewCell.m in Sources */,
 				04D3507D250B16EA00D940D1 /* GateData2TableViewCell.m in Sources */,
+				0466FCC4253964980091A1A9 /* EasyShowLabel.m in Sources */,
 				04CBE5A52511FCCB00E4DD40 /* LNRefreshComponent.m in Sources */,
 				04BA82CD25104F5100E1FE8F /* GTTotalViewController.m in Sources */,
 				04D34F2D250B0C8600D940D1 /* GateWholeNetworkBigOrderStatisticsCollectionCell.m in Sources */,
 				04D35028250B0F7300D940D1 /* UIScrollView+WHScrollView.m in Sources */,
 				04D34F47250B0C8600D940D1 /* GatePublicSelectModel.m in Sources */,
+				0466FCCD253964980091A1A9 /* EasyLodingView.m in Sources */,
+				0466FCBD253964980091A1A9 /* EasyAlertConfig.m in Sources */,
 				04D35024250B0F7300D940D1 /* UIColor+WHColor.m in Sources */,
 				04D34F6E250B0C8600D940D1 /* GateYAxisValueFormatter.m in Sources */,
 				04D3504B250B0F7300D940D1 /* NSDictionary+Extend.m in Sources */,
+				0466FCCE253964980091A1A9 /* EasyLodingConfig.m in Sources */,
 				04D35043250B0F7300D940D1 /* UIView+HYDEBottomBorder.m in Sources */,
 				04D35005250B0F7300D940D1 /* NSDate+Category.m in Sources */,
 				04D35027250B0F7300D940D1 /* UIButton+WHButton.m in Sources */,
@@ -2072,16 +2377,19 @@
 				04D34F71250B0C8600D940D1 /* SANavigationController.m in Sources */,
 				044D255425353AF9004ACA98 /* GTHeYueMessageTableViewCell.m in Sources */,
 				04D34F99250B0C8600D940D1 /* GateTopSelectView.m in Sources */,
+				0466FCAD253964980091A1A9 /* EasyEmptyConfig.m in Sources */,
 				0466FC382537DD540091A1A9 /* GTDataManager.m in Sources */,
 				04CBE5A72511FCCB00E4DD40 /* LNFooterAnimator.m in Sources */,
 				04D35087250B16EA00D940D1 /* GateSelectLineChartCollectionViewCell.m in Sources */,
 				044D252D2531854D004ACA98 /* GTDuoKongLineChartsTableViewCell.m in Sources */,
 				04D3507E250B16EA00D940D1 /* GateTopView.m in Sources */,
+				0466FCF0253974950091A1A9 /* UITableView+CYLTableViewPlaceHolder.m in Sources */,
 				04D3508C250B16EA00D940D1 /* GateDetailsViewController.m in Sources */,
 				04D3504E250B0F7300D940D1 /* UIColor+HYDEGradientChange.m in Sources */,
 				04D3507B250B16EA00D940D1 /* BalloonMarker.swift in Sources */,
 				AD3A256E2532D3DF0099C5AC /* GTChartPMarkerPublicView.m in Sources */,
 				04D34F74250B0C8600D940D1 /* GateBaseViewController.m in Sources */,
+				0466FCD0253964980091A1A9 /* EasyLodingGlobalConfig.m in Sources */,
 				04D34F93250B0C8600D940D1 /* GateCoinBurstStatisticsSubCollectionViewCell.m in Sources */,
 				04D34F86250B0C8600D940D1 /* GateYHorstAxisValueFormatter.m in Sources */,
 				04D3502F250B0F7300D940D1 /* UIBarButtonItem+Item.m in Sources */,

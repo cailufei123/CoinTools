@@ -16,6 +16,7 @@
 @property (nonatomic, strong)  GateTopSelectView *topSelectView;
 @property (nonatomic, strong) UIButton * claseBt ;
 @property (nonatomic, strong) NSArray *titles;
+@property (nonatomic, assign) BOOL isError;
 @end
 
 @implementation GateBaseViewController
@@ -197,5 +198,23 @@ if (@available(iOS 11.0, *)) {
     return _popupController;
 }
 
- 
+#pragma mark CYLTableViewPlaceHolderDelegate
+
+- (UIView *)makePlaceHolderView{
+    __block UIView *emptyView ;
+    @weakify(self)
+    emptyView =  [HYDEEmptyViewManager showEnptyWith:self.isError?NoNetwork:NoData reloadBlock:^{
+        @strongify(self)
+
+        [self.tableView startRefreshing];
+    }];
+    return emptyView;
+}
+- (BOOL)enableScrollWhenPlaceHolderViewShowing{
+    return YES;
+}
+
+- (BOOL)removePlaceHolderView{
+    return YES;
+}
 @end

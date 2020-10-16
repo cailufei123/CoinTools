@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)void(^selectBlock)(NSInteger index);
 
 @property(nonatomic,strong)GTHomepageboxModel * homepagebox;//
+@property(nonatomic,strong)UILabel * lb;
 @end
 
 NS_ASSUME_NONNULL_END

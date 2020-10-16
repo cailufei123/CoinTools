@@ -12,6 +12,7 @@
 @interface GateHomePageTopEnterViewCell ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property(nonatomic,strong)UICollectionView * collectionView;
 @property(nonatomic,strong)UIView * topView;
+
 @end
 @implementation GateHomePageTopEnterViewCell
 
@@ -38,7 +39,7 @@
         _topView = [[UIView alloc] init];
         UILabel * lb = [[UILabel alloc] init];
         lb.textAlignment = NSTextAlignmentLeft;
-        
+        self.lb = lb;
         lb.text = [GTDataManager getLanguageData:@"BTCbaoJia"];
         lb.textColor = gateColor(@"333B46");
         lb.font= gateFont(14, Medium);

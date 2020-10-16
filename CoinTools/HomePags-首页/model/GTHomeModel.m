@@ -69,3 +69,9 @@
     return @{@"alldatalist" : [GTAlldatalistModel class]};
 }
 @end
+
+@implementation GTHomeHomepagebigtitleModel : NSObject
++ (NSDictionary *)modelContainerPropertyGenericClass {
+    return @{@"alldatalist" : [GTAlldatalistModel class]};
+}
+@end

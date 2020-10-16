@@ -32,7 +32,7 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "2AE3886C-DD14-4FD0-8354-AA6052D9A84B - ed9999cdc5cb699f"
+                  uuid = "2AE3886C-DD14-4FD0-8354-AA6052D9A84B - ed9999cdc5cb6a74"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -42,12 +42,12 @@
                   urlString = "file:///Users/mac/Desktop/CoinTools/CoinTools/HomePags-%E9%A6%96%E9%A1%B5/controller/GateHomePageController.m"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "285"
-                  endingLineNumber = "285"
+                  startingLineNumber = "294"
+                  endingLineNumber = "294"
                   offsetFromSymbolStart = "57">
                </Location>
                <Location
-                  uuid = "2AE3886C-DD14-4FD0-8354-AA6052D9A84B - ba1b18b346c70fc3"
+                  uuid = "2AE3886C-DD14-4FD0-8354-AA6052D9A84B - ba1b18b346c70cea"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -57,8 +57,8 @@
                   urlString = "file:///Users/mac/Desktop/CoinTools/CoinTools/HomePags-%E9%A6%96%E9%A1%B5/controller/GateHomePageController.m"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "286"
-                  endingLineNumber = "286"
+                  startingLineNumber = "295"
+                  endingLineNumber = "295"
                   offsetFromSymbolStart = "20">
                </Location>
             </Locations>
@@ -93,6 +93,22 @@
             startingLineNumber = "253"
             endingLineNumber = "253"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D9BB13D0-17F5-441C-99C2-5D79AB4815FB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CoinTools/Request/GateRequestManager.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "+get:block:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

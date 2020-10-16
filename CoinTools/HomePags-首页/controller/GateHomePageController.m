@@ -144,7 +144,7 @@ if (@available(iOS 11.0, *)) {
         
       
          [self.tableView endRefreshing];
-         [self.tableView cyl_reloadData];
+         [self.tableView reloadData];
                            
          [EasyLodingView hidenLoding];
     }];

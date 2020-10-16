@@ -16,14 +16,18 @@
     [policy setAllowInvalidCertificates:YES];    //如果是需要验证自建证书，需要设置为YES
     
     policy.validatesDomainName = NO;//不验证证书的域名
-    
+  
     // 1.获得请求管理者
     AFHTTPSessionManager * mgr = [AFHTTPSessionManager manager];
    mgr.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json",@"text/text",@"text/plain", @"text/javascript",@"application/x-json",@"text/html", nil];
-    
+    mgr.requestSerializer.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
     mgr.requestSerializer.timeoutInterval = 10;
    // mgr.operationQueue.maxConcurrentOperationCount = MaxOperationCountQueue;
-    
+    NSURLCache *URLCache = [[NSURLCache alloc] initWithMemoryCapacity:4 * 1024 * 1024
+
+                                                diskCapacity:20 * 1024 * 1024 diskPath:nil];
+
+    [NSURLCache setSharedURLCache:URLCache];    //设置共享缓存容器
     // 2.发送GET请求
     [mgr setSecurityPolicy:policy];
     mgr.requestSerializer = [AFHTTPRequestSerializer serializer];
@@ -32,7 +36,8 @@
     //添加  请求头
 //   block(nil,@{@"msg":@"网络连接失败！",@"code":@"-9999"});
 //    [mgr.requestSerializer setValue:@"abcd" forHTTPHeaderField:@"name"];
-    [mgr GET:url parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+  
+    NSURLSessionDataTask *rr =  [mgr GET:url parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSData *data = responseObject;
                NSDictionary * JSON =  [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
 //               if (success) {
@@ -45,9 +50,8 @@
 //        if (error.code != -999 && ![error.localizedDescription containsString:@"已取消"]) {
 //                   block(error,@{@"msg":@"网络连接失败！",@"code":@"-9999"});
 //        }
-           block(error,@{@"msg":@"网络连接失败！",@"code":@"-9999"});
+        block(error,@{@"msg":@"网络连接失败！",@"code":@"-9999"});
     }];
-     
     
 }
 

@@ -11,8 +11,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GateCoinBurstStatisticsTableViewCell : UITableViewCell
-
-@property(nonatomic,strong)NSArray <GTBcoin_coin_burst_total_infoModel *>* bcoin_coin_burst_total_info;
+@property(nonatomic,strong)GTPublicContentModel * burstcoin;
+//@property(nonatomic,strong)NSArray <GTBcoin_coin_burst_total_infoModel *>* bcoin_coin_burst_total_info;
 @end
 
 NS_ASSUME_NONNULL_END

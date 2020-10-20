@@ -94,6 +94,12 @@
 		0466FD05253979F30091A1A9 /* HYDEEmptyViewManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 0466FD01253979F30091A1A9 /* HYDEEmptyViewManager.h */; };
 		0466FD06253979F30091A1A9 /* HYDEEmptyPlaceHolderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0466FD02253979F30091A1A9 /* HYDEEmptyPlaceHolderView.m */; };
 		0466FD07253979F30091A1A9 /* HYDEEmptyViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0466FD03253979F30091A1A9 /* HYDEEmptyViewManager.m */; };
+		0466FD34253D481A0091A1A9 /* HYDEDBManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 0466FD32253D48190091A1A9 /* HYDEDBManager.h */; };
+		0466FD35253D481A0091A1A9 /* HYDEDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0466FD33253D481A0091A1A9 /* HYDEDBManager.m */; };
+		0466FD39253D48270091A1A9 /* YTKKeyValueStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 0466FD37253D48270091A1A9 /* YTKKeyValueStore.h */; };
+		0466FD3A253D48270091A1A9 /* YTKKeyValueStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 0466FD38253D48270091A1A9 /* YTKKeyValueStore.m */; };
+		0466FD70253EE9060091A1A9 /* GTHoldModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 0466FD6E253EE9060091A1A9 /* GTHoldModel.h */; };
+		0466FD71253EE9060091A1A9 /* GTHoldModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0466FD6F253EE9060091A1A9 /* GTHoldModel.m */; };
 		04796584251355E10051476C /* CoinTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD66B8F3250A799400D7C66E /* CoinTools.framework */; };
 		04796589251356200051476C /* CoinTools.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AD66B8F3250A799400D7C66E /* CoinTools.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		049514612514850000294FD7 /* zhPopupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0495145C2514850000294FD7 /* zhPopupController.m */; };
@@ -543,6 +549,12 @@
 		0466FD01253979F30091A1A9 /* HYDEEmptyViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYDEEmptyViewManager.h; sourceTree = "<group>"; };
 		0466FD02253979F30091A1A9 /* HYDEEmptyPlaceHolderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYDEEmptyPlaceHolderView.m; sourceTree = "<group>"; };
 		0466FD03253979F30091A1A9 /* HYDEEmptyViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYDEEmptyViewManager.m; sourceTree = "<group>"; };
+		0466FD32253D48190091A1A9 /* HYDEDBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYDEDBManager.h; sourceTree = "<group>"; };
+		0466FD33253D481A0091A1A9 /* HYDEDBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYDEDBManager.m; sourceTree = "<group>"; };
+		0466FD37253D48270091A1A9 /* YTKKeyValueStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTKKeyValueStore.h; sourceTree = "<group>"; };
+		0466FD38253D48270091A1A9 /* YTKKeyValueStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTKKeyValueStore.m; sourceTree = "<group>"; };
+		0466FD6E253EE9060091A1A9 /* GTHoldModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTHoldModel.h; sourceTree = "<group>"; };
+		0466FD6F253EE9060091A1A9 /* GTHoldModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTHoldModel.m; sourceTree = "<group>"; };
 		0495145C2514850000294FD7 /* zhPopupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zhPopupController.m; sourceTree = "<group>"; };
 		0495145D2514850000294FD7 /* zhPopupController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zhPopupController.h; sourceTree = "<group>"; };
 		049514652514869700294FD7 /* GTMenuSelectView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTMenuSelectView.h; sourceTree = "<group>"; };
@@ -1036,6 +1048,26 @@
 			path = empty;
 			sourceTree = "<group>";
 		};
+		0466FD0D253D34080091A1A9 /* CacheData */ = {
+			isa = PBXGroup;
+			children = (
+				0466FD37253D48270091A1A9 /* YTKKeyValueStore.h */,
+				0466FD38253D48270091A1A9 /* YTKKeyValueStore.m */,
+				0466FD32253D48190091A1A9 /* HYDEDBManager.h */,
+				0466FD33253D481A0091A1A9 /* HYDEDBManager.m */,
+			);
+			path = CacheData;
+			sourceTree = "<group>";
+		};
+		0466FD6D253EE8DE0091A1A9 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				0466FD6E253EE9060091A1A9 /* GTHoldModel.h */,
+				0466FD6F253EE9060091A1A9 /* GTHoldModel.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
 		049514592514850000294FD7 /* zhPopupController */ = {
 			isa = PBXGroup;
 			children = (
@@ -1312,6 +1344,7 @@
 		04D34EA7250B0C8500D940D1 /* WholeNetworkPositionStatistics-全网持仓统计 */ = {
 			isa = PBXGroup;
 			children = (
+				0466FD6D253EE8DE0091A1A9 /* model */,
 				04D34EA8250B0C8500D940D1 /* controller */,
 				04D34EAB250B0C8500D940D1 /* view */,
 			);
@@ -1321,8 +1354,8 @@
 		04D34EA8250B0C8500D940D1 /* controller */ = {
 			isa = PBXGroup;
 			children = (
-				04D34EA9250B0C8500D940D1 /* GateWholeNetworkPositionStatisticsViewController.m */,
 				04D34EAA250B0C8500D940D1 /* GateWholeNetworkPositionStatisticsViewController.h */,
+				04D34EA9250B0C8500D940D1 /* GateWholeNetworkPositionStatisticsViewController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -1340,6 +1373,7 @@
 		04D34EAF250B0C8500D940D1 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				0466FD0D253D34080091A1A9 /* CacheData */,
 				AD3A25662532CBA30099C5AC /* Manager */,
 				04D34FEB250B0F7300D940D1 /* Category */,
 				04D34FAD250B0F7200D940D1 /* Category+c */,
@@ -1895,6 +1929,7 @@
 				04D34F89250B0C8600D940D1 /* GateCoinBurstStatisticsTableViewCell.h in Headers */,
 				0466FCAF253964980091A1A9 /* EasyEmptyTypes.h in Headers */,
 				04D35082250B16EA00D940D1 /* GateHearCategoryView.h in Headers */,
+				0466FD39253D48270091A1A9 /* YTKKeyValueStore.h in Headers */,
 				04D350A1250B1A1900D940D1 /* GateHomePageTopEnterViewCollectionViewCell.h in Headers */,
 				04D34F51250B0C8600D940D1 /* GateToolDefine.h in Headers */,
 				049514832515B8DA00294FD7 /* GTCurrencyTool.h in Headers */,
@@ -1993,12 +2028,14 @@
 				04D35016250B0F7300D940D1 /* UIBarButtonItem+Item.h in Headers */,
 				04D3500B250B0F7300D940D1 /* UIScrollView+WHScrollView.h in Headers */,
 				04D3504C250B0F7300D940D1 /* UIView+HYDEBottomBorder.h in Headers */,
+				0466FD34253D481A0091A1A9 /* HYDEDBManager.h in Headers */,
 				04D35035250B0F7300D940D1 /* UIBarButtonItem+WHBarButtonItem.h in Headers */,
 				04D35046250B0F7300D940D1 /* NSString+GateAttribute.h in Headers */,
 				04D35020250B0F7300D940D1 /* UIDevice+WHDevice.h in Headers */,
 				04D3504F250B0F7300D940D1 /* UIViewController+HYDENavigation.h in Headers */,
 				0495146B2514878500294FD7 /* GTMenuSelectViewCollectionViewCell.h in Headers */,
 				04D3503B250B0F7300D940D1 /* NSDictionary+WHDictionary.h in Headers */,
+				0466FD70253EE9060091A1A9 /* GTHoldModel.h in Headers */,
 				04CBE5D32512594B00E4DD40 /* GTMainCoinQuotationListTableViewCell.h in Headers */,
 				04D3504A250B0F7300D940D1 /* UISegmentedControl+Category.h in Headers */,
 				04CBE5D92512620400E4DD40 /* GTRightCollectionViewCell.h in Headers */,
@@ -2271,6 +2308,7 @@
 				044D256525368CA9004ACA98 /* GTHoldCoinPieChartViewTableViewCell.m in Sources */,
 				044D254B253448FE004ACA98 /* NSArray+NilSafe.m in Sources */,
 				04D3501B250B0F7300D940D1 /* UIBarButtonItem+WHBarButtonItem.m in Sources */,
+				0466FD3A253D48270091A1A9 /* YTKKeyValueStore.m in Sources */,
 				04D3508E250B16EA00D940D1 /* GateNewDetailsViewController.m in Sources */,
 				04D34F3A250B0C8600D940D1 /* GateWholeNetworkPositionStatisticsViewController.m in Sources */,
 				04D3500A250B0F7300D940D1 /* NSObject+WHObject.m in Sources */,
@@ -2310,6 +2348,7 @@
 				04D3504D250B0F7300D940D1 /* UITableViewCell+GateTableViewCell.m in Sources */,
 				04D35026250B0F7300D940D1 /* UITableView+WHTableView.m in Sources */,
 				04D350A7250B1B9D00D940D1 /* GateHomePageTopEnterViewCell.m in Sources */,
+				0466FD35253D481A0091A1A9 /* HYDEDBManager.m in Sources */,
 				04D35077250B16EA00D940D1 /* GateHearCategoryView.m in Sources */,
 				04D350BF250B75CB00D940D1 /* GTHoldChartsStatisticsTableViewCell.m in Sources */,
 				049514B02518728600294FD7 /* GTFearIndexLineChartsTableViewCell.m in Sources */,
@@ -2340,6 +2379,7 @@
 				0466FCC3253964980091A1A9 /* EasyShowUtils.m in Sources */,
 				04D35006250B0F7300D940D1 /* NSString+WHString.m in Sources */,
 				04D34F98250B0C8600D940D1 /* GateBurstHouseTableViewCell.m in Sources */,
+				0466FD71253EE9060091A1A9 /* GTHoldModel.m in Sources */,
 				04D34F85250B0C8600D940D1 /* GateXHorstAxisValueFormatter.m in Sources */,
 				04D35022250B0F7300D940D1 /* UIImageView+PlayGIF.m in Sources */,
 				04CBE5A62511FCCB00E4DD40 /* LNRefreshHandler.m in Sources */,
@@ -2583,6 +2623,54 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"sqlite3\"",
+					"-l\"z\"",
+					"-framework",
+					"\"AFNetworking\"",
+					"-framework",
+					"\"Accelerate\"",
+					"-framework",
+					"\"AssetsLibrary\"",
+					"-framework",
+					"\"Charts\"",
+					"-framework",
+					"\"CoreFoundation\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreImage\"",
+					"-framework",
+					"\"CoreText\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"JXCategoryView\"",
+					"-framework",
+					"\"MJRefresh\"",
+					"-framework",
+					"\"Masonry\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"SYProgressView\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-framework",
+					"\"UITableView_FDTemplateLayoutCell\"",
+					"-framework",
+					"\"YYKit\"",
+					"-framework",
+					"\"FMDB\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.eztcn.EZTUse;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -2614,6 +2702,54 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"sqlite3\"",
+					"-l\"z\"",
+					"-framework",
+					"\"AFNetworking\"",
+					"-framework",
+					"\"Accelerate\"",
+					"-framework",
+					"\"AssetsLibrary\"",
+					"-framework",
+					"\"Charts\"",
+					"-framework",
+					"\"CoreFoundation\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreImage\"",
+					"-framework",
+					"\"CoreText\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"JXCategoryView\"",
+					"-framework",
+					"\"MJRefresh\"",
+					"-framework",
+					"\"Masonry\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"SYProgressView\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-framework",
+					"\"UITableView_FDTemplateLayoutCell\"",
+					"-framework",
+					"\"YYKit\"",
+					"-framework",
+					"\"FMDB\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.eztcn.EZTUse;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";

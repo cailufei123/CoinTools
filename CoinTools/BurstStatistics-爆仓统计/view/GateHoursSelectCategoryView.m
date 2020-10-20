@@ -9,7 +9,7 @@
 #import "GateHoursSelectCategoryView.h"
 
 @interface GateHoursSelectCategoryView()
-@property (strong, nonatomic) UILabel *titleLb;
+
 @property (strong, nonatomic) UIView *lineView;
 @property (strong, nonatomic) UIView *topLineView;
 @end

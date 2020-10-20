@@ -25,6 +25,8 @@
 
 #define getImageName(hex) [NSString stringWithFormat:@"CoinTools.framework/GateScources.bundle/%@",hex]
 
+#define getPlaceholderImage [UIImage imageNamed:[NSString stringWithFormat:@"CoinTools.framework/GateScources.bundle/%@",@"ic_image_night_32x32_@3x"]]
+
 #define gateTableRegisterNib(tableView,nibName) [tableView registerNib:[UINib nibWithNibName:[NSString stringWithFormat:@"CoinTools.framework/%@",nibName] bundle:[NSBundle mainBundle]] forCellReuseIdentifier:nibName]
 
 #define gateTableRegisterClass(tableView,className) [tableView registerClass:NSClassFromString(className) forCellReuseIdentifier:className]

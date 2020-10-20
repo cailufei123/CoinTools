@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,10 +21,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="228" height="155"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0qo-uh-doh">
-                                <rect key="frame" x="0.0" y="0.0" width="80" height="20"/>
+                                <rect key="frame" x="0.0" y="0.0" width="100" height="20"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UIn-be-5pF">
-                                        <rect key="frame" x="1" y="1" width="74" height="19"/>
+                                        <rect key="frame" x="1" y="1" width="94" height="19"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -32,7 +33,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="12T-uj-n9n"/>
                                     <constraint firstItem="UIn-be-5pF" firstAttribute="top" secondItem="0qo-uh-doh" secondAttribute="top" constant="1" id="E9r-9Q-EcS"/>
-                                    <constraint firstAttribute="width" constant="80" id="FJD-Gz-f5C"/>
+                                    <constraint firstAttribute="width" constant="100" id="FJD-Gz-f5C"/>
                                     <constraint firstAttribute="bottom" secondItem="UIn-be-5pF" secondAttribute="bottom" id="IhN-JU-2HW"/>
                                     <constraint firstAttribute="trailing" secondItem="UIn-be-5pF" secondAttribute="trailing" constant="5" id="Jz7-95-quW"/>
                                     <constraint firstItem="UIn-be-5pF" firstAttribute="leading" secondItem="0qo-uh-doh" secondAttribute="leading" constant="1" id="ipA-Xd-jx4"/>
@@ -64,6 +65,7 @@
                     </label>
                 </subviews>
             </view>
+            <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="4EV-AT-Gu0" secondAttribute="bottom" id="0xh-Fe-Im7"/>
                 <constraint firstItem="bCi-RP-Ea8" firstAttribute="top" secondItem="u5Y-OI-ztc" secondAttribute="bottom" constant="10" id="Irn-Ek-alt"/>
@@ -76,7 +78,6 @@
                 <constraint firstItem="u5Y-OI-ztc" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="cgP-eb-hgD"/>
                 <constraint firstItem="4EV-AT-Gu0" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="y41-ub-LS3"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
             <size key="customSize" width="228" height="155"/>
             <connections>
                 <outlet property="bagView" destination="4EV-AT-Gu0" id="o8l-CM-blt"/>
@@ -85,7 +86,7 @@
                 <outlet property="titleLb" destination="UIn-be-5pF" id="rgW-mk-lFv"/>
                 <outlet property="titleView" destination="0qo-uh-doh" id="3Av-2m-aZC"/>
             </connections>
-            <point key="canvasLocation" x="155" y="103"/>
+            <point key="canvasLocation" x="153.62318840579712" y="102.79017857142857"/>
         </collectionViewCell>
     </objects>
 </document>

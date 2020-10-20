@@ -20,7 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *tageLb;
 @property (weak, nonatomic) IBOutlet UILabel *moneyLb2;
 @property (weak, nonatomic) IBOutlet UILabel *sheetLb;
-@property(nonatomic,strong)GTBcoin_coin_burst_list_infoModel* bcoin_coin_burst_list_infoModel;
+@property(nonatomic,strong)GTPublicContentModel * burstdtl;
+@property(nonatomic,strong) NSIndexPath * indexPath;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -16,9 +16,9 @@
 - (NSString *)stringForValue:(double)value axis:(ChartAxisBase *)axis {
 
    // value 为 x 轴的值
-    GTBcoin_coin_30d_calendar_infoModel * bcoin_coin_30d_calendar_infoModel = self.publicArr[(int)value];
+    GTHomeTitleModel * homeTitleModel = self.publicArr[(int)value];
     
-    return [NSString stringWithFormat:@"%@",[self mm_ddDateFormat:bcoin_coin_30d_calendar_infoModel.date]];
+    return homeTitleModel.content;
 }
 
 +(instancetype)getGateXHorstAxisValueFormatter{
@@ -28,10 +28,10 @@
     _publicArr = publicArr;
 }
 
--(NSString * )mm_ddDateFormat:(NSString * )dateStr{
-    
-    
- return [[NSDateFormatter mm_ddDateFormatter] stringFromDate:[[NSDateFormatter yyyy_MM_ddDateFormatter] dateFromString:dateStr]];
-   
-}
+//-(NSString * )mm_ddDateFormat:(NSString * )dateStr{
+//
+//
+// return [[NSDateFormatter mm_ddDateFormatter] stringFromDate:[[NSDateFormatter yyyy_MM_ddDateFormatter] dateFromString:dateStr]];
+//
+//}
 @end

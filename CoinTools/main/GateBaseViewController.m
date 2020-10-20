@@ -16,7 +16,7 @@
 @property (nonatomic, strong)  GateTopSelectView *topSelectView;
 @property (nonatomic, strong) UIButton * claseBt ;
 @property (nonatomic, strong) NSArray *titles;
-@property (nonatomic, assign) BOOL isError;
+
 @end
 
 @implementation GateBaseViewController
@@ -47,12 +47,12 @@
     @weakify(self)
     self.topSelectView.selectBlock = ^(NSInteger index, NSString * _Nonnull title) {
          @strongify(self)
-        [self selectitemOrindex:index];
+        [self selectitemOrindex:index string:title];
       
     };
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-          self.titles = @[@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",];
+          self.titles = @[@"all",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",];
         self.topSelectView.titles = self.titles;
         
        
@@ -217,4 +217,6 @@ if (@available(iOS 11.0, *)) {
 - (BOOL)removePlaceHolderView{
     return YES;
 }
+
+
 @end

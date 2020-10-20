@@ -49,4 +49,6 @@
 #import "EasyShowView.h"
 #import "CYLTableViewPlaceHolder.h"
 #import "HYDEEmptyViewManager.h"
+#import "GTBurstModel.h"
+#import "GTHoldModel.h"
 #endif /* HeaderFile_h */

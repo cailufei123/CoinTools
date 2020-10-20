@@ -17,7 +17,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *moneyLb;
 @property (weak, nonatomic) IBOutlet UILabel *progressLb;
 //@property(nonatomic,strong)NSArray <GTBcoin_coin_burst_exchange_infoModel *>* bcoin_coin_burst_exchange_info;
-@property(nonatomic,strong)GTBcoin_coin_burst_exchange_infoModel * bcoin_coin_burst_exchange_infoModel;
+//@property(nonatomic,strong)GTBcoin_coin_burst_exchange_infoModel * bcoin_coin_burst_exchange_infoModel;
+@property(nonatomic,strong)GTPublicContentModel * burstbourse;
+@property (weak, nonatomic) IBOutlet UIImageView *icopnImageView;
+@property(nonatomic,strong) NSIndexPath * indexPath;
+//@property(nonatomic,strong)GTPublicContentModel * holdcontract;
 @end
 
 

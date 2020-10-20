@@ -23,24 +23,52 @@
      self.tageLb.textColor = gateColor(@"f25676");
 
 }
--(void)setBcoin_coin_burst_list_infoModel:(GTBcoin_coin_burst_list_infoModel *)bcoin_coin_burst_list_infoModel{
-    _bcoin_coin_burst_list_infoModel = bcoin_coin_burst_list_infoModel;
+-(void)setBurstdtl:(GTPublicContentModel *)burstdtl{
+    _burstdtl  = burstdtl;
+   GTHomeTitleModel *homeTitleModel =  [GTDataManager getItemModelWhit:burstdtl.alldatalist[0].datalist[self.indexPath.item]].firstObject;
     
-    self.titleLb.text = bcoin_coin_burst_list_infoModel.coin_type;
-        self.timeLb.text = [self getDateStringWithTimestamp:bcoin_coin_burst_list_infoModel.time_stamp] ;
-       self.typeLb.text =  bcoin_coin_burst_list_infoModel.coin_type;;
-//        [self.iocnImageView setImageWithURL:urlWhitString(<#url#>) placeholder:getImage(<#hex#>)];
-      
-        self.jiduLb.text =  bcoin_coin_burst_list_infoModel.contract_type;
+    GTHomeTitleModel *homeTitleModel1 =  [GTDataManager getItemModelWhit:burstdtl.alldatalist[1].datalist[self.indexPath.item]].firstObject;
+  
     
-        self.moneyLb1.text =[NSString stringWithFormat:@"$%@",bcoin_coin_burst_list_infoModel.price];
-        self.tageLb.text =  bcoin_coin_burst_list_infoModel.burst_type;
-        self.moneyLb2.text = bcoin_coin_burst_list_infoModel.buy_amount;
-    if ([bcoin_coin_burst_list_infoModel.buy_amount doubleValue]>10000) {
-          self.moneyLb2.text =[NSString stringWithFormat:@"$%0.2lf万",[bcoin_coin_burst_list_infoModel.buy_amount doubleValue]/10000] ;
-    }
-        self.sheetLb.text = [NSString stringWithFormat:@"≈$%@张",bcoin_coin_burst_list_infoModel.equal_sheet];
+    GTHomeTitleModel *homeTitleModel20=  [GTDataManager getItemModelWhit:burstdtl.alldatalist[2].datalist[self.indexPath.item]].firstObject;
+    GTHomeTitleModel *homeTitleModel21 =  [GTDataManager getItemModelWhit:burstdtl.alldatalist[2].datalist[self.indexPath.item]].lastObject;
+    
+    
+    GTHomeTitleModel *homeTitleModel30=  [GTDataManager getItemModelWhit:burstdtl.alldatalist[3].datalist[self.indexPath.item]].firstObject;
+    GTHomeTitleModel *homeTitleModel31 =  [GTDataManager getItemModelWhit:burstdtl.alldatalist[3].datalist[self.indexPath.item]].lastObject;
+    
+    GTHomeTitleModel *homeTitleModel40=  [GTDataManager getItemModelWhit:burstdtl.alldatalist[4].datalist[self.indexPath.item]].firstObject;
+    GTHomeTitleModel *homeTitleModel41 =  [GTDataManager getItemModelWhit:burstdtl.alldatalist[4].datalist[self.indexPath.item]].lastObject;
+    
+    [self.iocnImageView setImageWithURL:urlWhitString(homeTitleModel.url) placeholder:getPlaceholderImage];
+    self.titleLb.text = homeTitleModel.content;
+    [GTStyleManager setStyleWhit:homeTitleModel forLale: self.titleLb];
+    
+    self.timeLb.text = [self getDateStringWithTimestamp:homeTitleModel1.content] ;
+    [GTStyleManager setStyleWhit:homeTitleModel1 forLale: self.timeLb];
+    
+   
+    
+
+    
+    self.typeLb.text = homeTitleModel20.content;
+    [GTStyleManager setStyleWhit:homeTitleModel20 forLale: self.typeLb];
+    self.jiduLb.text = homeTitleModel21.content;
+    [GTStyleManager setStyleWhit:homeTitleModel21 forLale: self.jiduLb];
+    
+    self.moneyLb1.text = homeTitleModel30.content;
+    [GTStyleManager setStyleWhit:homeTitleModel30 forLale: self.moneyLb1];
+    self.tageLb.text = homeTitleModel31.content;
+    [GTStyleManager setStyleWhit:homeTitleModel31 forLale: self.tageLb];
+    
+    self.moneyLb2.text = homeTitleModel40.content;
+    [GTStyleManager setStyleWhit:homeTitleModel40 forLale: self.moneyLb2];
+    self.sheetLb.text = homeTitleModel41.content;
+    [GTStyleManager setStyleWhit:homeTitleModel41 forLale: self.sheetLb];
+    
+    
 }
+
 // 时间戳转时间,时间戳为13位是精确到毫秒的，10位精确到秒
 - (NSString *)getDateStringWithTimestamp:(NSString *)str {
 //    NSTimeInterval time = [str doubleValue]/1000; // 传入的时间戳str如果是精确到毫秒的记得要/1000

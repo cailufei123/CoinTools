@@ -14,8 +14,12 @@
 #import "GateHoursSelectCategoryView.h"
 @interface GateWholeNetworkPositionStatisticsViewController ()
 @property(nonatomic,strong)NSArray * littes;
-
+@property (nonatomic, assign) NSInteger index;
 @property(nonatomic,strong)NSMutableArray * lineDatas;
+@property (nonatomic, copy) NSString * v_ts;
+@property (nonatomic, copy) NSString * v_coin_type;
+@property(nonatomic,strong)GTHoldModel * holdModel;
+
 @end
 @implementation GateWholeNetworkPositionStatisticsViewController
 
@@ -33,35 +37,134 @@
     
     
     gateTableRegisterNib(self.tableView, @"GateDeliveryPositionAmountCell");
-    self.littes = @[@"交易",@"类型",@"方向",@"价格",@"总额"];
-       GateRefreshNormalHeader * header = [GateRefreshNormalHeader headerWithRefreshingBlock:^{
-           dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-               [self.tableView.mj_header endRefreshing];
-           });
+  
+    
+    
+       @weakify(self)
+          [self.tableView addPullToRefresh:[LNHeaderMeituanAnimator createAnimator] block:^{
+               @strongify(self)
+               dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                   if (self.selectedIndex == 0) {
+                       [self loadData];
+                   }else{
+                       [self loadData1];
+                   }
+                
+
+                  });
+          }];
+       
+       [EasyLodingView showLodingText:@"" imageName:getImageName(@"loading_0_30x30_@3x") config:^EasyLodingConfig *{
+           return [EasyLodingConfig shared].setLodingType(LodingShowTypeImageAround).setTintColor(UIColor.redColor).setBgColor([[UIColor grayColor] colorWithAlphaComponent:0.2]);
        }];
-     
-        GateRefreshAutoNormalFooter *footer = [GateRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [self.tableView.mj_footer endRefreshing];
-                [self.tableView.mj_footer endRefreshingWithNoMoreData];
-            });
-            
-         }];
-//       self.tableView.mj_footer = footer;
-//       self.tableView.mj_header = header;
-    self.tableView.mj_footer.hidden = YES;
-    __weak typeof(self) wself = self;
-       [self.tableView addPullToRefresh:[LNHeaderMeituanAnimator createAnimator] block:^{
-           
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-           [wself.tableView endRefreshing];
-               });
-       }];
-    [self setDate];
+       [self loadData];
+//    [self setDate];
 }
--(void)selectitemOrindex:(NSInteger)index{
+
+
+
+
+
+
+
+-(void)loadData{
+    @weakify(self)
+           self.index = 0;
+     [GateRequestManager getCache:chiCongURL block:^(NSError * _Nonnull error, BOOL isCache, NSDictionary * _Nonnull response) {
+           @strongify(self)
+        
+       
+         if (!error) {
+             self.isError = NO;
+             self.holdModel = [GTHoldModel modelWithDictionary:response[@"data"]];
+            
+         }else{
+             self.isError = YES;
+           
+         }
+         [self.tableView cyl_reloadData];
+         if (!isCache) {
+             [EasyLodingView hidenLoding];
+             [self.tableView endRefreshing];
+             [self.tableView cyl_reloadData];
+         }
+        
+       
+                           
+        
+    }];
     
 }
+-(void)selectitemOrindex:(NSInteger)index string:(nonnull NSString *)title{
+    self.v_coin_type = title;
+    [self.tableView endRefreshing];
+    [self.tableView startRefreshing];
+   
+   
+}
+-(void)loadData1{
+    @weakify(self)
+   
+     [GateRequestManager getCache:baocang_v_coin_typeURL(self.v_coin_type) block:^(NSError * _Nonnull error, BOOL isCache, NSDictionary * _Nonnull response) {
+           @strongify(self)
+        
+       
+         if (!error) {
+             self.isError = NO;
+             self.holdModel = [GTHoldModel modelWithDictionary:response[@"data"]];
+            
+         }else{
+             self.isError = YES;
+           
+         }
+        
+         [self.tableView cyl_reloadData];
+        
+         if (!isCache) {
+             [EasyLodingView hidenLoding];
+             [self.tableView endRefreshing];
+             [self.tableView cyl_reloadData];
+         }
+      
+    }];
+    
+}
+
+-(void)loadData2{
+    @weakify(self)
+    [GTStyleManager loadingImage];
+    NSLog(@"%@",baocang_v_tsURL(self.v_coin_type,self.v_ts));
+     [GateRequestManager getCache:baocang_v_tsURL(@"all",self.v_ts) block:^(NSError * _Nonnull error, BOOL isCache, NSDictionary * _Nonnull response) {
+           @strongify(self)
+        
+       
+         if (!error) {
+             self.isError = NO;
+             self.holdModel = [GTHoldModel modelWithDictionary:response[@"data"]];
+            
+         }else{
+             self.isError = YES;
+           
+         }
+         [self.tableView cyl_reloadData];
+         if (!isCache) {
+             [EasyLodingView hidenLoding];
+             [self.tableView endRefreshing];
+             [self.tableView cyl_reloadData];
+         }
+        
+        
+  
+    }];
+    
+}
+
+
+
+
+
+
+
 -(void)setDate{
     self.lineDatas = [NSMutableArray array];
     
@@ -82,7 +185,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section == 0)  return 5;
+    if (section == 0)  return   self.holdModel.holdcontract.alldatalist[1].datalist.firstObject.count;;
     if (section == 1)  return 1;
     if (section == 2)  return 4;
     
@@ -164,6 +267,8 @@
     if (indexPath.section == 0) {
        
         GateHousBurstStatisticsTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"GateHousBurstStatisticsTableViewCell" forIndexPath:indexPath];
+        cell.indexPath = indexPath;
+        cell.burstbourse = self.holdModel.holdcontract;
                                            return cell;
        }else if (indexPath.section == 1) {
               GateLineChartTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"GateLineChartTableViewCell" forIndexPath:indexPath];

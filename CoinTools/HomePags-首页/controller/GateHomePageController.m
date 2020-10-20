@@ -130,23 +130,25 @@ if (@available(iOS 11.0, *)) {
 }
 -(void)loadData{
     @weakify(self)
-
-     [GateRequestManager get:homepagegURL block:^(NSError * _Nonnull error, NSDictionary * _Nonnull response) {
+   
+     [GateRequestManager getCache:homepagegURL block:^(NSError * _Nonnull error, BOOL isCache, NSDictionary * _Nonnull response) {
            @strongify(self)
         
        
          if (!error) {
              self.isError = NO;
              self.homeModel = [GTHomeModel modelWithDictionary:response[@"data"]];
+             [EasyLodingView hidenLoding];
          }else{
              self.isError = YES;
+           
          }
         
       
          [self.tableView endRefreshing];
-         [self.tableView reloadData];
+         [self.tableView cyl_reloadData];
                            
-         [EasyLodingView hidenLoding];
+        
     }];
     
 }

@@ -17,6 +17,9 @@ PODS:
   - Charts (3.5.0):
     - Charts/Core (= 3.5.0)
   - Charts/Core (3.5.0)
+  - FMDB (2.7.5):
+    - FMDB/standard (= 2.7.5)
+  - FMDB/standard (2.7.5)
   - JXCategoryView (1.5.6)
   - Masonry (1.1.0)
   - MJRefresh (3.5.0)
@@ -29,6 +32,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking
   - Charts
+  - FMDB
   - JXCategoryView
   - Masonry
   - MJRefresh
@@ -40,6 +44,7 @@ SPEC REPOS:
   trunk:
     - AFNetworking
     - Charts
+    - FMDB
     - JXCategoryView
     - Masonry
     - MJRefresh
@@ -50,6 +55,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
   Charts: 40a08591df1f8ad5c223ddedfb1a06da92f24f7c
+  FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   JXCategoryView: 603ccd8277a89b1a73e9cedb9d8ed4b294576008
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
@@ -57,6 +63,6 @@ SPEC CHECKSUMS:
   "UITableView+FDTemplateLayoutCell": 5c949b4a5059c404b442926c0e80f81d10a2d66f
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: bc165fa8a8289895d3a463740183ae57f908dcbd
+PODFILE CHECKSUM: b45bc4109f7b8ffe5188a2b7eb60ecd49201b13d
 
 COCOAPODS: 1.10.0.beta.2

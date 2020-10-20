@@ -13,6 +13,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTDataManager : NSObject
 +(NSArray<GTHomeTitleModel* > *)getItemModelWhit:(NSArray *)tempArr;
 +(NSString*)getLanguageData:(NSString*)titleStr;
+
+
+
 @end
 
 NS_ASSUME_NONNULL_END

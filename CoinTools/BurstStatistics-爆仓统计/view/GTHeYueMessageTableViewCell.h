@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GTHeYueMessageTableViewCell : UITableViewCell
-
+@property(nonatomic,strong)GTPublicContentModel * burstfuture;
 @end
 
 NS_ASSUME_NONNULL_END

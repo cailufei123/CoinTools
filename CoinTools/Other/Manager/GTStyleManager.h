@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface GTStyleManager : NSObject
 +(void)setStyleWhit:(GTHomeTitleModel *)homeTitleModel forLale:(UILabel *)contentLb;
++(void)loadingImage;
 @end
 
 NS_ASSUME_NONNULL_END

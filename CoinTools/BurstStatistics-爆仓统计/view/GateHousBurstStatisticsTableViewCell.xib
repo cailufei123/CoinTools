@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,7 +19,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fkk-Ax-C7f">
-                        <rect key="frame" x="10" y="43" width="42" height="21"/>
+                        <rect key="frame" x="45" y="43" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -30,21 +32,21 @@
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jgJ-o8-jFC" userLabel="line1">
                         <rect key="frame" x="100" y="0.0" width="0.0" height="107"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="width" id="mU4-L6-cwU"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LWH-0y-inH" userLabel="line2">
                         <rect key="frame" x="200" y="0.0" width="0.0" height="107"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="width" id="A8r-kp-wCi"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q4z-0w-vtP" userLabel="line3">
                         <rect key="frame" x="300" y="0.0" width="0.0" height="107"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="width" id="Zx3-ph-JlE"/>
                         </constraints>
@@ -57,11 +59,18 @@
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="odg-R7-LQG" customClass="SYLineProgressView">
                         <rect key="frame" x="200" y="48.5" width="100" height="10"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="10" id="Z9S-my-eiD"/>
                         </constraints>
                     </view>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fNj-gb-b9r">
+                        <rect key="frame" x="15" y="43.5" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="9w2-Bj-kW5"/>
+                            <constraint firstAttribute="height" constant="20" id="QWX-uY-ntp"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="Q4z-0w-vtP" secondAttribute="bottom" id="0Cw-8Q-TpO"/>
@@ -73,10 +82,12 @@
                     <constraint firstAttribute="bottom" secondItem="jgJ-o8-jFC" secondAttribute="bottom" id="Hks-rb-OwL"/>
                     <constraint firstItem="1Qx-RF-Wnm" firstAttribute="leading" secondItem="jgJ-o8-jFC" secondAttribute="trailing" constant="20" id="IG3-S9-JCu"/>
                     <constraint firstItem="fkk-Ax-C7f" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Vvv-9b-P0C"/>
-                    <constraint firstItem="fkk-Ax-C7f" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="WPB-aT-gO3"/>
                     <constraint firstItem="1Qx-RF-Wnm" firstAttribute="centerY" secondItem="fkk-Ax-C7f" secondAttribute="centerY" id="Zhs-zc-J53"/>
+                    <constraint firstItem="fNj-gb-b9r" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="bcI-h8-6dO"/>
                     <constraint firstItem="Q4z-0w-vtP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="cgm-FS-sde"/>
+                    <constraint firstItem="fNj-gb-b9r" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="g4W-8X-f6w"/>
                     <constraint firstItem="Q4z-0w-vtP" firstAttribute="leading" secondItem="odg-R7-LQG" secondAttribute="trailing" id="gCO-1h-SI1"/>
+                    <constraint firstItem="fkk-Ax-C7f" firstAttribute="leading" secondItem="fNj-gb-b9r" secondAttribute="trailing" constant="10" id="jc5-cJ-iWp"/>
                     <constraint firstItem="jgJ-o8-jFC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="100" id="o1Y-Ac-wWK"/>
                     <constraint firstItem="odg-R7-LQG" firstAttribute="leading" secondItem="LWH-0y-inH" secondAttribute="trailing" id="qiX-cW-35P"/>
                     <constraint firstItem="odg-R7-LQG" firstAttribute="centerY" secondItem="1Qx-RF-Wnm" secondAttribute="centerY" id="ywk-8Q-Bd3"/>
@@ -86,6 +97,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
+                <outlet property="icopnImageView" destination="fNj-gb-b9r" id="I1i-nN-zbE"/>
                 <outlet property="lineProgressView" destination="odg-R7-LQG" id="iZp-TE-4K7"/>
                 <outlet property="moneyLb" destination="1Qx-RF-Wnm" id="m1k-y6-XQ9"/>
                 <outlet property="progressLb" destination="xOG-Ha-cfV" id="E9m-kr-wBX"/>
@@ -94,4 +106,9 @@
             <point key="canvasLocation" x="87.681159420289859" y="12.388392857142856"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

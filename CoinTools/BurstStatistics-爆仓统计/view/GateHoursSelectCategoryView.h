@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSArray *titles;
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, copy) void(^selectblock)(NSInteger index);
+@property (strong, nonatomic) UILabel *titleLb;
 //@property (nonatomic, copy) NSArray *titles;
 @end
 

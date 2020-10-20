@@ -61,7 +61,7 @@
                });
        }];
 }
--(void)selectitemOrindex:(NSInteger)index{
+-(void)selectitemOrindex:(NSInteger)index string:(nonnull NSString *)title{
     
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{

@@ -15,7 +15,7 @@ pod 'UITableView+FDTemplateLayoutCell'
 pod 'MJRefresh'
 pod 'JXCategoryView'
 pod 'SYProgressView'
-
+pod 'FMDB'
 end
 target 'demo' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -30,5 +30,6 @@ pod 'UITableView+FDTemplateLayoutCell'
 pod 'MJRefresh'
 pod 'JXCategoryView'
 pod 'SYProgressView'
+pod 'FMDB'
 end
 

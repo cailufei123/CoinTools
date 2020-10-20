@@ -7,7 +7,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
          <BreakpointContent
-            uuid = "58590A48-7917-4B65-9684-67C50E657761"
+            uuid = "BAA7712E-8425-4AD4-B62F-5C42445E9927"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -19,96 +19,64 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "2AE3886C-DD14-4FD0-8354-AA6052D9A84B"
+            uuid = "5E82736D-B024-48B4-9ABF-609BC550589A"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CoinTools/HomePags-&#x9996;&#x9875;/controller/GateHomePageController.m"
+            filePath = "CoinTools/BurstStatistics-&#x7206;&#x4ed3;&#x7edf;&#x8ba1;/controller/GateBurstViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "294"
-            endingLineNumber = "294"
-            landmarkName = "-makePlaceHolderView"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "2AE3886C-DD14-4FD0-8354-AA6052D9A84B - ed9999cdc5cb6a74"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[GateHomePageController makePlaceHolderView]"
-                  moduleName = "CoinTools"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mac/Desktop/CoinTools/CoinTools/HomePags-%E9%A6%96%E9%A1%B5/controller/GateHomePageController.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "294"
-                  endingLineNumber = "294"
-                  offsetFromSymbolStart = "57">
-               </Location>
-               <Location
-                  uuid = "2AE3886C-DD14-4FD0-8354-AA6052D9A84B - ba1b18b346c70cea"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__45-[GateHomePageController makePlaceHolderView]_block_invoke"
-                  moduleName = "CoinTools"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mac/Desktop/CoinTools/CoinTools/HomePags-%E9%A6%96%E9%A1%B5/controller/GateHomePageController.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "295"
-                  endingLineNumber = "295"
-                  offsetFromSymbolStart = "20">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "6A4EBE47-5C90-45FF-85EC-05B1EE2883A3"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CoinTools/HomePags-&#x9996;&#x9875;/controller/GateHomePageController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "252"
-            endingLineNumber = "252"
-            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
+            landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "DB9D4297-37EA-4EFE-B2ED-4A8F70062305"
+            uuid = "97F5E36F-EAE1-4984-AC0D-C99605CF4E7C"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CoinTools/HomePags-&#x9996;&#x9875;/controller/GateHomePageController.m"
+            filePath = "CoinTools/BigOrderBurstStatistics-&#x5927;&#x5355;&#x6210;&#x4ea4;&#x7edf;&#x8ba1;/controler/GateBigOrderStatisticsViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "253"
-            endingLineNumber = "253"
-            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D9BB13D0-17F5-441C-99C2-5D79AB4815FB"
+            uuid = "295D3927-346C-4C94-B76A-6B83012B4BBD"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CoinTools/Request/GateRequestManager.m"
+            filePath = "CoinTools/BurstStatistics-&#x7206;&#x4ed3;&#x7edf;&#x8ba1;/controller/GateBurstViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "+get:block:"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3A260A35-65DC-4818-B7AA-F43085BDB473"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CoinTools/WholeNetworkPositionStatistics-&#x5168;&#x7f51;&#x6301;&#x4ed3;&#x7edf;&#x8ba1;/controller/GateWholeNetworkPositionStatisticsViewController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "-loadData"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

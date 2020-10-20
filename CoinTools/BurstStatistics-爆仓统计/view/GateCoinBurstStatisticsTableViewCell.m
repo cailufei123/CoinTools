@@ -31,17 +31,19 @@
     });
     return self;
 }
--(void)setBcoin_coin_burst_total_info:(NSArray<GTBcoin_coin_burst_total_infoModel *> *)bcoin_coin_burst_total_info{
-    _bcoin_coin_burst_total_info = bcoin_coin_burst_total_info;
-    NSInteger totalPage = (bcoin_coin_burst_total_info.count + 3 - 1)/3;
+-(void)setBurstcoin:(GTPublicContentModel *)burstcoin{
+    _burstcoin = burstcoin;
+//    totalPage = (total + pagesize -1) / pagesize;
+    NSArray * models =  [GTDataManager getItemModelWhit:burstcoin.alldatalist.firstObject.datalist.firstObject];
+    NSInteger totalPage = (models.count + 3 - 1)/3;
             [self.collectionView mas_updateConstraints:^(MASConstraintMaker *make) {
-                 make.height.mas_equalTo(totalPage * 100 +(totalPage-1)*10 + 10);
+                 make.height.mas_equalTo(totalPage * 80 +(totalPage-1)*10+3);
                 [self.contentView layoutIfNeeded];
             }];
-            
+
     [self.collectionView reloadData];
-    
 }
+
 -(void)collectionViewLyout{
     [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(0);
@@ -53,19 +55,20 @@
 }
 -(UICollectionView *)collectionView{
     if (!_collectionView) {
-      
+       
             UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
                       layout.sectionInset = UIEdgeInsetsMake(0, 15, 0, 15);
                       layout.minimumLineSpacing = 10;
                       layout.minimumInteritemSpacing =0;
                       layout.scrollDirection = UICollectionViewScrollDirectionVertical;
-                      layout.itemSize = CGSizeMake((scrWeiht-50)/3, 100);
+                      layout.itemSize = CGSizeMake((scrWeiht-50)/3, 80);
 //                      [_collectionView setCollectionViewLayout:layout];
           _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
                       _collectionView.backgroundColor = [UIColor whiteColor];
            gateCollectionRegisterNib(_collectionView, @"GateCoinBurstStatisticsSubCollectionViewCell");
            _collectionView.delegate = self;
           _collectionView.dataSource = self;
+        _collectionView.scrollEnabled = NO;
        
         [self.contentView addSubview:_collectionView];
         
@@ -84,7 +87,7 @@
 #pragma mark -kkkkk
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return self.bcoin_coin_burst_total_info.count;
+    return self.burstcoin.alldatalist.firstObject.datalist.firstObject.count;
     
 }
 
@@ -92,13 +95,24 @@
 #pragma mark -点击按钮
 - (UICollectionViewCell * )collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
  GateCoinBurstStatisticsSubCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GateCoinBurstStatisticsSubCollectionViewCell" forIndexPath:indexPath];
-    GTBcoin_coin_burst_total_infoModel * bcoin_coin_burst_total_infoModel = self.bcoin_coin_burst_total_info[indexPath.row];
-    cell.nameLb.text = bcoin_coin_burst_total_infoModel.coin_type;
-    cell.moneyLb.text = [NSString stringWithFormat:@"%0.2lf万",[bcoin_coin_burst_total_infoModel.burst_amt doubleValue]/10000]  ;
-    cell.matchMoneyLb.text =  [NSString stringWithFormat:@"≈%@个%@",bcoin_coin_burst_total_infoModel.equivalent_amt,bcoin_coin_burst_total_infoModel.coin_type];
+    GTHomeTitleModel * homeTitleModel1 =  [GTDataManager getItemModelWhit:_burstcoin.alldatalist[0].datalist.firstObject][indexPath.item];
+    GTHomeTitleModel * homeTitleModel2 =  [GTDataManager getItemModelWhit:_burstcoin.alldatalist[1].datalist.firstObject][indexPath.item];
+    GTHomeTitleModel * homeTitleModel3 =  [GTDataManager getItemModelWhit:_burstcoin.alldatalist[2].datalist.firstObject][indexPath.item];
     
-    if ([bcoin_coin_burst_total_infoModel.equivalent_amt integerValue]>10000) {
-         cell.matchMoneyLb.text =  [NSString stringWithFormat:@"≈%ld万个%@",[bcoin_coin_burst_total_infoModel.equivalent_amt integerValue]/10000,bcoin_coin_burst_total_infoModel.coin_type];
+    cell.nameLb.text = homeTitleModel1.content;
+    [GTStyleManager setStyleWhit:homeTitleModel1 forLale:cell.nameLb];
+  
+    [GTStyleManager setStyleWhit:homeTitleModel2 forLale:cell.moneyLb];
+    cell.matchMoneyLb.text = [NSString stringWithFormat:@"≈%@%@%@",homeTitleModel3.content,[GTDataManager getLanguageData:@"ge"], homeTitleModel1.content];
+    [GTStyleManager setStyleWhit:homeTitleModel3 forLale:cell.matchMoneyLb];
+    
+
+    if ([homeTitleModel2.content integerValue]>10000) {
+        
+        cell.moneyLb.text = [NSString stringWithFormat:@"$%0.2lf%@",[homeTitleModel2.content doubleValue]/10000,[GTDataManager getLanguageData:@"wan"]];
+    }else{
+        cell.moneyLb.text = [NSString stringWithFormat:@"$%0.2lf",[homeTitleModel2.content doubleValue]/10000];
+      
     }
     
     return cell;

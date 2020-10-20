@@ -141,7 +141,7 @@ extension GTChartPMarkerView{
  let buy_amount:[String:Any] =  srtingArr.first as! [String : Any]
           
         
-        let str1 = "多头:\(buy_amount["title"] ?? "")"
+        let str1 = "\(buy_amount["title"] ?? "")"
         
         
      
@@ -149,7 +149,7 @@ extension GTChartPMarkerView{
         models.append(getPublicSelectModel(selectEnabled: true, color:  buy_amount["color"] as! UIColor, titleText: str1))
                 
         let sell_amount:[String:Any] =  srtingArr.last as! [String : Any]
-        let str2 = "空头:\(sell_amount["title"] ?? "")"
+        let str2 = "\(sell_amount["title"] ?? "")"
           
             
             models.append(getPublicSelectModel(selectEnabled: true, color:  sell_amount["color"] as! UIColor, titleText: str2))

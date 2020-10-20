@@ -41,9 +41,9 @@
     
     UIBezierPath *path1 = [[UIBezierPath alloc] init];
     [ path1 moveToPoint:CGPointMake(0, 0)];
-    [ path1 addLineToPoint:CGPointMake(80, 0)];
-      [ path1 addLineToPoint:CGPointMake(66, 16)];
-    [ path1 addLineToPoint:CGPointMake(60, 20)];
+    [ path1 addLineToPoint:CGPointMake(100, 0)];
+      [ path1 addLineToPoint:CGPointMake(86, 16)];
+    [ path1 addLineToPoint:CGPointMake(80, 20)];
    
     [path1 addLineToPoint:CGPointMake(0, 20)];
     [ path1 closePath];

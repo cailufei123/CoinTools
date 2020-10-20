@@ -63,7 +63,7 @@
     
  
 }
--(void)selectitemOrindex:(NSInteger)index{
+-(void)selectitemOrindex:(NSInteger)index string:(nonnull NSString *)title{
     
 }
 //- (void)pullToRefresh {

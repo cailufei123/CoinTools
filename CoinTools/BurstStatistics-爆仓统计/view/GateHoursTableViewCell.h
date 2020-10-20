@@ -14,7 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UILabel *messageLB;
 @property (weak, nonatomic) IBOutlet UILabel *titleLb;
-
+@property(nonatomic,strong)GTPublicContentModel * burstinfo;
+@property (weak, nonatomic) IBOutlet UIView *bagView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *loyoutH;
 @end
 
 NS_ASSUME_NONNULL_END

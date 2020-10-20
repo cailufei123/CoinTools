@@ -14,8 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GateThirtyDaysBurstStatisticsTableViewCell : UITableViewCell < ChartViewDelegate>
 @property (nonatomic, strong) IBOutlet BarChartView *chartView;
 @property (weak, nonatomic) IBOutlet UIView *bottomSelectView;
-@property (strong, nonatomic) NSArray<GTBcoin_coin_30d_calendar_infoModel *>*  bcoin_coin_30d_calendar_infos;
-
+//@property (strong, nonatomic) NSArray<GTBcoin_coin_30d_calendar_infoModel *>*  bcoin_coin_30d_calendar_infos;
+@property(nonatomic,strong)GTPublicContentModel * burstcalpic;
 @end
 
 NS_ASSUME_NONNULL_END

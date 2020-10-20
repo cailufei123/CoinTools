@@ -105,7 +105,7 @@
     xAxis.labelPosition = XAxisLabelPositionBottom;
    xAxis.drawGridLinesEnabled = NO;
     xAxis.valueFormatter = self.xAxisValueFormatter;
-
+    xAxis.labelCount = 3;
     ChartLegend *l = _chartView.legend;
     l.horizontalAlignment = ChartLegendHorizontalAlignmentCenter;
     l.verticalAlignment = ChartLegendVerticalAlignmentBottom;
@@ -125,10 +125,13 @@
     marker1.cycleSelectBlock = ^NSArray * _Nonnull(NSInteger index) {
          @strongify(self)
         NSMutableArray * arr = [NSMutableArray array];
-        GTBcoin_coin_30d_calendar_infoModel *   bcoin_coin_30d_calendar_infoModel = self.bcoin_coin_30d_calendar_infos[index];
-      
-        [arr addObject:@{@"title":bcoin_coin_30d_calendar_infoModel.buy_amount,@"color":gateColor(@"e75475")}];
-        [arr addObject:@{@"title":bcoin_coin_30d_calendar_infoModel.sell_amount,@"color":gateColor(@"5bc39b")}];
+       
+    
+       
+        [arr addObject:@{@"title":[NSString stringWithFormat:@"%@:%@", self.burstcalpic.alldatalist[1].title.content,[GTDataManager getItemModelWhit:self.burstcalpic.alldatalist[1].datalist.firstObject][index].content] ,@"color":gateColor([GTDataManager getItemModelWhit:self.burstcalpic.alldatalist[1].datalist.firstObject][index].color)}];
+        [arr addObject:@{@"title":[NSString stringWithFormat:@"%@:%@", self.burstcalpic.alldatalist[2].title.content,[GTDataManager getItemModelWhit:self.burstcalpic.alldatalist[2].datalist.firstObject][index].content],@"color":gateColor([GTDataManager getItemModelWhit:self.burstcalpic.alldatalist[2].datalist.firstObject][index].color)}];
+        
+        
           return arr;
       };
  
@@ -149,122 +152,54 @@
          
 }
 
--(void)setBcoin_coin_30d_calendar_infos:(NSArray<GTBcoin_coin_30d_calendar_infoModel *> *)bcoin_coin_30d_calendar_infos{
-    _bcoin_coin_30d_calendar_infos = bcoin_coin_30d_calendar_infos;
-    self.marker1.possArr = bcoin_coin_30d_calendar_infos;
-     NSMutableArray * arr = [NSMutableArray array];
-           
-           for (int i = 0; i<2; i++) {
-               GatePublicSelectModel *  selectModel = [[GatePublicSelectModel alloc] init];
-               if (i == 0) {
-                   selectModel.color = gateColor(@"e75475");
-                   selectModel.shape = square;
-                   selectModel.titleText = @"多头爆仓";
-               }
-               if (i == 1) {
-                   selectModel.color =gateColor(@"5bc39b");
-                   selectModel.shape = square;
-                    selectModel.titleText = @"空头爆仓";
-               }
-               [arr addObject:selectModel];
-       }
-     
-       
-          self.bottomPublicSelectView.arr = arr;
-      self.bottomPublicSelectView.selectIndex = 0;
-    self.xAxisValueFormatter.publicArr = bcoin_coin_30d_calendar_infos;
-      [self drawData];
-}
 
 -(GatePublicSelectView *)bottomPublicSelectView{
     if (!_bottomPublicSelectView) {
         _bottomPublicSelectView = [[GatePublicSelectView alloc]initWithFrame:CGRectMake(0, 0, 220, 30)];
         _bottomPublicSelectView.centerX = scrWeiht/2;
         _bottomPublicSelectView.checkboxEnabled = YES;
-       
-        
-         @weakify(self)
+        _bottomPublicSelectView.userInteractionEnabled = NO;
         _bottomPublicSelectView.selectBlock = ^(NSInteger index, GatePublicSelectModel * _Nonnull publicSelectModel) {
-            @strongify(self)
-//            BarChartDataSet * set =  (BarChartDataSet *) self.chartView.barData.dataSets[index];
-//
-//
-//            set.visible = !publicSelectModel.selectEnabled;
-            
-            [self drawData1];
-                       [self.chartView setNeedsDisplay];
-            
-            
         };
         
      }
     return _bottomPublicSelectView;
 }
--(void)drawData1{
-  GatePublicSelectModel *  firstObjectPublicSelectModel  =  self.bottomPublicSelectView.arr.firstObject;
-              GatePublicSelectModel *  lastObjectPublicSelectModel  =  self.bottomPublicSelectView.arr.lastObject;
-              
-             
-                      
-                    
-        NSMutableArray *array = [NSMutableArray array];
-     for (int i = 0; i < self.bcoin_coin_30d_calendar_infos.count; i++) {
-        
-         GTBcoin_coin_30d_calendar_infoModel * coin_30d_calendar_infoModel  =  self.bcoin_coin_30d_calendar_infos[i];
-         if (coin_30d_calendar_infoModel.sell_amount.length && coin_30d_calendar_infoModel.buy_amount.length ) {
-               NSMutableArray * temps = [NSMutableArray array];
-            if (!firstObjectPublicSelectModel.selectEnabled) {
-                      [temps addObject:[NSNumber numberWithString:coin_30d_calendar_infoModel.buy_amount]];
-                  }
-            
-                if (!lastObjectPublicSelectModel.selectEnabled) {
-                    [temps addObject:[NSNumber numberWithString:coin_30d_calendar_infoModel.sell_amount]];
-                }
-             
-              [array addObject:[[BarChartDataEntry alloc] initWithX:i yValues:temps icon: [UIImage imageNamed:@"icon"]]];
-  
-         }
-        
+
+-(void)setBurstcalpic:(GTPublicContentModel *)burstcalpic{
+    _burstcalpic = burstcalpic;
+
+    self.marker1.possArr = [GTDataManager getItemModelWhit:_burstcalpic.alldatalist[1].datalist.firstObject];
+     NSMutableArray * arr = [NSMutableArray array];
+
+           for (int i = 1; i<burstcalpic.alldatalist.count; i++) {
+               
+               GTAlldatalistModel *alldatalistModel =burstcalpic.alldatalist[i];
+               GatePublicSelectModel *  selectModel = [[GatePublicSelectModel alloc] init];
+               selectModel.color = gateColor([GTDataManager getItemModelWhit:_burstcalpic.alldatalist[i].datalist.firstObject].firstObject.color);
+               selectModel.shape = square;
+               selectModel.titleText =alldatalistModel.title.content;
+               [arr addObject:selectModel];
+               
+       }
+
+
+          self.bottomPublicSelectView.arr = arr;
+      self.bottomPublicSelectView.selectIndex = 0;
+    self.xAxisValueFormatter.publicArr = [GTDataManager getItemModelWhit:_burstcalpic.alldatalist[0].datalist.firstObject];
+      [self drawData];
 }
-        //set
-        BarChartDataSet *set = [[BarChartDataSet alloc] initWithEntries:array label:@"Bar DataSet"];
-     set.stackLabels = @[@"Births", @"Divorces"];
-//      set.barBorderWidth = 1.0;
-//        [set setColors:@[UIColor.redColor,UIColor.blackColor,UIColor.cyanColor]];
-    
-     NSMutableArray * tempColors = [NSMutableArray array];
-    if (!firstObjectPublicSelectModel.selectEnabled) {
-              [tempColors addObject:gateColor(@"e75475")];
-        }
-    
-        if (!lastObjectPublicSelectModel.selectEnabled) {
-//            [temps addObject:[NSNumber numberWithString:coin_30d_calendar_infoModel.sell_amount]];
-            [tempColors addObject:gateColor(@"5bc39b")];
-        }
-    if (tempColors.count) {
-          set.colors =tempColors;
-    }
-       
-         set.drawValuesEnabled = NO; //圆柱上是否显示文字
-        BarChartData *data = [[BarChartData alloc] initWithDataSet:set];
-          [data setBarWidth:0.5];
-        self.chartView.data = data;
-//    [self.chartView.data notifyDataChanged];
-     [self.chartView notifyDataSetChanged];
-    [self.chartView animateWithYAxisDuration:0.5];
-    }
-
-
 
  -(void)drawData{
        
         NSMutableArray *array = [NSMutableArray array];
-     for (int i = 0; i < self.bcoin_coin_30d_calendar_infos.count; i++) {
-         GTBcoin_coin_30d_calendar_infoModel * coin_30d_calendar_infoModel  =  self.bcoin_coin_30d_calendar_infos[i];
-         if (coin_30d_calendar_infoModel.sell_amount.length && coin_30d_calendar_infoModel.buy_amount.length ) {
-              [array addObject:[[BarChartDataEntry alloc] initWithX:i yValues:@[[NSNumber numberWithString:coin_30d_calendar_infoModel.buy_amount], [NSNumber numberWithString:coin_30d_calendar_infoModel.sell_amount]] icon: [UIImage imageNamed:@"icon"]]];
-  
-         }
+     NSArray<GTHomeTitleModel *> * modelAr = [GTDataManager getItemModelWhit:_burstcalpic.alldatalist[1].datalist.firstObject];
+     NSArray<GTHomeTitleModel *> * lastObjectmodelAr = [GTDataManager getItemModelWhit:_burstcalpic.alldatalist[2].datalist.firstObject];
+     for (int i = 0; i<modelAr.count; i++){
+         GTHomeTitleModel *titleModel =modelAr[i];
+         GTHomeTitleModel *titleModel1 =lastObjectmodelAr[i];
+         
+         [array addObject:[[BarChartDataEntry alloc] initWithX:i yValues:@[[NSNumber numberWithString:titleModel.content], [NSNumber numberWithString:titleModel1.content]] icon: [UIImage imageNamed:@"icon"]]];
         
 }
         //set
@@ -272,7 +207,10 @@
      set.stackLabels = @[@"Births", @"Divorces"];
 //      set.barBorderWidth = 1.0;
 //        [set setColors:@[UIColor.redColor,UIColor.blackColor,UIColor.cyanColor]];
-         set.colors = @[gateColor(@"5bc39b"),gateColor(@"e75475")];
+     if (modelAr.firstObject.color.length) {
+         set.colors = @[gateColor(modelAr.firstObject.color),gateColor(lastObjectmodelAr.firstObject.color)];
+     }
+        
         //显示柱图值并格式化
 //        NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
 //        numberFormatter.positiveSuffix = @"分";

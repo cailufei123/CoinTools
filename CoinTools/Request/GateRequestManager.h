@@ -10,9 +10,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 typedef void(^ResponseBlock)(NSError *error, NSDictionary *response);
-@interface GateRequestManager : NSObject
+typedef void(^ResponseCacheBlock)(NSError *error,BOOL isCache, NSDictionary *response);
+@interface GateRequestManager : NSObject<NSURLConnectionDelegate>
 +(void)get:(NSString *)url  block:(ResponseBlock)block;
 + (void)post:(NSString *)url params:(NSDictionary *)params success:(void (^)(id response))success failure:(void (^)(NSError * failure))failure;
++ (void)getCache:(NSString *)url block:(ResponseCacheBlock)block;
 @end
 
 NS_ASSUME_NONNULL_END

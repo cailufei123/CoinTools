@@ -67,7 +67,7 @@
 -(void)loadData{
     @weakify(self)
            self.index = 0;
-     [GateRequestManager getCache:chiCongURL block:^(NSError * _Nonnull error, BOOL isCache, NSDictionary * _Nonnull response) {
+     [GateRequestManager getCache:baoCangURL block:^(NSError * _Nonnull error, BOOL isCache, NSDictionary * _Nonnull response) {
            @strongify(self)
         
        

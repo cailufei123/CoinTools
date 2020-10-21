@@ -172,6 +172,7 @@
                selectCategoryView.titles =  @[];
         selectCategoryView.categoryView.defaultSelectedIndex = self.index;
            selectCategoryView.title = titleModel.content;
+        [GTStyleManager setStyleWhit:titleModel forLale:selectCategoryView.titleLb];
                selectCategoryView.selectblock = ^(NSInteger index) {
                    
                };
@@ -182,6 +183,7 @@
                     selectCategoryView.titles =  @[@"5M",@"1H",@"4H",@"1D"];
         GTHomeTitleModel *  titleModel  = [GTDataManager getItemModelWhit:self.holdModel.holdbigtitle.alldatalist.firstObject.datalist.firstObject][section];
            selectCategoryView.title = titleModel.content;
+          [GTStyleManager setStyleWhit:titleModel forLale:selectCategoryView.titleLb];
                     selectCategoryView.selectblock = ^(NSInteger index) {
                         [GTStyleManager loadingImage];
                         [self loadDataWhit:index];

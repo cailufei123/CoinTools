@@ -25,6 +25,8 @@
         
  // value 为 x 轴的值
     GTHomeTitleModel * titleModel  = self.publicArry[(NSInteger)value];
+        NSLog(@"%@",titleModel.content);
+        [self getDateStringWithTimestamp:titleModel.content];
     return [NSString stringWithFormat:@"%@",[self getDateStringWithTimestamp:titleModel.content]];
     }
     

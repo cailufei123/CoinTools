@@ -73,7 +73,7 @@
     return _duoKongSelectTimeTopView;
 }
 
--(void)totalTimeSelect:(NSInteger)index{
+-(void)v_tsSelect:(NSInteger)index{
     if (index == 0) {
         self.v_ts = @"5m";
     }else if(index == 0){
@@ -83,39 +83,55 @@
     }
     
 }
--(void)v_TimeSelect:(NSInteger)index{
+-(void)v_pic_tsSelect:(NSInteger)index{
     if (index == 0) {
         self. v_pic_ts =  @"1d";
     }else{
-        self. v_pic_ts =  @"1dw";
+        self. v_pic_ts =  @"1w";
     }
     
 }
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self creatTopSelectView];
+//    [self creatTopSelectView];
     [self registerCreateTable];
-    [self loadData];
+   
     self.tableView.tableHeaderView  =self.duoKongSelectTimeTopView;
     
-    self.v_coin_type = @"BTC";
        @weakify(self)
           [self.tableView addPullToRefresh:[LNHeaderMeituanAnimator createAnimator] block:^{
                @strongify(self)
                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                   [self loadData];
-                  });
+                   if (self.selectedIndex == 0) {
+                        [self loadDataDefult:YES];
+                   }else{
+                       [self loadDataDefult:NO];
+                   }
+                   
+                 
+                });
           }];
+   
+    self.v_coin_type =  @"all";
+    [self loadDataDefult:YES];
+}
+-(void)selectitemOrindex:(NSInteger)index string:(nonnull NSString *)title{
+    self.v_coin_type = title;
+    [self.tableView startRefreshing];
+   
+   
 }
 
--(void)loadData{
-    
-    self.index = 1;
+
+-(void)loadDataDefult:(BOOL)isDefult{
+    NSString * url = isDefult?duokongURL:v_coin_type_v_pic_tsURL(self.v_coin_type, self.v_ts, self.v_pic_ts);
+  
     [GTStyleManager loadingImage];
     @weakify(self)
    
-    [GateRequestManager getCache:duokongURL block:^(NSError * _Nonnull error, BOOL isCache, NSDictionary * _Nonnull response) {
+    [GateRequestManager getCache:url block:^(NSError * _Nonnull error, BOOL isCache, NSDictionary * _Nonnull response) {
    
         @strongify(self)
        
@@ -141,31 +157,12 @@
       gateTableRegisterNib(self.tableView, @"GatePrgessTableViewCell");
      gateTableRegisterNib(self.tableView, @"GTTopTotalTableViewCell");
      gateTableRegisterNib(self.tableView, @"GTDuoKongLineChartsTableViewCell");
-    
-    
-
     self.tableView.dataSource = self;
      self.tableView.delegate = self;
     self.tableView.backgroundColor = UIColor.whiteColor;
 
      [self.view addSubview:self.tableView];
    
-}
--(void)creatTopSelectView{
-      self.topSelectView = [[GateTopSelectView alloc] initWithFrame:CGRectMake(0, 0, scrWeiht, 40) categoryTitleViewStyle:CategoryZoomScale];
-     [self.view addSubview:self.topSelectView];
-     self.tableView.backgroundColor = [UIColor whiteColor];
-    [self registerCreateTable];
-    @weakify(self)
-    self.topSelectView.selectBlock = ^(NSInteger index, NSString * _Nonnull title) {
-         @strongify(self)
-        self.type = title;
-          [self.tableView startRefreshing];
-        
-        
-   
-               
-    };
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
@@ -175,14 +172,13 @@
 
    
     if (self.topSelectView.categoryView.selectedIndex == 0) {
-      NSArray * arr = self.spaceRatioModels[section];
-//        GTSpaceRatioSubvModel * spaceRatioSubvModel = arr.firstObject;
-//                  GateHearView  * hearView  = [GateHearView getGateHearView];
-//                hearView.frame = CGRectMake(0, 0, scrWeiht, 50);
-//
-//                 hearView.nameLb.text = spaceRatioSubvModel.coin_type;
+ 
+                  GateHearView  * hearView  = [GateHearView getGateHearView];
+                hearView.frame = CGRectMake(0, 0, scrWeiht, 50);
+       
+                 hearView.nameLb.text = [GTDataManager getItemModelWhit:self.spaceRatioModel.lsalldtl.alldatalist[section *3].datalist.firstObject].firstObject.content;
                  
-        return [UIView new];
+        return hearView;
     }else{
         if (section == 0) {
         
@@ -236,7 +232,7 @@
         if (indexPath.row == 0) {
                             return 50;
             }
-     return 120;
+     return 80;
     }else{
       
         
@@ -296,13 +292,25 @@
         if (indexPath.row == 0) {
                              
                                    GTTopTotalTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GTTopTotalTableViewCell" forIndexPath:indexPath];
+           
+             cell.duoLb.text = [GTDataManager getItemModelWhit:self.spaceRatioModel.lsalldtl.alldatalist[indexPath.section *3+1].datalist.firstObject][indexPath.row].content;
+              cell.kongLb.text = [GTDataManager getItemModelWhit:self.spaceRatioModel.lsalldtl.alldatalist[indexPath.section *3+2].datalist.firstObject][indexPath.row].content;
                                   cell.backgroundColor = [UIColor whiteColor];
                                   return cell;
                               }else{
                                   GatePrgessTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GatePrgessTableViewCell" forIndexPath:indexPath];
-                                  NSArray * arr = self.spaceRatioModels[indexPath.section];
-//                                  GTSpaceRatioSubvModel * spaceRatioSubvModel = arr[indexPath.row-1];
-//                                       cell.spaceRatioSubvModel = spaceRatioSubvModel;
+                                  cell.userImageView.backgroundColor = [UIColor redColor];
+                                
+                                  [cell.userImageView setImageWithURL:urlWhitString( [GTDataManager getItemModelWhit:self.spaceRatioModel.lsalldtl.alldatalist[indexPath.section *3].datalist.firstObject][indexPath.row].url) placeholder:nil];
+                                  cell.userNameLb.text = [GTDataManager getItemModelWhit:self.spaceRatioModel.lsalldtl.alldatalist[indexPath.section *3].datalist.firstObject][indexPath.row].content;
+
+                                  
+                                  [cell.press updataPrgress:[[GTDataManager getItemModelWhit:self.spaceRatioModel.lsalldtl.alldatalist[indexPath.section *3+1].datalist.firstObject][indexPath.row].content doubleValue]] ;
+                                  
+                                  
+//                                   cell.kongLb.text = [GTDataManager getItemModelWhit:self.spaceRatioModel.lsalldtl.alldatalist[indexPath.section *3+2].datalist.firstObject][indexPath.row].content;
+//
+                                  
                                          return cell;
                               }
     }else{

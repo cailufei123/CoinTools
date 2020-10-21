@@ -7,7 +7,7 @@
 //
 
 #import "GTStyleManager.h"
-
+#import <CoinTools/CoinTools-Swift.h>
 @implementation GTStyleManager
 +(void)setStyleWhit:(GTHomeTitleModel *)homeTitleModel forLale:(UILabel *)contentLb{
     if ([homeTitleModel.color isNotBlank]) {

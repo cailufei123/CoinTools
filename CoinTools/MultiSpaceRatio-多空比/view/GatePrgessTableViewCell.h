@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "pressView.h"
-#import "GateHomeModel.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GatePrgessTableViewCell : UITableViewCell
@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *userNameLb;
 @property (weak, nonatomic) IBOutlet UIView *progressView;
 @property(nonatomic,strong)pressView *press;
-@property(nonatomic,strong)GTSpaceRatioSubvModel *spaceRatioSubvModel;
+//@property(nonatomic,strong)GTSpaceRatioSubvModel *spaceRatioSubvModel;
 
 @end
 

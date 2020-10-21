@@ -19,13 +19,13 @@
 - (NSString *)stringForValue:(double)value axis:(ChartAxisBase *)axis {
     if (self.formatterType == GTFormatterXDuoKong) {
          // value 为 x 轴的值
-           bcoin_coin_long_short_infoModel * coin_long_short_infoModel = self.publicArry[(NSInteger)value];
-           return [NSString stringWithFormat:@"%@",[self getDateStringWithTimestamp1:coin_long_short_infoModel.time_stamp]];
+//           bcoin_coin_long_short_infoModel * coin_long_short_infoModel = self.publicArry[(NSInteger)value];
+           return @"23のedw";
     }else{
         
  // value 为 x 轴的值
-    GTBcoin_btc_vix_data_infoModel * bcoin_btc_vix_data_infoModel = self.publicArry[(NSInteger)value];
-    return [NSString stringWithFormat:@"%@",[self getDateStringWithTimestamp:bcoin_btc_vix_data_infoModel.time_stamp]];
+    GTHomeTitleModel * titleModel  = self.publicArry[(NSInteger)value];
+    return [NSString stringWithFormat:@"%@",[self getDateStringWithTimestamp:titleModel.content]];
     }
     
     
@@ -45,7 +45,7 @@
     NSDate *detailDate = [NSDate dateWithTimeIntervalSince1970:time];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init]; // 实例化一个NSDateFormatter对象
     // 设定时间格式,这里可以设置成自己需要的格式
-    [dateFormatter setDateFormat:@"YYYY-MM-dd"];
+    [dateFormatter setDateFormat:@"YYYY-MM-dd HH:ss"];
     NSString *currentDateStr = [dateFormatter stringFromDate:detailDate];
     return currentDateStr;
 }

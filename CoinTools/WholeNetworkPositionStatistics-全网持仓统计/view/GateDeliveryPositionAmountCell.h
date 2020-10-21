@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (weak, nonatomic) IBOutlet UIView *describeView;
 @property (weak, nonatomic) IBOutlet UILabel *describeLb;
+@property(nonatomic,strong)GTPublicContentModel * holdData;
 @end
 
 NS_ASSUME_NONNULL_END

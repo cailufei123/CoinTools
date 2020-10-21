@@ -15,13 +15,13 @@
 #import "GateData1TableViewCell.h"
 #import "GateData2TableViewCell.h"
 #import "GateLineChartTableViewCell.h"
-#import "GateHomeModel.h"
+//#import "GateHomeModel.h"
 #import "GateBurstViewController.h"
 @interface GateNewDetailsViewController ()
 @property(nonatomic,strong)pressView *press;
 @property (nonatomic, strong) NSArray *titles;
 @property (nonatomic, strong) JXCategoryTitleView *categoryView;
-@property(nonatomic,strong)GateHomeModel *gateHomeModel;
+//@property(nonatomic,strong)GateHomeModel *gateHomeModel;
 @property(nonatomic,copy)NSString *type;
 
 @property(nonatomic,strong) GateTopSelectView * topSelectView;
@@ -45,7 +45,7 @@
     GateRefreshNormalHeader * header = [GateRefreshNormalHeader headerWithRefreshingBlock:^{
  
         [GateRequestManager post:duokongURL params:@{@"v_coin_type":self.type} success:^(id  _Nonnull response) {
-            self.gateHomeModel =[GateHomeModel modelWithDictionary:response[@"data"]];
+//            self.gateHomeModel =[GateHomeModel modelWithDictionary:response[@"data"]];
          
         
 //            self.topSelectView.titles = @[@"BTC", @"ETH", @"XRP", @"BCH",@"LTC",@"EOX",@"TRX"];
@@ -66,7 +66,7 @@
            
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 NSDictionary * dict =  [GTCurrencyTool readLocalFileWithName:@"CoinTools.framework/file"];
-                wself.gateHomeModel =[GateHomeModel  modelWithDictionary:dict[@"data"]];
+//                wself.gateHomeModel =[GateHomeModel  modelWithDictionary:dict[@"data"]];
                 wself.categoryView.titles = wself.titles;
                          [wself.categoryView reloadData];
                          [wself.tableView reloadData];
@@ -134,9 +134,9 @@
             GateLineChartTableViewCell *cell = [tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]];
             
             if (index == 0) {
-                  cell.possArr = self.gateHomeModel.poss;
+//                  cell.possArr = self.gateHomeModel.poss;
             }else{
-                  cell.possArr = self.gateHomeModel.diff;
+//                  cell.possArr = self.gateHomeModel.diff;
             }
         };
         return hearView;
@@ -197,13 +197,13 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section == 0) {
-//         return 1;
-        return self.gateHomeModel.long_short.count;
+        return 1;
+//        return self.gateHomeModel.long_short.count;
        }else if (section == 1){
             return 1;
        }else if (section == 2){
 //            return 1;
-          return self.gateHomeModel.burst_dtl.count;
+          return 10;
        }else {
            return 1;
        }
@@ -218,15 +218,15 @@
         return cell;
    }else if (indexPath.section == 1) {
       GateData1TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GateData1TableViewCell" forIndexPath:indexPath];
-       cell.h_burst_amtModel = self.gateHomeModel.burst_amt;
+//       cell.h_burst_amtModel = self.gateHomeModel.burst_amt;
           return cell;
    }else if (indexPath.section == 2){
        GateData2TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GateData2TableViewCell" forIndexPath:indexPath];
-       cell.burst_dtl = self.gateHomeModel.burst_dtl[indexPath.row];
+//       cell.burst_dtl = self.gateHomeModel.burst_dtl[indexPath.row];
                 return cell;
    }else {
        GateLineChartTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GateLineChartTableViewCell" forIndexPath:indexPath];
-       cell.possArr = self.gateHomeModel.poss;
+//       cell.possArr = self.gateHomeModel.poss;
                 return cell;
    }
    

@@ -17,7 +17,7 @@
 @property(nonatomic,strong)GateXAxisValueFormatter * xAxisValueFormatter ;
 @property(nonatomic,strong)GateYAxisValueFormatter * yAxisValueFormatter ;
 @property(nonatomic,strong)UILabel * markYLabel ;
-@property(nonatomic,strong) BalloonMarker * markers;
+//@property(nonatomic,strong) BalloonMarker * markers;
 @property(nonatomic,strong) NSMutableArray * colors;
 @property (nonatomic, strong) NSIndexPath *selectIndexPath;
 @property(nonatomic,strong) GatePublicSelectView * bottomPublicSelectView;
@@ -161,11 +161,11 @@
 //      self.lineChartView.marker = mark;
     
     
-    self. markers.chartView = self.lineChartView;
-    self. markers.minimumSize = CGSizeMake(80.f, 40.f);
-    self.lineChartView.marker = self.markers;
- self.markers.offset = CGPointMake(100, 100);
-     self.markers.image = getImage(@"AppIcon_40x40_@2x");
+//    self. markers.chartView = self.lineChartView;
+//    self. markers.minimumSize = CGSizeMake(80.f, 40.f);
+//    self.lineChartView.marker = self.markers;
+// self.markers.offset = CGPointMake(100, 100);
+//     self.markers.image = getImage(@"AppIcon_40x40_@2x");
      self.lineChartView.legend.form = ChartLegendFormLine;
             // 设置动画效果，可以设置 X 轴和 Y 轴的动画效果
             [self.lineChartView animateWithXAxisDuration:1.0f];
@@ -191,13 +191,13 @@
         _bottomPublicSelectView.selectBlock = ^(NSInteger index, GatePublicSelectModel * _Nonnull publicSelectModel) {
             @strongify(self)
 
-                 GateDiffLineModel * diffLineModel = self.possArr[index];
+//                 GateDiffLineModel * diffLineModel = self.possArr[index];
              
 
             NSArray * lineChartDataSets = self.lineChartView.lineData.dataSets;
               LineChartDataSet *set1 = lineChartDataSets[index];
              
-            set1.visible = !diffLineModel.selectEnabled;
+//            set1.visible = !diffLineModel.selectEnabled;
 //              [self.collectionView reloadData];
                 [self.lineChartView setNeedsDisplay];
             
@@ -206,53 +206,53 @@
      }
     return _bottomPublicSelectView;
 }
-
--(BalloonMarker *)markers{
-    if (!_markers) {
-      
-        _markers = [[BalloonMarker alloc]
-                    initWithColor:[[UIColor blackColor]colorWithAlphaComponent:0.7 ]
-        font: [UIFont systemFontOfSize:12.0]
-        textColor: UIColor.whiteColor
-        insets: UIEdgeInsetsMake(8.0, 8.0, 8.0, 8.0)];
-        _markers.image =getImage(@"icon_logon_d_logo_145x51_@3x");
-    }
-    return  _markers;
-}
+//
+//-(BalloonMarker *)markers{
+//    if (!_markers) {
+//
+//        _markers = [[BalloonMarker alloc]
+//                    initWithColor:[[UIColor blackColor]colorWithAlphaComponent:0.7 ]
+//        font: [UIFont systemFontOfSize:12.0]
+//        textColor: UIColor.whiteColor
+//        insets: UIEdgeInsetsMake(8.0, 8.0, 8.0, 8.0)];
+//        _markers.image =getImage(@"icon_logon_d_logo_145x51_@3x");
+//    }
+//    return  _markers;
+//}
 - (void)setData
 {
     
-      self.colors = [NSMutableArray array];
-      double leftAxisMin = 0;
-      double leftAxisMax = 0;
-     LineChartData *chartData = [[LineChartData alloc] init];
-    for (int i = 0; i<self.possArr.count; i++) {
-       
-        GateDiffLineModel * diffLineModel = self.possArr[i];
-        
-      
-           NSMutableArray *array = [NSMutableArray array];
-        for (int i = 0; i < diffLineModel.line.count; i++) {
-               //创建ChartDataEntry对象并将每个点对应的值与x轴 y轴进行绑定
-               ChartDataEntry *entry = [[ChartDataEntry alloc] initWithX:i y:[[diffLineModel.line[i] lastObject] integerValue]];
-          
-           
-                      double val = [[diffLineModel.line[i] lastObject] integerValue];
-            leftAxisMax = MAX(val, leftAxisMax);
-            leftAxisMin = MIN(val, leftAxisMax);
-               [array addObject:entry];
-           }
-    
-        [chartData addDataSet:[self createLineChartDataSet:array color:diffLineModel.color]];
-//  [_chartView moveViewToX:self.weights.count];// 移动到那个点
-        
-    }
-    self.lineChartView.rightAxis.axisMinimum = leftAxisMin;
-     self.lineChartView.rightAxis.axisMaximum = leftAxisMax;
-    
+//      self.colors = [NSMutableArray array];
+//      double leftAxisMin = 0;
+//      double leftAxisMax = 0;
+//     LineChartData *chartData = [[LineChartData alloc] init];
+//    for (int i = 0; i<self.possArr.count; i++) {
+//
+//        GateDiffLineModel * diffLineModel = self.possArr[i];
+//
+//
+//           NSMutableArray *array = [NSMutableArray array];
+//        for (int i = 0; i < diffLineModel.line.count; i++) {
+//               //创建ChartDataEntry对象并将每个点对应的值与x轴 y轴进行绑定
+//               ChartDataEntry *entry = [[ChartDataEntry alloc] initWithX:i y:[[diffLineModel.line[i] lastObject] integerValue]];
+//
+//
+//                      double val = [[diffLineModel.line[i] lastObject] integerValue];
+//            leftAxisMax = MAX(val, leftAxisMax);
+//            leftAxisMin = MIN(val, leftAxisMax);
+//               [array addObject:entry];
+//           }
+//
+//        [chartData addDataSet:[self createLineChartDataSet:array color:diffLineModel.color]];
+////  [_chartView moveViewToX:self.weights.count];// 移动到那个点
+//
+//    }
+//    self.lineChartView.rightAxis.axisMinimum = leftAxisMin;
+//     self.lineChartView.rightAxis.axisMaximum = leftAxisMax;
+//
 //    [self.lineChartView setVisibleXRangeMaximum:3.0];
    
-     self.lineChartView.data = chartData;
+//     self.lineChartView.data = chartData;
     
 //  [ self.lineChartView moveViewToX:3];// 移动到那个点
 }
@@ -374,65 +374,53 @@
 // }
 
 
--(NSMutableArray *)tempPossArr{
-    if (!_tempPossArr) {
-        _tempPossArr = [NSMutableArray array];
-    }
-    return _tempPossArr;
-}
+//-(NSMutableArray *)tempPossArr{
+//    if (!_tempPossArr) {
+//        _tempPossArr = [NSMutableArray array];
+//    }
+//    return _tempPossArr;
+//}
 
--(void)setPossArr:(NSArray<GateDiffLineModel *> *)possArr{
-    _possArr = possArr;
-    self.xAxisValueFormatter.possArr = possArr;
-     self.yAxisValueFormatter.possArr = possArr;
-    self.markers.possArr = possArr;
-   
-    
-//    self.collectionLyoutH.constant = ((possArr.count + 3 - 1) /3) * 40;
-//    [self.collectionView reloadData];
-    [self.tempPossArr removeAllObjects];
-    for (int i = 0; i<possArr.count; i++) {
-        GateDiffLineModel * lineModel = possArr[i];
-        if (i == 0) {
-          lineModel.color = UIColor.redColor;
-        }
-        if (i ==1) {
-           lineModel.color = UIColor.greenColor;
-        }
-        if (i ==2) {
-            lineModel.color = UIColor.blueColor;
-        }
-        
-        lineModel.shape = circular;
-        lineModel.titleText = lineModel.name;
-        [self.tempPossArr addObject:lineModel];
-    }
-  
- 
-         
-            self.bottomPublicSelectView.arr = self.tempPossArr;
-    if (possArr.count>0) {
-            [self setData];
-           [self.lineChartView.data notifyDataChanged];
-           [self.lineChartView notifyDataSetChanged];
-       }
-    
-    
-    
-}
-//使用该方法不会模糊，根据屏幕密度计算
-- (UIImage *)convertViewToImage:(UIView *)view {
-    
-    UIImage *imageRet = [[UIImage alloc]init];
-    //UIGraphicsBeginImageContextWithOptions(区域大小, 是否是非透明的, 屏幕密度);
-    UIGraphicsBeginImageContextWithOptions(view.frame.size, YES, [UIScreen mainScreen].scale);
-    [view.layer renderInContext:UIGraphicsGetCurrentContext()];
-    imageRet = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    return imageRet;
-    
-}
+//-(void)setPossArr:(NSArray<GateDiffLineModel *> *)possArr{
+//    _possArr = possArr;
+//    self.xAxisValueFormatter.possArr = possArr;
+//     self.yAxisValueFormatter.possArr = possArr;
+//    self.markers.possArr = possArr;
+//
+//
+////    self.collectionLyoutH.constant = ((possArr.count + 3 - 1) /3) * 40;
+////    [self.collectionView reloadData];
+//    [self.tempPossArr removeAllObjects];
+//    for (int i = 0; i<possArr.count; i++) {
+//        GateDiffLineModel * lineModel = possArr[i];
+//        if (i == 0) {
+//          lineModel.color = UIColor.redColor;
+//        }
+//        if (i ==1) {
+//           lineModel.color = UIColor.greenColor;
+//        }
+//        if (i ==2) {
+//            lineModel.color = UIColor.blueColor;
+//        }
+//
+//        lineModel.shape = circular;
+//        lineModel.titleText = lineModel.name;
+//        [self.tempPossArr addObject:lineModel];
+//    }
+//
+//
+//
+//            self.bottomPublicSelectView.arr = self.tempPossArr;
+//    if (possArr.count>0) {
+//            [self setData];
+//           [self.lineChartView.data notifyDataChanged];
+//           [self.lineChartView notifyDataSetChanged];
+//       }
+//
+//
+//
+//}
+
 //贝塞尔
 - (UIImage *)QS_getCornerRadius:(CGFloat)c im:(UIImage*)rrr
 {
@@ -477,9 +465,9 @@
         rr.backgroundColor = [UIColor whiteColor];
         rr.size = CGSizeMake(10, 10);
 //        rr.layer.borderColor = UIColor.redColor.CGColor;
-          GateDiffLineModel * lineModel = self.tempPossArr[i];
-        rr.layer.borderColor = lineModel.color.CGColor;
-        UIImage * ic  = [self convertViewToImage:rr];
+//          GateDiffLineModel * lineModel = self.tempPossArr[i];
+//        rr.layer.borderColor = lineModel.color.CGColor;
+        UIImage * ic  = [UIImage convertViewToImage:rr];
        
         entry.icon =[ic  wh_imageAddCornerWithRadius:rr.size.height/2 andSize:rr.size];;
     }
@@ -559,7 +547,7 @@
 #pragma mark -kkkkk
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return self.possArr.count;
+    return 10;
     
 }
 
@@ -567,19 +555,19 @@
 #pragma mark -点击按钮
 - (UICollectionViewCell * )collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
  GateSelectLineChartCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GateSelectLineChartCollectionViewCell" forIndexPath:indexPath];
-    GateDiffLineModel * diffLineModel = self.possArr[indexPath.item];
-    NSArray * lineChartDataSets = self.lineChartView.lineData.dataSets;
-       LineChartDataSet *set1 = lineChartDataSets[indexPath.row];
-    cell.nameLb.text = diffLineModel.name;
- 
-    cell.selectBt.backgroundColor = diffLineModel.color?:self.colors[indexPath.row];
-    
-    if (diffLineModel.color && diffLineModel.color == [UIColor whiteColor]) {
-        set1.visible = NO;
-       
-    }else{
-         set1.visible = YES;
-    }
+//    GateDiffLineModel * diffLineModel = self.possArr[indexPath.item];
+//    NSArray * lineChartDataSets = self.lineChartView.lineData.dataSets;
+//       LineChartDataSet *set1 = lineChartDataSets[indexPath.row];
+//    cell.nameLb.text = diffLineModel.name;
+// 
+//    cell.selectBt.backgroundColor = diffLineModel.color?:self.colors[indexPath.row];
+//    
+//    if (diffLineModel.color && diffLineModel.color == [UIColor whiteColor]) {
+//        set1.visible = NO;
+//       
+//    }else{
+//         set1.visible = YES;
+//    }
 
     return cell;
     
@@ -587,23 +575,23 @@
 
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-   
-       GateDiffLineModel * diffLineModel = self.possArr[indexPath.item];
-   
-
-  NSArray * lineChartDataSets = self.lineChartView.lineData.dataSets;
-    LineChartDataSet *set1 = lineChartDataSets[indexPath.row];
-   
-    if ( diffLineModel.color == [UIColor whiteColor]) {
-        diffLineModel.color = self.colors[indexPath.item];
-         set1.visible = YES;
-    }else{
-        diffLineModel.color = [UIColor whiteColor];
-         set1.visible = NO;
-    }
-
-    [self.collectionView reloadData];
-      [self.lineChartView setNeedsDisplay];
+//
+//       GateDiffLineModel * diffLineModel = self.possArr[indexPath.item];
+//
+//
+//  NSArray * lineChartDataSets = self.lineChartView.lineData.dataSets;
+//    LineChartDataSet *set1 = lineChartDataSets[indexPath.row];
+//
+//    if ( diffLineModel.color == [UIColor whiteColor]) {
+//        diffLineModel.color = self.colors[indexPath.item];
+//         set1.visible = YES;
+//    }else{
+//        diffLineModel.color = [UIColor whiteColor];
+//         set1.visible = NO;
+//    }
+//
+//    [self.collectionView reloadData];
+//      [self.lineChartView setNeedsDisplay];
 }
 
 @end

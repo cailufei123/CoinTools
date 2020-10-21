@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GateHomeModel.h"
+//#import "GateHomeModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GateData1TableViewCell : UITableViewCell
-@property(nonatomic,strong) GateH_burst_amtModel * h_burst_amtModel;
+//@property(nonatomic,strong) GateH_burst_amtModel * h_burst_amtModel;
 @end
 
 NS_ASSUME_NONNULL_END

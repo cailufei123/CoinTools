@@ -6,12 +6,14 @@
 //  Copyright © 2020 蔡路飞. All rights reserved.
 //
 typedef NS_ENUM(NSInteger, GTFormatterYType) {
-   GTFormatterYRightDuoKong = 0,
+   GTFormatterYRightDuoKong = 3,
     GTFormatterYLeftAxisDuoKong,
     GTFormatterYLeftAxisKongHuang,
     GTFormatterYRightKongHuang,
+    GTFormatterYLeftAxisChiCang,
+    GTFormatterYRightChiCang,
 };
-#import "GateHomeModel.h"
+
 #import <Foundation/Foundation.h>
 @import Charts;
 NS_ASSUME_NONNULL_BEGIN
@@ -21,6 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong)NSArray * publicArry;
 @property (nonatomic, assign)GTFormatterYType  formatterType;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -79,7 +79,7 @@
              self.isError = YES;
            
          }
-         [self.tableView cyl_reloadData];
+//         [self.tableView cyl_reloadData];
          if (!isCache) {
              [EasyLodingView hidenLoding];
              [self.tableView endRefreshing];
@@ -115,7 +115,7 @@
            
          }
         
-         [self.tableView cyl_reloadData];
+//         [self.tableView cyl_reloadData];
         
          if (!isCache) {
              [EasyLodingView hidenLoding];
@@ -143,7 +143,7 @@
              self.isError = YES;
            
          }
-         [self.tableView cyl_reloadData];
+//         [self.tableView cyl_reloadData];
          if (!isCache) {
              [EasyLodingView hidenLoding];
              [self.tableView endRefreshing];
@@ -312,7 +312,9 @@
                                                                 configuration:^(id cell) {
                            GateThirtyDaysBurstStatisticsTableViewCell *cell1 = cell;
                            
-//                                         cell1.bcoin_coin_30d_calendar_infos =  self.burstModel.bcoin_coin_30d_calendar_info;
+             
+                
+cell1.burstcalpic =  self.burstModel.burstcalpic;
                                                                  }];
                                            return height;
            }else{
@@ -340,7 +342,7 @@
                                                                             configuration:^(id cell) {
                                        GateThirtyDaysBurstStatisticsTableViewCell *cell1 = cell;
                                        
-                                                   
+                 cell1.burstcalpic =  self.burstModel.burstcalpic;
                                                                              }];
                                                        return height;
                
@@ -356,7 +358,7 @@
                                          
                                          GateCoinBurstStatisticsTableViewCell *cell1 = cell;
                                      
-                          cell1.burstcoin = self.burstModel.burstcoin;
+                                         cell1.burstcoin = self.burstModel.burstcoin;
                                                                                            }];
                                                                      return height;
                      
@@ -421,7 +423,7 @@
                                             return cell;
                      }else{
                     GateThirtyDaysBurstStatisticsTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"GateThirtyDaysBurstStatisticsTableViewCell" forIndexPath:indexPath];
-//                                                cell.bcoin_coin_30d_calendar_infos =  self.burstModel.bcoin_coin_30d_calendar_info;
+                         cell.burstcalpic =  self.burstModel.burstcalpic;
                                                             return cell;
                      }
          

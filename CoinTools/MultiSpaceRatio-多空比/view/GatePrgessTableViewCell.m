@@ -31,12 +31,12 @@
 //@property(nonatomic,copy) NSString *time_type;//" : "5m",
 //@property(nonatomic,copy) NSString *long_rate;//" : "0.7415",
 //@property(nonatomic,copy) NSString *short_rate;//" : "0.2585"
--(void)setSpaceRatioSubvModel:(GTSpaceRatioSubvModel *)spaceRatioSubvModel{
-    self.userNameLb.text = spaceRatioSubvModel.exchange;
-//      [self.userImageView setImageWithURL:urlWhitString(spaceRatioSubvModel.logo_url) placeholder:hydeNormalUserImage];
-      
-      [ self.press updataPrgress:[spaceRatioSubvModel.short_rate doubleValue]];
-      self.press.fisrtLb.text =[NSString stringWithFormat:@"%0.2lf%%",[spaceRatioSubvModel.short_rate doubleValue] * 100];
-       self.press.lastLb.text =[NSString stringWithFormat:@"%0.2lf%%",[spaceRatioSubvModel.long_rate doubleValue] * 100];
-}
+//-(void)setSpaceRatioSubvModel:(GTSpaceRatioSubvModel *)spaceRatioSubvModel{
+//    self.userNameLb.text = spaceRatioSubvModel.exchange;
+////      [self.userImageView setImageWithURL:urlWhitString(spaceRatioSubvModel.logo_url) placeholder:hydeNormalUserImage];
+//      
+//      [ self.press updataPrgress:[spaceRatioSubvModel.short_rate doubleValue]];
+//      self.press.fisrtLb.text =[NSString stringWithFormat:@"%0.2lf%%",[spaceRatioSubvModel.short_rate doubleValue] * 100];
+//       self.press.lastLb.text =[NSString stringWithFormat:@"%0.2lf%%",[spaceRatioSubvModel.long_rate doubleValue] * 100];
+//}
 @end

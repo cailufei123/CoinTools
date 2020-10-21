@@ -62,17 +62,17 @@
   xAxis.axisLineColor = gateColor(gateGridColor);
   xAxis.labelTextColor = gateColor(axislabelTextColor);
    
-   XYMarkerView *marker = [[XYMarkerView alloc]
-                                  initWithColor: [UIColor colorWithWhite:180/255. alpha:1.0]
-                                  font: [UIFont systemFontOfSize:12.0]
-                                  textColor: UIColor.whiteColor
-                                  insets: UIEdgeInsetsMake(8.0, 8.0, 20.0, 8.0)
-                                  xAxisValueFormatter: _chartView.xAxis.valueFormatter];
-    marker.chartView = self.chartView;
-    marker.arrowSize =  CGSizeMake(8,8);
-    marker.minimumSize = CGSizeMake(80.f, 40.f);
-    self.chartView.marker = marker;
-      [self.chartView animateWithXAxisDuration:2.0f];
+//   XYMarkerView *marker = [[XYMarkerView alloc]
+//                                  initWithColor: [UIColor colorWithWhite:180/255. alpha:1.0]
+//                                  font: [UIFont systemFontOfSize:12.0]
+//                                  textColor: UIColor.whiteColor
+//                                  insets: UIEdgeInsetsMake(8.0, 8.0, 20.0, 8.0)
+//                                  xAxisValueFormatter: _chartView.xAxis.valueFormatter];
+//    marker.chartView = self.chartView;
+//    marker.arrowSize =  CGSizeMake(8,8);
+//    marker.minimumSize = CGSizeMake(80.f, 40.f);
+//    self.chartView.marker = marker;
+//      [self.chartView animateWithXAxisDuration:2.0f];
     
     
   NSMutableArray * arr = [NSMutableArray array];

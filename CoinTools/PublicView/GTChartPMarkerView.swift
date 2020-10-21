@@ -22,7 +22,7 @@ import YYKit
          case duoKong = 0
          case baoCang
          case kongHuang
-       
+         case chiCang
      }
     
 //   @objc open var cycleSelectBlock:(_ models : [Any]) -> NSArray = {_ in }
@@ -35,7 +35,8 @@ import YYKit
     return []
     }
       @objc open var xAxisValueFormatter: IAxisValueFormatter?
-     @objc open var models: NSMutableArray = NSMutableArray()
+     @objc open var models: [GatePublicSelectModel] = [GatePublicSelectModel]()
+    @objc open var stylemodels: [[String:Any]] = [[String:Any]]()
     @objc open var possArr: [Any] = [Any]()
     @objc open var lineChartView: LineChartView?
       @objc open var chartsView: CombinedChartView?
@@ -63,7 +64,7 @@ import YYKit
 //        aleartTypew.rawValue;
   
         
-        models.removeAllObjects()
+        models.removeAll()
         switch aleartType {
             
         case .baoCang:
@@ -78,6 +79,13 @@ import YYKit
             case .kongHuang:
             twoParameters(entry: entry, firstStr: "BTC价格", lastStr: "贪梦恐慌指数")
             break
+        case .chiCang:
+           
+         holdViewAleart(entry: entry)
+
+            break
+            
+       
         default: break
             
         }
@@ -109,24 +117,24 @@ extension GTChartPMarkerView{
                      let str = "时间:\(String(self.xAxisValueFormatter!.stringForValue(entry.x, axis: XAxis())))"
                   models.append(getPublicSelectModel(selectEnabled: false, color: UIColor.red, titleText: str))
                   
-                   
-                  let bcoin_btc_vix_data_infoModel:bcoin_coin_long_short_infoModel =  self.possArr[NSInteger(entry.x)] as! bcoin_coin_long_short_infoModel
-                   guard let long_rate =  Double(bcoin_btc_vix_data_infoModel.long_rate) else { return  }
-                 
-
-                  let tt = String(format:"%.2f",long_rate*100)//123.32
-              
-                          let str1 = "开多比例:\(tt)\("%")"
-                 
-                  models.append(getPublicSelectModel(selectEnabled: true, color: selectModels.last?.color ?? UIColor.blue, titleText: str1))
-                  
-                  let str2 =  "\(bcoin_btc_vix_data_infoModel.coin_type)报价:\(bcoin_btc_vix_data_infoModel.offer)"
-                  
-                  models.append(getPublicSelectModel(selectEnabled: true, color: selectModels.first?.color ?? UIColor.blue, titleText: str2))
-                  
-                  publicView.publicSelectModels = models as! [Any];
-                  self.frame = CGRect(x: 0, y: 0,width: 130, height: models.count*20);
-                  self.layoutIfNeeded();
+//                   
+////                  let bcoin_btc_vix_data_infoModel:bcoin_coin_long_short_infoModel =  self.possArr[NSInteger(entry.x)] as! bcoin_coin_long_short_infoModel
+//                   guard let long_rate =  Double(bcoin_btc_vix_data_infoModel.long_rate) else { return  }
+//                 
+//
+//                  let tt = String(format:"%.2f",long_rate*100)//123.32
+//              
+//                          let str1 = "开多比例:\(tt)\("%")"
+//                 
+//                  models.append(getPublicSelectModel(selectEnabled: true, color: selectModels.last?.color ?? UIColor.blue, titleText: str1))
+//                  
+//                  let str2 =  "\(bcoin_btc_vix_data_infoModel.coin_type)报价:\(bcoin_btc_vix_data_infoModel.offer)"
+//                  
+//                  models.append(getPublicSelectModel(selectEnabled: true, color: selectModels.first?.color ?? UIColor.blue, titleText: str2))
+//                  
+//                  publicView.publicSelectModels = models as! [Any];
+//                  self.frame = CGRect(x: 0, y: 0,width: 130, height: models.count*20);
+//                  self.layoutIfNeeded();
           }
     
     
@@ -183,11 +191,29 @@ extension GTChartPMarkerView{
                
                models.append(getPublicSelectModel(selectEnabled: true, color:  sell_amount["color"] as! UIColor, titleText: str2))
                
-               publicView.publicSelectModels = models as! [Any];
+               publicView.publicSelectModels = models ;
                self.frame = CGRect(x: 0, y: 0,width: 130, height: models.count*20);
                self.layoutIfNeeded();
            
           }
+    
+    
+    func holdViewAleart(entry: ChartDataEntry)  {
+//        let srtingArr = cycleSelectBlock(NSInteger(entry.x))
+        let str = "时间:\(String(self.xAxisValueFormatter!.stringForValue(entry.x, axis: XAxis())))"
+            models.append(getPublicSelectModel(selectEnabled: false, color: UIColor.red, titleText: str))
+
+          
+        for titleDic:[String:Any] in stylemodels {
+            models.append(getPublicSelectModel(selectEnabled: true, color:  titleDic["color"] as! UIColor, titleText: titleDic["title"] as! String))
+        }
+        
+     
+            
+           publicView.publicSelectModels = models ;
+            self.frame = CGRect(x: 0, y: 0,width: 130, height: models.count*20);
+            self.layoutIfNeeded();
+    }
       
 }
  

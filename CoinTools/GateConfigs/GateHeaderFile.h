@@ -51,4 +51,7 @@
 #import "HYDEEmptyViewManager.h"
 #import "GTBurstModel.h"
 #import "GTHoldModel.h"
+#import "GTYxisFearIndexValueFormatter.h"
+#import "GTXAxisFearIndexValueFormatter.h"
+#import "GTSpaceRatioModel.h"
 #endif /* HeaderFile_h */

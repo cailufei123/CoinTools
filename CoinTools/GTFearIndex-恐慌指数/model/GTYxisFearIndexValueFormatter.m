@@ -13,13 +13,15 @@
 - (NSString *)stringForValue:(double)value axis:(ChartAxisBase *)axis {
     
     if (self.formatterType == GTFormatterYRightDuoKong) {
-//        bcoin_coin_long_short_infoModel * coin_long_short_infoModel = self.publicArry[(NSInteger)value];
+//        bcoin_coin_long_short_infoModel * coinGTFormatterYRightChiCang_long_short_infoModel = self.publicArry[(NSInteger)value];
            
 
          return  [self formatDecimalNumber:[NSString stringWithFormat:@"%lf",value]];
     } else  if (self.formatterType == GTFormatterYLeftAxisDuoKong) {
           return  [self formatPercentage:value];
-    } else{
+    } else  if (self.formatterType == GTFormatterYRightChiCang) {
+        return [NSString stringWithFormat:@"$%@",[self formatDecimalNumber:[NSString stringWithFormat:@"%lf",value]]] ;
+  } else{
         // value 为 y 轴的值
             NSString * moneyStr = @"0";
                 if (value>=100000000){

@@ -27,8 +27,8 @@
 +(instancetype)getGateYAxisValueFormatter{
     return  [[self alloc] init];
 }
--(void)setPossArr:(NSArray<GateDiffLineModel *> *)possArr{
-     _possArr = possArr;
-}
+//-(void)setPossArr:(NSArray<GateDiffLineModel *> *)possArr{
+//     _possArr = possArr;
+//}
 
 @end

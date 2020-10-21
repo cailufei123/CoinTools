@@ -31,23 +31,23 @@
    
 }
 
--(void)setH_burst_amtModel:(GateH_burst_amtModel *)h_burst_amtModel{
+//-(void)setH_burst_amtModel:(GateH_burst_amtModel *)h_burst_amtModel{
     
     // value 为 y 轴的值
       
-   
+//   
+//    
+//    self.oneTitleLb.text = @"1H爆仓";
+//    self.one_amt_chLb.text = [NSString stringWithFormat:@"%@",[self getFomterNumber:h_burst_amtModel.h_burst_amt_ch1]];
+//    self.one_amt_usLb.text =[NSString stringWithFormat:@"%@" ,[self getFomterNumber:h_burst_amtModel.h_burst_amt_us1]];
+//    
+//    self.titleLb.text = @"24H爆仓";
+//    self.amt_chLb.text = [NSString stringWithFormat:@"%@",[self getFomterNumber:h_burst_amtModel.h_burst_amt_ch24]];
+//    self.amt_usLb.text =[NSString stringWithFormat:@"%@" ,[self getFomterNumber:h_burst_amtModel.h_burst_amt_us24]];
+//    
+//    
     
-    self.oneTitleLb.text = @"1H爆仓";
-    self.one_amt_chLb.text = [NSString stringWithFormat:@"%@",[self getFomterNumber:h_burst_amtModel.h_burst_amt_ch1]];
-    self.one_amt_usLb.text =[NSString stringWithFormat:@"%@" ,[self getFomterNumber:h_burst_amtModel.h_burst_amt_us1]];
-    
-    self.titleLb.text = @"24H爆仓";
-    self.amt_chLb.text = [NSString stringWithFormat:@"%@",[self getFomterNumber:h_burst_amtModel.h_burst_amt_ch24]];
-    self.amt_usLb.text =[NSString stringWithFormat:@"%@" ,[self getFomterNumber:h_burst_amtModel.h_burst_amt_us24]];
-    
-    
-    
-}
+//}
 
 -(NSString *)getFomterNumber:(NSString *)value{
      NSString * moneyStr = @"0";

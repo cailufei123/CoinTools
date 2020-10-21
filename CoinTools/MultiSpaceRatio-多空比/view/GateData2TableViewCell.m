@@ -15,19 +15,19 @@
     // Initialization code
 }
 
--(void)setBurst_dtl:(GateBurst_dtlModel *)burst_dtl{
-    self.typeLb.text = burst_dtl.burst_plat;
-     self.numberLb.text = burst_dtl.bran_type;
-     self.moneyLb.text = [self getFomterNumber:burst_dtl.burst_amt];
-    
-    
-    
-   
-    
-       
-    
-    self.timeLb.text =[self dateWithFormatString:burst_dtl.burst_time];
-}
+//-(void)setBurst_dtl:(GateBurst_dtlModel *)burst_dtl{
+//    self.typeLb.text = burst_dtl.burst_plat;
+//     self.numberLb.text = burst_dtl.bran_type;
+//     self.moneyLb.text = [self getFomterNumber:burst_dtl.burst_amt];
+//    
+//    
+//    
+//   
+//    
+//       
+//    
+//    self.timeLb.text =[self dateWithFormatString:burst_dtl.burst_time];
+//}
 //2020-08-19 12:18:42;
 -(NSString *)dateWithFormatString:(NSString *)string
 {

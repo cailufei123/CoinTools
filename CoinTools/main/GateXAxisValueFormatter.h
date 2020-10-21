@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "GateHomeModel.h"
+//#import "GateHomeModel.h"
 @import Charts;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GateXAxisValueFormatter : NSObject<IChartAxisValueFormatter>
 +(instancetype)getGateXAxisValueFormatter;
 
-@property (nonatomic, strong)NSArray<GateDiffLineModel *> * possArr;
+@property (nonatomic, strong)NSArray * possArr;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -240,16 +240,16 @@
 //        dispatch_group_enter(grpupT);
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
            
-            for (int index = 0; index < self.bcoin_coin_long_short_infos.count; index++){
-                    
-                   bcoin_coin_long_short_infoModel * bcoin_btc_vix_data_infoModel =  self.bcoin_coin_long_short_infos[index];
-                 
-                     [entries addObject:[[ChartDataEntry alloc] initWithX:index + 0.5  y:[bcoin_btc_vix_data_infoModel.offer doubleValue]]];
-            [entries1 addObject:[[ChartDataEntry alloc] initWithX:index + 0.5  y:[bcoin_btc_vix_data_infoModel.long_rate doubleValue]]];
-                   
-                 
-
-               }
+//            for (int index = 0; index < self.bcoin_coin_long_short_infos.count; index++){
+//                    
+//                   bcoin_coin_long_short_infoModel * bcoin_btc_vix_data_infoModel =  self.bcoin_coin_long_short_infos[index];
+//                 
+//                     [entries addObject:[[ChartDataEntry alloc] initWithX:index + 0.5  y:[bcoin_btc_vix_data_infoModel.offer doubleValue]]];
+//            [entries1 addObject:[[ChartDataEntry alloc] initWithX:index + 0.5  y:[bcoin_btc_vix_data_infoModel.long_rate doubleValue]]];
+//                   
+//                 
+//
+//               }
             
 //            dispatch_group_leave(grpupT);
             

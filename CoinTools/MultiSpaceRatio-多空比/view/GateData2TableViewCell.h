@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GateHomeModel.h"
+//#import "GateHomeModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GateData2TableViewCell : UITableViewCell
-@property(nonatomic,strong)GateBurst_dtlModel * burst_dtl;
+//@property(nonatomic,strong)GateBurst_dtlModel * burst_dtl;
 @property (weak, nonatomic) IBOutlet UILabel *typeLb;
 @property (weak, nonatomic) IBOutlet UILabel *numberLb;
 @property (weak, nonatomic) IBOutlet UILabel *moneyLb;

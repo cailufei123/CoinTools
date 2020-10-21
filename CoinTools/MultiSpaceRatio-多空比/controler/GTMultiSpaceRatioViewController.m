@@ -16,21 +16,19 @@
 #import "GateData1TableViewCell.h"
 #import "GateData2TableViewCell.h"
 #import "GateLineChartTableViewCell.h"
-#import "GateHomeModel.h"
 #import "GateBurstViewController.h"
 #import "GTTopTotalTableViewCell.h"
 #import "GateHoursSelectCategoryView.h"
 #import "GTFearIndexLineChartsTableViewCell.h"
 #import "GTFearIndexModel.h"
-#import "GateHomeModel.h"
-
+#import "GTDuoKongSelectTimeTopView.h"
 #import "GTDuoKongLineChartsTableViewCell.h"
 @interface GTMultiSpaceRatioViewController ()
 @property(nonatomic,strong)pressView *press;
 @property (nonatomic, strong) NSArray *titles;
 @property (nonatomic, strong) JXCategoryTitleView *categoryView;
-@property(nonatomic,strong)GateHomeModel *gateHomeModel;
-@property(nonatomic,strong)GTSpaceRatioModel *spaceRatioModel;
+//@property(nonatomic,strong)GateHomeModel *gateHomeModel;
+//@property(nonatomic,strong)GTSpaceRatioModel *spaceRatioModel;
 
 @property(nonatomic,copy)NSString *type;
 @property(nonatomic,assign)NSInteger selectIndex;
@@ -40,7 +38,15 @@
 
 @property(nonatomic,strong) GateTopSelectView * topSelectView;
 
-@property(nonatomic,strong)GTCoinSpaceRatioModel *coinSpaceRatioModel;
+@property(nonatomic,strong)GTSpaceRatioModel *spaceRatioModel;
+
+@property(nonatomic,strong)GTDuoKongSelectTimeTopView *duoKongSelectTimeTopView;
+
+@property(nonatomic,copy)NSString *v_ts;
+@property(nonatomic,copy)NSString *v_pic_ts;
+@property(nonatomic,copy)NSString *v_coin_type;
+@property(nonatomic,assign)NSInteger index;
+
 
 @end
 
@@ -57,82 +63,82 @@
     }
       return _bcoin_coin_long_short_infos;
 }
+-(GTDuoKongSelectTimeTopView *)duoKongSelectTimeTopView{
+    if (!_duoKongSelectTimeTopView) {
+        _duoKongSelectTimeTopView = [[GTDuoKongSelectTimeTopView alloc] initWithFrame:CGRectMake(0, 0, scrWeiht, 50)];
+        _duoKongSelectTimeTopView.selectblock = ^(NSInteger index) {
+//            [self totalTimeSelect];
+        };
+    }
+    return _duoKongSelectTimeTopView;
+}
+
+-(void)totalTimeSelect:(NSInteger)index{
+    if (index == 0) {
+        self.v_ts = @"5m";
+    }else if(index == 0){
+        self.v_ts = @"1h";
+    }else if(index == 0){
+        self.v_ts = @"4h";
+    }
+    
+}
+-(void)v_TimeSelect:(NSInteger)index{
+    if (index == 0) {
+        self. v_pic_ts =  @"1d";
+    }else{
+        self. v_pic_ts =  @"1dw";
+    }
+    
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navTitle = @"合约";
-    self.type = @"BTC";
     [self creatTopSelectView];
     [self registerCreateTable];
     [self loadData];
+    self.tableView.tableHeaderView  =self.duoKongSelectTimeTopView;
+    
+    self.v_coin_type = @"BTC";
+       @weakify(self)
+          [self.tableView addPullToRefresh:[LNHeaderMeituanAnimator createAnimator] block:^{
+               @strongify(self)
+               dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                   [self loadData];
+                  });
+          }];
 }
 
 -(void)loadData{
-
-
-
-    __weak typeof(self) wself = self;
+    
+    self.index = 1;
+    [GTStyleManager loadingImage];
     @weakify(self)
-         [self.tableView addPullToRefresh:[LNHeaderMeituanAnimator createAnimator] block:^{
-           @strongify(self)
-                
-             if(self.topSelectView.categoryView.selectedIndex == 0){
-                 
-                        [GateRequestManager get:duokongURL block:^(NSError * _Nonnull error, NSDictionary * _Nonnull response) {
-                          
-                             wself.spaceRatioModel =[GTSpaceRatioModel modelWithDictionary:response[@"data"][@"bcoin_exchange_long_short_info"]];
-                            if (!error) {
-                                 [wself.spaceRatioModels removeAllObjects];
-                                                          [wself.spaceRatioModels addObject: self.spaceRatioModel.BTC];
-                                                           [wself.spaceRatioModels addObject: self.spaceRatioModel.EOS];
-                                                           [wself.spaceRatioModels addObject: self.spaceRatioModel.BSV];
-                                                           [wself.spaceRatioModels addObject: self.spaceRatioModel.XBT];
-                                                           [wself.spaceRatioModels addObject: self.spaceRatioModel.LTC];
-                                                           [wself.spaceRatioModels addObject: self.spaceRatioModel.XRP];
-                                                           [wself.spaceRatioModels addObject: self.spaceRatioModel.ETH];
-                                                           [wself.spaceRatioModels addObject: self.spaceRatioModel.ETC];
-                                                           [wself.spaceRatioModels addObject: self.spaceRatioModel.BCH];
-                                                           [wself.spaceRatioModels addObject: self.spaceRatioModel.TRX];
-                            }
-                           
-                           
-                               [wself.categoryView reloadData];
-                                 [wself.tableView reloadData];
-                                              
-                                         [wself.tableView endRefreshing];
-                       }];
-             }else{
-                  [self.bcoin_coin_long_short_infos removeAllObjects];
-                 [GateRequestManager get:v_coin_typeURL(self.type) block:^(NSError * _Nonnull error, NSDictionary * _Nonnull response) {
-                    
-                             wself.coinSpaceRatioModel =[GTCoinSpaceRatioModel modelWithDictionary:response[@"data"]];
-                   
-                            if (!error) {
-              
-                            wself.coinSpaceRatioModel.bcoin_coin_long_short_info.Huobi_quarter.count<=0?:[self.bcoin_coin_long_short_infos addObject: wself.coinSpaceRatioModel.bcoin_coin_long_short_info.Huobi_quarter];
-                                
-                wself.coinSpaceRatioModel.bcoin_coin_long_short_info.Okex_quarter.count<=0?:[self.bcoin_coin_long_short_infos addObject: wself.coinSpaceRatioModel.bcoin_coin_long_short_info.Okex_quarter];
-               wself.coinSpaceRatioModel.bcoin_coin_long_short_info.Okex_swap.count<=0?: [self.bcoin_coin_long_short_infos addObject: wself.coinSpaceRatioModel.bcoin_coin_long_short_info.Okex_swap];
-                            
-                            }
-                                                      
-                                 [wself.tableView reloadData];
-                                              
-                                         [wself.tableView endRefreshing];
-                       }];
-             }
-                
-         }];
-      dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-           [wself.tableView startRefreshing];
-      });
    
+    [GateRequestManager getCache:duokongURL block:^(NSError * _Nonnull error, BOOL isCache, NSDictionary * _Nonnull response) {
+   
+        @strongify(self)
+       
+        if (!error) {
+            self.spaceRatioModel =[GTSpaceRatioModel modelWithDictionary:response[@"data"]];
+            self.isError = NO;
+        }else{
+            self.isError = YES;
+        }
+           if (!isCache) {
+               [EasyLodingView hidenLoding];
+               [self.tableView endRefreshing];
+               [self.tableView cyl_reloadData];
+           }
+          
+    }];
+
 }
 
 -(void)registerCreateTable{
     
     
       gateTableRegisterNib(self.tableView, @"GatePrgessTableViewCell");
-
      gateTableRegisterNib(self.tableView, @"GTTopTotalTableViewCell");
      gateTableRegisterNib(self.tableView, @"GTDuoKongLineChartsTableViewCell");
     
@@ -148,7 +154,6 @@
 -(void)creatTopSelectView{
       self.topSelectView = [[GateTopSelectView alloc] initWithFrame:CGRectMake(0, 0, scrWeiht, 40) categoryTitleViewStyle:CategoryZoomScale];
      [self.view addSubview:self.topSelectView];
-//     self.tableView.frame = CGRectMake(0,CGRectGetMaxY(self.topSelectView.frame) , scrWeiht, self.view.bounds.size.height-CGRectGetMaxY(self.topSelectView.frame));
      self.tableView.backgroundColor = [UIColor whiteColor];
     [self registerCreateTable];
     @weakify(self)
@@ -171,13 +176,13 @@
    
     if (self.topSelectView.categoryView.selectedIndex == 0) {
       NSArray * arr = self.spaceRatioModels[section];
-        GTSpaceRatioSubvModel * spaceRatioSubvModel = arr.firstObject;
-                  GateHearView  * hearView  = [GateHearView getGateHearView];
-                hearView.frame = CGRectMake(0, 0, scrWeiht, 50);
-                  
-                 hearView.nameLb.text = spaceRatioSubvModel.coin_type;
+//        GTSpaceRatioSubvModel * spaceRatioSubvModel = arr.firstObject;
+//                  GateHearView  * hearView  = [GateHearView getGateHearView];
+//                hearView.frame = CGRectMake(0, 0, scrWeiht, 50);
+//
+//                 hearView.nameLb.text = spaceRatioSubvModel.coin_type;
                  
-                    return hearView;
+        return [UIView new];
     }else{
         if (section == 0) {
         
@@ -197,39 +202,13 @@
                                                selectCategoryView.titles =  @[@"1天内",@"1周内"];
                                             
                                                selectCategoryView.selectblock = ^(NSInteger index) {
-                                                  NSString * time = @"1d";
-                                                                                              if (index == 0) {
-                                                                                                  time =  @"1d";
-                                                                                              }else{
-                                                                                                  time =  @"1dw";
-                                                                                              }
-                                                   [GateRequestManager get:v_coin_type_v_pic_tsURL(self.type, @"5m", time) block:^(NSError * _Nonnull error, NSDictionary * _Nonnull response) {
-                                                       self.spaceRatioModel =[GTSpaceRatioModel modelWithDictionary:response[@"data"]];
-                                                                                                                           if (!error) {
-                                                                                                                          
-                                                                                                                           }
-                                                                                                         self.selectIndex = index;
-                                                                                                                          
-                                                                                                                              [self.categoryView reloadData];
-                                                                                                                                [self.tableView reloadData];
-                                                                                                                                             
-                                                                                                                                        [self.tableView endRefreshing];
-                                                   }];
                                                    
-                                                   
-                                                   
-                                                   
-                                                   
-                                               };
-//              if (self.bcoin_coin_long_short_infos.count>=section-1) {
-//                   NSArray * arr = self.bcoin_coin_long_short_infos[section-1];
-//                               bcoin_coin_long_short_infoModel *coin_long_short_infoModel =  arr.firstObject;
-//                                             
-//                               selectCategoryView.title = [NSString stringWithFormat:@"%@永续%@多空",coin_long_short_infoModel.exchange_future_type,self.type];
-//              }
-             
+                                                   [self v_TimeSelect:index];
+
+                                            };
+
          
-                                                   return selectCategoryView;
+                                       return selectCategoryView;
           }
     }
     
@@ -285,7 +264,7 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
      
      if (self.topSelectView.categoryView.selectedIndex == 0) {
-         return self.spaceRatioModels.count;
+         return self.spaceRatioModel.lsalldtl.alldatalist.count/3;
      }else{
          return self.bcoin_coin_long_short_infos.count>0? self.bcoin_coin_long_short_infos.count+1:0;
      }
@@ -295,11 +274,11 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
    if (self.topSelectView.categoryView.selectedIndex == 0) {
-       NSArray * arr = self.spaceRatioModels[section];
-       return self.spaceRatioModels.count>0? arr.count+1:0;
+       NSArray * arr = [GTDataManager getItemModelWhit:self.spaceRatioModel.lsalldtl.alldatalist[section *3].datalist.firstObject] ;
+       return arr.count>0?arr.count:0;
        }else{
            if (section == 0) {
-              return self.coinSpaceRatioModel.bcoin_exchange_long_short_info.count+1;
+              return 1;
            }else{
                return  self.bcoin_coin_long_short_infos.count>0? 1:0;
            }
@@ -322,8 +301,8 @@
                               }else{
                                   GatePrgessTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GatePrgessTableViewCell" forIndexPath:indexPath];
                                   NSArray * arr = self.spaceRatioModels[indexPath.section];
-                                  GTSpaceRatioSubvModel * spaceRatioSubvModel = arr[indexPath.row-1];
-                                       cell.spaceRatioSubvModel = spaceRatioSubvModel;
+//                                  GTSpaceRatioSubvModel * spaceRatioSubvModel = arr[indexPath.row-1];
+//                                       cell.spaceRatioSubvModel = spaceRatioSubvModel;
                                          return cell;
                               }
     }else{
@@ -335,9 +314,9 @@
                            return cell;
                        }else{
                            GatePrgessTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GatePrgessTableViewCell" forIndexPath:indexPath];
-                           GTSpaceRatioSubvModel * spaceRatioSubvModel  = self.coinSpaceRatioModel.bcoin_exchange_long_short_info[indexPath.row-1];
-                         
-                                cell.spaceRatioSubvModel = spaceRatioSubvModel;
+//                           GTSpaceRatioSubvModel * spaceRatioSubvModel  = self.coinSpaceRatioModel.bcoin_exchange_long_short_info[indexPath.row-1];
+//
+//                                cell.spaceRatioSubvModel = spaceRatioSubvModel;
                                   return cell;
                        }
             }else{

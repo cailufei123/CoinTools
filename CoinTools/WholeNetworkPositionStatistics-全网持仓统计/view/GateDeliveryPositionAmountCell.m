@@ -11,7 +11,11 @@
 #import <CoinTools/CoinTools-Swift.h>
 @interface GateDeliveryPositionAmountCell ()<ChartViewDelegate, IChartAxisValueFormatter>
 @property(nonatomic,strong) GatePublicSelectView * topPublicSelectView;
-
+@property(nonatomic,strong)GTChartPMarkerView * marker;
+@property(nonatomic,strong) GTXAxisFearIndexValueFormatter * xXisFearIndexValueFormatter;
+@property(nonatomic,strong)  GTYxisFearIndexValueFormatter *  yLeftXisFearIndexValueFormatter;
+@property(nonatomic,strong) GTYxisFearIndexValueFormatter * yXisFearIndexValueFormatter;
+@property(nonatomic,strong)NSMutableArray * temps;
 @end
 @implementation GateDeliveryPositionAmountCell
 
@@ -40,65 +44,47 @@
                              @(CombinedChartDrawOrderScatter)
                              ];
 
-  _chartView.rightAxis.enabled = NO;
+  _chartView.rightAxis.enabled = YES;
     ChartYAxis *rightAxis = _chartView.rightAxis;
     rightAxis.drawGridLinesEnabled = NO;
     rightAxis.axisMinimum = 0.0; // this replaces startAtZero = YES
- 
+    self.yXisFearIndexValueFormatter = [GTYxisFearIndexValueFormatter getGTYxisFearIndexValueFormatter];
+    self.yXisFearIndexValueFormatter.formatterType = GTFormatterYRightChiCang;
+    rightAxis.valueFormatter = self.yXisFearIndexValueFormatter ;
     ChartYAxis *leftAxis = _chartView.leftAxis;
     leftAxis.drawGridLinesEnabled = YES;
     leftAxis.axisMinimum = 0.0; // this replaces startAtZero = YES  //网格线的颜色
     leftAxis.gridColor = gateColor(@"f6f6f9"); //网格线的颜色
     leftAxis.axisLineColor = gateColor(gateGridColor);
      leftAxis.labelTextColor = gateColor(axislabelTextColor);
+    self.yLeftXisFearIndexValueFormatter = [GTYxisFearIndexValueFormatter getGTYxisFearIndexValueFormatter];
+  
+       leftAxis.valueFormatter = self.yLeftXisFearIndexValueFormatter ;
     ChartXAxis *xAxis = _chartView.xAxis;
-//    xAxis.labelPosition = XAxisLabelPositionBothSided;
     xAxis.axisMinimum = -0.5;
       xAxis.drawGridLinesEnabled = NO;
     xAxis.granularity = 1.0;
-    xAxis.valueFormatter = self;
+    
+    
+   self.xXisFearIndexValueFormatter = [GTXAxisFearIndexValueFormatter getGTXAxisFearIndexValueFormatter];
+    xAxis.valueFormatter = self.xXisFearIndexValueFormatter;;
+    
+    
   xAxis.labelPosition = XAxisLabelPositionBottom;
     xAxis.labelRotationAngle = 0;
   xAxis.axisLineColor = gateColor(gateGridColor);
   xAxis.labelTextColor = gateColor(axislabelTextColor);
    
-   XYMarkerView *marker = [[XYMarkerView alloc]
-                                  initWithColor: [UIColor colorWithWhite:180/255. alpha:1.0]
-                                  font: [UIFont systemFontOfSize:12.0]
-                                  textColor: UIColor.whiteColor
-                                  insets: UIEdgeInsetsMake(8.0, 8.0, 20.0, 8.0)
-                                  xAxisValueFormatter: _chartView.xAxis.valueFormatter];
-    marker.chartView = self.chartView;
-    marker.arrowSize =  CGSizeMake(8,8);
-    marker.minimumSize = CGSizeMake(80.f, 40.f);
-    self.chartView.marker = marker;
-    
-    
-    
-  NSMutableArray * arr = [NSMutableArray array];
-        
-        for (int i = 0; i<2; i++) {
-            GatePublicSelectModel *  selectModel = [[GatePublicSelectModel alloc] init];
-            if (i == 0) {
-                  selectModel.color = gateColor(@"5064f2");
-                selectModel.titleText = @"总量";
-            }
-            if (i == 1) {
-                selectModel.color = gateColor(@"07c69d");
-                selectModel.titleText = @"当季";
-            }
-            if (i == 2) {
-                selectModel.color = UIColor.orangeColor;
-               selectModel.titleText = @"";
-            }
-            [arr addObject:selectModel];
-    }
-    self.topPublicSelectView.arr = arr;
-    [self.topSelectView addSubview:self.topPublicSelectView];
+    xAxis.labelCount = 3;
    
-
-     [self setChartData];
-  
+    
+    GTChartPMarkerView * marker = [GTStyleManager getChartPMarkerViewWhit];
+    marker.chartView =  self.chartView;
+    marker.aleartType = GTChartPMarkerViewCalendarPermissionChiCang;
+    self.marker = marker;
+    self.chartView.marker = marker;
+    [self.topSelectView addSubview:self.topPublicSelectView];
+    marker.xAxisValueFormatter = self.xXisFearIndexValueFormatter;
 }
 
 -(GatePublicSelectView *)topPublicSelectView{
@@ -109,7 +95,7 @@
        @weakify(self)
       _topPublicSelectView.selectBlock = ^(NSInteger index, GatePublicSelectModel * _Nonnull publicSelectModel) {
           @strongify(self)
-                     LineChartDataSet * set =  (LineChartDataSet *) self.chartView.lineData.dataSets[index];
+                     LineChartDataSet * set =  (LineChartDataSet *) self.chartView.lineData.dataSets[index+1];
           set.visible = !publicSelectModel.selectEnabled;
                      [self.chartView setNeedsDisplay];
       };
@@ -118,7 +104,32 @@
   return _topPublicSelectView;
 }
 
-
+-(void)setHoldData:(GTPublicContentModel *)holdData{
+    _holdData = holdData;
+    NSMutableArray * arr = [NSMutableArray array];
+    self.temps =  [NSMutableArray array];
+    NSMutableArray * styleArr = [NSMutableArray array];
+          for (int i = 1; i<holdData.alldatalist.count; i++) {
+              GTHomeTitleModel * title = holdData.alldatalist[i].title;
+              GTHomeTitleModel * titleModel = [GTDataManager getItemModelWhit:holdData.alldatalist[i].datalist.firstObject].firstObject;
+              GatePublicSelectModel *  selectModel = [[GatePublicSelectModel alloc] init];
+              selectModel.color = gateColor(titleModel.color);
+              selectModel.titleText = title.content;
+              if (i>1) {
+                 
+                  [arr addObject:selectModel];
+              }
+              [self.temps addObject:selectModel];
+              [styleArr addObject:@{@"title":[NSString stringWithFormat:@"%@:%@", title.content,titleModel.content] ,@"color":gateColor(titleModel.color)}];
+  
+      }
+    
+    self.xXisFearIndexValueFormatter.publicArry = [GTDataManager getItemModelWhit:holdData.alldatalist.firstObject.datalist.firstObject];
+    self.marker.stylemodels = styleArr;
+    
+    self.topPublicSelectView.arr = arr;
+    [self setChartData];
+}
 
 
 - (void)setChartData
@@ -126,7 +137,7 @@
     CombinedChartData *data = [[CombinedChartData alloc] init];
     
     data.lineData = [self generateLineData];
-    data.barData = [self generateBarData];
+//    data.barData = [self generateBarData];
 //    data.bubbleData = [self generateBubbleData];
 //    data.scatterData = [self generateScatterData];
 //    data.candleData = [self generateCandleData];
@@ -161,39 +172,58 @@
    [d setDrawValues:NO];
  
      [d setBarWidth:0.5];
-    // make this BarData object grouped
-//    [d groupBarsFromX:0.0 groupSpace:groupSpace barSpace:barSpace]; // start at x = 0
-//    [d addDataSet:set1];
+
     return d;
 }
+
+
+
+
 
 - (LineChartData *)generateLineData
 {
     LineChartData *d = [[LineChartData alloc] init];
-    
-   
-    
-  
-    for (int index = 0; index <  self.topPublicSelectView.arr.count; index++){
-        GatePublicSelectModel *  selectModel = self.topPublicSelectView.arr[index];
-        
-        
+
+          double leftAxisMin = MAXFLOAT;
+          double leftAxisMax = 0;
+         double rightAxisMin = MAXFLOAT;
+         double rightAxisMax = 0;
+    for (int i = 1; i<_holdData.alldatalist.count; i++) {
+       NSArray< GTHomeTitleModel *> * models = [GTDataManager getItemModelWhit:_holdData.alldatalist[i].datalist.firstObject];
         NSMutableArray *entries = [[NSMutableArray alloc] init];
-          
-           for (int index = 0; index < 30; index++)
-           {
-               [entries addObject:[[ChartDataEntry alloc] initWithX:index + 0.5 y:(arc4random_uniform(15) + 5)]];
-             
-           }
-        
-        
-        [d addDataSet:[self getArr:entries lineChartDataSet:selectModel.color]];
+        NSLog(@"%@",models);
+        for (int index = 0; index<models.count; index++) {
+            GTHomeTitleModel * titleModel  = models[index];
+           
+            if (i == 1) {
+                double val = [titleModel.content integerValue];
+                rightAxisMax = MAX(val, rightAxisMax);
+                rightAxisMin = MIN(val, rightAxisMin);
+            }else{
+                double val = [titleModel.content integerValue];
+                leftAxisMax = MAX(val, leftAxisMax);
+                leftAxisMin = MIN(val, leftAxisMin);
+            }
+            [entries addObject:[[ChartDataEntry alloc] initWithX:index + 0.5 y:([titleModel.content doubleValue])]];
+       }
+       
+        LineChartDataSet * set1 = [self getArr:entries lineChartDataSet:gateColor(models.firstObject.color) drawFilledEnabled:i == 1?YES:NO];
+      
+        if (i == 1) {
+            set1.axisDependency = AxisDependencyRight;
+        }else{
+            set1.axisDependency = AxisDependencyLeft;
+        }
+        [d addDataSet:set1];
     }
-   
-    
+  
+    self.chartView.leftAxis.axisMinimum = leftAxisMin;
+    self.chartView.leftAxis.axisMaximum = leftAxisMax;
+    self.chartView.rightAxis.axisMinimum = rightAxisMin;
+    self.chartView.rightAxis.axisMaximum = rightAxisMax;
     return d;
 }
--(LineChartDataSet *)getArr:(NSMutableArray *)entries lineChartDataSet:(UIColor * )color{
+-(LineChartDataSet *)getArr:(NSMutableArray *)entries lineChartDataSet:(UIColor * )color drawFilledEnabled:(BOOL)drawFilledEnabled{
     LineChartDataSet *set = [[LineChartDataSet alloc] initWithEntries:entries label:@"Line DataSet"];
         [set setColor:color];
         set.lineWidth = 1;
@@ -209,20 +239,50 @@
         set.drawValuesEnabled = NO;
         set.highlightEnabled = YES;
         set.highlightColor = [UIColor.grayColor colorWithAlphaComponent:0.5];
-        set.highlightLineWidth = 10;
+        set.highlightLineWidth = 5;
         set.drawHorizontalHighlightIndicatorEnabled = NO;
         set.valueFont = [UIFont systemFontOfSize:10.f];
         set.valueTextColor = [UIColor colorWithRed:240/255.f green:238/255.f blue:70/255.f alpha:1.f];
-        
-        set.axisDependency = AxisDependencyLeft;
+       NSArray *gradientColors = @[
+        (id)[ChartColorTemplates colorFromString:@"#ffffff"].CGColor,
+                                    (id)[UIColor redColor].CGColor,
+                                     
+                                     ];
+         CGGradientRef gradient = CGGradientCreateWithColors(nil, (CFArrayRef)gradientColors, nil);
+         
+//         set.fillAlpha = 1.f;
+         set.fill = [ChartFill fillWithLinearGradient:gradient angle:90.f];
+         set.drawFilledEnabled = drawFilledEnabled;// 填充颜色的透明度
+//        set.axisDependency = AxisDependencyLeft;
 
     return set;
 }
 #pragma mark - ChartViewDelegate
 
-- (void)chartValueSelected:(ChartViewBase * __nonnull)chartView entry:(ChartDataEntry * __nonnull)entry highlight:(ChartHighlight * __nonnull)highlight
-{
-    NSLog(@"chartValueSelected");
+- (void)chartValueSelected:(ChartViewBase * _Nonnull)chartView
+                     entry:(ChartDataEntry * _Nonnull)entry
+                 highlight:(ChartHighlight * _Nonnull)highlight {
+
+    NSArray * lineChartDataSets = self.chartView.lineData.dataSets;
+    for (LineChartDataSet *set in lineChartDataSets) {
+        
+        for ( ChartDataEntry *entry in set.entries) { entry.icon = nil; }
+     
+    }
+    
+    NSInteger  x = entry.x;
+    
+   
+    for (int i =0; i<lineChartDataSets.count; i++) {
+        
+        LineChartDataSet *set = lineChartDataSets[i];
+       
+        ChartDataEntry *entry = set.entries[ x ];
+        GatePublicSelectModel *  selectModel =  self.temps[i];
+
+        entry.icon = [GTStyleManager  selecrDotStyle:selectModel.color];
+    }
+    
 }
 
 - (void)chartValueNothingSelected:(ChartViewBase * __nonnull)chartView
@@ -240,5 +300,4 @@
 
 
 @end
-
 

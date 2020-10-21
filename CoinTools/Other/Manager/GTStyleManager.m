@@ -25,4 +25,48 @@
         return [EasyLodingConfig shared].setLodingType(LodingShowTypeImageAround).setTintColor(UIColor.redColor).setBgColor([[UIColor grayColor] colorWithAlphaComponent:0.2]);
     }];
 }
++(UIImage *)selecrDotStyle:(UIColor * )color {
+  
+    UIView * rr = [[UIView alloc] init];
+
+    rr.layer.borderWidth = 2;
+    rr.layer.cornerRadius = 5;
+    rr.layer.masksToBounds = YES;
+    rr.backgroundColor = [UIColor whiteColor];
+    rr.size = CGSizeMake(10, 10);
+ 
+    
+    rr.layer.borderColor = color.CGColor;
+    UIImage * ic  = [[UIImage convertViewToImage:rr]  wh_imageAddCornerWithRadius:rr.size.height/2 andSize:rr.size];
+   
+    return   ic;
+  
+}
+
+
+
++(GTChartPMarkerView * )getChartPMarkerViewWhit {
+    
+    GTChartPMarkerView * marker1 = [GTChartPMarkerView loadFromNib:@"GTChartPMarkerView"];
+   
+  @weakify(self)
+    marker1.aleartType = GTChartPMarkerViewCalendarPermissionBaoCang;
+    marker1.cycleSelectBlock = ^NSArray * _Nonnull(NSInteger index) {
+         @strongify(self)
+    
+          return [NSArray array];
+      };
+ 
+    [marker1 layercornerRadius:5];
+    marker1.alpha = 0.8;
+    marker1.backgroundColor = [UIColor blackColor];
+//    marker1.chartView =  self.chartView;
+     marker1.offset = CGPointMake(10, 0);
+//      self.chartView.marker = marker1;
+//    marker1.xAxisValueFormatter = xAxisValueFormatter;
+
+    return marker1;
+}
+
+
 @end

@@ -13,7 +13,7 @@
 #import "GateData1TableViewCell.h"
 #import "GateData2TableViewCell.h"
 #import "GateLineChartTableViewCell.h"
-#import "GateHomeModel.h"
+//#import "GateHomeModel.h"
 #import "GateHearCategoryView.h"
 #import "GateHearCategoryView.h"
 #import "GateBurstViewController.h"
@@ -21,7 +21,7 @@
 @property(nonatomic,strong)pressView *press;
 @property (nonatomic, strong) NSArray *titles;
 @property (nonatomic, strong) JXCategoryTitleView *categoryView;
-@property(nonatomic,strong)GateHomeModel *gateHomeModel;
+//@property(nonatomic,strong)GateHomeModel *gateHomeModel;
 
 @end
 
@@ -126,9 +126,9 @@
             GateLineChartTableViewCell *cell = [tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]];
             
             if (index == 0) {
-                  cell.possArr = self.gateHomeModel.poss;
+//                  cell.possArr = self.gateHomeModel.poss;
             }else{
-                  cell.possArr = self.gateHomeModel.diff;
+//                  cell.possArr = self.gateHomeModel.diff;
             }
         };
         return hearView;
@@ -189,13 +189,13 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section == 0) {
-//         return 1;
-        return self.gateHomeModel.long_short.count;
+         return 1;
+//        return self.gateHomeModel.long_short.count;
        }else if (section == 1){
             return 1;
        }else if (section == 2){
-//            return 1;
-          return self.gateHomeModel.burst_dtl.count;
+           return 1;
+//          return self.gateHomeModel.burst_dtl.count;
        }else {
            return 1;
        }
@@ -210,15 +210,15 @@
         return cell;
    }else if (indexPath.section == 1) {
       GateData1TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GateData1TableViewCell" forIndexPath:indexPath];
-       cell.h_burst_amtModel = self.gateHomeModel.burst_amt;
+//       cell.h_burst_amtModel = self.gateHomeModel.burst_amt;
           return cell;
    }else if (indexPath.section == 2){
        GateData2TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GateData2TableViewCell" forIndexPath:indexPath];
-       cell.burst_dtl = self.gateHomeModel.burst_dtl[indexPath.row];
+//       cell.burst_dtl = self.gateHomeModel.burst_dtl[indexPath.row];
                 return cell;
    }else {
        GateLineChartTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GateLineChartTableViewCell" forIndexPath:indexPath];
-       cell.possArr = self.gateHomeModel.poss;
+//       cell.possArr = self.gateHomeModel.poss;
                 return cell;
    }
    

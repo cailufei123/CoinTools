@@ -54,4 +54,5 @@
 #import "GTYxisFearIndexValueFormatter.h"
 #import "GTXAxisFearIndexValueFormatter.h"
 #import "GTSpaceRatioModel.h"
+#import "GTBigOrderModel.h"
 #endif /* HeaderFile_h */

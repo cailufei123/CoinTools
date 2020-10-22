@@ -20,7 +20,9 @@
 @property(nonatomic,strong)  GTYxisFearIndexValueFormatter *  yLeftXisFearIndexValueFormatter;
 @property(nonatomic,strong) GTYxisFearIndexValueFormatter * yXisFearIndexValueFormatter;
 @property (weak, nonatomic) IBOutlet UIView *selectView;
-@property(nonatomic,strong) GTChartPMarkerView * marker1;
+@property(nonatomic,strong) GTChartPMarkerView * marker;
+@property(nonatomic,strong)NSMutableArray * temps;
+@property(nonatomic,strong)NSMutableArray * styleArr;
 @end
 @implementation GTDuoKongLineChartsTableViewCell
 
@@ -50,7 +52,7 @@
 
 //  _chartView.rightAxis.enabled = NO;
     ChartYAxis *rightAxis = _chartView.rightAxis;
-
+    _chartView.rightAxis.enabled = YES;
     
     
     self.yXisFearIndexValueFormatter = [GTYxisFearIndexValueFormatter getGTYxisFearIndexValueFormatter];
@@ -96,24 +98,14 @@
     //    xAxis.labelRotationAngle = 50;
     xAxis.axisLineColor = gateColor(gateGridColor);
     xAxis.labelTextColor = gateColor(axislabelTextColor);
- 
-       GTChartPMarkerView * marker1 = [GTChartPMarkerView loadFromNib:@"GTChartPMarkerView"];
-       self.marker1 = marker1;
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//          marker1.frame = CGRectMake(0, 0,120, 80);
-//        [marker1 layoutIfNeeded];
-////          [marker1 setNeedsLayout];
-//    });
-  
-       marker1.xAxisValueFormatter = self.xXisFearIndexValueFormatter;
-       [marker1 layercornerRadius:5];
-       marker1.alpha = 0.8;
-       marker1.backgroundColor = [UIColor blackColor];
-       marker1.chartView =  self.chartView;
-        marker1.offset = CGPointMake(10, 0);
-         self.chartView.marker = marker1;
-      
-
+    
+    GTChartPMarkerView * marker = [GTStyleManager getChartPMarkerViewWhit];
+    marker.chartView =  self.chartView;
+    marker.aleartType = GTChartPMarkerViewCalendarPermissionChiCang;
+    self.marker = marker;
+    self.chartView.marker = marker;
+    [self.selectView addSubview:self.topPublicSelectView];
+    marker.xAxisValueFormatter = self.xXisFearIndexValueFormatter;
      
       [self.chartView animateWithXAxisDuration:2.0f];
     
@@ -125,42 +117,36 @@
    
   
 }
-//-(void)setFearIndexModel:(GTFearIndexModel *)fearIndexModel{
-//    _fearIndexModel = fearIndexModel;
-//
-////    self.xXisFearIndexValueFormatter.publicArry = fearIndexModel.bcoin_btc_vix_data_info;
-////
-////    [self addFearIndexModel];
-////
-////      [self setChartData];
-//
-//}
 
--(void)setBcoin_coin_long_short_infos:(NSArray *)bcoin_coin_long_short_infos{
-    self.marker1.possArr = bcoin_coin_long_short_infos;
-   
-    _bcoin_coin_long_short_infos = bcoin_coin_long_short_infos;
-//      self.yXisFearIndexValueFormatter.publicArry = bcoin_coin_long_short_infos;
-     self.xXisFearIndexValueFormatter.publicArry = bcoin_coin_long_short_infos;
-    [self addFearIndexModel];
-      
-        [self setChartData];
-     self.marker1.selectModels = self.topPublicSelectView.arr;
+
+-(void)setDuoKongData:(GTPublicContentModel *)duoKongData{
+    _duoKongData = duoKongData;
+    NSMutableArray * arr = [NSMutableArray array];
+    self.temps =  [NSMutableArray array];
+    
+    NSMutableArray * styleArr = [NSMutableArray array];
+    self.styleArr = styleArr;
+          for (int i = 1; i<duoKongData.alldatalist.count; i++) {
+              GTHomeTitleModel * title = duoKongData.alldatalist[i].title;
+              GTHomeTitleModel * titleModel = [GTDataManager getItemModelWhit:duoKongData.alldatalist[i].datalist.firstObject].firstObject;
+              GatePublicSelectModel *  selectModel = [[GatePublicSelectModel alloc] init];
+              selectModel.color = gateColor(titleModel.color);
+              selectModel.titleText = title.content;
+              [arr addObject:selectModel];
+              [self.temps addObject:selectModel];
+              [styleArr addObject:@{@"title":[NSString stringWithFormat:@"%@:%@", title.content,titleModel.content] ,@"color":gateColor(titleModel.color)}];
+  
+      }
+    
+    self.xXisFearIndexValueFormatter.publicArry = [GTDataManager getItemModelWhit:duoKongData.alldatalist.firstObject.datalist.firstObject];
+    self.marker.stylemodels = styleArr;
+    
+    self.topPublicSelectView.arr = arr;
+    [self setChartData];
+    
 }
 
 
--(void)addFearIndexModel{
-  NSMutableArray * arr = [NSMutableArray array];
-         GatePublicSelectModel * selectModel = [[GatePublicSelectModel alloc] init];
-         selectModel.color = gateColor(@"8734d9");
-         selectModel.titleText = @"开多比例";
-         GatePublicSelectModel * selectModel1 = [[GatePublicSelectModel alloc] init];
-            selectModel1.color = gateColor(@"5a7dee");
-             selectModel1.titleText = @"BTC报价";
-           [arr addObject:selectModel];
-          [arr addObject:selectModel1];
-           self.topPublicSelectView.arr = arr;
-}
 
 -(GatePublicSelectView *)topPublicSelectView{
   if (!_topPublicSelectView) {
@@ -170,31 +156,23 @@
        @weakify(self)
       _topPublicSelectView.selectBlock = ^(NSInteger index, GatePublicSelectModel * _Nonnull publicSelectModel) {
           @strongify(self)
-                     LineChartDataSet * set =  (LineChartDataSet *) self.chartView.lineData.dataSets[index];
-          set.visible = !publicSelectModel.selectEnabled;
-           self.chartView.leftAxis.enabled = YES;
-            self.chartView.rightAxis.enabled = YES;
-          GatePublicSelectModel * publicSelectModel1 = self.topPublicSelectView.arr.firstObject;
-        GatePublicSelectModel * publicSelectModel2 = self.topPublicSelectView.arr.lastObject;
-          if (!publicSelectModel1.selectEnabled) {
-               self.chartView.leftAxis.enabled = YES;
-          }else{
-                self.chartView.leftAxis.enabled = NO;
+            LineChartDataSet * set =  (LineChartDataSet *) self.chartView.lineData.dataSets[index];
+            set.visible = !publicSelectModel.selectEnabled;
+            NSMutableArray * styleArr1 = [NSMutableArray array];
+            for (int i = 0; i<self.chartView.lineData.dataSets.count; i++) {
+            LineChartDataSet * set1 = (LineChartDataSet *) self.chartView.lineData.dataSets[i];
+            if (set1.isVisible) {
+            [styleArr1 addObject:self.styleArr[i]];
           }
-          if (!publicSelectModel2.selectEnabled) {
-               self.chartView.rightAxis.enabled = YES;
-          }else{
-                self.chartView.rightAxis.enabled = NO;
-          }
-        
-//          [self generateLineData];
-           [self.chartView.data notifyDataChanged];
-           [self.chartView notifyDataSetChanged];
+      }
+          self.marker.stylemodels = styleArr1;
+
+          [self.chartView setNeedsDisplay];
            [self.chartView setNeedsDisplay];
-          [self.chartView animateWithXAxisDuration:2];
+//          [self.chartView animateWithXAxisDuration:2];
       };
       
-   }
+}
   return _topPublicSelectView;
 }
 
@@ -209,13 +187,14 @@
 //      dispatch_async(queue), ^{
 //          // 这里放异步执行任务代码
 //      });
-    
+    @weakify(self)
  [self generateLineDataBlock:^(LineChartData *lineChartData) {
+     @strongify(self)
         data.lineData  = lineChartData;
-          _chartView.data = data;
-     [self.chartView.data notifyDataChanged];
+        self.chartView.data = data;
+        [self.chartView.data notifyDataChanged];
 //               [self.chartView notifyDataSetChanged];
-//               [self.chartView setNeedsDisplay];
+               [self.chartView setNeedsDisplay];
 //              [self.chartView animateWithXAxisDuration:2];
     }];
   
@@ -253,13 +232,69 @@
             
 //            dispatch_group_leave(grpupT);
             
-              LineChartDataSet * set1 = [self getArr:entries lineChartDataSet:gateColor(@"8734d9")];
-              set1.axisDependency = AxisDependencyRight;
             
-              LineChartDataSet * set2 = [self getArr:entries1 lineChartDataSet:gateColor(@"5a7dee")];
-                  set2.axisDependency = AxisDependencyLeft;
-               [d addDataSet:set1];
-                [d addDataSet:set2];
+//              LineChartDataSet * set1 = [self getArr:entries lineChartDataSet:gateColor(@"8734d9")];
+//              set1.axisDependency = AxisDependencyRight;
+//
+//              LineChartDataSet * set2 = [self getArr:entries1 lineChartDataSet:gateColor(@"5a7dee")];
+//                  set2.axisDependency = AxisDependencyLeft;
+//               [d addDataSet:set1];
+//                [d addDataSet:set2];
+            
+            
+            
+            
+            
+            
+            
+            
+            double leftAxisMin = MAXFLOAT;
+            double leftAxisMax = 0;
+           double rightAxisMin = MAXFLOAT;
+           double rightAxisMax = 0;
+      for (int i = 1; i<self.duoKongData.alldatalist.count; i++) {
+         NSArray< GTHomeTitleModel *> * models = [GTDataManager getItemModelWhit:self.duoKongData.alldatalist[i].datalist.firstObject];
+          NSMutableArray *entries = [[NSMutableArray alloc] init];
+          NSLog(@"%@",models);
+          for (int index = 0; index<models.count; index++) {
+              GTHomeTitleModel * titleModel  = models[index];
+             
+              if (i == 1) {
+                 
+                  double val = [titleModel.content doubleValue];
+                  leftAxisMax = MAX(val, leftAxisMax);
+                  leftAxisMin = MIN(val, leftAxisMin);
+              }else{
+                  double val = [titleModel.content doubleValue];
+                  rightAxisMax = MAX(val, rightAxisMax);
+                  rightAxisMin = MIN(val, rightAxisMin);
+              }
+//              [titleModel.content doubleValue]
+//              arc4random_uniform(250) + 25
+              [entries addObject:[[ChartDataEntry alloc] initWithX:index + 0.5 y:([titleModel.content doubleValue])]];
+         }
+         
+          LineChartDataSet * set1 = [self getArr:entries lineChartDataSet:gateColor(models.firstObject.color) drawFilledEnabled:NO];
+        
+          if (i == 1) {
+              
+              set1.axisDependency = AxisDependencyLeft;
+          }else{
+              set1.axisDependency = AxisDependencyRight;
+          }
+          [d addDataSet:set1];
+      }
+    
+      self.chartView.leftAxis.axisMinimum = leftAxisMin;
+      self.chartView.leftAxis.axisMaximum = leftAxisMax;
+      self.chartView.rightAxis.axisMinimum = rightAxisMin;
+      self.chartView.rightAxis.axisMaximum = rightAxisMax;
+            
+            
+            
+            
+            
+            
             finishblock(d);
             
         });
@@ -291,7 +326,7 @@
     return d;
 }
 
--(LineChartDataSet *)getArr:(NSMutableArray *)entries lineChartDataSet:(UIColor * )color{
+-(LineChartDataSet *)getArr:(NSMutableArray *)entries lineChartDataSet:(UIColor * )color drawFilledEnabled:(BOOL)drawFilledEnabled{
     LineChartDataSet *set = [[LineChartDataSet alloc] initWithEntries:entries label:@"Line DataSet"];
         [set setColor:color];
         set.lineWidth = 1;

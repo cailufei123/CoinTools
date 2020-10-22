@@ -16,7 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *userNameLb;
 @property (weak, nonatomic) IBOutlet UIView *progressView;
 @property(nonatomic,strong)pressView *press;
-//@property(nonatomic,strong)GTSpaceRatioSubvModel *spaceRatioSubvModel;
+@property(nonatomic,strong) NSIndexPath * indexPath;
+@property(nonatomic,strong)GTPublicContentModel * lsalldtl;
 
 @end
 

@@ -16,6 +16,8 @@
 @property(nonatomic,strong)  GTYxisFearIndexValueFormatter *  yLeftXisFearIndexValueFormatter;
 @property(nonatomic,strong) GTYxisFearIndexValueFormatter * yXisFearIndexValueFormatter;
 @property(nonatomic,strong)NSMutableArray * temps;
+@property(nonatomic,strong)NSMutableArray * styleArr;
+
 @end
 @implementation GateDeliveryPositionAmountCell
 
@@ -97,6 +99,16 @@
           @strongify(self)
                      LineChartDataSet * set =  (LineChartDataSet *) self.chartView.lineData.dataSets[index+1];
           set.visible = !publicSelectModel.selectEnabled;
+          NSMutableArray * styleArr1 = [NSMutableArray array];
+          for (int i = 0; i<self.chartView.lineData.dataSets.count; i++) {
+              LineChartDataSet * set1 = (LineChartDataSet *) self.chartView.lineData.dataSets[i];
+              if (set1.isVisible) {
+                  [styleArr1 addObject:self.styleArr[i]];
+              }
+              
+          }
+          self.marker.stylemodels = styleArr1;
+          
                      [self.chartView setNeedsDisplay];
       };
       
@@ -108,7 +120,9 @@
     _holdData = holdData;
     NSMutableArray * arr = [NSMutableArray array];
     self.temps =  [NSMutableArray array];
+    
     NSMutableArray * styleArr = [NSMutableArray array];
+    self.styleArr = styleArr;
           for (int i = 1; i<holdData.alldatalist.count; i++) {
               GTHomeTitleModel * title = holdData.alldatalist[i].title;
               GTHomeTitleModel * titleModel = [GTDataManager getItemModelWhit:holdData.alldatalist[i].datalist.firstObject].firstObject;

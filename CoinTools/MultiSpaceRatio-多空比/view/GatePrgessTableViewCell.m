@@ -23,20 +23,24 @@
     });
         
 }
+-(void)setLsalldtl:(GTPublicContentModel *)lsalldtl{
+    self.userImageView.backgroundColor = [UIColor redColor];
+    _lsalldtl =  lsalldtl;
+    [self.userImageView setImageWithURL:urlWhitString( [GTDataManager getItemModelWhit:self.lsalldtl.alldatalist[self.indexPath.section *3].datalist.firstObject][self.indexPath.row].url) placeholder:nil];
+    
+    self.userNameLb.text = [GTDataManager getItemModelWhit:self.lsalldtl.alldatalist[self.indexPath.section *3].datalist.firstObject][self.indexPath.row].content;
+    [GTStyleManager setStyleWhit:[GTDataManager getItemModelWhit:self.lsalldtl.alldatalist[self.indexPath.section *3].datalist.firstObject][self.indexPath.row] forLale:self.userNameLb];
+
+    [self.press updataPrgress:[[GTDataManager getItemModelWhit:self.lsalldtl.alldatalist[self.indexPath.section *3+1].datalist.firstObject][self.indexPath.row].content doubleValue]] ;
+    self.press.fisrtLb.text =  [NSString stringWithFormat:@"%0.2lf%%",[[GTDataManager getItemModelWhit:lsalldtl.alldatalist[self.indexPath.section *3+1].datalist.firstObject][self.indexPath.row].content doubleValue]*100];;
+    
+    self.press.lastLb.text =   [NSString stringWithFormat:@"%0.2lf%%",[[GTDataManager getItemModelWhit:lsalldtl.alldatalist[self.indexPath.section *3+2].datalist.firstObject][self.indexPath.row].content doubleValue]*100];
+    
+    [GTStyleManager setStyleWhit:[GTDataManager getItemModelWhit:lsalldtl.alldatalist[self.indexPath.section *3+1].datalist.firstObject][self.indexPath.row] forLale: self.press.fisrtLb];
+    
+    [GTStyleManager setStyleWhit:[GTDataManager getItemModelWhit:lsalldtl.alldatalist[self.indexPath.section *3+2].datalist.firstObject][self.indexPath.row] forLale: self.press.lastLb];
+   
+}
 
 
-//@property(nonatomic,copy) NSString *exchange;//" : "Okex",
-//@property(nonatomic,copy) NSString *future_type;//" : "quarter",
-//@property(nonatomic,copy) NSString *coin_type;//" : "BTC",
-//@property(nonatomic,copy) NSString *time_type;//" : "5m",
-//@property(nonatomic,copy) NSString *long_rate;//" : "0.7415",
-//@property(nonatomic,copy) NSString *short_rate;//" : "0.2585"
-//-(void)setSpaceRatioSubvModel:(GTSpaceRatioSubvModel *)spaceRatioSubvModel{
-//    self.userNameLb.text = spaceRatioSubvModel.exchange;
-////      [self.userImageView setImageWithURL:urlWhitString(spaceRatioSubvModel.logo_url) placeholder:hydeNormalUserImage];
-//      
-//      [ self.press updataPrgress:[spaceRatioSubvModel.short_rate doubleValue]];
-//      self.press.fisrtLb.text =[NSString stringWithFormat:@"%0.2lf%%",[spaceRatioSubvModel.short_rate doubleValue] * 100];
-//       self.press.lastLb.text =[NSString stringWithFormat:@"%0.2lf%%",[spaceRatioSubvModel.long_rate doubleValue] * 100];
-//}
 @end

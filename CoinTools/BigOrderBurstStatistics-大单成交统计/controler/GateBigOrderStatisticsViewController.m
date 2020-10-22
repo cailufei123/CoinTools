@@ -18,49 +18,73 @@
 #import "GateBurstListTableViewCell.h"
 
 @interface GateBigOrderStatisticsViewController ()
-@property(nonatomic,strong)NSArray * littes;
+
+@property(nonatomic,copy)NSString *v_ts;
+@property(nonatomic,copy)NSString *v_pic_ts;
+@property(nonatomic,copy)NSString *v_coin_type;
+@property(nonatomic,assign)NSInteger v_pic_tsIndex;
+@property(nonatomic,strong)GTBigOrderModel * bigOrderModel;
+
 @end
 
 @implementation GateBigOrderStatisticsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-        self.navTitle  =@"大单成交统计";
+       
         self.view.backgroundColor = [UIColor whiteColor];
 
        
         self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
-//        self.tableView.frame = CGRectMake(0,CGRectGetMaxY(topSelectView.frame) , scrWeiht, self.view.bounds.size.height-CGRectGetMaxY(topSelectView.frame));
         gateTableRegisterClass(self.tableView, @"GateWholeNetworkBigOrderStatisticsCell");
         gateTableRegisterNib(self.tableView, @"GateThirtyDaysBurstStatisticsTableViewCell");
         gateTableRegisterNib(self.tableView, @"GateHousBurstStatisticsTableViewCell");
         gateTableRegisterNib(self.tableView, @"GateBigOrderDistributionDealCell");
         gateTableRegisterNib(self.tableView, @"GateBurstListTableViewCell");
-        self.littes = @[@"交易",@"类型",@"方向",@"价格",@"总额"];
-       GateRefreshNormalHeader * header = [GateRefreshNormalHeader headerWithRefreshingBlock:^{
-           dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-               [self.tableView.mj_header endRefreshing];
-           });
-       }];
-     
-        GateRefreshAutoNormalFooter *footer = [GateRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [self.tableView.mj_footer endRefreshing];
-                [self.tableView.mj_footer endRefreshingWithNoMoreData];
-            });
-            
-         }];
-//       self.tableView.mj_footer = footer;
-//       self.tableView.mj_header = header;
-    self.tableView.mj_footer.hidden = YES;
-    __weak typeof(self) wself = self;
+    @weakify(self)
        [self.tableView addPullToRefresh:[LNHeaderMeituanAnimator createAnimator] block:^{
-           
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-           [wself.tableView endRefreshing];
-               });
+            @strongify(self)
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self loadDataDefult:NO];
+              
+             });
        }];
+
+ self. v_pic_ts =  @"1d";
+ self.v_coin_type =  @"BTC";
+ [self loadDataDefult:YES];
 }
+
+-(void)loadDataDefult:(BOOL)isDefult{
+    
+    NSString * url = isDefult?bigdealURL:bigdeal_v_tsURL(self.v_coin_type, self.v_ts);
+    NSLog(@"%@",url);
+    [GTStyleManager loadingImage];
+    @weakify(self)
+   
+    [GateRequestManager getCache:url block:^(NSError * _Nonnull error, BOOL isCache, NSDictionary * _Nonnull response) {
+   
+        @strongify(self)
+       
+        if (!error) {
+            self.bigOrderModel =[GTBigOrderModel modelWithDictionary:response[@"data"]];
+            self.isError = NO;
+        }else{
+            self.isError = YES;
+        }
+           if (!isCache) {
+               [EasyLodingView hidenLoding];
+               [self.tableView endRefreshing];
+               [self.tableView cyl_reloadData];
+           }
+          
+    }];
+
+}
+
+
+
+
 -(void)selectitemOrindex:(NSInteger)index string:(nonnull NSString *)title{
     
 }
@@ -183,6 +207,7 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
         GateWholeNetworkBigOrderStatisticsCell * cell = [tableView dequeueReusableCellWithIdentifier:@"GateWholeNetworkBigOrderStatisticsCell" forIndexPath:indexPath];
+        cell.bigOrderModel = self.bigOrderModel;
               return cell;
        }else if (indexPath.section == 1) {
               GateThirtyDaysBurstStatisticsTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"GateThirtyDaysBurstStatisticsTableViewCell" forIndexPath:indexPath];

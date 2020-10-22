@@ -6,6 +6,10 @@
         "zhuiLiuHangQing": "主流行情",
         "wan": "万",
         "ge": "个",
+        "duo": "多",
+        "kong": "空",
+        "sell": "买",
+        "buy": "卖",
     },
     "English"  :{
         "BTCbaoJia": "BTC offer",
@@ -13,6 +17,10 @@
         "zhuiLiuHangQing": "Mainstream market",
         "wan": "万",
         "ge": "个",
+        "duo": "多",
+        "kong": "空",
+        "sell": "买",
+        "buy": "卖",
     },
     "Korean" :{
         "BTCbaoJia": "BTC 오퍼 를 내다",
@@ -20,6 +28,10 @@
         "zhuiLiuHangQing": "주류 시세",
         "wan": "万",
         "ge": "个",
+        "duo": "多",
+        "kong": "空",
+        "sell": "买",
+        "buy": "卖",
     },
     "Japanese"  :{
         "BTCbaoJia": "BTC オファー",
@@ -27,6 +39,10 @@
         "zhuiLiuHangQing": "本流相場",
         "wan": "万",
         "ge": "个",
+        "duo": "多",
+        "kong": "空",
+        "sell": "买",
+        "buy": "卖",
     }
     
    

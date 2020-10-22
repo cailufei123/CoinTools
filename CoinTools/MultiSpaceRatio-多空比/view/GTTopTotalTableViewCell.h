@@ -15,6 +15,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet SYLineProgressView *lineProgressView;
 @property (weak, nonatomic) IBOutlet UILabel *duoLb;
 @property (weak, nonatomic) IBOutlet UILabel *kongLb;
+@property(nonatomic,strong) NSIndexPath * indexPath;
+@property(nonatomic,strong)GTPublicContentModel * lsalldtl;
+@property (weak, nonatomic) IBOutlet UILabel *douTitleLb;
+@property (weak, nonatomic) IBOutlet UILabel *kongTitleLb;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GTDuoKongLineChartsTableViewCell : UITableViewCell
-@property(nonatomic,strong)NSArray *bcoin_coin_long_short_infos;
+@property(nonatomic,strong)GTPublicContentModel * duoKongData;
 @end
 
 NS_ASSUME_NONNULL_END

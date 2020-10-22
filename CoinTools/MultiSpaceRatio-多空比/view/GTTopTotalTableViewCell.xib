@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -19,7 +20,7 @@
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a4x-5W-X5S" customClass="SYLineProgressView">
                         <rect key="frame" x="15" y="122.5" width="290" height="20"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="TGV-7H-g6Y"/>
                         </constraints>
@@ -30,7 +31,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdM-zn-gRk">
-                        <rect key="frame" x="15" y="93.5" width="42" height="21"/>
+                        <rect key="frame" x="57" y="93.5" width="41.5" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -41,24 +42,47 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o8d-td-DLd">
+                        <rect key="frame" x="15" y="93.5" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eYw-a4-NAi">
+                        <rect key="frame" x="221.5" y="93.5" width="41.5" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="hdM-zn-gRk" firstAttribute="leading" secondItem="o8d-td-DLd" secondAttribute="trailing" id="4xj-Vf-ztC"/>
                     <constraint firstItem="a4x-5W-X5S" firstAttribute="top" secondItem="hdM-zn-gRk" secondAttribute="bottom" constant="8" id="APQ-u0-d4r"/>
+                    <constraint firstItem="o8d-td-DLd" firstAttribute="centerY" secondItem="hdM-zn-gRk" secondAttribute="centerY" id="GqH-Cy-O10"/>
                     <constraint firstItem="a4x-5W-X5S" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="OMR-2H-hO4"/>
                     <constraint firstItem="a4x-5W-X5S" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" constant="10" id="Tww-1u-K95"/>
-                    <constraint firstItem="hdM-zn-gRk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="USH-yM-dbd"/>
                     <constraint firstItem="a4x-5W-X5S" firstAttribute="top" secondItem="aSU-1q-m4B" secondAttribute="bottom" constant="8" id="bKe-Zf-hzk"/>
+                    <constraint firstItem="aSU-1q-m4B" firstAttribute="leading" secondItem="eYw-a4-NAi" secondAttribute="trailing" id="hHf-c0-52D"/>
+                    <constraint firstItem="eYw-a4-NAi" firstAttribute="centerY" secondItem="aSU-1q-m4B" secondAttribute="centerY" id="lGb-ja-VjK"/>
                     <constraint firstAttribute="trailing" secondItem="a4x-5W-X5S" secondAttribute="trailing" constant="15" id="oCM-2r-O7m"/>
+                    <constraint firstItem="o8d-td-DLd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="oTW-9o-LIF"/>
                     <constraint firstAttribute="trailing" secondItem="aSU-1q-m4B" secondAttribute="trailing" constant="15" id="pkZ-ps-v07"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
+                <outlet property="douTitleLb" destination="o8d-td-DLd" id="A0H-lV-ssh"/>
                 <outlet property="duoLb" destination="hdM-zn-gRk" id="i88-gh-x6P"/>
                 <outlet property="kongLb" destination="aSU-1q-m4B" id="12K-7B-QOM"/>
+                <outlet property="kongTitleLb" destination="eYw-a4-NAi" id="bfA-UJ-9G1"/>
                 <outlet property="lineProgressView" destination="a4x-5W-X5S" id="3J1-fI-XxY"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="59.263392857142854"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

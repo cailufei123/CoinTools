@@ -17,6 +17,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *totalMoneyLb;
 @property (weak, nonatomic) IBOutlet UILabel *buyLb;
 @property (weak, nonatomic) IBOutlet UILabel *sellLb;
+@property(nonatomic,strong)GTPublicContentModel * bigdealModel;
+@property(nonatomic,strong)NSIndexPath * indexPath;
+@property (weak, nonatomic) IBOutlet UILabel *buyTitleLb;
+@property (weak, nonatomic) IBOutlet UILabel *sellTitleLb;
+
 @end
 
 NS_ASSUME_NONNULL_END

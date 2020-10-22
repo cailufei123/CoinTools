@@ -11,6 +11,7 @@
 
 @interface GateWholeNetworkBigOrderStatisticsCell ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property(nonatomic,strong)UICollectionView * collectionView;
+@property(nonatomic,strong)UILabel *titleLb;
 @end
 @implementation GateWholeNetworkBigOrderStatisticsCell
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
@@ -30,6 +31,13 @@
         
     });
     return self;
+}
+
+-(void)setBigOrderModel:(GTBigOrderModel *)bigOrderModel{
+    _bigOrderModel = bigOrderModel;
+    
+    [self.collectionView reloadData];
+    [self.collectionView reloadData];
 }
 -(void)setArr:(NSArray *)arr{
     [self.collectionView mas_updateConstraints:^(MASConstraintMaker *make) {
@@ -82,7 +90,7 @@
 #pragma mark -kkkkk
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 2;
+    return _bigOrderModel?2:0;
     
 }
 #pragma mark - collectionViewDelegate
@@ -91,16 +99,26 @@
 {
     return CGSizeMake(self.width, 40);
 }
-
+-(UILabel *)titleLb{
+    if (!_titleLb) {
+        _titleLb = [[UILabel alloc] initWithFrame:CGRectMake(15, 10, self.width, 30)];
+      
+        _titleLb.textColor = gateColor(@"283864");
+        _titleLb.font = gateFont(13, Medium);
+        
+    }
+    return _titleLb;
+}
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
     if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
         UICollectionReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"header"forIndexPath:indexPath];
         headerView.backgroundColor = [UIColor whiteColor];
-       
-        YYLabel *title = [[YYLabel alloc] initWithFrame:CGRectMake(15, 10, self.width, 30)];
-        title.text = indexPath.section == 0 ? @"合约" :@"现货";
+        [headerView removeAllSubviews];
+        UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(15, 10, self.width, 30)];
+      
         title.textColor = gateColor(@"283864");
         title.font = gateFont(13, Medium);
+        title.text = indexPath.section == 0 ? @"合约" :@"现货";
         [headerView addSubview:title];
         return headerView;
     }
@@ -111,10 +129,14 @@
 - (UICollectionViewCell * )collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
  GateWholeNetworkBigOrderStatisticsCollectionCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GateWholeNetworkBigOrderStatisticsCollectionCell" forIndexPath:indexPath];
     if (indexPath.section == 0 ) {
+        cell.indexPath =  indexPath;
+        cell.bigdealModel = self.bigOrderModel.bigdeal_future;
         cell.borderColor  = gateColor(@"fee0c5");
         cell.titleBgView.backgroundColor = gateColor(@"fecda8");
         cell.borderWidth = 1;
     }else{
+        cell.indexPath = indexPath;
+        cell.bigdealModel = self.bigOrderModel.bigdeal_spot;
         cell.titleBgView.backgroundColor =  gateColor(@"adb7ff");
           cell.borderWidth = 1;
         cell.borderColor  = gateColor(@"c9cfff");

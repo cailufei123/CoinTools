@@ -19,7 +19,7 @@
         }];
     }
     else if (emptyType == NoData) {
-        holderView = [[HYDEEmptyPlaceHolderView alloc] initWithFrame:CGRectMake(0, 0, 0, 0) withTitle:nil withContent:@"暂时没有任何就诊人" withImage:getImageName(@"ic_no_data_311x147_@3x") withHeaderTopValue:0 withlineNum:1 withNeedReload:YES withReloadText:@"点击重试" reloadBlock:^{
+        holderView = [[HYDEEmptyPlaceHolderView alloc] initWithFrame:CGRectMake(0, 0, 0, 0) withTitle:nil withContent:@"暂时没有任何信息" withImage:getImageName(@"ic_no_data_311x147_@3x") withHeaderTopValue:0 withlineNum:1 withNeedReload:YES withReloadText:@"点击重试" reloadBlock:^{
             !reloadAction ? : reloadAction();
         }];
     }

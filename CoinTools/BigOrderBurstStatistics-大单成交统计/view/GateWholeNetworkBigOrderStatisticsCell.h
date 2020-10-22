@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface GateWholeNetworkBigOrderStatisticsCell : UITableViewCell
 @property(nonatomic,strong)NSArray * arr;
+@property(nonatomic,strong)GTBigOrderModel * bigOrderModel;
 @end
 
 NS_ASSUME_NONNULL_END

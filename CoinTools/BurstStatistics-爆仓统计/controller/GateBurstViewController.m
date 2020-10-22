@@ -131,7 +131,7 @@
     @weakify(self)
     [GTStyleManager loadingImage];
     NSLog(@"%@",baocang_v_tsURL(self.v_coin_type,self.v_ts));
-     [GateRequestManager getCache:baocang_v_tsURL(@"all",self.v_ts) block:^(NSError * _Nonnull error, BOOL isCache, NSDictionary * _Nonnull response) {
+     [GateRequestManager getCache:baocang_v_tsURL(@"ALL",self.v_ts) block:^(NSError * _Nonnull error, BOOL isCache, NSDictionary * _Nonnull response) {
            @strongify(self)
         
        

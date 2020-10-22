@@ -20,9 +20,7 @@
      self.lineProgressView.label.hidden = YES;
      self.lineProgressView.animationText = YES;
      [self.lineProgressView initializeProgress];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        self.lineProgressView.progress = 0.7;
-    });
+   
    
     
     self.kongLb.textColor = self.duoLb.textColor = gateColor(@"989898");
@@ -34,7 +32,27 @@
      self.duoLb.attributedText = attr;
     
 }
-
+-(void)setLsalldtl:(GTPublicContentModel *)lsalldtl{
+    _lsalldtl = lsalldtl;
+  
+    self.duoLb.text = [NSString stringWithFormat:@"%0.2lf%%",[[GTDataManager getItemModelWhit:lsalldtl.alldatalist[self.indexPath.section *3+1].datalist.firstObject][self.indexPath.row].content doubleValue]*100];
+    
+    self.douTitleLb.text = [NSString stringWithFormat:@"%@:",[GTDataManager getLanguageData:@"duo"]];
+    [GTStyleManager setStyleWhit:[GTDataManager getItemModelWhit:lsalldtl.alldatalist[self.indexPath.section *3+1].datalist.firstObject][self.indexPath.row] forLale:self.duoLb];
+    [GTStyleManager setStyleWhit:[GTDataManager getItemModelWhit:lsalldtl.alldatalist[self.indexPath.section *3+1].datalist.firstObject][self.indexPath.row] forLale:self.douTitleLb];
+    self.douTitleLb.textColor = gateColor(@"333333");
+    
+    self.kongTitleLb.text =[NSString stringWithFormat:@"%@:",[GTDataManager getLanguageData:@"kong"]] ;
+   
+    self.lineProgressView.progress = [[GTDataManager getItemModelWhit:lsalldtl.alldatalist[self.indexPath.section *3+1].datalist.firstObject][self.indexPath.row].content doubleValue];
+  
+    self.kongLb.text =  [NSString stringWithFormat:@"%0.2lf%%",[[GTDataManager getItemModelWhit:lsalldtl.alldatalist[self.indexPath.section *3+2].datalist.firstObject][self.indexPath.row].content doubleValue]*100];
+    self.backgroundColor = [UIColor whiteColor];
+    [GTStyleManager setStyleWhit:[GTDataManager getItemModelWhit:lsalldtl.alldatalist[self.indexPath.section *3+1].datalist.firstObject][self.indexPath.row] forLale: self.kongLb];
+    [GTStyleManager setStyleWhit:[GTDataManager getItemModelWhit:lsalldtl.alldatalist[self.indexPath.section *3+1].datalist.firstObject][self.indexPath.row] forLale: self.kongTitleLb];
+    self.kongTitleLb.textColor = gateColor(@"333333");
+     
+}
 
 
 @end

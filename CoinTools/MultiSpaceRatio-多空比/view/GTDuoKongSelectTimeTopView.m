@@ -20,10 +20,21 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-      
+        if (!_selectIndexPath) {
+            NSIndexPath *indexPath = [NSIndexPath indexPathForItem:0 inSection:0];
+            _selectIndexPath = indexPath;
+        }
 //       self.imgs = [NSArray arrayWithObjects:@"zhadan@3x-2",@"RectangleCopy@3x" ,@"icon_huabanfuben@3x" ,@"jingjiren_chengjiaoguanli@3x" ,@"shujuzhongxinshujucangku@3x" ,nil];
        self.titles = [NSArray arrayWithObjects:@"4小时多空(通用)",@"1小时多空", @"5分钟多空", nil];
         [self collectionViewLyout];
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//            [self.collectionView reloadData];
+//            [self.collectionView selectItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]  animated:YES scrollPosition:UICollectionViewScrollPositionNone];
+//            [self collectionView:self.collectionView didSelectItemAtIndexPath:self.selectIndexPath];
+//
+////            [self.collectionView selectItemAtIndexPath:self.selectIndexPath animated:YES scrollPosition:UICollectionViewScrollPositionNone];
+//        });
+
     }
     return self;
 }
@@ -112,7 +123,7 @@
 
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-//    !_selectBlock?:_selectBlock(indexPath.item);
+
     !_selectblock?:_selectblock(indexPath.item);
     self.selectIndexPath = indexPath;
     [self.collectionView reloadData];

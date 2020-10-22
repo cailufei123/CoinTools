@@ -52,7 +52,7 @@
     };
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-          self.titles = @[@"all",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",];
+          self.titles = @[@"ALL",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",];
         self.topSelectView.titles = self.titles;
         
        
@@ -208,6 +208,8 @@ if (@available(iOS 11.0, *)) {
 
         [self.tableView startRefreshing];
     }];
+  
+   
     return emptyView;
 }
 - (BOOL)enableScrollWhenPlaceHolderViewShowing{

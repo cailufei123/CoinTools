@@ -31,10 +31,10 @@
 //@property(nonatomic,strong)GTSpaceRatioModel *spaceRatioModel;
 
 @property(nonatomic,copy)NSString *type;
-@property(nonatomic,assign)NSInteger selectIndex;
+
 
 @property (nonatomic, strong) NSMutableArray *spaceRatioModels;
-@property (nonatomic, strong) NSMutableArray *bcoin_coin_long_short_infos;
+@property (nonatomic, strong) NSMutableArray *dataArrs;
 
 @property(nonatomic,strong) GateTopSelectView * topSelectView;
 
@@ -45,7 +45,7 @@
 @property(nonatomic,copy)NSString *v_ts;
 @property(nonatomic,copy)NSString *v_pic_ts;
 @property(nonatomic,copy)NSString *v_coin_type;
-@property(nonatomic,assign)NSInteger index;
+@property(nonatomic,assign)NSInteger v_pic_tsIndex;
 
 
 @end
@@ -57,17 +57,24 @@
     }
     return _spaceRatioModels;
 }
--(NSMutableArray *)bcoin_coin_long_short_infos{
-    if (!_bcoin_coin_long_short_infos) {
-           _bcoin_coin_long_short_infos = [NSMutableArray array];
+
+-(NSMutableArray *)dataArrs{
+    if (!_dataArrs) {
+        _dataArrs = [NSMutableArray array];
     }
-      return _bcoin_coin_long_short_infos;
+    return  _dataArrs;
 }
+
+
 -(GTDuoKongSelectTimeTopView *)duoKongSelectTimeTopView{
     if (!_duoKongSelectTimeTopView) {
+        @weakify(self)
         _duoKongSelectTimeTopView = [[GTDuoKongSelectTimeTopView alloc] initWithFrame:CGRectMake(0, 0, scrWeiht, 50)];
         _duoKongSelectTimeTopView.selectblock = ^(NSInteger index) {
-//            [self totalTimeSelect];
+            
+            @strongify(self)
+            [self v_tsSelect:index];
+            
         };
     }
     return _duoKongSelectTimeTopView;
@@ -75,27 +82,28 @@
 
 -(void)v_tsSelect:(NSInteger)index{
     if (index == 0) {
-        self.v_ts = @"5m";
-    }else if(index == 0){
-        self.v_ts = @"1h";
-    }else if(index == 0){
         self.v_ts = @"4h";
+    }else if(index == 1){
+        self.v_ts = @"1h";
+    }else if(index == 2){
+        self.v_ts = @"5m";
     }
-    
+    [self loadDataDefult:NO];
 }
 -(void)v_pic_tsSelect:(NSInteger)index{
+    self.v_pic_tsIndex = index;
     if (index == 0) {
         self. v_pic_ts =  @"1d";
     }else{
         self. v_pic_ts =  @"1w";
     }
-    
+    [self loadDataDefult:NO];
+   
 }
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    [self creatTopSelectView];
     [self registerCreateTable];
    
     self.tableView.tableHeaderView  =self.duoKongSelectTimeTopView;
@@ -104,17 +112,13 @@
           [self.tableView addPullToRefresh:[LNHeaderMeituanAnimator createAnimator] block:^{
                @strongify(self)
                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                   if (self.selectedIndex == 0) {
-                        [self loadDataDefult:YES];
-                   }else{
-                       [self loadDataDefult:NO];
-                   }
-                   
+                   [self loadDataDefult:NO];
                  
                 });
           }];
-   
-    self.v_coin_type =  @"all";
+    self.v_ts = @"4h";
+    self. v_pic_ts =  @"1d";
+    self.v_coin_type =  @"ALL";
     [self loadDataDefult:YES];
 }
 -(void)selectitemOrindex:(NSInteger)index string:(nonnull NSString *)title{
@@ -127,7 +131,7 @@
 
 -(void)loadDataDefult:(BOOL)isDefult{
     NSString * url = isDefult?duokongURL:v_coin_type_v_pic_tsURL(self.v_coin_type, self.v_ts, self.v_pic_ts);
-  
+    NSLog(@"%@",url);
     [GTStyleManager loadingImage];
     @weakify(self)
    
@@ -136,8 +140,30 @@
         @strongify(self)
        
         if (!error) {
-            self.spaceRatioModel =[GTSpaceRatioModel modelWithDictionary:response[@"data"]];
             self.isError = NO;
+            self.spaceRatioModel =[GTSpaceRatioModel modelWithDictionary:response[@"data"]];
+            if(!isDefult){
+                [self.dataArrs removeAllObjects];
+                if (self.spaceRatioModel.lsalldtl) {
+                    [self.dataArrs addObject:self.spaceRatioModel.lsalldtl];
+                }
+                if (self.spaceRatioModel.Okex_quarter) {
+                    [self.dataArrs addObject:self.spaceRatioModel.Okex_quarter];
+                }
+                if (self.spaceRatioModel.Okex_swap) {
+                    [self.dataArrs addObject:self.spaceRatioModel.Okex_swap];
+                }
+                if (self.spaceRatioModel.All) {
+                    [self.dataArrs addObject:self.spaceRatioModel.All];
+                }
+                if (self.spaceRatioModel.Huobi_quarter) {
+                    [self.dataArrs addObject:self.spaceRatioModel.Huobi_quarter];
+                }
+                
+                
+        }
+            
+           
         }else{
             self.isError = YES;
         }
@@ -145,7 +171,14 @@
                [EasyLodingView hidenLoding];
                [self.tableView endRefreshing];
                [self.tableView cyl_reloadData];
+               
            }
+        [self.tableView cyl_reloadData];
+        if (self.spaceRatioModel.lsalldtl.alldatalist.count/3<=0) {
+            [self.tableView  bringSubviewToFront:self.duoKongSelectTimeTopView];
+        }
+       
+ 
           
     }];
 
@@ -177,29 +210,27 @@
                 hearView.frame = CGRectMake(0, 0, scrWeiht, 50);
        
                  hearView.nameLb.text = [GTDataManager getItemModelWhit:self.spaceRatioModel.lsalldtl.alldatalist[section *3].datalist.firstObject].firstObject.content;
-                 
+        [GTStyleManager setStyleWhit:[GTDataManager getItemModelWhit:self.spaceRatioModel.lsalldtl.alldatalist[section *3].datalist.firstObject].firstObject forLale:hearView.nameLb];
         return hearView;
     }else{
         if (section == 0) {
         
-
+            GTPublicContentModel *publicContentModel = self.dataArrs[section];
             GateHearView  * hearView  = [GateHearView getGateHearView];
              hearView.frame = CGRectMake(0, 0, scrWeiht, 50);
-            
-             if (section == 0) {
-                 hearView.nameLb.text = self.type;
-             }else{
-                
-             }
+            hearView.nameLb.text = [GTDataManager getItemModelWhit:publicContentModel.alldatalist.firstObject.datalist.firstObject].firstObject.content;
+            [GTStyleManager setStyleWhit: [GTDataManager getItemModelWhit:publicContentModel.alldatalist.firstObject.datalist.firstObject].firstObject forLale: hearView.nameLb];
               return hearView;
           }else{
                GateHoursSelectCategoryView * selectCategoryView = [[GateHoursSelectCategoryView alloc] initWithFrame:CGRectMake(0, 0, scrWeiht-100, 50)];
-                selectCategoryView.categoryView.defaultSelectedIndex = self.selectIndex;
-                                               selectCategoryView.titles =  @[@"1天内",@"1周内"];
-                                            
+                selectCategoryView.categoryView.defaultSelectedIndex = self.v_pic_tsIndex;
+                                               selectCategoryView.titles =  @[@"1D",@"1W"];
+              selectCategoryView.titleLb.text = [GTDataManager getItemModelWhit:self.spaceRatioModel.lsbigtitle.alldatalist.firstObject.datalist.firstObject][section].content;
+              [GTStyleManager setStyleWhit:[GTDataManager getItemModelWhit:self.spaceRatioModel.lsbigtitle.alldatalist.firstObject.datalist.firstObject][section] forLale:selectCategoryView.titleLb];
+             
                                                selectCategoryView.selectblock = ^(NSInteger index) {
                                                    
-                                                   [self v_TimeSelect:index];
+                                                   [self v_pic_tsSelect:index];
 
                                             };
 
@@ -228,27 +259,22 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
  
-    if (self.topSelectView.categoryView.selectedIndex == 0) {
-        if (indexPath.row == 0) {
-                            return 50;
-            }
-     return 80;
-    }else{
+    if (self.selectedIndex == 0) {
+        if (indexPath.row == 0)return 50;
+              return 80;
       
-        
-         if (indexPath.section == 0) {
-                if (indexPath.row == 0) {
-                     return 50;
-                }
-                return 120;
-            }else{
+    }else{
+            
+        if (indexPath.section == 0) {
+            if (indexPath.row == 0) return 50;
+            return 80;
+        }else{
                
             CGFloat height = [tableView
                               fd_heightForCellWithIdentifier:@"GTDuoKongLineChartsTableViewCell"
                               cacheByIndexPath:indexPath
                               configuration:^(id cell) {
-        //         cell.possArr = self.gateHomeModel.poss;
-        //                           [(GateLineChartTableViewCell *)cell reloadCellWithData:self.listArray[indexPath.section]];
+    
                                }];
             return height;
               
@@ -259,27 +285,31 @@
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
      
-     if (self.topSelectView.categoryView.selectedIndex == 0) {
+     if (self.selectedIndex == 0) {
          return self.spaceRatioModel.lsalldtl.alldatalist.count/3;
      }else{
-         return self.bcoin_coin_long_short_infos.count>0? self.bcoin_coin_long_short_infos.count+1:0;
+         return self.dataArrs.count>0? self.dataArrs.count:0;
      }
      
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-   if (self.topSelectView.categoryView.selectedIndex == 0) {
+   if (self.selectedIndex == 0) {
        NSArray * arr = [GTDataManager getItemModelWhit:self.spaceRatioModel.lsalldtl.alldatalist[section *3].datalist.firstObject] ;
        return arr.count>0?arr.count:0;
-       }else{
+    }else{
+        GTPublicContentModel *publicContentModel = self.dataArrs[section];
+      
+//        return [GTDataManager getItemModelWhit:spaceRatioModel.alldatalist[section *3].datalist.firstObject];
+//        [GTDataManager getItemModelWhit:publicContentModel.alldatalist.firstObject.datalist.firstObject]
            if (section == 0) {
-              return 1;
+               return publicContentModel.alldatalist.firstObject.datalist.firstObject.count>0?publicContentModel.alldatalist.firstObject.datalist.firstObject.count:0;
            }else{
-               return  self.bcoin_coin_long_short_infos.count>0? 1:0;
+               return  self.dataArrs.count>0? 1:0;
            }
         
-       }
+    }
 }
 
 
@@ -291,49 +321,38 @@
     if (self.topSelectView.categoryView.selectedIndex == 0) {
         if (indexPath.row == 0) {
                              
-                                   GTTopTotalTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GTTopTotalTableViewCell" forIndexPath:indexPath];
+                GTTopTotalTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GTTopTotalTableViewCell" forIndexPath:indexPath];
            
-             cell.duoLb.text = [GTDataManager getItemModelWhit:self.spaceRatioModel.lsalldtl.alldatalist[indexPath.section *3+1].datalist.firstObject][indexPath.row].content;
-              cell.kongLb.text = [GTDataManager getItemModelWhit:self.spaceRatioModel.lsalldtl.alldatalist[indexPath.section *3+2].datalist.firstObject][indexPath.row].content;
-                                  cell.backgroundColor = [UIColor whiteColor];
+            cell.indexPath = indexPath;
+            cell.lsalldtl = self.spaceRatioModel.lsalldtl;
                                   return cell;
-                              }else{
-                                  GatePrgessTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GatePrgessTableViewCell" forIndexPath:indexPath];
-                                  cell.userImageView.backgroundColor = [UIColor redColor];
-                                
-                                  [cell.userImageView setImageWithURL:urlWhitString( [GTDataManager getItemModelWhit:self.spaceRatioModel.lsalldtl.alldatalist[indexPath.section *3].datalist.firstObject][indexPath.row].url) placeholder:nil];
-                                  cell.userNameLb.text = [GTDataManager getItemModelWhit:self.spaceRatioModel.lsalldtl.alldatalist[indexPath.section *3].datalist.firstObject][indexPath.row].content;
-
-                                  
-                                  [cell.press updataPrgress:[[GTDataManager getItemModelWhit:self.spaceRatioModel.lsalldtl.alldatalist[indexPath.section *3+1].datalist.firstObject][indexPath.row].content doubleValue]] ;
-                                  
-                                  
-//                                   cell.kongLb.text = [GTDataManager getItemModelWhit:self.spaceRatioModel.lsalldtl.alldatalist[indexPath.section *3+2].datalist.firstObject][indexPath.row].content;
-//
-                                  
+            }else{
+               
+                GatePrgessTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GatePrgessTableViewCell" forIndexPath:indexPath];
+                cell.indexPath = indexPath;
+                cell.lsalldtl = self.spaceRatioModel.lsalldtl;
+                       
                                          return cell;
                               }
     }else{
         if (indexPath.section == 0) {
+            GTPublicContentModel *publicContentModel = self.dataArrs[indexPath.section];
                 if (indexPath.row == 0) {
-                      
-                            GTTopTotalTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GTTopTotalTableViewCell" forIndexPath:indexPath];
-                           cell.backgroundColor = [UIColor whiteColor];
+                    GTTopTotalTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GTTopTotalTableViewCell" forIndexPath:indexPath];
+                    cell.backgroundColor = [UIColor whiteColor];
+                    cell.indexPath = indexPath;
+                    cell.lsalldtl = publicContentModel;
                            return cell;
-                       }else{
-                           GatePrgessTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GatePrgessTableViewCell" forIndexPath:indexPath];
-//                           GTSpaceRatioSubvModel * spaceRatioSubvModel  = self.coinSpaceRatioModel.bcoin_exchange_long_short_info[indexPath.row-1];
-//
-//                                cell.spaceRatioSubvModel = spaceRatioSubvModel;
+                }else{
+                 GatePrgessTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GatePrgessTableViewCell" forIndexPath:indexPath];
+                    cell.indexPath = indexPath;
+                    cell.lsalldtl = publicContentModel;
                                   return cell;
-                       }
+                }
             }else{
                  GTDuoKongLineChartsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GTDuoKongLineChartsTableViewCell" forIndexPath:indexPath];
-                if (self.bcoin_coin_long_short_infos.count>indexPath.section-1) {
-                     NSArray * arr = self.bcoin_coin_long_short_infos[indexPath.section-1];
-                                         cell.bcoin_coin_long_short_infos = arr;
-                }
-              
+                GTPublicContentModel *publicContentModel = self.dataArrs[indexPath.section];
+                cell.duoKongData = publicContentModel;
                                 return cell;
             }
     }

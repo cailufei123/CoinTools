@@ -107,6 +107,8 @@
 		0466FD7E254016DA0091A1A9 /* GTGTDuoKongSelectTimeTopViewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0466FD7B254016DA0091A1A9 /* GTGTDuoKongSelectTimeTopViewCollectionViewCell.xib */; };
 		0466FD82254020490091A1A9 /* GTSpaceRatioModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 0466FD80254020490091A1A9 /* GTSpaceRatioModel.h */; };
 		0466FD83254020490091A1A9 /* GTSpaceRatioModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0466FD81254020490091A1A9 /* GTSpaceRatioModel.m */; };
+		0466FD8B2541367D0091A1A9 /* GTBigOrderModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 0466FD892541367D0091A1A9 /* GTBigOrderModel.h */; };
+		0466FD8C2541367D0091A1A9 /* GTBigOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0466FD8A2541367D0091A1A9 /* GTBigOrderModel.m */; };
 		04796584251355E10051476C /* CoinTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD66B8F3250A799400D7C66E /* CoinTools.framework */; };
 		04796589251356200051476C /* CoinTools.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AD66B8F3250A799400D7C66E /* CoinTools.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		049514612514850000294FD7 /* zhPopupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0495145C2514850000294FD7 /* zhPopupController.m */; };
@@ -565,6 +567,8 @@
 		0466FD7B254016DA0091A1A9 /* GTGTDuoKongSelectTimeTopViewCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GTGTDuoKongSelectTimeTopViewCollectionViewCell.xib; sourceTree = "<group>"; };
 		0466FD80254020490091A1A9 /* GTSpaceRatioModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTSpaceRatioModel.h; sourceTree = "<group>"; };
 		0466FD81254020490091A1A9 /* GTSpaceRatioModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTSpaceRatioModel.m; sourceTree = "<group>"; };
+		0466FD892541367D0091A1A9 /* GTBigOrderModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTBigOrderModel.h; sourceTree = "<group>"; };
+		0466FD8A2541367D0091A1A9 /* GTBigOrderModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTBigOrderModel.m; sourceTree = "<group>"; };
 		0495145C2514850000294FD7 /* zhPopupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zhPopupController.m; sourceTree = "<group>"; };
 		0495145D2514850000294FD7 /* zhPopupController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zhPopupController.h; sourceTree = "<group>"; };
 		049514652514869700294FD7 /* GTMenuSelectView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTMenuSelectView.h; sourceTree = "<group>"; };
@@ -1074,6 +1078,15 @@
 			path = model;
 			sourceTree = "<group>";
 		};
+		0466FD88254136680091A1A9 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				0466FD892541367D0091A1A9 /* GTBigOrderModel.h */,
+				0466FD8A2541367D0091A1A9 /* GTBigOrderModel.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
 		049514592514850000294FD7 /* zhPopupController */ = {
 			isa = PBXGroup;
 			children = (
@@ -1312,6 +1325,7 @@
 		04D34E95250B0C8500D940D1 /* BigOrderBurstStatistics-大单成交统计 */ = {
 			isa = PBXGroup;
 			children = (
+				0466FD88254136680091A1A9 /* model */,
 				04D34E96250B0C8500D940D1 /* view */,
 				04D34EA4250B0C8500D940D1 /* controler */,
 			);
@@ -1988,6 +2002,7 @@
 				04D34F46250B0C8600D940D1 /* JXCategoryTitleBackgroundCellModel.h in Headers */,
 				049514672514869700294FD7 /* GTMenuSelectView.h in Headers */,
 				04D34F8A250B0C8600D940D1 /* GateTopSelectView.h in Headers */,
+				0466FD8B2541367D0091A1A9 /* GTBigOrderModel.h in Headers */,
 				044D252225314343004ACA98 /* GTTopTotalTableViewCell.h in Headers */,
 				04D34F36250B0C8600D940D1 /* GateThirtyDaysBigOrderStatisticsSelectView.h in Headers */,
 				0466FCCB253964980091A1A9 /* EasyLodingConfig.h in Headers */,
@@ -2302,6 +2317,7 @@
 				04CBE5CE2512450300E4DD40 /* GTNewTopDuiBiCollectionViewCell.m in Sources */,
 				04D34F3C250B0C8600D940D1 /* GateDeliveryPositionAmountCell.m in Sources */,
 				049514682514869700294FD7 /* GTMenuSelectView.m in Sources */,
+				0466FD8C2541367D0091A1A9 /* GTBigOrderModel.m in Sources */,
 				04D34F44250B0C8600D940D1 /* JXCategoryTitleBackgroundCell.m in Sources */,
 				04CBE5B62512011400E4DD40 /* LNHeaderMeituanAnimator.m in Sources */,
 				0495147A2515A7C100294FD7 /* GTHomeModel.m in Sources */,

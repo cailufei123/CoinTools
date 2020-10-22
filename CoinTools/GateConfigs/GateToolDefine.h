@@ -42,6 +42,11 @@
 
 #define loadXib [[[NSBundle mainBundle] loadNibNamed:[NSString stringWithFormat:@"CoinTools.framework/%@",NSStringFromClass([self class])] owner:nil options:nil] firstObject];
 
+
+#define getItemModel(hex)  [GTDataManager getItemModelWhit:hex]
+#define setStyle(hex,lable)  [GTStyleManager setStyleWhit:hex forLale:lable];
+#define getLanguage(hex)  [GTDataManager getLanguageData:hex]
+
 //#ifndef __OPTIMIZE__
 //    //这里执行的是debug模式下，打印日志，当前行
 //    #define GTLog(...) printf("%s %s 第%d行: %s\n",__TIME__, __PRETTY_FUNCTION__ ,__LINE__, [[NSString stringWithFormat:__VA_ARGS__] UTF8String]);

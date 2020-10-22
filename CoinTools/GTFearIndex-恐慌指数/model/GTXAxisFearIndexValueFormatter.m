@@ -20,14 +20,16 @@
     if (self.formatterType == GTFormatterXDuoKong) {
          // value 为 x 轴的值
 //           bcoin_coin_long_short_infoModel * coin_long_short_infoModel = self.publicArry[(NSInteger)value];
-           return @"23のedw";
+        
+        GTHomeTitleModel * titleModel  = self.publicArry[(NSInteger)value];
+        return [NSString stringWithFormat:@"%@",[self getDateStringWithTimestamp1:titleModel.content]];
     }else{
         
  // value 为 x 轴的值
     GTHomeTitleModel * titleModel  = self.publicArry[(NSInteger)value];
-        NSLog(@"%@",titleModel.content);
-        [self getDateStringWithTimestamp:titleModel.content];
-    return [NSString stringWithFormat:@"%@",[self getDateStringWithTimestamp:titleModel.content]];
+//        NSLog(@"%@",titleModel.content);
+//        [self getDateStringWithTimestamp:titleModel.content];
+    return [NSString stringWithFormat:@"%@",[self getDateStringWithTimestamp1:titleModel.content]];
     }
     
     
@@ -58,7 +60,7 @@
     NSDate *detailDate = [NSDate dateWithTimeIntervalSince1970:time];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init]; // 实例化一个NSDateFormatter对象
     // 设定时间格式,这里可以设置成自己需要的格式
-    [dateFormatter setDateFormat:@"MM月dd日 HH:mm"];
+    [dateFormatter setDateFormat:@"MM-dd HH:mm"];
     NSString *currentDateStr = [dateFormatter stringFromDate:detailDate];
     return currentDateStr;
 }

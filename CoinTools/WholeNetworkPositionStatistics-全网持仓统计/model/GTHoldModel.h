@@ -22,6 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)GTPublicContentModel * huobiPosition;
 @property(nonatomic,strong)GTPublicContentModel * bitmexPosition;
 
+
 @end
 
 NS_ASSUME_NONNULL_END

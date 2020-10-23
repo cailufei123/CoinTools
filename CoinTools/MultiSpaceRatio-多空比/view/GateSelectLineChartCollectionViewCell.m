@@ -12,7 +12,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.nameLb.font  = gateFont(12, Normal);
+    self.nameLb.font  = gateFont(11, Normal);
     self.nameLb.textColor  = gateColor(@"697ba6");
 }
 - (void)reloadSelectCell{

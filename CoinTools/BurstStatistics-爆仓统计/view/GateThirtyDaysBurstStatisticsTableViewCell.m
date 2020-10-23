@@ -177,6 +177,7 @@
                GTAlldatalistModel *alldatalistModel =burstcalpic.alldatalist[i];
                GatePublicSelectModel *  selectModel = [[GatePublicSelectModel alloc] init];
                selectModel.color = gateColor([GTDataManager getItemModelWhit:_burstcalpic.alldatalist[i].datalist.firstObject].firstObject.color);
+               
                selectModel.shape = square;
                selectModel.titleText =alldatalistModel.title.content;
                [arr addObject:selectModel];
@@ -208,7 +209,8 @@
 //      set.barBorderWidth = 1.0;
 //        [set setColors:@[UIColor.redColor,UIColor.blackColor,UIColor.cyanColor]];
      if (modelAr.firstObject.color.length) {
-         set.colors = @[gateColor(modelAr.firstObject.color),gateColor(lastObjectmodelAr.firstObject.color)];
+          set.colors = @[gateColor(modelAr.firstObject.color),gateColor(lastObjectmodelAr.firstObject.color)];
+//         set.colors = @[gateColor(modelAr.firstObject.color),gateColor(@"333333")];
      }
         
         //显示柱图值并格式化

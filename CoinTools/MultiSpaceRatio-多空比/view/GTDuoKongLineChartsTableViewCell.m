@@ -168,8 +168,7 @@
           self.marker.stylemodels = styleArr1;
 
           [self.chartView setNeedsDisplay];
-           [self.chartView setNeedsDisplay];
-//          [self.chartView animateWithXAxisDuration:2];
+        
       };
       
 }
@@ -388,6 +387,49 @@
 
     
     [GTDotManager chartDotManagerValueSelected: self.chartView entry:entry highlight:highlight publicSelectModels:self.topPublicSelectView.arr];
+    
+ 
+//    LineChartDataSet * set =  (LineChartDataSet *) self.chartView.lineData.dataSets[index];
+//    set.visible = !publicSelectModel.selectEnabled;
+//    NSMutableArray * styleArr1 = [NSMutableArray array];
+//    for (int i = 0; i<self.chartView.lineData.dataSets.count; i++) {
+//    LineChartDataSet * set1 = (LineChartDataSet *) self.chartView.lineData.dataSets[i];
+//    if (set1.isVisible) {
+//    [styleArr1 addObject:self.styleArr[i]];
+//  }
+//}
+//  self.marker.stylemodels = styleArr1;
+//
+//  [self.chartView setNeedsDisplay];
+//
+    
+    
+    
+    NSMutableArray * arr = [NSMutableArray array];
+    self.temps =  [NSMutableArray array];
+    
+    NSMutableArray * styleArr = [NSMutableArray array];
+    self.styleArr = styleArr;
+    int ff = (int)entry.x;
+          for (int i = 0; i<self.chartView.lineData.dataSets.count; i++) {
+              LineChartDataSet * set1 = (LineChartDataSet *) self.chartView.lineData.dataSets[i];
+              GTHomeTitleModel * title = self.duoKongData.alldatalist[i].title;
+              GTHomeTitleModel * titleModel = [GTDataManager getItemModelWhit:self.duoKongData.alldatalist[i].datalist.firstObject][ff];
+              GatePublicSelectModel *  selectModel = [[GatePublicSelectModel alloc] init];
+              selectModel.color = gateColor(titleModel.color);
+              selectModel.titleText = title.content;
+              if (set1.isVisible) {
+                  [styleArr addObject:@{@"title":[NSString stringWithFormat:@"%@:%@", title.content,titleModel.content] ,@"color":gateColor(titleModel.color)}];
+            }
+            
+            
+  
+      }
+    
+
+    self.marker.stylemodels = styleArr;
+    
+    
     
 }
 

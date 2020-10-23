@@ -18,6 +18,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)GTPublicContentModel * bigdeal_bigtitle;
 @property(nonatomic,strong)GTPublicContentModel * bigdeal_info_pic;
 @property(nonatomic,strong)GTPublicContentModel * bigdeal_dist_huobi;
+@property(nonatomic,strong)GTPublicContentModel *bigdeal_total;
+@property(nonatomic,strong)GTPublicContentModel *bigdeal_dist_bitmex;
+
 @end
 
 NS_ASSUME_NONNULL_END

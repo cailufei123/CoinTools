@@ -10,10 +10,11 @@
 #import "GateSelectLineChartCollectionViewCell.h"
 //#import "GatePublicSelectModel.h"
 #import "NSString+HYDESize.h"
-#define cornerRi 7
+#define cornerRi 6
 @interface GatePublicSelectView ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property(nonatomic,strong)UICollectionView * collectionView;
 @property(nonatomic,strong)NSIndexPath * selectIndexPath;
+@property(nonatomic,assign)CGFloat collectionWight;
 @end
 @implementation GatePublicSelectView
 
@@ -34,9 +35,9 @@
            
             collectionWight += (gateSelectTextHeight(publicSelectModel.titleText));
         }
-       
+        self.collectionWight = collectionWight>scrWeiht?collectionWight-10:collectionWight;
         [self.collectionView mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.width.mas_equalTo(collectionWight+10);
+            make.width.mas_equalTo(collectionWight+10>scrHeiht?scrHeiht-10:collectionWight+10);
         }];
     }
    

@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet CombinedChartView *chartView;
 @property (weak, nonatomic) IBOutlet UIView *selectView;
 @property (weak, nonatomic) IBOutlet UIView *bottomSelectView;
-
+@property(nonatomic,strong)GTBigOrderModel * bigOrderModel;
 @end
 
 NS_ASSUME_NONNULL_END

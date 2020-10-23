@@ -8,9 +8,15 @@
 
 #import "GateBigOrderDistributionDealCell.h"
 #import "GatePublicSelectView.h"
+#import <CoinTools/CoinTools-Swift.h>
 @interface GateBigOrderDistributionDealCell ()
 @property(nonatomic,strong) GatePublicSelectView * topPublicSelectView;
 @property(nonatomic,strong) GatePublicSelectView * bottomPublicSelectView;
+@property(nonatomic,strong) NSMutableArray * bigdeal_dists;
+@property(nonatomic,strong)GTChartPMarkerView * marker;
+@property(nonatomic,strong) GTXAxisFearIndexValueFormatter * xXisFearIndexValueFormatter;
+@property(nonatomic,strong)  GTYxisFearIndexValueFormatter *  yLeftXisFearIndexValueFormatter;
+@property(nonatomic,strong) GTYxisFearIndexValueFormatter * yXisFearIndexValueFormatter;
 @end
 @implementation GateBigOrderDistributionDealCell
 
@@ -51,6 +57,8 @@
     leftAxis.drawGridLinesEnabled = YES;
     leftAxis.axisMinimum = 0.0; // this replaces startAtZero = YES
     leftAxis.labelTextColor = gateColor(axislabelTextColor);
+    self.yLeftXisFearIndexValueFormatter = [GTYxisFearIndexValueFormatter getGTYxisFearIndexValueFormatter];
+    leftAxis.valueFormatter = self.yLeftXisFearIndexValueFormatter ;
     ChartXAxis *xAxis = _chartView.xAxis;
 //    xAxis.labelPosition = XAxisLabelPositionBothSided;
      xAxis.labelTextColor = gateColor(axislabelTextColor);
@@ -62,40 +70,30 @@
   xAxis.labelPosition = XAxisLabelPositionBottom;
     xAxis.labelRotationAngle = 50;
  
-    [self updateChartData];
-    
-    
-    
-    
-  NSMutableArray * arr = [NSMutableArray array];
-        
-        for (int i = 0; i<3; i++) {
-            GatePublicSelectModel *  selectModel = [[GatePublicSelectModel alloc] init];
-            if (i == 0) {
-                selectModel.color = UIColor.redColor;
-                selectModel.shape = square;
-                 selectModel.titleText = @"多单";
-            }
-            if (i == 1) {
-                selectModel.color = UIColor.greenColor;
-                selectModel.shape = square;
-                 selectModel.titleText =@"空单" ;
-            }
-            if (i == 2) {
-                selectModel.color = UIColor.orangeColor;
-                selectModel.shape = square;
-                  selectModel.titleText =@"空单";
-            }
-            [arr addObject:selectModel];
-    }
    
+    GTChartPMarkerView * marker = [GTStyleManager getChartPMarkerViewWhit];
+    marker.chartView =  self.chartView;
+//    marker.aleartType = GTChartPMarkerViewCalendarPermissionChiCang;
+    self.marker = marker;
+    self.chartView.marker = marker;
     [self.selectView addSubview:self.topPublicSelectView];
-     self.topPublicSelectView.arr = arr;
-      self.topPublicSelectView.selectIndex = 0;
+//    marker.xAxisValueFormatter = self.xXisFearIndexValueFormatter;
      
-       [self.bottomSelectView addSubview:self.bottomPublicSelectView];
+      [self.chartView animateWithXAxisDuration:2.0f];
+    
+    
+
+    [self.selectView addSubview:self.topPublicSelectView];
+   
+ 
+    
+    
+    
+  
+    [self.selectView addSubview:self.topPublicSelectView];
+    [self.bottomSelectView addSubview:self.bottomPublicSelectView];
        
-      self.bottomPublicSelectView.arr = arr;
+      
    
     [self.bottomPublicSelectView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_offset(0);
@@ -112,6 +110,60 @@
    }];
   
 }
+-(NSMutableArray *)bigdeal_dists{
+    if (!_bigdeal_dists) {
+        _bigdeal_dists = [NSMutableArray array];
+        
+    }
+    return _bigdeal_dists;
+}
+-(void)setBigOrderModel:(GTBigOrderModel *)bigOrderModel{
+    _bigOrderModel = bigOrderModel;
+    [self.bigdeal_dists removeAllObjects];
+    if (bigOrderModel.bigdeal_dist_huobi) {
+        bigOrderModel.bigdeal_dist_huobi.title = @"Huobo季度";
+        [self.bigdeal_dists addObject:bigOrderModel.bigdeal_dist_huobi];
+    }
+    if (bigOrderModel.bigdeal_dist_okex) {
+        bigOrderModel.bigdeal_dist_okex.title = @"oKex季度";
+        [self.bigdeal_dists addObject:bigOrderModel.bigdeal_dist_okex];
+    }
+    if (bigOrderModel.bigdeal_dist_bitmex) {
+        bigOrderModel.bigdeal_dist_bitmex.title = @"BitMEX永续";
+        [self.bigdeal_dists addObject:bigOrderModel.bigdeal_dist_bitmex];
+    }
+    if (bigOrderModel.bigdeal_dist_binance) {
+        bigOrderModel.bigdeal_dist_binance.title = @"Binance永续";
+        [self.bigdeal_dists addObject:bigOrderModel.bigdeal_dist_binance];
+    }
+
+    
+
+     NSMutableArray * arr = [NSMutableArray array];
+
+           for (int i = 0; i<self.bigdeal_dists.count; i++) {
+               
+               GTPublicContentModel *publicContentModel = self.bigdeal_dists[i];
+               GatePublicSelectModel *  selectModel = [[GatePublicSelectModel alloc] init];
+               selectModel.color = gateColor([GTDataManager getItemModelWhit:publicContentModel.alldatalist[i].datalist.firstObject].firstObject.color);
+               selectModel.shape = square;
+               selectModel.titleText = publicContentModel.title;
+//               publicContentModel.alldatalist[i].title.content;
+               [arr addObject:selectModel];
+               
+       }
+
+
+    GTPublicContentModel *  selectModel1  =  self.bigdeal_dists.firstObject;
+    self.topPublicSelectView.arr = arr;
+//    self.bottomPublicSelectView.arr = arr;
+    self.topPublicSelectView.selectIndex = 0;
+   
+    self.yLeftXisFearIndexValueFormatter.publicArry =[GTDataManager getItemModelWhit:selectModel1.alldatalist.firstObject.datalist.firstObject];
+    
+  [self setChartData:self.bigdeal_dists.firstObject];
+    
+}
 -(GatePublicSelectView *)bottomPublicSelectView{
     if (!_bottomPublicSelectView) {
         _bottomPublicSelectView = [[GatePublicSelectView alloc]initWithFrame:CGRectMake(0, 0, scrWeiht, 30)];
@@ -122,9 +174,9 @@
          @weakify(self)
         _bottomPublicSelectView.selectBlock = ^(NSInteger index, GatePublicSelectModel * _Nonnull publicSelectModel) {
             @strongify(self)
-                       BubbleChartDataSet * set =  (BubbleChartDataSet *) self.chartView.bubbleData.dataSets[index];
-            set.visible = !publicSelectModel.selectEnabled;
-                       [self.chartView setNeedsDisplay];
+//                       BubbleChartDataSet * set =  (BubbleChartDataSet *) self.chartView.bubbleData.dataSets[index];
+//            set.visible = !publicSelectModel.selectEnabled;
+//                       [self.chartView setNeedsDisplay];
             
             
         };
@@ -140,9 +192,9 @@
          @weakify(self)
         _topPublicSelectView.selectBlock = ^(NSInteger index, GatePublicSelectModel * _Nonnull publicSelectModel) {
             @strongify(self)
-                       BubbleChartDataSet * set =  (BubbleChartDataSet *) self.chartView.bubbleData.dataSets[index];
-            set.visible = !publicSelectModel.selectEnabled;
-                       [self.chartView setNeedsDisplay];
+//                       BubbleChartDataSet * set =  (BubbleChartDataSet *) self.chartView.bubbleData.dataSets[index];
+//            set.visible = !publicSelectModel.selectEnabled;
+//                       [self.chartView setNeedsDisplay];
         };
         
      }
@@ -151,96 +203,201 @@
 
 
 
-- (void)updateChartData
-{
-
-    [self setChartData];
-}
-- (void)setChartData
+- (void)setChartData:(GTPublicContentModel * )publicContentModel
 {
     CombinedChartData *data = [[CombinedChartData alloc] init];
     
-    data.lineData = [self generateLineData];
-//    data.barData = [self generateBarData];
-    data.bubbleData = [self generateBubbleData];
-//    data.scatterData = [self generateScatterData];
-//    data.candleData = [self generateCandleData];
+   
     
-//    _chartView.xAxis.axisMaximum = data.xMax + 0.25;
+   
+    @weakify(self)
+    [self generateBubbleData:publicContentModel bubbleDataBlock:^(BubbleChartData * bubbleData) {
+        @strongify(self)
+           
+                     dispatch_async(dispatch_get_main_queue(), ^{
+                         data.bubbleData  = bubbleData;
+                         self.chartView.data = data;
+                         [self.chartView.data notifyDataChanged];
+                         [self.chartView setNeedsDisplay];
+                     });
 
-    _chartView.data = data;
+       }];
+ [self generate:publicContentModel lineDataBlock:^(LineChartData *lineChartData) {
+     @strongify(self)
+        data.lineData  = lineChartData;
+        self.chartView.data = data;
+        [self.chartView.data notifyDataChanged];
+               [self.chartView setNeedsDisplay];
+
+    }];
+
+   
 }
-- (BubbleChartData *)generateBubbleData
+- (BubbleChartData *)generateBubbleData:(GTPublicContentModel * )publicContentModel bubbleDataBlock:(void(^)(BubbleChartData * lineChartData))finishblock
 {
-    BubbleChartData *bd = [[BubbleChartData alloc] init];
+    BubbleChartData *d = [[BubbleChartData alloc] init];
+ 
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+
+            double leftAxisMin = MAXFLOAT;
+            double leftAxisMax = 0;
+            NSMutableArray *entries = [[NSMutableArray alloc] init];
+      for (int i = 0; i<publicContentModel.alldatalist[2].datalist.count; i++) {
+         NSArray< GTHomeTitleModel *> * models = [GTDataManager getItemModelWhit:publicContentModel.alldatalist[2].datalist[i]];
+          NSArray< GTHomeTitleModel *> * model1s = [GTDataManager getItemModelWhit:publicContentModel.alldatalist.lastObject.datalist[i]];
+
+          for (int index = 0; index<models.count; index++) {
+              GTHomeTitleModel * titleModel  = models[index];
+              GTHomeTitleModel * titleModel1  = model1s[index];
    
-    NSMutableArray *entries = [[NSMutableArray alloc] init];
-     NSMutableArray * yVals2 = [[NSMutableArray alloc] init];
-    for (int index = 0; index < 10; index++)
-    {
-        double y = arc4random_uniform(105) +1.0;
-        double size = arc4random_uniform(30) + 1.0;
-        [entries addObject:[[BubbleChartDataEntry alloc] initWithX:index + 0.5 y:y size:1]];
-        double y1 = arc4random_uniform(95) +1.0;
-        double size1 = arc4random_uniform(30) + 1.0;
-          [yVals2 addObject:[[BubbleChartDataEntry alloc] initWithX:index y:y1 size:1 icon: [UIImage imageNamed:@"icon"]]];
-    }
-    
-//    bubbleDate.setBubbleScale(float bubbleScale);//设置气泡的比例大小
-//    bubbleDate.setHasLabelsOnlyForSelected(boolean hasLabelsOnlyForSelected);//设置文本只有当点击时显示
-//    bubbleDate.setMinBubbleRadius(int minBubbleRadius);//设置气泡的最小半径
-    
-   
-    [bd addDataSet:[self getArr:entries BubbleChartDataSet:[UIColor redColor]]];
-    [bd addDataSet:[self getArr:yVals2 BubbleChartDataSet:[UIColor greenColor]]];
-    return bd;
+              double val = [titleModel.content doubleValue];
+              if ([titleModel.content isNotBlank]) {
+                  leftAxisMax = MAX(val, leftAxisMax);
+                  leftAxisMin = MIN(val, leftAxisMin);
+              }
+              
+              dispatch_sync(dispatch_get_main_queue(), ^{
+//                  [entries addObject:[[BubbleChartDataEntry alloc] initWithX:i y:val size:30 icon: [self  selecrDotStyle:gateColor(titleModel1.color) ] data:<#(id _Nullable)#>]];
+              });
+             
+
+         }
+         
+        
+      }
+            BubbleChartDataSet * set1 = [self getArr:entries bubbleChartDataSet:gateColor([GTDataManager getItemModelWhit:publicContentModel.alldatalist[1].datalist.firstObject].firstObject.color)];
+//            set1.axisDependency = AxisDependencyLeft;
+            [d addDataSet:set1];
+      self.chartView.leftAxis.axisMinimum = leftAxisMin;
+      self.chartView.leftAxis.axisMaximum = leftAxisMax;
+     
+            finishblock(d);
+            
+        });
+
+
+          
+    return d;
 }
--(BubbleChartDataSet *)getArr:(NSMutableArray *)entries BubbleChartDataSet:(UIColor * )color{
+-(UIImage *)selecrDotStyle:(UIColor * )color {
+  
+    UIView * rr = [[UIView alloc] init];
+
+//    rr.layer.borderWidth = 2;
+    rr.layer.cornerRadius = 5;
+    rr.layer.masksToBounds = YES;
+    rr.backgroundColor = color;
+    rr.size = CGSizeMake(10, 10);
+ 
+    
+//    rr.layer.borderColor = color.CGColor;
+    UIImage * ic  = [[UIImage convertViewToImage:rr]  wh_imageAddCornerWithRadius:rr.size.height/2 andSize:rr.size];
+   
+    return   ic;
+  
+}
+
+-(BubbleChartDataSet *)getArr:(NSMutableArray *)entries bubbleChartDataSet:(UIColor * )color{
      BubbleChartDataSet *set = [[BubbleChartDataSet alloc] initWithEntries:entries label:@"Bubble DataSet"];
-         set.drawIconsEnabled = NO;
+         set.drawIconsEnabled = YES;
         set.highlightCircleWidth = 2;
         set.highlightEnabled = NO;
+//        [set setFormSize:2];
+
         set.highlightLineWidth = 1;
     //    [set setColors:ChartColorTemplates.vordiplom];
-        [set setColor:color];
-        set.valueTextColor = UIColor.whiteColor;
+//        [set setColor:UIColor.redColor];
+        set.valueTextColor = UIColor.redColor;
         set.valueFont = [UIFont systemFontOfSize:10.f];
-        [set setDrawValuesEnabled:NO];
-    
+       [set setDrawValuesEnabled:NO];
+//    set.drawIconsEnabled = YES;
+    [set setColor:UIColor.clearColor];
+//    [set setDrawValuesEnabled:YES];
     return set;
 }
-- (LineChartData *)generateLineData
+
+
+
+- (LineChartData *)generate:(GTPublicContentModel * )publicContentModel lineDataBlock:(void(^)(LineChartData * lineChartData))finishblock
 {
     LineChartData *d = [[LineChartData alloc] init];
-    
-    NSMutableArray *entries = [[NSMutableArray alloc] init];
-    
-    for (int index = 0; index < 30; index++)
-    {
-        [entries addObject:[[ChartDataEntry alloc] initWithX:index + 0.5 y:(arc4random_uniform(15) + 5)]];
-    }
-    
-    LineChartDataSet *set = [[LineChartDataSet alloc] initWithEntries:entries label:@"Line DataSet"];
-    [set setColor:[UIColor colorWithRed:240/255.f green:238/255.f blue:70/255.f alpha:1.f]];
-    set.lineWidth = 1;
-    [set setCircleColor:[UIColor colorWithRed:240/255.f green:238/255.f blue:70/255.f alpha:1.f]];
-    set.circleRadius = 3.0;
-    set.circleHoleRadius = 2.5;
-    set.fillColor = [UIColor colorWithRed:240/255.f green:238/255.f blue:70/255.f alpha:1.f];
-    set.mode = LineChartModeCubicBezier;
-    set.drawValuesEnabled = YES;
-    set.drawCirclesEnabled = NO;
-    set.drawCircleHoleEnabled = NO;
-    set.highlightEnabled = NO;
-       set.drawValuesEnabled = NO;       ;
-    set.valueFont = [UIFont systemFontOfSize:10.f];
-    set.valueTextColor = [UIColor colorWithRed:240/255.f green:238/255.f blue:70/255.f alpha:1.f];
-    
-    set.axisDependency = AxisDependencyLeft;
-    
-    [d addDataSet:set];
-    
+
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+
+            double leftAxisMin = MAXFLOAT;
+            double leftAxisMax = 0;
+            NSMutableArray *entries = [[NSMutableArray alloc] init];
+      for (int i = 0; i<publicContentModel.alldatalist[1].datalist.count; i++) {
+         NSArray< GTHomeTitleModel *> * models = [GTDataManager getItemModelWhit:publicContentModel.alldatalist[1].datalist[i]];
+        
+
+          for (int index = 0; index<models.count; index++) {
+              GTHomeTitleModel * titleModel  = models[index];
+              double val = [titleModel.content doubleValue];
+              leftAxisMax = MAX(val, leftAxisMax);
+              leftAxisMin = MIN(val, leftAxisMin);
+//              [entries addObject:[[ChartDataEntry alloc] initWithX:index + 0.5 y:([getItemModel(publicContentModel.alldatalist[1].datalist)[index].content doubleValue])]];
+              [entries addObject:[[ChartDataEntry alloc] initWithX:i  + 0.5 y:(val)]];
+              
+         }
+         
+        
+      }
+            LineChartDataSet * set1 = [self getArr:entries lineChartDataSet:gateColor([GTDataManager getItemModelWhit:publicContentModel.alldatalist[1].datalist.firstObject].firstObject.color) drawFilledEnabled:NO];
+            set1.axisDependency = AxisDependencyLeft;
+            [d addDataSet:set1];
+//      self.chartView.leftAxis.axisMinimum = leftAxisMin;
+//      self.chartView.leftAxis.axisMaximum = leftAxisMax;
+     
+            finishblock(d);
+            
+        });
+
+
+          
     return d;
+}
+
+
+
+-(LineChartDataSet *)getArr:(NSMutableArray *)entries lineChartDataSet:(UIColor * )color drawFilledEnabled:(BOOL)drawFilledEnabled{
+    LineChartDataSet *set = [[LineChartDataSet alloc] initWithEntries:entries label:@"Line DataSet"];
+        [set setColor:color];
+        set.lineWidth = 1;
+
+//        [set setCircleColor:gateColor(@"ffbc51")];
+        set.circleRadius = 3.0;
+        set.circleHoleRadius = 2.5;
+//        set.fillColor = [UIColor redColor];
+        set.mode = LineChartModeCubicBezier;
+        set.drawValuesEnabled = YES;
+        set.drawCirclesEnabled = NO;
+        set.drawCircleHoleEnabled = NO;
+        set.highlightEnabled = NO;
+        set.drawValuesEnabled = NO;
+        set.highlightEnabled = YES;
+        set.highlightColor = [UIColor.grayColor colorWithAlphaComponent:0.5];
+        set.highlightLineWidth = 5;
+        set.drawHorizontalHighlightIndicatorEnabled = NO;
+        set.valueFont = [UIFont systemFontOfSize:10.f];
+        set.valueTextColor = [UIColor colorWithRed:240/255.f green:238/255.f blue:70/255.f alpha:1.f];
+      // 第一种填充样式:单色填充
+                      set.drawFilledEnabled = YES;                                           // 是否填充颜色，默认 NO
+//                      set.fillColor = [UIColor redColor];                                    // 填充颜色
+                      set.fillAlpha = 0.5;
+    NSArray *gradientColors = @[
+        (id)[ChartColorTemplates colorFromString:@"#ffffff"].CGColor,
+                                    (id)[UIColor redColor].CGColor,
+                                     
+                                     ];
+         CGGradientRef gradient = CGGradientCreateWithColors(nil, (CFArrayRef)gradientColors, nil);
+         
+//         set.fillAlpha = 1.f;
+         set.fill = [ChartFill fillWithLinearGradient:gradient angle:90.f];
+         set.drawFilledEnabled = NO;// 填充颜色的透明度
+        set.axisDependency = AxisDependencyLeft;
+
+    return set;
 }
 #pragma mark - ChartViewDelegate
 

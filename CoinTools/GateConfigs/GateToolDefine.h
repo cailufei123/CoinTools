@@ -92,5 +92,5 @@
 #define TabBarHeight (IS_IPHONE_X ? 83.0f : 49.0f)
 
 
-#define gateSelectTextHeight(text) [text getTheSizeWidthWithFont:gateFont(14, Normal) WithHeight:20]+30
+#define gateSelectTextHeight(text) [text getTheSizeWidthWithFont:gateFont(13, Normal) WithHeight:20]+20
 #endif /* GateToolDefine_h */

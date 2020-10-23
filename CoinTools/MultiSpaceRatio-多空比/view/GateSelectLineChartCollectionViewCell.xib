@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -18,28 +19,28 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lMz-6u-2dP">
-                        <rect key="frame" x="0.0" y="0.0" width="279" height="143"/>
+                        <rect key="frame" x="110.5" y="0.0" width="58.5" height="143"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hTs-yb-TZA">
-                                <rect key="frame" x="19" y="61" width="250" height="21"/>
+                                <rect key="frame" x="16" y="61" width="41.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k5M-Sv-jvn">
-                                <rect key="frame" x="0.0" y="64.5" width="14" height="14"/>
+                                <rect key="frame" x="0.0" y="65.5" width="12" height="12"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OPk-9d-NTr">
-                                        <rect key="frame" x="2" y="2" width="10" height="10"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <rect key="frame" x="2" y="2" width="8" height="8"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="OPk-9d-NTr" secondAttribute="trailing" constant="2" id="Bp2-qV-F3q"/>
-                                    <constraint firstAttribute="width" constant="14" id="ETV-VG-opf"/>
+                                    <constraint firstAttribute="width" constant="12" id="ETV-VG-opf"/>
                                     <constraint firstAttribute="bottom" secondItem="OPk-9d-NTr" secondAttribute="bottom" constant="2" id="Snm-lZ-aDE"/>
-                                    <constraint firstAttribute="height" constant="14" id="bZP-sg-W9L"/>
+                                    <constraint firstAttribute="height" constant="12" id="bZP-sg-W9L"/>
                                     <constraint firstItem="OPk-9d-NTr" firstAttribute="top" secondItem="k5M-Sv-jvn" secondAttribute="top" constant="2" id="ghr-4Z-dJA"/>
                                     <constraint firstItem="OPk-9d-NTr" firstAttribute="leading" secondItem="k5M-Sv-jvn" secondAttribute="leading" constant="2" id="hhJ-gb-uFy"/>
                                 </constraints>
@@ -48,31 +49,30 @@
                                         <integer key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                        <color key="value" systemColor="scrollViewTexturedBackgroundColor"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <integer key="value" value="7"/>
+                                        <integer key="value" value="6"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <constraints>
                             <constraint firstItem="hTs-yb-TZA" firstAttribute="centerY" secondItem="k5M-Sv-jvn" secondAttribute="centerY" id="6I3-ax-LV3"/>
-                            <constraint firstAttribute="trailing" secondItem="hTs-yb-TZA" secondAttribute="trailing" constant="10" id="O4e-Nx-OaM"/>
-                            <constraint firstItem="hTs-yb-TZA" firstAttribute="leading" secondItem="k5M-Sv-jvn" secondAttribute="trailing" constant="5" id="ZeP-8l-v4m"/>
+                            <constraint firstAttribute="trailing" secondItem="hTs-yb-TZA" secondAttribute="trailing" constant="1" id="O4e-Nx-OaM"/>
+                            <constraint firstItem="hTs-yb-TZA" firstAttribute="leading" secondItem="k5M-Sv-jvn" secondAttribute="trailing" constant="4" id="ZeP-8l-v4m"/>
                             <constraint firstItem="k5M-Sv-jvn" firstAttribute="leading" secondItem="lMz-6u-2dP" secondAttribute="leading" id="bwB-lC-VzF"/>
                             <constraint firstItem="k5M-Sv-jvn" firstAttribute="centerY" secondItem="lMz-6u-2dP" secondAttribute="centerY" id="wFc-yb-zls"/>
                         </constraints>
                     </view>
                 </subviews>
             </view>
+            <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
             <constraints>
                 <constraint firstItem="lMz-6u-2dP" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="8wE-nY-dbv"/>
+                <constraint firstItem="lMz-6u-2dP" firstAttribute="centerX" secondItem="SEy-5g-ep8" secondAttribute="centerX" id="Bu0-ae-HFd"/>
                 <constraint firstAttribute="bottom" secondItem="lMz-6u-2dP" secondAttribute="bottom" id="GjB-AP-F3g"/>
-                <constraint firstItem="lMz-6u-2dP" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="uuL-u1-J8x"/>
-                <constraint firstAttribute="trailing" secondItem="lMz-6u-2dP" secondAttribute="trailing" id="wal-RI-dwg"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
             <size key="customSize" width="279" height="143"/>
             <connections>
                 <outlet property="innerView" destination="OPk-9d-NTr" id="cxv-bD-QQO"/>
@@ -82,4 +82,12 @@
             <point key="canvasLocation" x="255.79710144927537" y="130.24553571428572"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <systemColor name="scrollViewTexturedBackgroundColor">
+            <color red="0.43529411764705878" green="0.44313725490196082" blue="0.47450980392156861" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

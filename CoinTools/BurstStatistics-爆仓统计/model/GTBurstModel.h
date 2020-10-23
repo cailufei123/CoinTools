@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface GTPublicContentModel : NSObject
 @property(nonatomic,strong) NSArray<GTAlldatalistModel *> * alldatalist;
+@property(nonatomic,copy) NSString * title;
 @end
 
 @interface GTBurstModel : NSObject

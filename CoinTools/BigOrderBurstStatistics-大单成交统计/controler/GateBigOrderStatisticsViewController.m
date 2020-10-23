@@ -89,7 +89,7 @@
     
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 5;
+    return 4;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -103,6 +103,9 @@
     if (section == 4) {
         return 10;
     }
+    if (section == 1) {
+        return self.bigOrderModel.bigdeal_info_pic?1:0;
+    }
     return 1 ;
 }
 
@@ -114,51 +117,51 @@
 
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    if (section == 0) {
-         GateHoursSelectCategoryView * selectCategoryView = [[GateHoursSelectCategoryView alloc] initWithFrame:CGRectMake(0, 0, scrWeiht-100, 50)];
-               selectCategoryView.titles =  @[];
-           selectCategoryView.title = @"大单成交统计";
-               selectCategoryView.selectblock = ^(NSInteger index) {
-                   
-               };
-                   return selectCategoryView;
-    }else  if (section == 1){
-        GateThirtyDaysBigOrderStatisticsSelectView *thirtyDaysBigOrderStatisticsSelectView = [[GateThirtyDaysBigOrderStatisticsSelectView alloc] initWithFrame:CGRectMake(0, 0, scrWeiht, 50)];
-         @weakify(self)
-        thirtyDaysBigOrderStatisticsSelectView.selectblock = ^(NSInteger index) {
-           @strongify(self)
-         
-        };
-        return thirtyDaysBigOrderStatisticsSelectView;
-    }else  if (section == 2){
-         GateHoursSelectCategoryView * selectCategoryView = [[GateHoursSelectCategoryView alloc] initWithFrame:CGRectMake(0, 0, scrWeiht-100, 60)];
-                     selectCategoryView.titles =  @[@"5M",@"1H",@"4H",@"1D"];
-                 
-                     selectCategoryView.selectblock = ^(NSInteger index) {
-                         
-                     };
-                         return selectCategoryView;
-    }else  if (section == 3){
-         GateHoursSelectCategoryView * selectCategoryView = [[GateHoursSelectCategoryView alloc] initWithFrame:CGRectMake(0, 0, scrWeiht-100, 60)];
-                     selectCategoryView.titles =  @[@"5M",@"1H",@"4H"];
-                 
-                     selectCategoryView.selectblock = ^(NSInteger index) {
-                         
-                     };
-                         return selectCategoryView;
-    }else  if (section == 4){
-         GateHoursSelectCategoryView * selectCategoryView = [[GateHoursSelectCategoryView alloc] initWithFrame:CGRectMake(0, 0, scrWeiht-100, 60)];
-                     selectCategoryView.titles =  @[@"5M",@"1H",@"4H",@"1D"];
-                 
-                     selectCategoryView.selectblock = ^(NSInteger index) {
-                         
-                     };
-                         return selectCategoryView;
-    }
     
-       else{
-       return  [UIView new];
-    }
+    GateHoursSelectCategoryView * selectCategoryView = [[GateHoursSelectCategoryView alloc] initWithFrame:CGRectMake(0, 0, scrWeiht-100, 60)];
+                selectCategoryView.titles =  @[@"1H",@"4H",@"24"];
+    selectCategoryView.titleLb.text =getItemModel(self.bigOrderModel.bigdeal_bigtitle.alldatalist.firstObject.datalist.firstObject)[section].content;
+    setStyle(getItemModel(self.bigOrderModel.bigdeal_bigtitle.alldatalist.firstObject.datalist.firstObject)[section], selectCategoryView.titleLb)
+ 
+                selectCategoryView.selectblock = ^(NSInteger index) {
+                    
+                };
+                    return selectCategoryView;
+//    if (section == 0) {
+//         GateHoursSelectCategoryView * selectCategoryView = [[GateHoursSelectCategoryView alloc] initWithFrame:CGRectMake(0, 0, scrWeiht-100, 50)];
+//               selectCategoryView.titles =  @[];
+//           selectCategoryView.title = @"大单成交统计";
+//               selectCategoryView.selectblock = ^(NSInteger index) {
+//
+//               };
+//                   return selectCategoryView;
+//    }else  if (section == 1){
+//        GateThirtyDaysBigOrderStatisticsSelectView *thirtyDaysBigOrderStatisticsSelectView = [[GateThirtyDaysBigOrderStatisticsSelectView alloc] initWithFrame:CGRectMake(0, 0, scrWeiht, 50)];
+//         @weakify(self)
+//        thirtyDaysBigOrderStatisticsSelectView.selectblock = ^(NSInteger index) {
+//           @strongify(self)
+//
+//        };
+//        return thirtyDaysBigOrderStatisticsSelectView;
+//    }else  if (section == 2){
+//         GateHoursSelectCategoryView * selectCategoryView = [[GateHoursSelectCategoryView alloc] initWithFrame:CGRectMake(0, 0, scrWeiht-100, 60)];
+//                     selectCategoryView.titles =  @[@"5M",@"1H",@"4H",@"1D"];
+//
+//                     selectCategoryView.selectblock = ^(NSInteger index) {
+//
+//                     };
+//                         return selectCategoryView;
+//    }else  if (section == 3){
+//         GateHoursSelectCategoryView * selectCategoryView = [[GateHoursSelectCategoryView alloc] initWithFrame:CGRectMake(0, 0, scrWeiht-100, 60)];
+//                     selectCategoryView.titles =  @[@"1H",@"4H",@"24"];
+//
+//                     selectCategoryView.selectblock = ^(NSInteger index) {
+//
+//                     };
+//                         return selectCategoryView;
+//    }else{
+//       return  [UIView new];
+//    }
 
    
 }
@@ -204,6 +207,7 @@
       }
 
 }
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
         GateWholeNetworkBigOrderStatisticsCell * cell = [tableView dequeueReusableCellWithIdentifier:@"GateWholeNetworkBigOrderStatisticsCell" forIndexPath:indexPath];
@@ -211,17 +215,23 @@
               return cell;
        }else if (indexPath.section == 1) {
               GateThirtyDaysBurstStatisticsTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"GateThirtyDaysBurstStatisticsTableViewCell" forIndexPath:indexPath];
+           cell.burstcalpic = self.bigOrderModel.bigdeal_info_pic;
                     return cell;
             }else if (indexPath.section == 2) {
                GateHousBurstStatisticsTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"GateHousBurstStatisticsTableViewCell" forIndexPath:indexPath];
+                cell.indexPath = indexPath;
+                cell.burstbourse = self.bigOrderModel.bigdeal_total;
                                     return cell;
             }else if (indexPath.section == 3) {
                GateBigOrderDistributionDealCell * cell = [tableView dequeueReusableCellWithIdentifier:@"GateBigOrderDistributionDealCell" forIndexPath:indexPath];
+                cell.bigOrderModel = self.bigOrderModel;
                                     return cell;
-            }else  if (indexPath.section == 4)  {
-               GateBurstListTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"GateBurstListTableViewCell" forIndexPath:indexPath];
-                            return cell;
-            }else  {
+            }
+//            else  if (indexPath.section == 4)  {
+//               GateBurstListTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"GateBurstListTableViewCell" forIndexPath:indexPath];
+//                            return cell;
+//            }
+            else  {
           GateWholeNetworkBigOrderStatisticsCell * cell = [tableView dequeueReusableCellWithIdentifier:@"GateWholeNetworkBigOrderStatisticsCell" forIndexPath:indexPath];
                        return cell;
        }

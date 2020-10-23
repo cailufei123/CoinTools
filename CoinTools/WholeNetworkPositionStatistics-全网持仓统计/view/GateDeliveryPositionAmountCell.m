@@ -17,7 +17,7 @@
 @property(nonatomic,strong) GTYxisFearIndexValueFormatter * yXisFearIndexValueFormatter;
 @property(nonatomic,strong)NSMutableArray * temps;
 @property(nonatomic,strong)NSMutableArray * styleArr;
-
+@property(nonatomic,strong)NSMutableArray * allstyleArr;
 @end
 @implementation GateDeliveryPositionAmountCell
 
@@ -103,7 +103,7 @@
           for (int i = 0; i<self.chartView.lineData.dataSets.count; i++) {
               LineChartDataSet * set1 = (LineChartDataSet *) self.chartView.lineData.dataSets[i];
               if (set1.isVisible) {
-                  [styleArr1 addObject:self.styleArr[i]];
+                  [styleArr1 addObject:self.allstyleArr[i]];
               }
               
           }
@@ -121,8 +121,8 @@
     NSMutableArray * arr = [NSMutableArray array];
     self.temps =  [NSMutableArray array];
     
-    NSMutableArray * styleArr = [NSMutableArray array];
-    self.styleArr = styleArr;
+//    NSMutableArray * styleArr = [NSMutableArray array];
+//    self.styleArr = styleArr;
           for (int i = 1; i<holdData.alldatalist.count; i++) {
               GTHomeTitleModel * title = holdData.alldatalist[i].title;
               GTHomeTitleModel * titleModel = [GTDataManager getItemModelWhit:holdData.alldatalist[i].datalist.firstObject].firstObject;
@@ -130,16 +130,15 @@
               selectModel.color = gateColor(titleModel.color);
               selectModel.titleText = title.content;
               if (i>1) {
-                 
                   [arr addObject:selectModel];
               }
               [self.temps addObject:selectModel];
-              [styleArr addObject:@{@"title":[NSString stringWithFormat:@"%@:%@", title.content,titleModel.content] ,@"color":gateColor(titleModel.color)}];
+//              [styleArr addObject:@{@"title":[NSString stringWithFormat:@"%@:%@", title.content,titleModel.content] ,@"color":gateColor(titleModel.color)}];
   
       }
     
     self.xXisFearIndexValueFormatter.publicArry = [GTDataManager getItemModelWhit:holdData.alldatalist.firstObject.datalist.firstObject];
-    self.marker.stylemodels = styleArr;
+//    self.marker.stylemodels = styleArr;
     
     self.topPublicSelectView.arr = arr;
     [self setChartData];
@@ -297,7 +296,37 @@
         entry.icon = [GTStyleManager  selecrDotStyle:selectModel.color];
     }
     
+    
+    [self setLineDot: x];
+    
+    
+    
+    
 }
+
+-(void)setLineDot:(NSInteger )index{
+   
+     NSMutableArray * styleArr = [NSMutableArray array];
+     self.allstyleArr = [NSMutableArray array];
+    
+    self.styleArr = styleArr;
+     for (int i = 0; i<self.chartView.lineData.dataSets.count; i++) {
+                LineChartDataSet * set1 = (LineChartDataSet *) self.chartView.lineData.dataSets[i];
+                GTHomeTitleModel * title = self.holdData.alldatalist[i+1].title;
+                GTHomeTitleModel * titleModel = [GTDataManager getItemModelWhit:self.holdData.alldatalist[i+1].datalist.firstObject][index];
+                GatePublicSelectModel *  selectModel = [[GatePublicSelectModel alloc] init];
+                selectModel.color = gateColor(titleModel.color);
+                selectModel.titleText = title.content;
+                if (set1.isVisible) {
+                    [styleArr addObject:@{@"title":[NSString stringWithFormat:@"%@:%@", title.content,titleModel.content] ,@"color":gateColor(titleModel.color)}];
+              }
+          [self.allstyleArr addObject:@{@"title":[NSString stringWithFormat:@"%@:%@", title.content,titleModel.content] ,@"color":gateColor(titleModel.color)}];
+    
+        }
+    
+     self.marker.stylemodels = styleArr;
+}
+
 
 - (void)chartValueNothingSelected:(ChartViewBase * __nonnull)chartView
 {

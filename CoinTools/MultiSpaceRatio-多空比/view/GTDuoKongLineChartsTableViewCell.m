@@ -23,6 +23,7 @@
 @property(nonatomic,strong) GTChartPMarkerView * marker;
 @property(nonatomic,strong)NSMutableArray * temps;
 @property(nonatomic,strong)NSMutableArray * styleArr;
+@property(nonatomic,strong)NSMutableArray * allstyleArr;
 @end
 @implementation GTDuoKongLineChartsTableViewCell
 
@@ -123,9 +124,7 @@
     _duoKongData = duoKongData;
     NSMutableArray * arr = [NSMutableArray array];
     self.temps =  [NSMutableArray array];
-    
-    NSMutableArray * styleArr = [NSMutableArray array];
-    self.styleArr = styleArr;
+
           for (int i = 1; i<duoKongData.alldatalist.count; i++) {
               GTHomeTitleModel * title = duoKongData.alldatalist[i].title;
               GTHomeTitleModel * titleModel = [GTDataManager getItemModelWhit:duoKongData.alldatalist[i].datalist.firstObject].firstObject;
@@ -134,12 +133,12 @@
               selectModel.titleText = title.content;
               [arr addObject:selectModel];
               [self.temps addObject:selectModel];
-              [styleArr addObject:@{@"title":[NSString stringWithFormat:@"%@:%@", title.content,titleModel.content] ,@"color":gateColor(titleModel.color)}];
+
   
       }
     
     self.xXisFearIndexValueFormatter.publicArry = [GTDataManager getItemModelWhit:duoKongData.alldatalist.firstObject.datalist.firstObject];
-    self.marker.stylemodels = styleArr;
+
     
     self.topPublicSelectView.arr = arr;
     [self setChartData];
@@ -158,11 +157,14 @@
           @strongify(self)
             LineChartDataSet * set =  (LineChartDataSet *) self.chartView.lineData.dataSets[index];
             set.visible = !publicSelectModel.selectEnabled;
+          
+          
+          
             NSMutableArray * styleArr1 = [NSMutableArray array];
             for (int i = 0; i<self.chartView.lineData.dataSets.count; i++) {
             LineChartDataSet * set1 = (LineChartDataSet *) self.chartView.lineData.dataSets[i];
             if (set1.isVisible) {
-            [styleArr1 addObject:self.styleArr[i]];
+             [styleArr1 addObject:self.allstyleArr[i]];
           }
       }
           self.marker.stylemodels = styleArr1;
@@ -388,51 +390,33 @@
     
     [GTDotManager chartDotManagerValueSelected: self.chartView entry:entry highlight:highlight publicSelectModels:self.topPublicSelectView.arr];
     
- 
-//    LineChartDataSet * set =  (LineChartDataSet *) self.chartView.lineData.dataSets[index];
-//    set.visible = !publicSelectModel.selectEnabled;
-//    NSMutableArray * styleArr1 = [NSMutableArray array];
-//    for (int i = 0; i<self.chartView.lineData.dataSets.count; i++) {
-//    LineChartDataSet * set1 = (LineChartDataSet *) self.chartView.lineData.dataSets[i];
-//    if (set1.isVisible) {
-//    [styleArr1 addObject:self.styleArr[i]];
-//  }
-//}
-//  self.marker.stylemodels = styleArr1;
-//
-//  [self.chartView setNeedsDisplay];
-//
-    
-    
-    
-    NSMutableArray * arr = [NSMutableArray array];
-    self.temps =  [NSMutableArray array];
-    
-    NSMutableArray * styleArr = [NSMutableArray array];
-    self.styleArr = styleArr;
-    int ff = (int)entry.x;
-          for (int i = 0; i<self.chartView.lineData.dataSets.count; i++) {
-              LineChartDataSet * set1 = (LineChartDataSet *) self.chartView.lineData.dataSets[i];
-              GTHomeTitleModel * title = self.duoKongData.alldatalist[i].title;
-              GTHomeTitleModel * titleModel = [GTDataManager getItemModelWhit:self.duoKongData.alldatalist[i].datalist.firstObject][ff];
-              GatePublicSelectModel *  selectModel = [[GatePublicSelectModel alloc] init];
-              selectModel.color = gateColor(titleModel.color);
-              selectModel.titleText = title.content;
-              if (set1.isVisible) {
-                  [styleArr addObject:@{@"title":[NSString stringWithFormat:@"%@:%@", title.content,titleModel.content] ,@"color":gateColor(titleModel.color)}];
-            }
-            
-            
-  
-      }
-    
 
-    self.marker.stylemodels = styleArr;
+    [self setLineDot:(int)entry.x];
+   
     
     
     
 }
-
+-(void)setLineDot:(NSInteger )index{
+   
+     NSMutableArray * styleArr = [NSMutableArray array];
+     self.allstyleArr = [NSMutableArray array];
+    self.styleArr = styleArr;
+     for (int i = 0; i<self.chartView.lineData.dataSets.count; i++) {
+                LineChartDataSet * set1 = (LineChartDataSet *) self.chartView.lineData.dataSets[i];
+                GTHomeTitleModel * title = self.duoKongData.alldatalist[i+1].title;
+                GTHomeTitleModel * titleModel = [GTDataManager getItemModelWhit:self.duoKongData.alldatalist[i+1].datalist.firstObject][index];
+                GatePublicSelectModel *  selectModel = [[GatePublicSelectModel alloc] init];
+                selectModel.color = gateColor(titleModel.color);
+                selectModel.titleText = title.content;
+                if (set1.isVisible) {
+                    [styleArr addObject:@{@"title":[NSString stringWithFormat:@"%@:%@", title.content,titleModel.content] ,@"color":gateColor(titleModel.color)}];
+              }
+         [self.allstyleArr addObject:@{@"title":[NSString stringWithFormat:@"%@:%@", title.content,titleModel.content] ,@"color":gateColor(titleModel.color)}];
+        }
+    
+     self.marker.stylemodels = styleArr;
+}
 
 @end
 

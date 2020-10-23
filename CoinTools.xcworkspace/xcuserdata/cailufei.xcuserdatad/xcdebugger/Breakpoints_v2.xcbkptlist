@@ -5,78 +5,82 @@
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
-         <BreakpointContent
-            uuid = "DA0E2830-C037-4E23-880D-428476FCB12C"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            breakpointStackSelectionBehavior = "1"
-            scope = "1"
-            stopOnStyle = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "EF82237A-136B-430B-B5A3-CA0E5C62C90B"
+            uuid = "530700E1-81CB-4452-8662-5897D83789D5"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CoinTools/GTFearIndex-&#x6050;&#x614c;&#x6307;&#x6570;/model/GTXAxisFearIndexValueFormatter.m"
+            filePath = "CoinTools/WholeNetworkPositionStatistics-&#x5168;&#x7f51;&#x6301;&#x4ed3;&#x7edf;&#x8ba1;/view/GateDeliveryPositionAmountCell.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
-            landmarkName = "-getDateStringWithTimestamp:"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "-topPublicSelectView"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "37A2A959-E330-4D50-9F41-B12824B4A6A5"
+            uuid = "321131F9-7FF4-4154-909E-14B9A4E7700B"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CoinTools/GTFearIndex-&#x6050;&#x614c;&#x6307;&#x6570;/model/GTXAxisFearIndexValueFormatter.m"
+            filePath = "CoinTools/WholeNetworkPositionStatistics-&#x5168;&#x7f51;&#x6301;&#x4ed3;&#x7edf;&#x8ba1;/view/GateDeliveryPositionAmountCell.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
-            landmarkName = "-getDateStringWithTimestamp1:"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "-topPublicSelectView"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3BD8A566-D98C-44AA-AF3C-ADC0638FF781"
+            uuid = "70D24464-0B07-44C9-878E-7092C62EEB78"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CoinTools/GTFearIndex-&#x6050;&#x614c;&#x6307;&#x6570;/model/GTXAxisFearIndexValueFormatter.m"
+            filePath = "CoinTools/BigOrderBurstStatistics-&#x5927;&#x5355;&#x6210;&#x4ea4;&#x7edf;&#x8ba1;/view/GateBigOrderDistributionDealCell.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
-            landmarkName = "-stringForValue:axis:"
+            startingLineNumber = "430"
+            endingLineNumber = "430"
+            landmarkName = "-chartValueSelected:entry:highlight:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "AC1E6AF0-6207-432A-A7CF-20F58BDB6E90"
+            uuid = "BAA1A924-10E4-4C9B-9E3F-9BCFCEBF30CC"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CoinTools/GTFearIndex-&#x6050;&#x614c;&#x6307;&#x6570;/model/GTXAxisFearIndexValueFormatter.m"
+            filePath = "CoinTools/BigOrderBurstStatistics-&#x5927;&#x5355;&#x6210;&#x4ea4;&#x7edf;&#x8ba1;/view/GateBigOrderDistributionDealCell.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
-            landmarkName = "-stringForValue:axis:"
+            startingLineNumber = "427"
+            endingLineNumber = "427"
+            landmarkName = "-chartValueSelected:entry:highlight:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F591BAC6-EF62-44E0-A2D4-93E7EB6B1645"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CoinTools/BigOrderBurstStatistics-&#x5927;&#x5355;&#x6210;&#x4ea4;&#x7edf;&#x8ba1;/view/GateBigOrderDistributionDealCell.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "428"
+            endingLineNumber = "428"
+            landmarkName = "-chartValueSelected:entry:highlight:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

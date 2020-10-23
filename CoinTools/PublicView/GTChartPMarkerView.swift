@@ -19,10 +19,11 @@ import YYKit
  open class GTChartPMarkerView: MarkerView {
   @objc(GTChartPMarkerViewCalendarPermission)
  public enum AleartType: Int {
-         case duoKong = 0
+         case duoKong = 10
          case baoCang
          case kongHuang
          case chiCang
+         case daDan
      }
     
 //   @objc open var cycleSelectBlock:(_ models : [Any]) -> NSArray = {_ in }
@@ -80,6 +81,11 @@ import YYKit
             twoParameters(entry: entry, firstStr: "BTC价格", lastStr: "贪梦恐慌指数")
             break
         case .chiCang:
+           
+         holdViewAleart(entry: entry)
+
+            break
+         case .daDan:
            
          holdViewAleart(entry: entry)
 

@@ -73,23 +73,16 @@
    
     GTChartPMarkerView * marker = [GTStyleManager getChartPMarkerViewWhit];
     marker.chartView =  self.chartView;
-//    marker.aleartType = GTChartPMarkerViewCalendarPermissionChiCang;
+   marker.aleartType = GTChartPMarkerViewCalendarPermissionDaDan;
     self.marker = marker;
     self.chartView.marker = marker;
-    [self.selectView addSubview:self.topPublicSelectView];
-//    marker.xAxisValueFormatter = self.xXisFearIndexValueFormatter;
-     
+ 
+  
+    self.xXisFearIndexValueFormatter = [GTXAxisFearIndexValueFormatter getGTXAxisFearIndexValueFormatter];
+//    self.xXisFearIndexValueFormatter.formatterType =
+    marker.xAxisValueFormatter =  self.xXisFearIndexValueFormatter;
       [self.chartView animateWithXAxisDuration:2.0f];
     
-    
-
-    [self.selectView addSubview:self.topPublicSelectView];
-   
- 
-    
-    
-    
-  
     [self.selectView addSubview:self.topPublicSelectView];
     [self.bottomSelectView addSubview:self.bottomPublicSelectView];
        
@@ -222,14 +215,14 @@
                      });
 
        }];
- [self generate:publicContentModel lineDataBlock:^(LineChartData *lineChartData) {
-     @strongify(self)
-        data.lineData  = lineChartData;
-        self.chartView.data = data;
-        [self.chartView.data notifyDataChanged];
-               [self.chartView setNeedsDisplay];
-
-    }];
+// [self generate:publicContentModel lineDataBlock:^(LineChartData *lineChartData) {
+//     @strongify(self)
+//        data.lineData  = lineChartData;
+//        self.chartView.data = data;
+//        [self.chartView.data notifyDataChanged];
+//               [self.chartView setNeedsDisplay];
+//
+//    }];
 
    
 }
@@ -243,21 +236,46 @@
             double leftAxisMax = 0;
             NSMutableArray *entries = [[NSMutableArray alloc] init];
       for (int i = 0; i<publicContentModel.alldatalist[2].datalist.count; i++) {
-         NSArray< GTHomeTitleModel *> * models = [GTDataManager getItemModelWhit:publicContentModel.alldatalist[2].datalist[i]];
-          NSArray< GTHomeTitleModel *> * model1s = [GTDataManager getItemModelWhit:publicContentModel.alldatalist.lastObject.datalist[i]];
-
-          for (int index = 0; index<models.count; index++) {
-              GTHomeTitleModel * titleModel  = models[index];
+           NSArray< GTHomeTitleModel *> * model1s = [GTDataManager getItemModelWhit:publicContentModel.alldatalist[1].datalist[i]];//交易所报价"
+          
+         NSArray< GTHomeTitleModel *> * model2s = [GTDataManager getItemModelWhit:publicContentModel.alldatalist[2].datalist[i]];//多空报价"
+          
+            NSArray< GTHomeTitleModel *> * model3s = [GTDataManager getItemModelWhit:publicContentModel.alldatalist[3].datalist[i]];//"成交金额"
+          
+          
+          NSArray< GTHomeTitleModel *> * model4s = [GTDataManager getItemModelWhit:publicContentModel.alldatalist[4].datalist[i]];//"方向"
+          
+          
+          
+        
+          
+          
+          
+          NSString * jidu;  NSString * fangxiang;NSString * jiage;NSString * jiazhi;
+          
+         
+          for (int index = 0; index<model2s.count; index++) {
               GTHomeTitleModel * titleModel1  = model1s[index];
+              GTHomeTitleModel * titleModel2  = model2s[index];
+              GTHomeTitleModel * titleModel3  = model3s[index];
+              GTHomeTitleModel * titleModel4 =  model4s[index];
    
-              double val = [titleModel.content doubleValue];
-              if ([titleModel.content isNotBlank]) {
+              double val = [titleModel2.content doubleValue];
+              if ([titleModel2.content isNotBlank]) {
                   leftAxisMax = MAX(val, leftAxisMax);
                   leftAxisMin = MIN(val, leftAxisMin);
               }
+              NSMutableArray * tempArr = [NSMutableArray array];
               
+              jidu = @"当季";
+              fangxiang = [NSString stringWithFormat:@"方向:%@",[titleModel4.content isNotBlank]?titleModel4.content:@""];
+              jiage = [NSString stringWithFormat:@"价格:%@",[titleModel1.content isNotBlank]?titleModel1.content:@""];
+              jiazhi = [NSString stringWithFormat:@"价值:%@",[titleModel3.content isNotBlank]?titleModel3.content:@""];
+              
+              [tempArr addObject:jidu];[tempArr addObject:fangxiang];[tempArr addObject:jiage];[tempArr addObject:jiazhi];
+
               dispatch_sync(dispatch_get_main_queue(), ^{
-//                  [entries addObject:[[BubbleChartDataEntry alloc] initWithX:i y:val size:30 icon: [self  selecrDotStyle:gateColor(titleModel1.color) ] data:<#(id _Nullable)#>]];
+                  [entries addObject:[[BubbleChartDataEntry alloc] initWithX:i y:val size:30 icon: [self  selecrDotStyle:gateColor(titleModel4.color) ] data:tempArr]];
               });
              
 
@@ -301,7 +319,7 @@
      BubbleChartDataSet *set = [[BubbleChartDataSet alloc] initWithEntries:entries label:@"Bubble DataSet"];
          set.drawIconsEnabled = YES;
         set.highlightCircleWidth = 2;
-        set.highlightEnabled = NO;
+//        set.highlightEnabled = NO;
 //        [set setFormSize:2];
 
         set.highlightLineWidth = 1;
@@ -403,7 +421,21 @@
 
 - (void)chartValueSelected:(ChartViewBase * __nonnull)chartView entry:(ChartDataEntry * __nonnull)entry highlight:(ChartHighlight * __nonnull)highlight
 {
-    NSLog(@"chartValueSelected");
+    
+    BubbleChartDataEntry *  entry1 = entry;
+     NSMutableArray * tempArr = [NSMutableArray array];
+     NSMutableArray * entrys =  entry1.data;
+    for (int i = 0; i<entrys.count; i++) {
+    [tempArr addObject:@{@"title":entrys[i] ,@"color":gateColor(@"000000")}];
+      
+    }
+    
+//    LineChartDataSet * set1 = (LineChartDataSet *) self.chartView.lineData.dataSets[(int)chartView.x];
+    
+    
+  
+   
+    self.marker.stylemodels = tempArr;
 }
 
 - (void)chartValueNothingSelected:(ChartViewBase * __nonnull)chartView

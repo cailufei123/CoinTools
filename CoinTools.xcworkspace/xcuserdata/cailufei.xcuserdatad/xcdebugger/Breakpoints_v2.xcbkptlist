@@ -46,8 +46,8 @@
             filePath = "CoinTools/BigOrderBurstStatistics-&#x5927;&#x5355;&#x6210;&#x4ea4;&#x7edf;&#x8ba1;/view/GateBigOrderDistributionDealCell.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "430"
-            endingLineNumber = "430"
+            startingLineNumber = "431"
+            endingLineNumber = "431"
             landmarkName = "-chartValueSelected:entry:highlight:"
             landmarkType = "7">
          </BreakpointContent>
@@ -62,8 +62,8 @@
             filePath = "CoinTools/BigOrderBurstStatistics-&#x5927;&#x5355;&#x6210;&#x4ea4;&#x7edf;&#x8ba1;/view/GateBigOrderDistributionDealCell.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "427"
-            endingLineNumber = "427"
+            startingLineNumber = "428"
+            endingLineNumber = "428"
             landmarkName = "-chartValueSelected:entry:highlight:"
             landmarkType = "7">
          </BreakpointContent>
@@ -78,9 +78,89 @@
             filePath = "CoinTools/BigOrderBurstStatistics-&#x5927;&#x5355;&#x6210;&#x4ea4;&#x7edf;&#x8ba1;/view/GateBigOrderDistributionDealCell.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "428"
-            endingLineNumber = "428"
+            startingLineNumber = "429"
+            endingLineNumber = "429"
             landmarkName = "-chartValueSelected:entry:highlight:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6DCA265C-72FB-428D-8F04-ED13C433DA31"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CoinTools/BigOrderBurstStatistics-&#x5927;&#x5355;&#x6210;&#x4ea4;&#x7edf;&#x8ba1;/view/GateBigOrderDistributionDealCell.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
+            landmarkName = "-setBigOrderModel:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B7AC7CF0-05D1-4253-B262-BCB3DD397670"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CoinTools/BigOrderBurstStatistics-&#x5927;&#x5355;&#x6210;&#x4ea4;&#x7edf;&#x8ba1;/view/GateBigOrderDistributionDealCell.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
+            landmarkName = "-setBigOrderModel:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7271E60D-9ED4-4692-9C96-24D8CB335FE6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CoinTools/BigOrderBurstStatistics-&#x5927;&#x5355;&#x6210;&#x4ea4;&#x7edf;&#x8ba1;/view/GateBigOrderDistributionDealCell.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
+            landmarkName = "-setBigOrderModel:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2CAB332F-A128-45F0-AA7D-1697B3F7D481"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CoinTools/BigOrderBurstStatistics-&#x5927;&#x5355;&#x6210;&#x4ea4;&#x7edf;&#x8ba1;/view/GateBigOrderDistributionDealCell.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "213"
+            endingLineNumber = "213"
+            landmarkName = "-setChartData:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B4306EB2-0ACC-4125-BD43-959BB99E48CE"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CoinTools/HomePags-&#x9996;&#x9875;/controller/GateHomePageController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "241"
+            endingLineNumber = "241"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

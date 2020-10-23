@@ -211,7 +211,8 @@
                          data.bubbleData  = bubbleData;
                          self.chartView.data = data;
                          [self.chartView.data notifyDataChanged];
-                         [self.chartView setNeedsDisplay];
+                          [self.chartView notifyDataSetChanged];
+//                         [self.chartView setNeedsDisplay];
                      });
 
        }];

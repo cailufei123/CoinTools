@@ -19,7 +19,6 @@
 
 @interface GateBigOrderStatisticsViewController ()
 
-@property(nonatomic,copy)NSString *v_ts;
 @property(nonatomic,copy)NSString *v_pic_ts;
 @property(nonatomic,copy)NSString *v_coin_type;
 @property(nonatomic,assign)NSInteger v_pic_tsIndex;
@@ -56,8 +55,8 @@
 }
 
 -(void)loadDataDefult:(BOOL)isDefult{
-    
-    NSString * url = isDefult?bigdealURL:bigdeal_v_tsURL(self.v_coin_type, self.v_ts);
+    isDefult = YES;
+    NSString * url = isDefult?bigdealURL:bigdeal_v_tsURL(self.v_coin_type, self.v_pic_ts);
     NSLog(@"%@",url);
     [GTStyleManager loadingImage];
     @weakify(self)

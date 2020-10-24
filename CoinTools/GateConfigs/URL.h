@@ -53,5 +53,11 @@
 #define vix_v_tsURL(v_ts) [NSString stringWithFormat:@"%@/v1/data/vix/ts/%@",basesURL,v_ts]//恐慌指数选时间界面
 
 
+//#持币
+
+#define cashURL [NSString stringWithFormat:@"%@/v1/data/cash",basesURL]//持币默认界面
+#define cash_v_coin_typeURL(v_coin_type) [NSString stringWithFormat:@"%@/v1/data/cash/coin_type/%@",basesURL,v_coin_type]///持币选币界面
+#define cash_v_tsURL(v_coin_type,v_ts) [NSString stringWithFormat:@"%@/v1/data/cash/coin_type/%@/ts/%@",basesURL,v_coin_type,v_ts]//持币选时间界面
+
 #endif /* URL_h */
 

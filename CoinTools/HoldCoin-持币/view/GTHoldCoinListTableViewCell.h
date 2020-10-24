@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *chicangLb;
 @property (weak, nonatomic) IBOutlet UILabel *day7;
 @property (weak, nonatomic) IBOutlet UILabel *chackBt;
+- (IBAction)addressAction:(id)sender;
+@property (nonatomic, copy) void (^didPresentBlock)(NSString * str);
 
 @end
 

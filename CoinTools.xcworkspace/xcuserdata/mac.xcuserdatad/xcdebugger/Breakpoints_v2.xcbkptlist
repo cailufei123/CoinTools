@@ -7,7 +7,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
          <BreakpointContent
-            uuid = "3872DFCC-AEAA-471B-9665-95D2F16693D5"
+            uuid = "5E3804DB-1A22-49BA-A2CB-EF8A4703FF14"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -19,32 +19,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "76E72AFF-4911-48BF-8B17-91DF71056391"
+            uuid = "87842F4E-AF9E-4383-AD61-369D3A877268"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CoinTools/BigOrderBurstStatistics-&#x5927;&#x5355;&#x6210;&#x4ea4;&#x7edf;&#x8ba1;/view/GateBigOrderDistributionDealCell.m"
+            filePath = "CoinTools/HoldCoin-&#x6301;&#x5e01;/controller/GateHoldCoinViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "406"
-            endingLineNumber = "406"
-            landmarkName = "-chartValueSelected:entry:highlight:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "BD20F2F0-A7F3-4D44-813D-D9389FD6E478"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CoinTools/PublicView/GTChartPMarkerView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
-            landmarkName = "multiSpaceRatioAlert(entry:)"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "-loadDataWhit:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

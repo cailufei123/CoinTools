@@ -277,9 +277,13 @@ if (@available(iOS 11.0, *)) {
    
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    GTFearIndexViewController * fearIndexVc = [[GTFearIndexViewController alloc] init];
-    fearIndexVc.homevix =  self.homeModel.homepagevix;
-    [self.navigationController pushViewController:fearIndexVc animated:YES];
+    if (indexPath.section == 2) {
+        GTFearIndexViewController * fearIndexVc = [[GTFearIndexViewController alloc] init];
+        fearIndexVc.homevix =  self.homeModel.homepagevix;
+       
+        [self.navigationController pushViewController:fearIndexVc animated:YES];
+    }
+   
 }
 - (UIViewController*)stringChangeToClass:(NSString *)str {
     id vc = [[NSClassFromString(str) alloc]init];

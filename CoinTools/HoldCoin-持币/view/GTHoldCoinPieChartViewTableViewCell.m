@@ -56,20 +56,32 @@
      
        
        [_pieChartView animateWithXAxisDuration:1.4 easingOption:ChartEasingOptionEaseOutBack];
-    [self setDataCount:10 range:30];
+//    [self setDataCount:10 range:30];
+    gateTableRegisterNib(self.topTableView, @"GTTopTableViewTableViewCell");
 }
 
-- (void)setDataCount:(int)count range:(double)range
-{
-    double mult = range;
+
+
+
+
+-(void)setHoardpage_top5:(GTPublicContentModel *)hoardpage_top5{
+    _hoardpage_top5 = hoardpage_top5;
     
+    [self.topTableView reloadData];
+  
     NSMutableArray *values = [[NSMutableArray alloc] init];
-    
-    for (int i = 0; i < count; i++)
+    NSMutableArray * arr = [NSMutableArray array];
+    for (int i = 0; i < getItemModel(hoardpage_top5.alldatalist.lastObject.datalist.firstObject).count; i++)
     {
+      
+
+      
+        GTHomeTitleModel * titleModel = getItemModel(hoardpage_top5.alldatalist.lastObject.datalist.firstObject)[i];
+        [arr addObject:gateColor(titleModel.color)];
+        NSString * valStr = [titleModel.content stringByReplacingOccurrencesOfString:@"%@" withString:@""];
+     
         
-        
-        [values addObject:[[PieChartDataEntry alloc] initWithValue:(arc4random_uniform(mult) + mult / 5) label:@"333" icon: [UIImage imageNamed:@"icon"]]];
+        [values addObject:[[PieChartDataEntry alloc] initWithValue:[valStr doubleValue] label:@"333" icon: [UIImage imageNamed:@"icon"]]];
     }
     
     PieChartDataSet *dataSet = [[PieChartDataSet alloc] initWithEntries:values label:@"Election Results"];
@@ -86,20 +98,18 @@
     // add a lot of colors
   dataSet.drawValuesEnabled = NO; // 是否绘制显示数据
    
-
-
-
+    
     dataSet.selectionShift = 8;// 2.设置PieChartDataSet缩放系数
-    NSMutableArray *colors = [[NSMutableArray alloc] init];
-    NSArray * arr = @[[UIColor redColor],[UIColor blueColor],[UIColor orangeColor],[UIColor purpleColor]];
-    [colors addObjectsFromArray:arr];
+//    NSMutableArray *colors = [[NSMutableArray alloc] init];
+//    NSArray * arr = @[[UIColor redColor],[UIColor blueColor],[UIColor orangeColor],[UIColor purpleColor]];
+//    [colors addObjectsFromArray:arr];
 //   [colors addObjectsFromArray:ChartColorTemplates.joyful];
 //    [colors addObjectsFromArray:ChartColorTemplates.colorful];
 //    [colors addObjectsFromArray:ChartColorTemplates.liberty];
 //    [colors addObjectsFromArray:ChartColorTemplates.pastel];
 //    [colors addObject:[UIColor colorWithRed:51/255.f green:181/255.f blue:229/255.f alpha:1.f]];
 //
-    dataSet.colors = colors;
+    dataSet.colors = arr;
     PieChartData *data = [[PieChartData alloc] initWithDataSet:dataSet];
     
     NSNumberFormatter *pFormatter = [[NSNumberFormatter alloc] init];
@@ -113,14 +123,11 @@
     
     _pieChartView.data = data;
     [_pieChartView highlightValues:nil];
-    [_pieChartView animateWithXAxisDuration:2.0f easingOption:ChartEasingOptionEaseOutExpo];
+//    [_pieChartView animateWithXAxisDuration:2.0f easingOption:ChartEasingOptionEaseOutExpo];
     
     self.topTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     gateTableRegisterNib(self.topTableView, @"GTTopTableViewTableViewCell");
 }
-
-
-
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -130,7 +137,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     
-    return 5 ;
+    return _hoardpage_top5.alldatalist.firstObject.datalist.firstObject.count +1;
 }
 
 
@@ -142,18 +149,26 @@
   -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
       
       GTTopTableViewTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"GTTopTableViewTableViewCell" forIndexPath:indexPath];
-      cell.colorView.backgroundColor = KRANDOM_COLOR;
+      GTHomeTitleModel * titleModel = getItemModel(_hoardpage_top5.alldatalist.firstObject.datalist.firstObject)[indexPath.row-1];
+      GTHomeTitleModel * titleModel1 = getItemModel(_hoardpage_top5.alldatalist.lastObject.datalist.firstObject)[indexPath.row-1];
+    
       if (indexPath.row == 0) {
-          cell.top5Lb.text = @"TOP5地址";
-          cell.ratioLb.text = @"持币占比";
+          cell.top5Lb.text = _hoardpage_top5.alldatalist.firstObject.title.content;
+          cell.ratioLb.text =  _hoardpage_top5.alldatalist.lastObject.title.content;
+          setStyle(_hoardpage_top5.alldatalist.firstObject.title,  cell.top5Lb);
+          setStyle( _hoardpage_top5.alldatalist.lastObject.title,  cell.ratioLb);
           cell.colorView.hidden = YES;
       }else{
-         
-          cell.top5Lb.text = @"2222";
-          cell.ratioLb.text = @"34";
-        cell.colorView.hidden = NO;
+          cell.top5Lb.text = titleModel.content;
+          cell.ratioLb.text = titleModel1.content;
+          cell.colorView.hidden = NO;
+          setStyle(titleModel,  cell.top5Lb);
+          setStyle(titleModel,  cell.ratioLb);
+          cell.colorView.backgroundColor = gateColor(titleModel1.color);
       }
-     
+      
+      cell.top5Lb.lineBreakMode = NSLineBreakByTruncatingMiddle;
+      cell.ratioLb.lineBreakMode = NSLineBreakByTruncatingMiddle;
         return cell;
      
   }

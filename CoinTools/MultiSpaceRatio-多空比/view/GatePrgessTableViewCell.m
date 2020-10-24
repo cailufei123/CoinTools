@@ -24,9 +24,9 @@
         
 }
 -(void)setLsalldtl:(GTPublicContentModel *)lsalldtl{
-    self.userImageView.backgroundColor = [UIColor redColor];
+  
     _lsalldtl =  lsalldtl;
-    [self.userImageView setImageWithURL:urlWhitString( [GTDataManager getItemModelWhit:self.lsalldtl.alldatalist[self.indexPath.section *3].datalist.firstObject][self.indexPath.row].url) placeholder:nil];
+    [self.userImageView setImageWithURL:urlWhitString( [GTDataManager getItemModelWhit:self.lsalldtl.alldatalist[self.indexPath.section *3].datalist.firstObject][self.indexPath.row].url) placeholder:getPlaceholderImage];
     
     self.userNameLb.text = [GTDataManager getItemModelWhit:self.lsalldtl.alldatalist[self.indexPath.section *3].datalist.firstObject][self.indexPath.row].content;
     [GTStyleManager setStyleWhit:[GTDataManager getItemModelWhit:self.lsalldtl.alldatalist[self.indexPath.section *3].datalist.firstObject][self.indexPath.row] forLale:self.userNameLb];

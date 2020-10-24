@@ -12,6 +12,7 @@ typedef NS_ENUM(NSInteger, GTFormatterYType) {
     GTFormatterYRightKongHuang,
     GTFormatterYLeftAxisChiCang,
     GTFormatterYRightChiCang,
+ 
 };
 
 #import <Foundation/Foundation.h>

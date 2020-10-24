@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTHoldCoinPieChartViewTableViewCell : UITableViewCell<ChartViewDelegate,UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet PieChartView *pieChartView;
 @property (weak, nonatomic) IBOutlet UITableView *topTableView;
+@property(nonatomic,strong)GTPublicContentModel * hoardpage_top5;
 
 @end
 

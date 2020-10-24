@@ -14,6 +14,14 @@
 @interface GTFearIndexViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong)UITableView *tableView;
 @property(nonatomic,strong)GTFearIndexModel *fearIndexModel;
+
+@property(nonatomic,strong)NSArray * littes;
+@property (nonatomic, assign) NSInteger index;
+@property(nonatomic,strong)NSMutableArray * lineDatas;
+@property (nonatomic, copy) NSString * v_ts;
+
+@property(nonatomic,strong)NSMutableArray * dataArrs;
+
 @end
 
 @implementation GTFearIndexViewController
@@ -90,20 +98,71 @@ if (@available(iOS 11.0, *)) {
   self.navigationItem.titleView  = imag;
     
     
-        @weakify(self)
-      [self.tableView addPullToRefresh:[LNHeaderMeituanAnimator createAnimator] block:^{
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        @strongify(self)
-            NSDictionary * dict =  [GTCurrencyTool readLocalFileWithName:@"CoinTools.framework/fearIndexDate"];
-            self.fearIndexModel =[GTFearIndexModel  modelWithDictionary:dict[@"data"]];
-            [self.tableView cyl_reloadData];
-            [self.tableView endRefreshing];
-        });
-    }];
-    [self.tableView startRefreshing];
+
+       @weakify(self)
+          [self.tableView addPullToRefresh:[LNHeaderMeituanAnimator createAnimator] block:^{
+               @strongify(self)
+               dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                   [self loadDataWhit:1];
+                  });
+          }];
+  
+    [GTStyleManager loadingImage];
+    [self loadData:0];
+
    
 }
 
+-(void)loadDataWhit:(NSInteger)index{
+    self.index = index;
+    if (index == 0) {
+        self.v_ts = @"all";
+    }else if (index == 1) {
+        self.v_ts = @"month";
+    }else if (index == 2) {
+        self.v_ts = @"week";
+    }
+    [GTStyleManager loadingImage];
+    [self loadData:1];
+}
+
+-(void)loadData:(NSInteger)index{
+    @weakify(self)
+    NSString * url = nil;
+    if (index == 0) {
+        url = vixURL;
+    }else if(index == 1){
+        url = vix_v_tsURL(self.v_ts);
+    }
+    
+          
+     [GateRequestManager getCache:url block:^(NSError * _Nonnull error, BOOL isCache, NSDictionary * _Nonnull response) {
+           @strongify(self)
+        
+         [self.dataArrs removeAllObjects];
+         if (!error) {
+//             self.isError = NO;
+             self.fearIndexModel = [GTFearIndexModel modelWithDictionary:response[@"data"]];
+        
+           
+            
+         }else{
+//             self.isError = YES;
+           
+         }
+       
+         if (!isCache) {
+             [EasyLodingView hidenLoding];
+             [self.tableView endRefreshing];
+             [self.tableView cyl_reloadData];
+         }
+        
+       
+                           
+        
+    }];
+    
+}
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 
 {
@@ -123,8 +182,12 @@ if (@available(iOS 11.0, *)) {
     }else{
         GateHoursSelectCategoryView * selectCategoryView = [[GateHoursSelectCategoryView alloc] initWithFrame:CGRectMake(0, 0, scrWeiht-100, 50)];
                               selectCategoryView.titles =  @[@"1H",@"4H",@"24H"];
+        selectCategoryView.categoryView.defaultSelectedIndex = self.index;
+        selectCategoryView.titleLb.text =getItemModel(self.fearIndexModel.vix_bigtitle.alldatalist.firstObject.datalist.firstObject).firstObject.content;
+        setStyle(getItemModel(self.fearIndexModel.vix_bigtitle.alldatalist.firstObject.datalist.firstObject).firstObject, selectCategoryView.titleLb);
                              selectCategoryView.selectblock = ^(NSInteger index) {
-                                 
+                              
+                                 [self loadDataWhit:index];
                              };
                  
                                  return selectCategoryView;
@@ -144,18 +207,17 @@ if (@available(iOS 11.0, *)) {
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.fearIndexModel.bcoin_btc_vix_data_info.count>0?1:0;
+    if (section == 0) {
+        return 1;
+    }
+    return self.fearIndexModel.vix_info?1:0;
+ 
+
 }
 
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    return 230;
-//   CGFloat height = [tableView
-//                      fd_heightForCellWithIdentifier:@"GTFearIndexLineChartsTableViewCell"
-//                      cacheByIndexPath:indexPath
-//                      configuration:^(id cell) {
-//
-//                       }];
+
       
     if (indexPath.section == 0) {
         return 150;
@@ -175,7 +237,7 @@ if (@available(iOS 11.0, *)) {
                          return cell;
     }else{
         GTFearIndexLineChartsTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"GTFearIndexLineChartsTableViewCell" forIndexPath:indexPath];
-           cell.fearIndexModel = self.fearIndexModel;
+           cell.fearIndexPublicContentModel = self.fearIndexModel.vix_info;
                          return cell;
     }
     

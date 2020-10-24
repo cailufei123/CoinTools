@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,44 +11,54 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="79" id="KGk-i7-Jjw" customClass="GTHoldCoinListTableViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="244" height="79"/>
+            <rect key="frame" x="0.0" y="0.0" width="436" height="79"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="244" height="79"/>
+                <rect key="frame" x="0.0" y="0.0" width="436" height="79"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01   1.08%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="THa-D4-Tp3">
-                        <rect key="frame" x="15" y="29" width="51" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01   1.08%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="THa-D4-Tp3">
+                        <rect key="frame" x="15" y="29" width="39.5" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.043137254901960784" green="0.062745098039215685" blue="0.066666666666666666" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="215,34.78" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bra-xC-wA6">
-                        <rect key="frame" x="71" y="29" width="51" height="21"/>
+                        <rect key="frame" x="59.5" y="29" width="119" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.043137254899999998" green="0.062745098040000002" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+80000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B4t-vB-izm">
-                        <rect key="frame" x="127" y="29" width="51" height="21"/>
+                        <rect key="frame" x="183.5" y="29" width="118.5" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.043137254899999998" green="0.062745098040000002" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+80000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rph-JB-P4X">
-                        <rect key="frame" x="183" y="29" width="51" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+80000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rph-JB-P4X">
+                        <rect key="frame" x="307" y="29" width="119" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.043137254899999998" green="0.062745098040000002" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sAd-Kz-k6R">
+                        <rect key="frame" x="302" y="0.0" width="42" height="79"/>
+                        <connections>
+                            <action selector="addressAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="rK0-pC-efT"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="Rph-JB-P4X" firstAttribute="width" secondItem="B4t-vB-izm" secondAttribute="width" id="2Gn-GF-TxR"/>
-                    <constraint firstItem="THa-D4-Tp3" firstAttribute="width" secondItem="bra-xC-wA6" secondAttribute="width" id="3PK-Qt-tpu"/>
+                    <constraint firstItem="THa-D4-Tp3" firstAttribute="width" secondItem="bra-xC-wA6" secondAttribute="width" multiplier="1:3" id="3PK-Qt-tpu"/>
+                    <constraint firstAttribute="bottom" secondItem="sAd-Kz-k6R" secondAttribute="bottom" id="6I5-Zs-KP3"/>
                     <constraint firstItem="bra-xC-wA6" firstAttribute="centerY" secondItem="THa-D4-Tp3" secondAttribute="centerY" id="9yt-rf-hCd"/>
+                    <constraint firstItem="sAd-Kz-k6R" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="HTu-BW-Lix"/>
                     <constraint firstItem="THa-D4-Tp3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="HrH-dl-kOA"/>
                     <constraint firstItem="bra-xC-wA6" firstAttribute="leading" secondItem="THa-D4-Tp3" secondAttribute="trailing" constant="5" id="K6v-N1-zee"/>
+                    <constraint firstAttribute="trailing" secondItem="sAd-Kz-k6R" secondAttribute="trailing" id="Khm-D3-9vx"/>
                     <constraint firstItem="Rph-JB-P4X" firstAttribute="leading" secondItem="B4t-vB-izm" secondAttribute="trailing" constant="5" id="M6q-Bp-eoS"/>
+                    <constraint firstItem="sAd-Kz-k6R" firstAttribute="leading" secondItem="B4t-vB-izm" secondAttribute="trailing" id="MIH-zs-X1v"/>
                     <constraint firstItem="B4t-vB-izm" firstAttribute="centerY" secondItem="bra-xC-wA6" secondAttribute="centerY" id="N3d-eV-lmU"/>
                     <constraint firstItem="bra-xC-wA6" firstAttribute="width" secondItem="B4t-vB-izm" secondAttribute="width" id="dGz-wX-Ong"/>
                     <constraint firstItem="Rph-JB-P4X" firstAttribute="centerY" secondItem="B4t-vB-izm" secondAttribute="centerY" id="ebd-mt-CVc"/>
@@ -59,11 +69,12 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
+                <outlet property="chackBt" destination="Rph-JB-P4X" id="oAP-uY-c6j"/>
                 <outlet property="chibiLb" destination="THa-D4-Tp3" id="Hzj-a1-4Ut"/>
                 <outlet property="chicangLb" destination="bra-xC-wA6" id="mgD-az-vqg"/>
                 <outlet property="day7" destination="B4t-vB-izm" id="Mme-xK-7JC"/>
             </connections>
-            <point key="canvasLocation" x="-63.768115942028992" y="118.86160714285714"/>
+            <point key="canvasLocation" x="75.362318840579718" y="118.86160714285714"/>
         </tableViewCell>
     </objects>
 </document>

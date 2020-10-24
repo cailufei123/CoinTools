@@ -7,6 +7,7 @@
 //
 typedef NS_ENUM(NSInteger, GTFormatterXType) {
    GTFormatterXDuoKong = 4,
+    GTFormatterXDaDan ,
 };
 #import <Foundation/Foundation.h>
 @import Charts;

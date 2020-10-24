@@ -19,11 +19,11 @@
 
 @interface GateBigOrderStatisticsViewController ()
 
-@property(nonatomic,copy)NSString *v_pic_ts;
-@property(nonatomic,copy)NSString *v_coin_type;
-@property(nonatomic,assign)NSInteger v_pic_tsIndex;
-@property(nonatomic,strong)GTBigOrderModel * bigOrderModel;
 
+@property(nonatomic,copy)NSString *v_coin_type;
+@property(nonatomic,copy)NSString * v_ts;
+@property(nonatomic,strong)GTBigOrderModel * bigOrderModel;
+@property(nonatomic,assign)NSInteger v_pic_tsIndex;
 @end
 
 @implementation GateBigOrderStatisticsViewController
@@ -49,15 +49,25 @@
              });
        }];
 
- self. v_pic_ts =  @"1d";
+ self. v_ts =  @"1h";
  self.v_coin_type =  @"BTC";
  [self loadDataDefult:YES];
 }
-
+-(void)v_pic_tsSelect:(NSInteger)index{
+    self.v_pic_tsIndex = index;
+    if (index == 0) {
+        self.v_ts = @"1h";
+    }else if(index == 1){
+        self.v_ts = @"4h";
+    }else if(index == 2){
+        self.v_ts = @"24h";
+    }
+    [self loadDataDefult:NO];
+   
+}
 -(void)loadDataDefult:(BOOL)isDefult{
-    isDefult = YES;
-    NSString * url = isDefult?bigdealURL:bigdeal_v_tsURL(self.v_coin_type, self.v_pic_ts);
-    NSLog(@"%@",url);
+    isDefult = NO;
+    NSString * url = isDefult?bigdealURL:bigdeal_v_tsURL(self.v_coin_type, self.v_ts);
     [GTStyleManager loadingImage];
     @weakify(self)
    
@@ -82,11 +92,14 @@
 }
 
 
-
-
 -(void)selectitemOrindex:(NSInteger)index string:(nonnull NSString *)title{
-    
+    self.v_coin_type = title;
+    [self.tableView startRefreshing];
+   
 }
+
+
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 4;
 }
@@ -94,14 +107,13 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section == 2) {
-        return 5;
-    }
+        return self.bigOrderModel.bigdeal_total.alldatalist.firstObject.datalist.firstObject.count>0?self.bigOrderModel.bigdeal_total.alldatalist.firstObject.datalist.firstObject.count:0;}
+
     if (section == 3) {
-           return 1;
-       }
-    if (section == 4) {
-        return 10;
-    }
+        if(self.bigOrderModel.bigdeal_dist_huobi||self.bigOrderModel.bigdeal_dist_okex||self.bigOrderModel.bigdeal_dist_bitmex||self.bigOrderModel.bigdeal_dist_binance) {
+            return 1;
+        }else return 0;}
+
     if (section == 1) {
         return self.bigOrderModel.bigdeal_info_pic?1:0;
     }
@@ -111,60 +123,51 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 
 {
-    
+    if (section == 2) {
+        return self.bigOrderModel.bigdeal_total.alldatalist.firstObject.datalist.firstObject.count>0?60:0.01;}
+
+    if (section == 3) {
+        if(self.bigOrderModel.bigdeal_dist_huobi||self.bigOrderModel.bigdeal_dist_okex||self.bigOrderModel.bigdeal_dist_bitmex||self.bigOrderModel.bigdeal_dist_binance) {
+            return 60;
+        }else return 0.01;}
+
+    if (section == 1) {
+        return self.bigOrderModel.bigdeal_info_pic?60:0.01;
+    }
+
     return 60;
 
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     
-    GateHoursSelectCategoryView * selectCategoryView = [[GateHoursSelectCategoryView alloc] initWithFrame:CGRectMake(0, 0, scrWeiht-100, 60)];
-                selectCategoryView.titles =  @[@"1H",@"4H",@"24"];
-    selectCategoryView.titleLb.text =getItemModel(self.bigOrderModel.bigdeal_bigtitle.alldatalist.firstObject.datalist.firstObject)[section].content;
-    setStyle(getItemModel(self.bigOrderModel.bigdeal_bigtitle.alldatalist.firstObject.datalist.firstObject)[section], selectCategoryView.titleLb)
- 
-                selectCategoryView.selectblock = ^(NSInteger index) {
-                    
-                };
-                    return selectCategoryView;
-//    if (section == 0) {
-//         GateHoursSelectCategoryView * selectCategoryView = [[GateHoursSelectCategoryView alloc] initWithFrame:CGRectMake(0, 0, scrWeiht-100, 50)];
-//               selectCategoryView.titles =  @[];
-//           selectCategoryView.title = @"大单成交统计";
-//               selectCategoryView.selectblock = ^(NSInteger index) {
-//
-//               };
-//                   return selectCategoryView;
-//    }else  if (section == 1){
-//        GateThirtyDaysBigOrderStatisticsSelectView *thirtyDaysBigOrderStatisticsSelectView = [[GateThirtyDaysBigOrderStatisticsSelectView alloc] initWithFrame:CGRectMake(0, 0, scrWeiht, 50)];
-//         @weakify(self)
-//        thirtyDaysBigOrderStatisticsSelectView.selectblock = ^(NSInteger index) {
-//           @strongify(self)
-//
-//        };
-//        return thirtyDaysBigOrderStatisticsSelectView;
-//    }else  if (section == 2){
-//         GateHoursSelectCategoryView * selectCategoryView = [[GateHoursSelectCategoryView alloc] initWithFrame:CGRectMake(0, 0, scrWeiht-100, 60)];
-//                     selectCategoryView.titles =  @[@"5M",@"1H",@"4H",@"1D"];
-//
-//                     selectCategoryView.selectblock = ^(NSInteger index) {
-//
-//                     };
-//                         return selectCategoryView;
-//    }else  if (section == 3){
-//         GateHoursSelectCategoryView * selectCategoryView = [[GateHoursSelectCategoryView alloc] initWithFrame:CGRectMake(0, 0, scrWeiht-100, 60)];
-//                     selectCategoryView.titles =  @[@"1H",@"4H",@"24"];
-//
-//                     selectCategoryView.selectblock = ^(NSInteger index) {
-//
-//                     };
-//                         return selectCategoryView;
-//    }else{
-//       return  [UIView new];
-//    }
+    
+    if (section == 2) {
+        return self.bigOrderModel.bigdeal_total.alldatalist.firstObject.datalist.firstObject.count>0?[self getHoursSelectCategoryView:section]:[UIView new];}
 
+    if (section == 3) {
+        if(self.bigOrderModel.bigdeal_dist_huobi||self.bigOrderModel.bigdeal_dist_okex||self.bigOrderModel.bigdeal_dist_bitmex||self.bigOrderModel.bigdeal_dist_binance) {
+            return [self getHoursSelectCategoryView:section];
+        }else return [UIView new];}
+
+    if (section == 1) {
+        return self.bigOrderModel.bigdeal_info_pic?[self getHoursSelectCategoryView:section]:[UIView new];
+    }
+
+    return [self getHoursSelectCategoryView:section];
+    
    
 }
-
+-( GateHoursSelectCategoryView *)getHoursSelectCategoryView:(NSInteger)section{
+    GateHoursSelectCategoryView * selectCategoryView = [[GateHoursSelectCategoryView alloc] initWithFrame:CGRectMake(0, 0, scrWeiht-100, 60)];
+                selectCategoryView.titles =  @[@"1H",@"4H",@"24H"];
+    selectCategoryView.titleLb.text =getItemModel(self.bigOrderModel.bigdeal_bigtitle.alldatalist.firstObject.datalist.firstObject)[section].content;
+    setStyle(getItemModel(self.bigOrderModel.bigdeal_bigtitle.alldatalist.firstObject.datalist.firstObject)[section], selectCategoryView.titleLb)
+    selectCategoryView.categoryView.defaultSelectedIndex = self.v_pic_tsIndex;
+                selectCategoryView.selectblock = ^(NSInteger index) {
+                    [self v_pic_tsSelect:index];
+                };
+                    return selectCategoryView;
+}
 
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

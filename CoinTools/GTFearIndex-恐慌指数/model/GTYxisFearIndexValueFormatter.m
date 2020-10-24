@@ -21,7 +21,13 @@
     } else  if (self.formatterType == GTFormatterYRightChiCang) {
        return [NSString stringWithFormat:@"$%@",[self formatDecimalNumber:[NSString stringWithFormat:@"%lf",value]]] ;
       
-  } else{
+  }else  if (self.formatterType == GTFormatterYLeftAxisKongHuang) {
+      return [NSString stringWithFormat:@"%d",(int)value ];
+     
+ } else  if (self.formatterType == GTFormatterYRightKongHuang) {
+     return [NSString stringWithFormat:@"%@",[self formatDecimalNumber:[NSString stringWithFormat:@"%lf",value]]] ;
+    
+} else{
         // value 为 y 轴的值
             NSString * moneyStr = @"0";
                 if (value>=100000000){

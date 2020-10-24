@@ -23,12 +23,19 @@
         
         GTHomeTitleModel * titleModel  = self.publicArry[(NSInteger)value];
         return [NSString stringWithFormat:@"%@",[self getDateStringWithTimestamp1:titleModel.content]];
+    }else if (self.formatterType == GTFormatterXDaDan){
+       
+        
+//        [GTDataManager getItemModelWhit:selectModel1.alldatalist.firstObject.datalist.firstObject];
+//        publicArry
+//        GTHomeTitleModel * titleModel  = self.publicArry[(NSInteger)value];
+//        return [NSString stringWithFormat:@"%@",titleModel.content];
+        return [NSString stringWithFormat:@"%@", [GTDataManager getItemModelWhit:_publicArry[(NSInteger)value]].firstObject.content];
+       ;
     }else{
         
  // value 为 x 轴的值
     GTHomeTitleModel * titleModel  = self.publicArry[(NSInteger)value];
-//        NSLog(@"%@",titleModel.content);
-//        [self getDateStringWithTimestamp:titleModel.content];
     return [NSString stringWithFormat:@"%@",[self getDateStringWithTimestamp1:titleModel.content]];
     }
     

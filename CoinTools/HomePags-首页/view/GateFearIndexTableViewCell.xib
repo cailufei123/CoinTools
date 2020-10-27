@@ -102,11 +102,19 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qU8-h1-mSG">
+                                <rect key="frame" x="238" y="9.5" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="bnz-LQ-lLd" firstAttribute="leading" secondItem="Wcg-IR-NtW" secondAttribute="leading" id="0by-mG-Pes"/>
+                            <constraint firstItem="LJF-gI-7YP" firstAttribute="leading" secondItem="qU8-h1-mSG" secondAttribute="trailing" id="TYt-Vg-0bs"/>
                             <constraint firstAttribute="trailing" secondItem="LJF-gI-7YP" secondAttribute="trailing" id="dMR-b2-Rrf"/>
+                            <constraint firstItem="qU8-h1-mSG" firstAttribute="centerY" secondItem="LJF-gI-7YP" secondAttribute="centerY" id="iRx-qO-aoN"/>
                             <constraint firstItem="bnz-LQ-lLd" firstAttribute="centerY" secondItem="Wcg-IR-NtW" secondAttribute="centerY" id="mMc-uZ-GXG"/>
                             <constraint firstAttribute="height" constant="40" id="uga-Mo-sRH"/>
                             <constraint firstItem="LJF-gI-7YP" firstAttribute="centerY" secondItem="Wcg-IR-NtW" secondAttribute="centerY" id="vvc-w6-k9O"/>
@@ -140,6 +148,7 @@
                 <outlet property="lastWeekLb11" destination="er2-Uq-95k" id="YuH-oB-u1e"/>
                 <outlet property="prgressView" destination="yVE-KU-LzR" id="aTS-0w-tew"/>
                 <outlet property="timeLb" destination="LJF-gI-7YP" id="cl4-1C-3aC"/>
+                <outlet property="timeTitleLb" destination="qU8-h1-mSG" id="EfN-uI-jk7"/>
                 <outlet property="titleLb" destination="bnz-LQ-lLd" id="LyG-0z-G5f"/>
                 <outlet property="totayFearIndexLb" destination="JH8-Hc-KPA" id="Idi-yd-Jch"/>
                 <outlet property="yesterDayLb" destination="SR9-PE-0tz" id="saf-NK-3lM"/>

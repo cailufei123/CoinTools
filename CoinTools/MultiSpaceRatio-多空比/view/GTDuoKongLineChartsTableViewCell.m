@@ -190,14 +190,21 @@
 //      });
     @weakify(self)
  [self generateLineDataBlock:^(LineChartData *lineChartData) {
+     
      @strongify(self)
-        data.lineData  = lineChartData;
-        self.chartView.data = data;
-        [self.chartView.data notifyDataChanged];
-//               [self.chartView notifyDataSetChanged];
-               [self.chartView setNeedsDisplay];
-//              [self.chartView animateWithXAxisDuration:2];
-    }];
+     dispatch_async(dispatch_get_main_queue(), ^{
+         data.lineData  = lineChartData;
+         self.chartView.data = data;
+         [self.chartView.data notifyDataChanged];
+ //               [self.chartView notifyDataSetChanged];
+                [self.chartView setNeedsDisplay];
+ //              [self.chartView animateWithXAxisDuration:2];
+         
+         
+     });
+}];
+    
+
   
 }
 

@@ -25,13 +25,23 @@
 -(void)setBurstinfo:(GTPublicContentModel *)burstinfo{
     _burstinfo = burstinfo;
     [self.collectionView reloadData];
+    NSString *countStr = [GTDataManager getItemModelWhit:_burstinfo.alldatalist[2].datalist.firstObject][0].content;
+    NSString *titleStr = [_burstinfo.alldatalist[2].title.content stringByReplacingOccurrencesOfString:@":" withString:countStr];
+    [GTStyleManager setStyleWhit:_burstinfo.alldatalist[2].title forLale:self.messageLB];
     
+    NSMutableAttributedString * allAttributedString = [titleStr getMutableAttributedStringWhitSearchString:countStr searchStringColor:gateColor([GTDataManager getItemModelWhit:_burstinfo.alldatalist[2].datalist.firstObject][0].color) searchStringFont:gateFont([GTDataManager getItemModelWhit:_burstinfo.alldatalist[2].datalist.firstObject][0].size,Normal)];
     
-
-    [GTStyleManager setStyleWhit:[GTDataManager getItemModelWhit:_burstinfo.alldatalist[2].datalist.firstObject][0] forLale:self.messageLB];
-    NSMutableAttributedString * allAttributedString =[[NSString stringWithFormat:@"%@%@",_burstinfo.alldatalist[2].title.content,[GTDataManager getItemModelWhit:_burstinfo.alldatalist[2].datalist.firstObject][0].content] getMutableAttributedStringWhitSearchString:[GTDataManager getItemModelWhit:_burstinfo.alldatalist[2].datalist.firstObject][0].content searchStringColor:gateColor([GTDataManager getItemModelWhit:_burstinfo.alldatalist[2].datalist.firstObject][0].color) searchStringFont:gateFont([GTDataManager getItemModelWhit:_burstinfo.alldatalist[2].datalist.firstObject][0].size,Normal)];
-   
+  
+    
+  
     self.messageLB.attributedText = allAttributedString;
+    
+    
+   
+//    NSMutableAttributedString * allAttributedString =[[NSString stringWithFormat:@"%@%@",_burstinfo.alldatalist[2].title.content,
+//                                                       [GTDataManager getItemModelWhit:_burstinfo.alldatalist[2].datalist.firstObject][0].content] getMutableAttributedStringWhitSearchString:[GTDataManager getItemModelWhit:_burstinfo.alldatalist[2].datalist.firstObject][0].content searchStringColor:gateColor([GTDataManager getItemModelWhit:_burstinfo.alldatalist[2].datalist.firstObject][0].color) searchStringFont:gateFont([GTDataManager getItemModelWhit:_burstinfo.alldatalist[2].datalist.firstObject][0].size,Normal)];
+//
+//    self.messageLB.attributedText = allAttributedString;
 //    [NSString stringWithFormat:@"%@%@",_burstinfo.alldatalist[2].title.content,[GTDataManager getItemModelWhit:_burstinfo.alldatalist[2].datalist.firstObject][0].content];
      
     

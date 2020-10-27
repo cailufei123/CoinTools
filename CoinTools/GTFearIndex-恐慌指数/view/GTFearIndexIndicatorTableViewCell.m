@@ -53,7 +53,7 @@
     
 
     self.titleLb.text = [GTDataManager getItemModelWhit:homevix.alldatalist[0].datalist.firstObject].firstObject.content;
-    [GTStyleManager setStyleWhit:[GTDataManager getItemModelWhit:homevix.alldatalist[0].datalist.lastObject].lastObject forLale: self.titleLb];
+    [GTStyleManager setStyleWhit:[GTDataManager getItemModelWhit:homevix.alldatalist[0].datalist.firstObject].firstObject forLale: self.titleLb];
     
     self.totayFearIndexLb.text = [GTDataManager getItemModelWhit:homevix.alldatalist[0].datalist.lastObject].lastObject.content ;
     [GTStyleManager setStyleWhit:[GTDataManager getItemModelWhit:homevix.alldatalist[0].datalist.lastObject].lastObject forLale: self.totayFearIndexLb];
@@ -66,7 +66,8 @@
     
     self.LastMonthTitleLb.text = [GTDataManager getItemModelWhit:homevix.alldatalist[3].datalist.lastObject].lastObject.content ;
     [GTStyleManager setStyleWhit:[GTDataManager getItemModelWhit:homevix.alldatalist[3].datalist.lastObject].lastObject forLale: self.LastMonthTitleLb];
-    
+    self.timeLb.text = [GTDataManager getItemModelWhit:homevix.alldatalist[4].datalist.lastObject].lastObject.content ;
+    [GTStyleManager setStyleWhit:[GTDataManager getItemModelWhit:homevix.alldatalist[4].datalist.lastObject].lastObject forLale: self.timeLb];
 
     
     self.yesterDayLb.text = homevix.alldatalist[1].title.content ;
@@ -77,6 +78,18 @@
     
     self.LastMonthLb.text = homevix.alldatalist[3].title.content ;
     [GTStyleManager setStyleWhit:homevix.alldatalist[3].title forLale: self.LastMonthLb];
-   
+    
+    self.timeTitleLb.text = homevix.alldatalist[4].title.content ;
+    [GTStyleManager setStyleWhit:homevix.alldatalist[4].title forLale: self.timeTitleLb];
+    
+    NSLog(@"%@",[GTDataManager getItemModelWhit:homevix.alldatalist[0].datalist.lastObject].lastObject.color);
+    self.shapeLayer1.strokeColor = gateColor([GTDataManager getItemModelWhit:homevix.alldatalist[0].datalist.lastObject].lastObject.color).CGColor;
+    self.shapeLayer2.strokeColor =  gateColor([GTDataManager getItemModelWhit:homevix.alldatalist[0].datalist.lastObject].lastObject.color).CGColor;
+//    [self.IndicatorView.layer layoutIfNeeded];
+//    [self.IndicatorView layoutIfNeeded];
+//    [self.IndicatorView setNeedsLayout];
+//    [self.IndicatorView setNeedsDisplay];
+//    [self.IndicatorView.layer  setNeedsLayout];
+//    [self.IndicatorView.layer  setNeedsDisplay];
 }
 @end

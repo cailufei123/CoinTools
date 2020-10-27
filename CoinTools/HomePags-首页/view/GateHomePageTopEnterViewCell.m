@@ -26,8 +26,8 @@
        
        [self.collectionView mas_updateConstraints:^(MASConstraintMaker *make) {
           
-           NSInteger totalPage = (homepagebox.alldatalist.count + 4 - 1)/4;
-            make.height.mas_equalTo(totalPage * 71 + 2 * totalPage);
+           NSInteger totalPage = (homepagebox.alldatalist.count + 2 - 1)/2;
+            make.height.mas_equalTo(totalPage * 71 + 5 * totalPage);
        }];
        
        [self.collectionView reloadData];
@@ -87,10 +87,10 @@
       
             UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
                       layout.sectionInset = UIEdgeInsetsMake(0, 15, 0, 15);
-                      layout.minimumLineSpacing = 2;
+                      layout.minimumLineSpacing = 5;
                       layout.minimumInteritemSpacing =0;
                       layout.scrollDirection = UICollectionViewScrollDirectionVertical;
-                      layout.itemSize = CGSizeMake((scrWeiht-36)/4, 71);
+                      layout.itemSize = CGSizeMake((scrWeiht-36)/2, 71);
 //                      [_collectionView setCollectionViewLayout:layout];
           _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
                       _collectionView.backgroundColor = [UIColor whiteColor];

@@ -48,7 +48,7 @@
               
              });
        }];
-
+ self.titles = @[@"BTC", @"ETH", @"XRP", @"BCH"];
  self. v_ts =  @"1h";
  self.v_coin_type =  @"BTC";
  [self loadDataDefult:YES];
@@ -66,8 +66,9 @@
    
 }
 -(void)loadDataDefult:(BOOL)isDefult{
-    isDefult = NO;
+//    isDefult = NO;
     NSString * url = isDefult?bigdealURL:bigdeal_v_tsURL(self.v_coin_type, self.v_ts);
+    NSLog(@"%@",url);
     [GTStyleManager loadingImage];
     @weakify(self)
    

@@ -81,7 +81,7 @@
         NSString * valStr = [titleModel.content stringByReplacingOccurrencesOfString:@"%@" withString:@""];
      
         
-        [values addObject:[[PieChartDataEntry alloc] initWithValue:[valStr doubleValue] label:@"333" icon: [UIImage imageNamed:@"icon"]]];
+        [values addObject:[[PieChartDataEntry alloc] initWithValue:[valStr doubleValue]+5 label:@"333" icon: [UIImage imageNamed:@"icon"]]];
     }
     
     PieChartDataSet *dataSet = [[PieChartDataSet alloc] initWithEntries:values label:@"Election Results"];
@@ -143,7 +143,7 @@
 
 
   -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-  return 40;
+  return 30;
 
   }
   -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath{

@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic,strong)GTPublicContentModel * vix_bigtitle;
 @property(nonatomic,strong)GTPublicContentModel * vix_info;
+@property(nonatomic,strong)GTPublicContentModel * homepagevix;
+
 
 @end
 

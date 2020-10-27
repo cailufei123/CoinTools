@@ -11,6 +11,7 @@
 #import "GTPointerView.h"
 @interface GateFearIndexTableViewCell()
 @property (weak, nonatomic) IBOutlet UILabel *timeLb;
+@property (weak, nonatomic) IBOutlet UILabel *timeTitleLb;
 
 
 @property (weak, nonatomic) IBOutlet UIView *prgressView;
@@ -73,7 +74,8 @@
     self.LastMonthLb1.text = [GTDataManager getItemModelWhit:homevix.alldatalist[3].datalist.lastObject].lastObject.content ;
     [GTStyleManager setStyleWhit:[GTDataManager getItemModelWhit:homevix.alldatalist[3].datalist.lastObject].lastObject forLale: self.LastMonthLb1];
     
-
+    self.timeLb.text = [GTDataManager getItemModelWhit:homevix.alldatalist[4].datalist.lastObject].lastObject.content ;
+    [GTStyleManager setStyleWhit:[GTDataManager getItemModelWhit:homevix.alldatalist[4].datalist.lastObject].lastObject forLale: self.timeLb];
     
     self.yesterDayLb.text = homevix.alldatalist[1].title.content ;
     [GTStyleManager setStyleWhit: homevix.alldatalist[1].title forLale: self.yesterDayLb];
@@ -83,6 +85,11 @@
     
     self.LastMonthLb.text = homevix.alldatalist[3].title.content ;
     [GTStyleManager setStyleWhit:homevix.alldatalist[3].title forLale: self.LastMonthLb];
+    
+    self.timeTitleLb.text = homevix.alldatalist[4].title.content ;
+    [GTStyleManager setStyleWhit:homevix.alldatalist[4].title forLale: self.timeTitleLb];
+    
+  
    
 }
 @end

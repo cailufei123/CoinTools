@@ -87,6 +87,7 @@
 - (void)categoryView:(JXCategoryBaseView *)categoryView didSelectedItemAtIndex:(NSInteger)index {
     //侧滑手势处理
     !_selectBlock?:_selectBlock(index,_titles[index]);
+    
     NSLog(@"%@", NSStringFromSelector(_cmd));
 }
 

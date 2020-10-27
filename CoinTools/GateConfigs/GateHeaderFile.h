@@ -57,4 +57,6 @@
 #import "GTBigOrderModel.h"
 #import "GTFearIndexModel.h"
 #import "GTHoldCoinModel.h"
+#import "GTDotManager.h"
+#import "GTSwitchBt.h"
 #endif /* HeaderFile_h */

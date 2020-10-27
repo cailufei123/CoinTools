@@ -21,7 +21,7 @@ entry:(ChartDataEntry * _Nonnull)entry
         for (LineChartDataSet *set in lineChartDataSets) {
             
             for ( ChartDataEntry *entry in set.entries) { entry.icon = nil; }
-         
+            
         }
         for (int i =0; i<lineChartDataSets.count; i++) {
             
@@ -29,11 +29,11 @@ entry:(ChartDataEntry * _Nonnull)entry
             ChartDataEntry *entry = set.entries[ x ];
             UIView * rr = [[UIView alloc] init];
            
-            rr.layer.borderWidth = 2;
-            rr.layer.cornerRadius = 5;
+            rr.layer.borderWidth = 1;
+            rr.layer.cornerRadius = 3;
             rr.layer.masksToBounds = YES;
             rr.backgroundColor = [UIColor whiteColor];
-            rr.size = CGSizeMake(10, 10);
+            rr.size = CGSizeMake(6, 6);
 
     //         self.topPublicSelectView.arr = arr;
             GatePublicSelectModel * selectModel1 = selectModels[i];

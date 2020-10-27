@@ -143,7 +143,9 @@ if (@available(iOS 11.0, *)) {
              self.isError = YES;
            
          }
-        
+         if (!isCache) {
+             
+         }
       
          [self.tableView endRefreshing];
          [self.tableView cyl_reloadData];
@@ -249,7 +251,13 @@ if (@available(iOS 11.0, *)) {
     }else if (indexPath.section == 1){
         
         GateHomePageTopEnterViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"GateHomePageTopEnterViewCell" forIndexPath:indexPath];
-      
+        cell.selectBlock = ^(NSInteger index) {
+            
+               GTTotalViewController * totalVc = [[GTTotalViewController alloc] init];
+               totalVc.index = index;
+               [self.navigationController pushViewController:totalVc animated:YES];
+        };
+        
         cell.lb.text = [GTDataManager getItemModelWhit:self.homeModel.homepagebigtitle.alldatalist.firstObject.datalist.firstObject][0].content;
        
         [GTStyleManager setStyleWhit:[GTDataManager getItemModelWhit:self.homeModel.homepagebigtitle.alldatalist.firstObject.datalist.firstObject][0] forLale:cell.lb];

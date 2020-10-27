@@ -48,7 +48,7 @@
   
     self.kongLb.text =  [NSString stringWithFormat:@"%0.2lf%%",[[GTDataManager getItemModelWhit:lsalldtl.alldatalist[self.indexPath.section *3+2].datalist.firstObject][self.indexPath.row].content doubleValue]*100];
     self.backgroundColor = [UIColor whiteColor];
-    [GTStyleManager setStyleWhit:[GTDataManager getItemModelWhit:lsalldtl.alldatalist[self.indexPath.section *3+1].datalist.firstObject][self.indexPath.row] forLale: self.kongLb];
+    [GTStyleManager setStyleWhit:[GTDataManager getItemModelWhit:lsalldtl.alldatalist[self.indexPath.section *3+2].datalist.firstObject][self.indexPath.row] forLale: self.kongLb];
     [GTStyleManager setStyleWhit:[GTDataManager getItemModelWhit:lsalldtl.alldatalist[self.indexPath.section *3+1].datalist.firstObject][self.indexPath.row] forLale: self.kongTitleLb];
     self.kongTitleLb.textColor = gateColor(@"333333");
      

@@ -94,7 +94,7 @@
 }
 -(void)selectitemOrindex:(NSInteger)index string:(nonnull NSString *)title{
     self.v_coin_type = title;
-    [self.tableView endRefreshing];
+//    [self.tableView endRefreshing];
     [self.tableView startRefreshing];
    
    

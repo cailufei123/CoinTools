@@ -15,7 +15,7 @@
    // value 为 y 轴的值
     NSString * moneyStr = @"0";
         if (value>=100000000){
-           moneyStr = [NSString stringWithFormat:@"%0.2lf亿",value * 0.000000001];
+           moneyStr = [NSString stringWithFormat:@"%0.2lf亿",value * 0.00000001];
         }else  if (value>=10000) {
                   moneyStr = [NSString stringWithFormat:@"%0.2lf万",value * 0.00001];
         }else {

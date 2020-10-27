@@ -109,6 +109,8 @@
 		0466FD83254020490091A1A9 /* GTSpaceRatioModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0466FD81254020490091A1A9 /* GTSpaceRatioModel.m */; };
 		0466FD8B2541367D0091A1A9 /* GTBigOrderModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 0466FD892541367D0091A1A9 /* GTBigOrderModel.h */; };
 		0466FD8C2541367D0091A1A9 /* GTBigOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0466FD8A2541367D0091A1A9 /* GTBigOrderModel.m */; };
+		046C35972547FD7A000C3FC5 /* GTSwitchBt.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C35952547FD7A000C3FC5 /* GTSwitchBt.h */; };
+		046C35982547FD7A000C3FC5 /* GTSwitchBt.m in Sources */ = {isa = PBXBuildFile; fileRef = 046C35962547FD7A000C3FC5 /* GTSwitchBt.m */; };
 		04796584251355E10051476C /* CoinTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD66B8F3250A799400D7C66E /* CoinTools.framework */; };
 		04796589251356200051476C /* CoinTools.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AD66B8F3250A799400D7C66E /* CoinTools.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		049514612514850000294FD7 /* zhPopupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0495145C2514850000294FD7 /* zhPopupController.m */; };
@@ -571,6 +573,8 @@
 		0466FD81254020490091A1A9 /* GTSpaceRatioModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTSpaceRatioModel.m; sourceTree = "<group>"; };
 		0466FD892541367D0091A1A9 /* GTBigOrderModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTBigOrderModel.h; sourceTree = "<group>"; };
 		0466FD8A2541367D0091A1A9 /* GTBigOrderModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTBigOrderModel.m; sourceTree = "<group>"; };
+		046C35952547FD7A000C3FC5 /* GTSwitchBt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTSwitchBt.h; sourceTree = "<group>"; };
+		046C35962547FD7A000C3FC5 /* GTSwitchBt.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTSwitchBt.m; sourceTree = "<group>"; };
 		0495145C2514850000294FD7 /* zhPopupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zhPopupController.m; sourceTree = "<group>"; };
 		0495145D2514850000294FD7 /* zhPopupController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zhPopupController.h; sourceTree = "<group>"; };
 		049514652514869700294FD7 /* GTMenuSelectView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTMenuSelectView.h; sourceTree = "<group>"; };
@@ -1433,6 +1437,8 @@
 				AD3A256F2532D5020099C5AC /* GTChartPMarkerViewTableViewCell.h */,
 				AD3A25702532D5020099C5AC /* GTChartPMarkerViewTableViewCell.m */,
 				AD3A25712532D5020099C5AC /* GTChartPMarkerViewTableViewCell.xib */,
+				046C35952547FD7A000C3FC5 /* GTSwitchBt.h */,
+				046C35962547FD7A000C3FC5 /* GTSwitchBt.m */,
 			);
 			path = PublicView;
 			sourceTree = "<group>";
@@ -2076,6 +2082,7 @@
 				04D3504F250B0F7300D940D1 /* UIViewController+HYDENavigation.h in Headers */,
 				0495146B2514878500294FD7 /* GTMenuSelectViewCollectionViewCell.h in Headers */,
 				04D3503B250B0F7300D940D1 /* NSDictionary+WHDictionary.h in Headers */,
+				046C35972547FD7A000C3FC5 /* GTSwitchBt.h in Headers */,
 				0466FD70253EE9060091A1A9 /* GTHoldModel.h in Headers */,
 				04CBE5D32512594B00E4DD40 /* GTMainCoinQuotationListTableViewCell.h in Headers */,
 				04D3504A250B0F7300D940D1 /* UISegmentedControl+Category.h in Headers */,
@@ -2385,6 +2392,7 @@
 				04D3503E250B0F7300D940D1 /* NSString+GateAttribute.m in Sources */,
 				0466FCAE253964980091A1A9 /* EasyEmptyView.m in Sources */,
 				049514702514E16100294FD7 /* GTPointerView.m in Sources */,
+				046C35982547FD7A000C3FC5 /* GTSwitchBt.m in Sources */,
 				04D34F97250B0C8600D940D1 /* GateHoursCollectionViewCell.m in Sources */,
 				0466FCFA253975410091A1A9 /* XLBaseTableController.m in Sources */,
 				04D3504D250B0F7300D940D1 /* UITableViewCell+GateTableViewCell.m in Sources */,

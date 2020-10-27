@@ -17,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *chackBt;
 - (IBAction)addressAction:(id)sender;
 @property (nonatomic, copy) void (^didPresentBlock)(NSString * str);
+@property(nonatomic,strong)GTHoldCoinModel * holdCoinModel;
+@property(nonatomic,strong)NSIndexPath * indexPath;
 
 @end
 

@@ -252,28 +252,28 @@
 
     NSArray * lineChartDataSets = self.chartView.lineData.dataSets;
     for (LineChartDataSet *set in lineChartDataSets) {
-        
+
         for ( ChartDataEntry *entry in set.entries) { entry.icon = nil; }
-     
+
     }
-    
+
     NSInteger  x = entry.x;
-    
-   
+
+
     for (int i =0; i<lineChartDataSets.count; i++) {
-        
+
         LineChartDataSet *set = lineChartDataSets[i];
-       
+
         ChartDataEntry *entry = set.entries[ x ];
         GatePublicSelectModel *  selectModel =  self.temps[i];
 
         entry.icon = [GTStyleManager  selecrDotStyle:selectModel.color];
     }
-    
-    
+
+
     [self setLineDot: x];
-    
-    
+   
+    [GTDotManager chartDotManagerValueSelected: self.chartView entry:entry highlight:highlight publicSelectModels:self.topPublicSelectView.arr];
     
     
 }

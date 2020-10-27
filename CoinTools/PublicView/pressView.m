@@ -92,8 +92,14 @@
     }
    
     
-   
-       self.cnterLb.text = @"空";
+    if (prgress>0.5) {
+        self.cnterLb.text = @"多";
+        self.cnterLb.textColor = gateColor(@"549aef");
+    }else{
+        self.cnterLb.text = @"空";
+        self.cnterLb.textColor = gateColor(@"e04d5a");
+    }
+      
     [self.cnterLb mas_updateConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(prgress * (totolWidth-30)+2 );
             make.height.mas_equalTo(30);

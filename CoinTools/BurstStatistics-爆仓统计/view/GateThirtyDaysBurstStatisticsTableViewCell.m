@@ -15,8 +15,11 @@
 @property(nonatomic,strong)GateYHorstAxisValueFormatter * yAxisValueFormatter ;
 @property(nonatomic,strong) GatePublicSelectView * bottomPublicSelectView;
 @property(nonatomic,strong) GTChartPMarkerView * marker1;
+
+@property (weak, nonatomic) IBOutlet GTSwitchBt *switchBt;
 @end
 @implementation GateThirtyDaysBurstStatisticsTableViewCell
+
 
 
 -(GateXHorstAxisValueFormatter *)xAxisValueFormatter{
@@ -38,9 +41,14 @@
 }
 
 -(void)setChartView{
+    @weakify(self)
+    self.switchBt.selectBlock = ^(BOOL select) {
+        @strongify(self)
+        [self setChartData];
+    };
     //设置偏移
     [self.chartView setExtraOffsetsWithLeft:0 top:0 right:0 bottom:0];
-
+   
     _chartView.highlightPerTapEnabled = YES;
     _chartView.delegate = self;
 
@@ -49,7 +57,7 @@
     //当图表完全缩小的时候，每一次拖动都会高亮显示在图标视图上。默认YES
         self.chartView.highlightPerDragEnabled = YES;
         //设置最大高亮距离（dp）。在图表中的点击位置距离条目的距离超过此距离不会触发高亮显示。默认500
-        self.chartView.maxHighlightDistance = 20;
+        self.chartView.maxHighlightDistance = 50;
         //设置为NO，禁止点击手势高亮显示值，值仍然可以通过拖动或编程方式突出显示。默认YES
         self.chartView.highlightPerTapEnabled = YES;
     
@@ -57,11 +65,13 @@
 //    _chartView.xAxis.axisMaximum =10;
     _chartView.maxVisibleCount = 40;
     _chartView.pinchZoomEnabled = NO;
+
     _chartView.drawGridBackgroundEnabled = NO;
     _chartView.drawBarShadowEnabled = NO;
     _chartView.drawValueAboveBarEnabled = NO;
     _chartView.highlightFullBarEnabled = YES;
     _chartView.doubleTapToZoomEnabled = NO;//关闭缩放
+//    [_chartView setScaleMinima:2 scaleY:1];//关闭缩放
     [_chartView animateWithYAxisDuration:1.0f];
       [_chartView animateWithXAxisDuration:1.0f];
 //    _chartView. highlightFullBarEnabled
@@ -75,12 +85,13 @@
     //显示顶部文字。默认YES
     self.chartView.drawValueAboveBarEnabled = YES;
     //在圆柱左右两端各增加一半的条宽。默认NO
-    self.chartView.fitBars = YES;
+//   self.chartView.fitBars = YES;
      self.chartView.legend.enabled = NO;//是否显示图例
     //仅适用于堆叠式(stacked)，当为YES时，点击圆柱时即使只选中了一个堆栈条目，也会高亮整条圆柱。默认NO
 //    self.chartView.highlightFullBarEnabled = YES;
 //    self.chartView.maxHighlightDistance = 1000;
-    
+    self.chartView.scaleYEnabled = NO;                                      // 取消 Y 轴缩放
+    self.chartView.dragEnabled = YES;
 
     ChartYAxis *leftAxis = _chartView.leftAxis;
     //显示网格线。默认YES
@@ -99,13 +110,18 @@
     _chartView.rightAxis.enabled = NO;
     leftAxis.labelTextColor = gateColor(axislabelTextColor);
     ChartXAxis *xAxis = _chartView.xAxis;
+    // 开启抗锯齿
+
+    xAxis.gridAntialiasEnabled = YES;
       xAxis.labelTextColor =  leftAxis.labelTextColor;
     xAxis.axisLineColor =  leftAxis.axisLineColor;
      xAxis.axisLineWidth =  0;
+//    xAxis.axisMinimum = 2;
     xAxis.labelPosition = XAxisLabelPositionBottom;
    xAxis.drawGridLinesEnabled = NO;
     xAxis.valueFormatter = self.xAxisValueFormatter;
     xAxis.labelCount = 3;
+    xAxis.drawAxisLineEnabled = NO;
     ChartLegend *l = _chartView.legend;
     l.horizontalAlignment = ChartLegendHorizontalAlignmentCenter;
     l.verticalAlignment = ChartLegendVerticalAlignmentBottom;
@@ -120,7 +136,7 @@
     
     GTChartPMarkerView * marker1 = [GTChartPMarkerView loadFromNib:@"GTChartPMarkerView"];
     self.marker1 = marker1;
-  @weakify(self)
+ 
     marker1.aleartType = GTChartPMarkerViewCalendarPermissionBaoCang;
     marker1.cycleSelectBlock = ^NSArray * _Nonnull(NSInteger index) {
          @strongify(self)
@@ -188,48 +204,149 @@
           self.bottomPublicSelectView.arr = arr;
       self.bottomPublicSelectView.selectIndex = 0;
     self.xAxisValueFormatter.publicArr = [GTDataManager getItemModelWhit:_burstcalpic.alldatalist[0].datalist.firstObject];
-      [self drawData];
+      [self setChartData];
+}
+- (void)setChartData
+{
+    CombinedChartData *data = [[CombinedChartData alloc] init];
+  
+    if (!self.switchBt.isSelected) {
+        data.barData = [self generateBarData];
+    }else{
+        data.lineData = [self generateLineData];
+    }
+
+    _chartView.xAxis.axisMinimum = data.xMin + 0.25;
+    _chartView.xAxis.axisMaximum = data.xMax + 0.25;
+    _chartView.data = data;
+   [_chartView.data notifyDataChanged];
+    
 }
 
- -(void)drawData{
+
+
+- (LineChartData *)generateLineData
+{
+    LineChartData *d = [[LineChartData alloc] init];
+
+          double leftAxisMin = MAXFLOAT;
+          double leftAxisMax = 0;
+     
+    
+    
+    
+    for (int i = 1; i<_burstcalpic.alldatalist.count; i++) {
+        NSArray<GTHomeTitleModel *> * modelAr = [GTDataManager getItemModelWhit:_burstcalpic.alldatalist[i].datalist.firstObject];
+        NSMutableArray *entries = [[NSMutableArray alloc] init];
+        
+     
+        for (int index = 0; index<modelAr.count; index++) {
+            GTHomeTitleModel * titleModel  = modelAr[index];
+           
+            double val = [titleModel.content doubleValue];
+            leftAxisMax = MAX(val, leftAxisMax);
+            leftAxisMin = MIN(val, leftAxisMin);
+            
+            [entries addObject:[[ChartDataEntry alloc] initWithX:index + 0.5 y:(val)]];
+       }
        
-        NSMutableArray *array = [NSMutableArray array];
-     NSArray<GTHomeTitleModel *> * modelAr = [GTDataManager getItemModelWhit:_burstcalpic.alldatalist[1].datalist.firstObject];
-     NSArray<GTHomeTitleModel *> * lastObjectmodelAr = [GTDataManager getItemModelWhit:_burstcalpic.alldatalist[2].datalist.firstObject];
-     for (int i = 0; i<modelAr.count; i++){
-         GTHomeTitleModel *titleModel =modelAr[i];
-         GTHomeTitleModel *titleModel1 =lastObjectmodelAr[i];
-         
-         [array addObject:[[BarChartDataEntry alloc] initWithX:i yValues:@[[NSNumber numberWithString:titleModel.content], [NSNumber numberWithString:titleModel1.content]] icon: [UIImage imageNamed:@"icon"]]];
+        LineChartDataSet * set1 = [self getArr:entries lineChartDataSet:gateColor(modelAr.firstObject.color) drawFilledEnabled:NO];
+        set1.axisDependency = AxisDependencyLeft;
         
-}
-        //set
-        BarChartDataSet *set = [[BarChartDataSet alloc] initWithEntries:array label:@"Bar DataSet"];
-     set.stackLabels = @[@"Births", @"Divorces"];
-//      set.barBorderWidth = 1.0;
-//        [set setColors:@[UIColor.redColor,UIColor.blackColor,UIColor.cyanColor]];
-     if (modelAr.firstObject.color.length) {
-          set.colors = @[gateColor(modelAr.firstObject.color),gateColor(lastObjectmodelAr.firstObject.color)];
-//         set.colors = @[gateColor(modelAr.firstObject.color),gateColor(@"333333")];
-     }
-        
-        //显示柱图值并格式化
-//        NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
-//        numberFormatter.positiveSuffix = @"分";
-//        ChartDefaultValueFormatter *formatter = [[ChartDefaultValueFormatter alloc] initWithFormatter:numberFormatter];
-//        [set setValueFormatter:formatter];
-//        set.highlightEnabled = YES;
-         set.drawValuesEnabled = NO; //圆柱上是否显示文字
-        BarChartData *data = [[BarChartData alloc] initWithDataSet:set];
-          [data setBarWidth:0.5];
-        self.chartView.data = data;
+        [d addDataSet:set1];
     }
+  
+//    self.chartView.leftAxis.axisMinimum = leftAxisMin;
+//    self.chartView.leftAxis.axisMaximum = leftAxisMax;
+   
+    return d;
+}
+-(LineChartDataSet *)getArr:(NSMutableArray *)entries lineChartDataSet:(UIColor * )color drawFilledEnabled:(BOOL)drawFilledEnabled{
+    LineChartDataSet *set = [[LineChartDataSet alloc] initWithEntries:entries label:@"Line DataSet"];
+        [set setColor:color];
+        set.lineWidth = 1;
+//        [set setCircleColor:gateColor(@"ffbc51")];
+        set.circleRadius = 3.0;
+        set.circleHoleRadius = 2.5;
+//        set.fillColor = [UIColor redColor];
+        set.mode = LineChartModeCubicBezier;
+        set.drawValuesEnabled = YES;
+        set.drawCirclesEnabled = NO;
+        set.drawCircleHoleEnabled = NO;
+        set.highlightEnabled = NO;
+        set.drawValuesEnabled = NO;
+        set.highlightEnabled = YES;
+        set.highlightColor = [UIColor.grayColor colorWithAlphaComponent:0.5];
+        set.highlightLineWidth = 5;
+        set.drawHorizontalHighlightIndicatorEnabled = NO;
+        set.valueFont = [UIFont systemFontOfSize:10.f];
+        set.valueTextColor = [UIColor colorWithRed:240/255.f green:238/255.f blue:70/255.f alpha:1.f];
+       NSArray *gradientColors = @[
+        (id)[ChartColorTemplates colorFromString:@"#ffffff"].CGColor,
+                                    (id)color.CGColor,
+                                     
+                                     ];
+         CGGradientRef gradient = CGGradientCreateWithColors(nil, (CFArrayRef)gradientColors, nil);
+         
+//         set.fillAlpha = 1.f;
+         set.fill = [ChartFill fillWithLinearGradient:gradient angle:90.f];
+         set.drawFilledEnabled = drawFilledEnabled;// 填充颜色的透明度
+//        set.axisDependency = AxisDependencyLeft;
+
+    return set;
+}
+
+- (BarChartData *)generateBarData{
+   
+    double leftAxisMin = MAXFLOAT;
+    double leftAxisMax = 0;
+
+    
+    
+    
+    
+    
+    
+    
+    NSMutableArray *array = [NSMutableArray array];
+ NSArray<GTHomeTitleModel *> * modelAr = [GTDataManager getItemModelWhit:_burstcalpic.alldatalist[1].datalist.firstObject];
+ NSArray<GTHomeTitleModel *> * lastObjectmodelAr = [GTDataManager getItemModelWhit:_burstcalpic.alldatalist[2].datalist.firstObject];
+    
+//    self.chartView.xAxis.axisMaximum = modelAr.count - 1;
+ for (int i = 0; i<modelAr.count; i++){
+     GTHomeTitleModel *titleModel =modelAr[i];
+     GTHomeTitleModel *titleModel1 =lastObjectmodelAr[i];
+     double val = [titleModel.content doubleValue];
+     leftAxisMax = MAX(val, leftAxisMax);
+     leftAxisMin = MIN(val, leftAxisMin);
+     [array addObject:[[BarChartDataEntry alloc] initWithX:i+0.5 yValues:@[[NSNumber numberWithString:titleModel.content], [NSNumber numberWithString:titleModel1.content]] icon: [UIImage imageNamed:@"icon"]]];
+    
+}
+    //set
+    BarChartDataSet *set = [[BarChartDataSet alloc] initWithEntries:array label:@"Bar DataSet"];
+   
+ set.stackLabels = @[@"Births", @"Divorces"];
+
+ if (modelAr.firstObject.color.length) {
+      set.colors = @[gateColor(modelAr.firstObject.color),gateColor(lastObjectmodelAr.firstObject.color)];
+ }
+
+     set.drawValuesEnabled = NO; //圆柱上是否显示文字
+    BarChartData *data = [[BarChartData alloc] initWithDataSet:set];
+      [data setBarWidth:0.5];
+//    self.chartView.data = data;
+    return  data;
+}
 
     #pragma mark - ChartViewDelegate
     #pragma mark 图表中数值被选中
     -(void)chartValueSelected:(ChartViewBase *)chartView entry:(ChartDataEntry *)entry highlight:(ChartHighlight *)highlight{
-     NSLog(@"%@",[self.yAxisValueFormatter stringForValue:entry.y axis:nil])   ;
-
+        if ([entry isKindOfClass:[BarChartDataEntry class]]) {
+//          [GTDotManager chartDotManagerValueSelected]
+        }else{
+            [GTDotManager chartDotManagerValueSelected: self.chartView entry:entry highlight:highlight publicSelectModels:self.bottomPublicSelectView.arr];
+        }
+      
     }
 
     #pragma mark 图表中的空白区域被选中
@@ -249,5 +366,34 @@
 
 
 
+//- (IBAction)switchShapeAction:(UIButton*)sender {
+////    CombinedChartData *data
+//   
+//   
+//    
+//  
+//    
+//  
+////      LineChartDataSet *set1 = lineChartDataSets[index];
+//     
+////            set1.visible = !diffLineModel.selectEnabled;
+////              [self.collectionView reloadData];
+//    if (sender.isSelected) {
+//        sender.selected = NO;
+//        self.switchBt.backgroundColor = gateColor(@"5064f2");
+//       
+////        for (LineChartDataSet *set in self.chartView.lineData.dataSets) {set.visible = NO;}
+////        for (LineChartDataSet *set in self.chartView.barData.dataSets) {set.visible = YES;}
+//    }else{
+//        sender.selected = YES;
+////        f5faf9
+//        self.switchBt.backgroundColor = gateColor(@"f6f9fb");
+//      
+////        for (LineChartDataSet *set in self.chartView.barData.dataSets) {set.visible = NO;}
+////        for (LineChartDataSet *set in self.chartView.lineData.dataSets) {set.visible = YES;}
+//    }
+////    [self.chartView setNeedsDisplay];
+//    [self setChartData];
+//}
 
 @end

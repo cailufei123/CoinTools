@@ -459,11 +459,11 @@
         ChartDataEntry *entry = set.entries[ x ];
         UIView * rr = [[UIView alloc] init];
        
-        rr.layer.borderWidth = 2;
-        rr.layer.cornerRadius = 5;
+        rr.layer.borderWidth = 1;
+        rr.layer.cornerRadius = 3;
         rr.layer.masksToBounds = YES;
         rr.backgroundColor = [UIColor whiteColor];
-        rr.size = CGSizeMake(10, 10);
+        rr.size = CGSizeMake(6, 6);
 //        rr.layer.borderColor = UIColor.redColor.CGColor;
 //          GateDiffLineModel * lineModel = self.tempPossArr[i];
 //        rr.layer.borderColor = lineModel.color.CGColor;

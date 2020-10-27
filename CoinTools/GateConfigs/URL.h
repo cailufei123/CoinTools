@@ -59,5 +59,12 @@
 #define cash_v_coin_typeURL(v_coin_type) [NSString stringWithFormat:@"%@/v1/data/cash/coin_type/%@",basesURL,v_coin_type]///持币选币界面
 #define cash_v_tsURL(v_coin_type,v_ts) [NSString stringWithFormat:@"%@/v1/data/cash/coin_type/%@/ts/%@",basesURL,v_coin_type,v_ts]//持币选时间界面
 
+
+
+//#币种<v_type> 为 big,burst,contract,hold,ls
+
+#define navigate_v_coin_typeURL(v_coin_type) [NSString stringWithFormat:@"%@/v1/data/navigate/type/%@",basesURL,v_coin_type]///持币选币界面
+
+
 #endif /* URL_h */
 

@@ -258,7 +258,7 @@
         set.valueTextColor = [UIColor colorWithRed:240/255.f green:238/255.f blue:70/255.f alpha:1.f];
        NSArray *gradientColors = @[
         (id)[ChartColorTemplates colorFromString:@"#ffffff"].CGColor,
-                                    (id)[UIColor redColor].CGColor,
+                                    (id)color.CGColor,
                                      
                                      ];
          CGGradientRef gradient = CGGradientCreateWithColors(nil, (CFArrayRef)gradientColors, nil);

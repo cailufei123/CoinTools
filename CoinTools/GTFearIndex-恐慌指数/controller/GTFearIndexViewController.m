@@ -144,7 +144,7 @@ if (@available(iOS 11.0, *)) {
 //             self.isError = NO;
              self.fearIndexModel = [GTFearIndexModel modelWithDictionary:response[@"data"]];
         
-           
+             self.homevix =  self.fearIndexModel.homepagevix;
             
          }else{
 //             self.isError = YES;

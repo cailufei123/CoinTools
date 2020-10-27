@@ -17,6 +17,9 @@
 @property(nonatomic,strong) GTXAxisFearIndexValueFormatter * xXisFearIndexValueFormatter;
 @property(nonatomic,strong)  GTYxisFearIndexValueFormatter *  yLeftXisFearIndexValueFormatter;
 @property(nonatomic,strong) GTYxisFearIndexValueFormatter * yXisFearIndexValueFormatter;
+
+@property(nonatomic,assign) NSInteger  selectIndex;
+@property(nonatomic,strong) NSString *  jijie;
 @end
 @implementation GateBigOrderDistributionDealCell
 
@@ -152,10 +155,25 @@
 
    
     self.topPublicSelectView.arr = arr;
-    self.topPublicSelectView.selectIndex = 0;
-    GTPublicContentModel *  selectModel1  =  self.bigdeal_dists.firstObject;
+    self.topPublicSelectView.selectIndex = self.selectIndex;
+    GTPublicContentModel *  selectModel1 ;;
+    if (self.selectIndex == 0) {
+        selectModel1  =  self.bigdeal_dists[0];
+        self.jijie = @"Huobi当季";
+    }else if(self.selectIndex == 1){
+        selectModel1  =  self.bigdeal_dists[1];
+        self.jijie = @"Okex当季";
+    }else if(self.selectIndex == 2){
+        selectModel1  =  self.bigdeal_dists[2];
+        self.jijie = @"BitMEX永续";
+    }else if(self.selectIndex == 3){
+        selectModel1  =  self.bigdeal_dists[3];
+        self.jijie = @"Binance永续";
+    }
+    
+   
     self.xXisFearIndexValueFormatter.publicArry = selectModel1.alldatalist.firstObject.datalist;
-    [self setChartData:self.bigdeal_dists.firstObject];
+    [self setChartData:selectModel1];
     
 }
 -(GatePublicSelectView *)bottomPublicSelectView{
@@ -186,6 +204,16 @@
          @weakify(self)
         _topPublicSelectView.selectBlock = ^(NSInteger index, GatePublicSelectModel * _Nonnull publicSelectModel) {
             @strongify(self)
+            self.selectIndex = index;
+            if (self.selectIndex == 0) {
+                self.jijie = @"Huobi当季";
+            }else if(self.selectIndex == 1){
+                self.jijie = @"Okex当季";
+            }else if(self.selectIndex == 2){
+                self.jijie = @"BitMEX永续";
+            }else if(self.selectIndex == 3){
+                self.jijie = @"Binance永续";
+            }
             GTPublicContentModel *  selectModel1  =  self.bigdeal_dists[index];
             self.xXisFearIndexValueFormatter.publicArry = selectModel1.alldatalist.firstObject.datalist;
             [self setChartData:self.bigdeal_dists[index]];
@@ -279,7 +307,7 @@
               }
               NSMutableArray * tempArr = [NSMutableArray array];
               
-              jidu = @"当季";
+              jidu = self.jijie;
               fangxiang = [NSString stringWithFormat:@"方向:%@",[titleModel4.content isNotBlank]?titleModel4.content:@""];
               jiage = [NSString stringWithFormat:@"价格:%@",[titleModel1.content isNotBlank]?titleModel1.content:@""];
               jiazhi = [NSString stringWithFormat:@"价值:%@",[titleModel3.content isNotBlank]?titleModel3.content:@""];
@@ -288,7 +316,9 @@
 
               dispatch_sync(dispatch_get_main_queue(), ^{
                   if ([titleModel2.content isNotBlank]) {
-                      [entries addObject:[[BubbleChartDataEntry alloc] initWithX:i y:val size:50 icon: [self  selecrDotStyle:gateColor(titleModel4.color) ] data:tempArr]];
+                      UIImage * iamgeColor =    [self  selecrDotStyle:gateColor(titleModel4.color) ];
+                      
+                      [entries addObject:[[BubbleChartDataEntry alloc] initWithX:i y:val size:50 icon: iamgeColor data:@{@"arr":tempArr,@"color":gateColor(titleModel4.color)}]];
                   }
                  
                   NSLog(@"%@",titleModel4.color);
@@ -322,7 +352,7 @@
     rr.layer.cornerRadius = 1;
     rr.layer.masksToBounds = YES;
     rr.backgroundColor = color;
-    rr.size = CGSizeMake(10, 10);
+    rr.size = CGSizeMake(6, 6);
  
     
 //    rr.layer.borderColor = color.CGColor;
@@ -354,83 +384,83 @@
 }
 
 
-- (LineChartData *)generate1:(GTPublicContentModel * )publicContentModel lineDataBlock:(void(^)(LineChartData * lineChartData))finishblock
-{
-    LineChartData *d = [[LineChartData alloc] init];
-        dispatch_async(dispatch_get_global_queue(0, 0), ^{
-
-            double leftAxisMin = MAXFLOAT;
-            double leftAxisMax = 0;
-            NSMutableArray *entries = [[NSMutableArray alloc] init];
-      for (int i = 0; i<publicContentModel.alldatalist[2].datalist.count; i++) {
-           NSArray< GTHomeTitleModel *> * model1s = [GTDataManager getItemModelWhit:publicContentModel.alldatalist[1].datalist[i]];//交易所报价"
-          
-         NSArray< GTHomeTitleModel *> * model2s = [GTDataManager getItemModelWhit:publicContentModel.alldatalist[2].datalist[i]];//多空报价"
-          
-            NSArray< GTHomeTitleModel *> * model3s = [GTDataManager getItemModelWhit:publicContentModel.alldatalist[3].datalist[i]];//"成交金额"
-          
-          
-          NSArray< GTHomeTitleModel *> * model4s = [GTDataManager getItemModelWhit:publicContentModel.alldatalist[4].datalist[i]];//"方向"
-          
-          
-          
-        
-          
-          
-          
-          NSString * jidu;  NSString * fangxiang;NSString * jiage;NSString * jiazhi;
-          
-         
-          for (int index = 0; index<model2s.count; index++) {
-              GTHomeTitleModel * titleModel1  = model1s[index];
-              GTHomeTitleModel * titleModel2  = model2s[index];
-              GTHomeTitleModel * titleModel3  = model3s[index];
-              GTHomeTitleModel * titleModel4 =  model4s[index];
-   
-              double val = [titleModel2.content doubleValue];
-              if ([titleModel2.content isNotBlank]) {
-                  leftAxisMax = MAX(val, leftAxisMax);
-                  leftAxisMin = MIN(val, leftAxisMin);
-              }
-              NSMutableArray * tempArr = [NSMutableArray array];
-              
-              jidu = @"当季";
-              fangxiang = [NSString stringWithFormat:@"方向:%@",[titleModel4.content isNotBlank]?titleModel4.content:@""];
-              jiage = [NSString stringWithFormat:@"价格:%@",[titleModel1.content isNotBlank]?titleModel1.content:@""];
-              jiazhi = [NSString stringWithFormat:@"价值:%@",[titleModel3.content isNotBlank]?titleModel3.content:@""];
-              
-              [tempArr addObject:jidu];[tempArr addObject:fangxiang];[tempArr addObject:jiage];[tempArr addObject:jiazhi];
-
-              dispatch_sync(dispatch_get_main_queue(), ^{
-                  if ([titleModel2.content isNotBlank]) {
-//                      [entries addObject:[[ChartDataEntry alloc] initWithX:i y:val icon:[self  selecrDotStyle:gateColor(titleModel4.color) ] data:tempArr]];
-                      [entries addObject:[[ChartDataEntry alloc] initWithX:i y:val icon:[self  selecrDotStyle:UIColor.redColor ] data:tempArr]];
-                     
-                  }
-                 
-                  NSLog(@"%@",titleModel4.color);
-              });
-             
-
-         }
-         
-        
-      }
-            LineChartDataSet * set1 = [self getArr:entries lineChartDataSet:gateColor([GTDataManager getItemModelWhit:publicContentModel.alldatalist[1].datalist.firstObject].firstObject.color) drawFilledEnabled:NO];
-            
-            set1.axisDependency = AxisDependencyLeft;
-            [d addDataSet:set1];
-      self.chartView.leftAxis.axisMinimum = leftAxisMin;
-      self.chartView.leftAxis.axisMaximum = leftAxisMax;
-     
-            finishblock(d);
-            
-        });
-
-
-          
-    return d;
-}
+//- (LineChartData *)generate1:(GTPublicContentModel * )publicContentModel lineDataBlock:(void(^)(LineChartData * lineChartData))finishblock
+//{
+//    LineChartData *d = [[LineChartData alloc] init];
+//        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+//
+//            double leftAxisMin = MAXFLOAT;
+//            double leftAxisMax = 0;
+//            NSMutableArray *entries = [[NSMutableArray alloc] init];
+//      for (int i = 0; i<publicContentModel.alldatalist[2].datalist.count; i++) {
+//           NSArray< GTHomeTitleModel *> * model1s = [GTDataManager getItemModelWhit:publicContentModel.alldatalist[1].datalist[i]];//交易所报价"
+//
+//         NSArray< GTHomeTitleModel *> * model2s = [GTDataManager getItemModelWhit:publicContentModel.alldatalist[2].datalist[i]];//多空报价"
+//
+//            NSArray< GTHomeTitleModel *> * model3s = [GTDataManager getItemModelWhit:publicContentModel.alldatalist[3].datalist[i]];//"成交金额"
+//
+//
+//          NSArray< GTHomeTitleModel *> * model4s = [GTDataManager getItemModelWhit:publicContentModel.alldatalist[4].datalist[i]];//"方向"
+//
+//
+//
+//
+//
+//
+//
+//          NSString * jidu;  NSString * fangxiang;NSString * jiage;NSString * jiazhi;
+//
+//
+//          for (int index = 0; index<model2s.count; index++) {
+//              GTHomeTitleModel * titleModel1  = model1s[index];
+//              GTHomeTitleModel * titleModel2  = model2s[index];
+//              GTHomeTitleModel * titleModel3  = model3s[index];
+//              GTHomeTitleModel * titleModel4 =  model4s[index];
+//
+//              double val = [titleModel2.content doubleValue];
+//              if ([titleModel2.content isNotBlank]) {
+//                  leftAxisMax = MAX(val, leftAxisMax);
+//                  leftAxisMin = MIN(val, leftAxisMin);
+//              }
+//              NSMutableArray * tempArr = [NSMutableArray array];
+//
+//              jidu = @"当季";
+//              fangxiang = [NSString stringWithFormat:@"方向:%@",[titleModel4.content isNotBlank]?titleModel4.content:@""];
+//              jiage = [NSString stringWithFormat:@"价格:%@",[titleModel1.content isNotBlank]?titleModel1.content:@""];
+//              jiazhi = [NSString stringWithFormat:@"价值:%@",[titleModel3.content isNotBlank]?titleModel3.content:@""];
+//
+//              [tempArr addObject:jidu];[tempArr addObject:fangxiang];[tempArr addObject:jiage];[tempArr addObject:jiazhi];
+//
+//              dispatch_sync(dispatch_get_main_queue(), ^{
+//                  if ([titleModel2.content isNotBlank]) {
+////                      [entries addObject:[[ChartDataEntry alloc] initWithX:i y:val icon:[self  selecrDotStyle:gateColor(titleModel4.color) ] data:tempArr]];
+//                      [entries addObject:[[ChartDataEntry alloc] initWithX:i y:val icon:[self  selecrDotStyle:UIColor.redColor ] data:tempArr]];
+//
+//                  }
+//
+//                  NSLog(@"%@",titleModel4.color);
+//              });
+//
+//
+//         }
+//
+//
+//      }
+//            LineChartDataSet * set1 = [self getArr:entries lineChartDataSet:gateColor([GTDataManager getItemModelWhit:publicContentModel.alldatalist[1].datalist.firstObject].firstObject.color) drawFilledEnabled:NO];
+//
+//            set1.axisDependency = AxisDependencyLeft;
+//            [d addDataSet:set1];
+//      self.chartView.leftAxis.axisMinimum = leftAxisMin;
+//      self.chartView.leftAxis.axisMaximum = leftAxisMax;
+//
+//            finishblock(d);
+//
+//        });
+//
+//
+//
+//    return d;
+//}
 - (LineChartData *)generate:(GTPublicContentModel * )publicContentModel lineDataBlock:(void(^)(LineChartData * lineChartData))finishblock
 {
     LineChartData *d = [[LineChartData alloc] init];
@@ -489,7 +519,7 @@
         set.drawCircleHoleEnabled = NO;
         set.highlightEnabled = NO;
         set.drawValuesEnabled = NO;
-       
+    
         set.highlightColor = [UIColor.grayColor colorWithAlphaComponent:0.5];
         set.highlightLineWidth = 5;
         set.drawHorizontalHighlightIndicatorEnabled = NO;
@@ -517,26 +547,77 @@
 
 - (void)chartValueSelected:(ChartViewBase * __nonnull)chartView entry:(ChartDataEntry * __nonnull)entry highlight:(ChartHighlight * __nonnull)highlight
 {
-    
-    BubbleChartDataEntry *  entry1 = entry;
-     NSMutableArray * tempArr = [NSMutableArray array];
-     NSMutableArray * entrys =  entry1.data;
-    for (int i = 0; i<entrys.count; i++) {
-    [tempArr addObject:@{@"title":entrys[i] ,@"color":gateColor(@"000000")}];
-      
-    }
-    
-//    LineChartDataSet * set1 = (LineChartDataSet *) self.chartView.lineData.dataSets[(int)chartView.x];
-    
-    
-  
-   
-    self.marker.stylemodels = tempArr;
-}
+    if ([entry isMemberOfClass:[BubbleChartDataEntry class]]) {
+        BubbleChartDataEntry *  entry1 =( BubbleChartDataEntry * ) entry;
+         NSMutableArray * tempArr = [NSMutableArray array];
+        NSDictionary * dict= entry1.data;
+         NSMutableArray * entrys =  dict[@"arr"];
+        UIColor * color1 =  dict[@"color"];
+        
+        for (int i = 0; i<entrys.count; i++) {
+        [tempArr addObject:@{@"title":entrys[i] ,@"color":gateColor(@"000000")}];
+          
+        }
+     
 
+        self.marker.stylemodels = tempArr;
+        
+        NSArray * lineChartDataSets = _chartView.bubbleData.dataSets;
+
+         
+           
+           for (BubbleChartDataSet *set in lineChartDataSets) {
+               
+               for ( BubbleChartDataEntry *entry3 in set.entries)
+               
+               {
+                   NSDictionary * dict= entry3.data;
+                   UIColor * color2 =  dict[@"color"];
+//                   [UIView animateWithDuration:1 animations:^{
+//
+//                   }];
+                   entry3.icon = [self selecrDotStyle:color2];
+                   
+                   
+               }
+               
+           }
+        
+        
+        entry.icon = [self selecrDotStyle22:color1];
+    }
+   
+   
+    
+     
+    
+    
+   
+ 
+}
+-(UIImage *)selecrDotStyle22:(UIColor * )color {
+  
+    UIView * rr = [[UIView alloc] init];
+
+//    rr.layer.borderWidth = 2;
+    rr.layer.cornerRadius = 1;
+    rr.layer.masksToBounds = YES;
+    rr.backgroundColor = color;
+    [UIView animateWithDuration:5 animations:^{
+        rr.size = CGSizeMake(10, 10);
+    }];
+   
+ 
+    
+//    rr.layer.borderColor = color.CGColor;
+    UIImage * ic  = [[UIImage convertViewToImage:rr]  wh_imageAddCornerWithRadius:rr.size.height/2 andSize:rr.size];
+   
+    return   ic;
+  
+}
 - (void)chartValueNothingSelected:(ChartViewBase * __nonnull)chartView
 {
-    NSLog(@"chartValueNothingSelected");
+//    NSLog(@"chartValueNothingSelected");
 }
 
 #pragma mark - IAxisValueFormatter

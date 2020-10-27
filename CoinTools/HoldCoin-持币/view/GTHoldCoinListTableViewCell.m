@@ -17,44 +17,73 @@
 }
 
 - (IBAction)addressAction:(id)sender {
-    
-    !_didPresentBlock?:_didPresentBlock(@"22");
-    static int a = 0 ;
-    BOOL hovizonal = ++a%2 ;
+    self.indexPath.row == 0?:(!_didPresentBlock?:_didPresentBlock(@"22"));
    
-    AlertAnimationType aniType =hovizonal ? AlertAnimationTypeFade : AlertAnimationTypeBounce ;
-    UIColor *tintC = hovizonal ? [UIColor groupTableViewBackgroundColor] : [UIColor cyanColor] ;
+}
+
+-(void)setHoldCoinModel:(GTHoldCoinModel *)holdCoinModel{
+    GTHomeTitleModel * model0 = getItemModel(holdCoinModel.hoardpage_top100.alldatalist[0].datalist.firstObject)[self.indexPath.row-1];
+   GTHomeTitleModel * model1 = getItemModel(holdCoinModel.hoardpage_top100.alldatalist[3].datalist.firstObject)[self.indexPath.row-1];
+    GTHomeTitleModel * model2 = getItemModel(holdCoinModel.hoardpage_top100.alldatalist[2].datalist.firstObject)[self.indexPath.row-1];
+    GTHomeTitleModel * model3 = getItemModel(holdCoinModel.hoardpage_top100.alldatalist[1].datalist.firstObject)[self.indexPath.row-1];
+    GTHomeTitleModel * titleMode0 = holdCoinModel.hoardpage_top100.alldatalist[0].title;
+    GTHomeTitleModel * titleModel1 = holdCoinModel.hoardpage_top100.alldatalist[3].title;
+    GTHomeTitleModel * titleModel2 = holdCoinModel.hoardpage_top100.alldatalist[2].title;
+    GTHomeTitleModel * titleModel3 = holdCoinModel.hoardpage_top100.alldatalist[1].title;
     
+    if (self.indexPath.row == 0) {
+        self.chibiLb.text = [NSString stringWithFormat:@"%@",titleMode0.content];
+        self.chicangLb.text = [NSString stringWithFormat:@"%@",titleModel1.content];
+        self.day7.text = [NSString stringWithFormat:@"%@",titleModel2.content];
+        self.chackBt.text = [NSString stringWithFormat:@"%@",titleModel3.content];
+        setStyle(titleMode0, self.chibiLb);
+        setStyle(titleModel1, self.chicangLb);
+        setStyle(titleModel2, self.day7);
+        setStyle(titleModel3, self.chackBt);
+    }else{
+        self.chibiLb.text = [NSString stringWithFormat:@"%@",model0.content];
+        self.chicangLb.text = [NSString stringWithFormat:@"%@",model1.content];
+        self.day7.text = [NSString stringWithFormat:@"%0.2lf",[model2.content doubleValue]];
+        self.chackBt.text = [NSString stringWithFormat:@"%@",model3.content];
+        setStyle(model0, self.chibiLb);
+        setStyle(model1, self.chicangLb);
+        setStyle(model2, self.day7);
+        setStyle(model3, self.chackBt);
+       
+        self.chackBt.textColor = gateColor(@"2c63d3");
+    }
+  @weakify(self)
+    self.didPresentBlock = ^(NSString * _Nonnull str) {
     
-    EasyAlertView *alertV1 =  [EasyAlertView alertViewWithPart:^EasyAlertPart *{
-        return [EasyAlertPart shared].setTitle(@"请点击两下").setSubtitle(@"1，点击背景是否接受事件\，改变动画类型。\，只有两个按钮的时候，是横排还是竖排.\n4，改变背景颜色").setAlertType(AlertViewTypeAlert) ;
-    } config:^EasyAlertConfig *{
-        return [EasyAlertConfig shared].settwoItemHorizontal(hovizonal).setAnimationType(AlertAnimationTypeZoom).setTintColor([UIColor redColor]).setBgViewEvent(NO).setSubtitleTextAligment(NSTextAlignmentLeft) ;
-    } buttonArray:^NSArray<NSString *> *{
-        return @[@"确定",@"取消"] ;
-    } callback:^(EasyAlertView *showview , long index) {
-        index ? [EasyTextView showSuccessText:@"点击了取消"] : [EasyTextView showText:@"点击了确定"];
-    }];
-    [alertV1 showAlertView];
-    
-    //第一步 创建alertview
-    EasyAlertView *alertV = [EasyAlertView alertViewWithPart:^EasyAlertPart *{
-        return [EasyAlertPart shared].setTitle(@"标题").setSubtitle(@"这是副标题").setAlertType(AlertViewTypeActionSheet) ;
-    } config:nil buttonArray:nil callback:^(EasyAlertView *showview, long index) {
-        NSLog(@"点击了 index = %ld",index );
-    }];
-    
-    //第二步 添加上面的按钮
-    [alertV addAlertItemWithTitleArray:@[@"这是家的",@"zitfalsj",@"发开始放假"] callback:nil];
-    [alertV addAlertItem:^EasyAlertItem *{
-        return [EasyAlertItem itemWithTitle:@"红色粗体" type:AlertItemTypeBlodRed callback:^(EasyAlertView *showview, long index) {
-            //因为上面已经加了一个全局的回调，所以这个地方是不会回调的
-            NSLog(@"红色粗体 = %ld",index );
-        }];
-    }];
-    
-    //第三步  显示alertview
-    [alertV showAlertView];
-   
+        @strongify(self)
+        
+            EasyAlertView *alertView = [EasyAlertView alertViewWithTitle:@"地址" subtitle: self.chackBt.text AlertViewType:AlertViewTypeSystemAlert config:nil];
+        
+            [alertView addAlertItem:^EasyAlertItem *{
+                return [EasyAlertItem itemWithTitle:@"复制" type:AlertItemTypeSystemDefault callback:^(EasyAlertView *showview, long index) {
+                    UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+                    pasteboard.string = self.chicangLb.text;
+                    [EasyTextView showText:@"复制成功" config:^EasyTextConfig *{
+                        //（这三种方法都是一样的，根据使用习惯选择一种就行。|| 不传的参数就会使用EasyTextGlobalConfig全局配置的属性）
+                        //方法一
+                        //return [EasyTextConfig configWithSuperView:self.view superReceiveEvent:ShowTextEventUndefine animationType:TextAnimationTypeNone textStatusType:TextStatusTypeBottom];
+                        //方法二
+                        //return [EasyTextConfig shared].setBgColor([UIColor lightGrayColor]).setShadowColor([UIColor clearColor]).setStatusType(TextStatusTypeBottom);
+                        //方法三
+                        EasyTextConfig *config = [EasyTextConfig shared];
+                        config.bgColor = [UIColor blackColor] ;
+                        config.shadowColor = [UIColor clearColor] ;
+                        config.animationType = TextAnimationTypeFade;
+                        config.statusType = TextStatusTypeMidden ;
+                        return config ;
+                    }];
+                }];
+            }];
+      
+            [alertView addAlertItem:^EasyAlertItem *{
+                return [EasyAlertItem itemWithTitle:@"取消" type:AlertItemTypeSystemCancel callback:nil];
+            }];
+            [alertView showAlertView];
+    };
 }
 @end

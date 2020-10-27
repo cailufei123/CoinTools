@@ -45,7 +45,7 @@
                             <constraint firstItem="Prp-P2-jsI" firstAttribute="leading" secondItem="IiC-ob-y3g" secondAttribute="leading" id="t5G-mE-ybC"/>
                         </constraints>
                     </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M6a-aD-LdY" customClass="BarChartView" customModule="Charts">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M6a-aD-LdY" customClass="CombinedChartView" customModule="Charts">
                         <rect key="frame" x="0.0" y="0.0" width="343" height="300"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
@@ -54,8 +54,28 @@
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6X1-Rx-CAB">
                         <rect key="frame" x="0.0" y="300" width="343" height="50"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jVp-4Y-Ttp" customClass="GTSwitchBt">
+                                <rect key="frame" x="268" y="3" width="60" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="DaR-0n-E2K"/>
+                                    <constraint firstAttribute="height" constant="35" id="TyW-0R-oaW"/>
+                                </constraints>
+                                <state key="normal" title="折线图">
+                                    <color key="titleColor" red="0.08235294118" green="0.1058823529" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="selected" title="柱状图"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="jVp-4Y-Ttp" secondAttribute="trailing" constant="15" id="NzF-fO-l3B"/>
+                            <constraint firstItem="jVp-4Y-Ttp" firstAttribute="top" secondItem="6X1-Rx-CAB" secondAttribute="top" constant="3" id="OQV-xp-J8b"/>
                             <constraint firstAttribute="height" constant="50" id="qfA-1g-KDt"/>
                         </constraints>
                     </view>
@@ -77,6 +97,7 @@
             <connections>
                 <outlet property="bottomSelectView" destination="6X1-Rx-CAB" id="Wb7-CS-i7E"/>
                 <outlet property="chartView" destination="M6a-aD-LdY" id="Lsx-Wy-xdr"/>
+                <outlet property="switchBt" destination="jVp-4Y-Ttp" id="uTp-Ix-rYQ"/>
             </connections>
             <point key="canvasLocation" x="60.14492753623189" y="230.69196428571428"/>
         </tableViewCell>

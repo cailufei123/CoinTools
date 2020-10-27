@@ -82,7 +82,8 @@
 
 - (id<JXCategoryListContentViewDelegate>)listContainerView:(JXCategoryListContainerView *)listContainerView initListForIndex:(NSInteger)index {
   
-  
+    GateBaseViewController  * vv = self.controllerList[index];
+    vv.index = index;
     return self.controllerList[index];
 }
 

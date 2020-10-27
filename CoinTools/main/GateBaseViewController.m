@@ -15,7 +15,7 @@
 @property (nonatomic, strong)  GTMenuSelectView *curtainView;
 @property (nonatomic, strong)  GateTopSelectView *topSelectView;
 @property (nonatomic, strong) UIButton * claseBt ;
-@property (nonatomic, strong) NSArray *titles;
+@property(nonatomic,strong)GTPublicContentModel * navigateIconTypeModel;
 
 @end
 
@@ -51,13 +51,48 @@
       
     };
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-          self.titles = @[@"ALL",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",@"全部",@"BTC", @"ETH", @"XRP", @"BCH",];
-        self.topSelectView.titles = self.titles;
-        
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        NSString * url;
+        if ( self.index == 0) {
+            url = @"burst";
+        }else if (  self.index == 1){
+            url = @"contract";
+        }else if ( self.index == 2){
+            url = @"ls";
+        }else if (  self.index == 3){
+            url = @"big";
+        }else if ( self.index == 4){
+            url = @"hold";
+        }
+      
+    [GateRequestManager getCache:navigate_v_coin_typeURL(url) block:^(NSError * _Nonnull error, BOOL isCache, NSDictionary * _Nonnull response) {
+         @strongify(self)
        
+        self.navigateIconTypeModel = [GTPublicContentModel modelWithDictionary:response[@"data"][@"navigate"]];
+      
+        NSMutableArray * arr = [NSMutableArray array];
+        for (GTHomeTitleModel *titleModel  in  getItemModel(self.navigateIconTypeModel.alldatalist.firstObject.datalist.firstObject)) {
+            
+            [arr addObject:titleModel.content];
+        }
+        self.titles = arr;
+        self.topSelectView.titles = self.titles;
+      
+    }];
     });
+  
+    
+//
+//    self.titles = @[@"ALL",@"BTC", @"ETH", @"XRP", @"BCH"];
+//    self.topSelectView.titles = self.titles;
 
+}
+
+-(void)setTitles:(NSArray *)titles{
+    _titles = titles;
+
+//    self.topSelectView.titles = titles;
+  
 }
 -(NSInteger)selectedIndex{
      return self.topSelectView.categoryView.selectedIndex;

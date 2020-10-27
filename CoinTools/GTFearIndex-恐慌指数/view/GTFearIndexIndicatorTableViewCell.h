@@ -28,6 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *lastWeekLb;
 @property (weak, nonatomic) IBOutlet UILabel *LastMonthLb;
 @property (weak, nonatomic) IBOutlet UILabel *totayFearIndexLb;
+@property (weak, nonatomic) IBOutlet UILabel *timeTitleLb;
 @end
 
 NS_ASSUME_NONNULL_END

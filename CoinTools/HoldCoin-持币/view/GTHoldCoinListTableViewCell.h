@@ -17,8 +17,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *chackBt;
 - (IBAction)addressAction:(id)sender;
 @property (nonatomic, copy) void (^didPresentBlock)(NSString * str);
-@property(nonatomic,strong)GTHoldCoinModel * holdCoinModel;
+@property(nonatomic,strong)GTPublicContentModel * holdCoinModel;
 @property(nonatomic,strong)NSIndexPath * indexPath;
+@property(nonatomic,assign)NSInteger  tagIndex;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *weightLyout;
+@property (weak, nonatomic) IBOutlet UIButton *dayBt;
+- (IBAction)datBtAction:(id)sender;
 
 @end
 

@@ -7,8 +7,8 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
          <BreakpointContent
-            uuid = "F3C543C6-E3C5-4CBF-99DA-E3BB60CC78CC"
-            shouldBeEnabled = "No"
+            uuid = "6230F96A-F52E-45DE-A480-25FF837252EB"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             breakpointStackSelectionBehavior = "1"
@@ -19,129 +19,113 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F006AC6A-C7A0-49B5-86FC-62C1370BB34B"
-            shouldBeEnabled = "No"
+            uuid = "26DF7EB2-E378-4392-B4C2-DDF979B08B25"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CoinTools/GTFearIndex-&#x6050;&#x614c;&#x6307;&#x6570;/view/GTFearIndexIndicatorTableViewCell.m"
+            filePath = "CoinTools/BigOrderBurstStatistics-&#x5927;&#x5355;&#x6210;&#x4ea4;&#x7edf;&#x8ba1;/view/GateBigOrderDistributionDealCell.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
-            landmarkName = "-setHomevix:"
+            startingLineNumber = "338"
+            endingLineNumber = "338"
+            landmarkName = "-generateBubbleData:bubbleDataBlock:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "912E6B60-C9F8-4D79-A20D-AE70767FDB93"
-            shouldBeEnabled = "No"
+            uuid = "1577468C-178C-41D9-8633-9874B2B8AFC4"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CoinTools/GTFearIndex-&#x6050;&#x614c;&#x6307;&#x6570;/view/GTFearIndexIndicatorTableViewCell.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
-            landmarkName = "-setHomevix:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "1AADC5B1-2F5D-4220-8943-59DDB206DABA"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CoinTools/GTFearIndex-&#x6050;&#x614c;&#x6307;&#x6570;/view/GTFearIndexIndicatorTableViewCell.m"
+            filePath = "CoinTools/HoldCoin-&#x6301;&#x5e01;/controller/GateHoldCoinViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "84"
             endingLineNumber = "84"
-            landmarkName = "-setHomevix:"
+            landmarkName = "-loadDataWhit:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D8BBC481-3D2A-4175-AEDA-C1BBB87F4537"
+            uuid = "82D07E28-95A1-40E9-B745-B963C3FD2AF2"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CoinTools/WholeNetworkPositionStatistics-&#x5168;&#x7f51;&#x6301;&#x4ed3;&#x7edf;&#x8ba1;/view/GateDeliveryPositionAmountCell.m"
+            filePath = "CoinTools/HoldCoin-&#x6301;&#x5e01;/view/GTHoldCoinListTableViewCell.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "154"
-            endingLineNumber = "154"
-            landmarkName = "-setChartData"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "-setHoldCoinModel:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "96708C72-CDD0-409B-A84F-5DC7770F050E"
+            uuid = "104EE855-280D-45BF-AF4E-00ED1FC01373"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CoinTools/BurstStatistics-&#x7206;&#x4ed3;&#x7edf;&#x8ba1;/view/GateThirtyDaysBurstStatisticsTableViewCell.m"
+            filePath = "CoinTools/HoldCoin-&#x6301;&#x5e01;/view/GTHoldCoinListTableViewCell.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "347"
-            endingLineNumber = "347"
-            landmarkName = "-chartValueSelected:entry:highlight:"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "-setHoldCoinModel:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "8A28BD29-7A40-419D-974F-EDCE4D2D1182"
+            uuid = "FA53C5F9-E2B8-4E22-9CED-99945C69B885"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CoinTools/BurstStatistics-&#x7206;&#x4ed3;&#x7edf;&#x8ba1;/view/GateThirtyDaysBurstStatisticsTableViewCell.m"
+            filePath = "CoinTools/HoldCoin-&#x6301;&#x5e01;/view/GTHoldCoinListTableViewCell.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "244"
-            endingLineNumber = "244"
-            landmarkName = "-generateLineData"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
+            landmarkName = "-datBtAction:"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "54A37E17-BD18-41D8-B82E-78B08AD8FFC0"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CoinTools/BurstStatistics-&#x7206;&#x4ed3;&#x7edf;&#x8ba1;/view/GateThirtyDaysBurstStatisticsTableViewCell.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "240"
-            endingLineNumber = "240"
-            landmarkName = "-generateLineData"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "C12F8A7D-3877-467F-B499-490D24CD39F7"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CoinTools/BurstStatistics-&#x7206;&#x4ed3;&#x7edf;&#x8ba1;/view/GateThirtyDaysBurstStatisticsTableViewCell.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
-            landmarkName = "-setChartView"
-            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "FA53C5F9-E2B8-4E22-9CED-99945C69B885 - b8afd1045e6ceaf7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[GTHoldCoinListTableViewCell datBtAction:]"
+                  moduleName = "CoinTools"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac/Desktop/CoinTools/CoinTools/HoldCoin-%E6%8C%81%E5%B8%81/view/GTHoldCoinListTableViewCell.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "124"
+                  endingLineNumber = "124"
+                  offsetFromSymbolStart = "214">
+               </Location>
+               <Location
+                  uuid = "FA53C5F9-E2B8-4E22-9CED-99945C69B885 - 447c7a1c89468459"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__43-[GTHoldCoinListTableViewCell datBtAction:]_block_invoke"
+                  moduleName = "CoinTools"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac/Desktop/CoinTools/CoinTools/HoldCoin-%E6%8C%81%E5%B8%81/view/GTHoldCoinListTableViewCell.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "125"
+                  endingLineNumber = "125"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

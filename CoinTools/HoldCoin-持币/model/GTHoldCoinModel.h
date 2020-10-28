@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)GTPublicContentModel * hoardpage_top5;
 @property(nonatomic,strong)GTPublicContentModel * hoardpage_top100;
 @property(nonatomic,strong)GTPublicContentModel *holdpage_bigtitle;
+@property(nonatomic,strong)GTPublicContentModel *hoardpage_trans;
+
 
 @end
 

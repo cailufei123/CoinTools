@@ -35,14 +35,20 @@
                         <color key="textColor" red="0.043137254899999998" green="0.062745098040000002" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pgw-Tc-Gtz">
+                        <rect key="frame" x="178.5" y="0.0" width="123.5" height="61"/>
+                        <connections>
+                            <action selector="datBtAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="MPb-54-iKb"/>
+                        </connections>
+                    </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+80000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rph-JB-P4X">
                         <rect key="frame" x="307" y="29" width="119" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.043137254899999998" green="0.062745098040000002" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sAd-Kz-k6R">
-                        <rect key="frame" x="302" y="0.0" width="42" height="79"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sAd-Kz-k6R">
+                        <rect key="frame" x="302" y="0.0" width="134" height="79"/>
                         <connections>
                             <action selector="addressAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="rK0-pC-efT"/>
                         </connections>
@@ -53,6 +59,7 @@
                     <constraint firstItem="THa-D4-Tp3" firstAttribute="width" secondItem="bra-xC-wA6" secondAttribute="width" multiplier="1:3" id="3PK-Qt-tpu"/>
                     <constraint firstAttribute="bottom" secondItem="sAd-Kz-k6R" secondAttribute="bottom" id="6I5-Zs-KP3"/>
                     <constraint firstItem="bra-xC-wA6" firstAttribute="centerY" secondItem="THa-D4-Tp3" secondAttribute="centerY" id="9yt-rf-hCd"/>
+                    <constraint firstItem="pgw-Tc-Gtz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="DIj-yS-34D"/>
                     <constraint firstItem="sAd-Kz-k6R" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="HTu-BW-Lix"/>
                     <constraint firstItem="THa-D4-Tp3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="HrH-dl-kOA"/>
                     <constraint firstItem="bra-xC-wA6" firstAttribute="leading" secondItem="THa-D4-Tp3" secondAttribute="trailing" constant="5" id="K6v-N1-zee"/>
@@ -61,9 +68,12 @@
                     <constraint firstItem="sAd-Kz-k6R" firstAttribute="leading" secondItem="B4t-vB-izm" secondAttribute="trailing" id="MIH-zs-X1v"/>
                     <constraint firstItem="B4t-vB-izm" firstAttribute="centerY" secondItem="bra-xC-wA6" secondAttribute="centerY" id="N3d-eV-lmU"/>
                     <constraint firstItem="bra-xC-wA6" firstAttribute="width" secondItem="B4t-vB-izm" secondAttribute="width" id="dGz-wX-Ong"/>
+                    <constraint firstItem="pgw-Tc-Gtz" firstAttribute="leading" secondItem="bra-xC-wA6" secondAttribute="trailing" id="dSH-C4-Mgp"/>
+                    <constraint firstItem="sAd-Kz-k6R" firstAttribute="leading" secondItem="pgw-Tc-Gtz" secondAttribute="trailing" id="eMN-wi-Deg"/>
                     <constraint firstItem="Rph-JB-P4X" firstAttribute="centerY" secondItem="B4t-vB-izm" secondAttribute="centerY" id="ebd-mt-CVc"/>
                     <constraint firstItem="THa-D4-Tp3" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="rqa-YR-Rpf"/>
                     <constraint firstAttribute="trailing" secondItem="Rph-JB-P4X" secondAttribute="trailing" constant="10" id="tae-GJ-hD7"/>
+                    <constraint firstAttribute="bottom" secondItem="pgw-Tc-Gtz" secondAttribute="bottom" constant="18" id="vo3-GB-n9v"/>
                     <constraint firstItem="B4t-vB-izm" firstAttribute="leading" secondItem="bra-xC-wA6" secondAttribute="trailing" constant="5" id="waG-fI-h32"/>
                 </constraints>
             </tableViewCellContentView>
@@ -73,6 +83,8 @@
                 <outlet property="chibiLb" destination="THa-D4-Tp3" id="Hzj-a1-4Ut"/>
                 <outlet property="chicangLb" destination="bra-xC-wA6" id="mgD-az-vqg"/>
                 <outlet property="day7" destination="B4t-vB-izm" id="Mme-xK-7JC"/>
+                <outlet property="dayBt" destination="pgw-Tc-Gtz" id="p1Z-U1-zR2"/>
+                <outlet property="weightLyout" destination="3PK-Qt-tpu" id="l6V-UC-HOp"/>
             </connections>
             <point key="canvasLocation" x="75.362318840579718" y="118.86160714285714"/>
         </tableViewCell>

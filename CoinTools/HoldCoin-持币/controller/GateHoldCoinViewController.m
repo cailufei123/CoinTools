@@ -98,12 +98,7 @@
     self.v_coin_type = title;
     [self.tableView startRefreshing];
 }
-//- (void)pullToRefresh {
-//    __weak UITableView *wtableView = self.tableView;
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        [wtableView pullDownDealFooterWithItemCount:self.dataArr.count cursor:@"11"];
-//    });
-//}
+
 
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -113,19 +108,14 @@
 //
 //          return 75.01;
 //    }
-    if (section == 0||section == 1) {
+    if (section == 0||section == 1||section == 2) {
          
           return 60;
     }
     return 0.01;
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-//    if (section == 3) {
-//        GTHoldCoinHeardView * coinHeardView = [GTHoldCoinHeardView loadHoldCoinHeardView];
-//           coinHeardView.frame = CGRectMake(0, 0, scrWeiht, 75);
-//            return coinHeardView;
-//
-//    }else
+
     if (self.holdCoinModel) {
         if (section == 0){
         GateHoursSelectCategoryView * selectCategoryView = [[GateHoursSelectCategoryView alloc] initWithFrame:CGRectMake(0, 0, scrWeiht-100, 50)];
@@ -139,8 +129,8 @@
         }else{
             GateHoursSelectCategoryView * selectCategoryView = [[GateHoursSelectCategoryView alloc] initWithFrame:CGRectMake(0, 0, scrWeiht-100, 50)];
                        selectCategoryView.titles =  @[];
-            selectCategoryView.title = getItemModel(self.holdCoinModel.holdpage_bigtitle.alldatalist.firstObject.datalist.lastObject).firstObject.content;
-            setStyle(getItemModel(self.holdCoinModel.holdpage_bigtitle.alldatalist.firstObject.datalist.lastObject).firstObject, selectCategoryView.titleLb);
+            selectCategoryView.title = getItemModel(self.holdCoinModel.holdpage_bigtitle.alldatalist.firstObject.datalist[section]).firstObject.content;
+            setStyle(getItemModel(self.holdCoinModel.holdpage_bigtitle.alldatalist.firstObject.datalist[section]).firstObject, selectCategoryView.titleLb);
                        selectCategoryView.selectblock = ^(NSInteger index) {
                            
                        };
@@ -152,15 +142,23 @@
     return  [UIView new];
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 2;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section == 0) {
         return self.holdCoinModel.hoardpage_top5?1:0;
+    }
+    if (section == 1) {
+        return self.holdCoinModel.hoardpage_trans.alldatalist.firstObject.datalist.firstObject.count>0? self.holdCoinModel.hoardpage_trans.alldatalist.firstObject.datalist.firstObject.count +1:0;
        }
-    return self.holdCoinModel.hoardpage_top100.alldatalist.firstObject.datalist.firstObject.count>0? self.holdCoinModel.hoardpage_top100.alldatalist.firstObject.datalist.firstObject.count +1:0;
+    
+    if (section == 2) {
+        return self.holdCoinModel.hoardpage_top100.alldatalist.firstObject.datalist.firstObject.count>0? self.holdCoinModel.hoardpage_top100.alldatalist.firstObject.datalist.firstObject.count +1:0;
+       }
+    
+    return self.holdCoinModel.hoardpage_top5?1:0;
    
 }
 
@@ -184,10 +182,11 @@
                            }];
         return height;
     }
-    else if  (indexPath.section == 2){
-        return (scrWeiht - 150);
-       
-    }else if  (indexPath.section == 1){
+//    else if  (indexPath.section == 2){
+//        return (scrWeiht - 150);
+//
+//    }
+    else if  (indexPath.section == 1|| indexPath.section == 2){
         if (indexPath.row == 0) {
             return 40;
         }else{
@@ -221,10 +220,21 @@
              
          }
          
-         else if  (indexPath.section == 1){
+         else if  (indexPath.section == 1||indexPath.section == 2){
                 GTHoldCoinListTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"GTHoldCoinListTableViewCell" forIndexPath:indexPath];
-             cell.indexPath = indexPath;
-             cell. holdCoinModel = self.holdCoinModel;
+           
+             
+             if (indexPath.section == 1) {
+                 cell.tagIndex = 1;
+                 cell.indexPath = indexPath;
+                 cell. holdCoinModel = self.holdCoinModel.hoardpage_trans;
+                 
+             }
+             if (indexPath.section == 2) {
+                 cell.tagIndex = 2;
+                 cell.indexPath = indexPath;
+                 cell. holdCoinModel = self.holdCoinModel.hoardpage_top100;
+             }
          
          
              return cell;

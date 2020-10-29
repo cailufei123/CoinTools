@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTPublicContentModel : NSObject
 @property(nonatomic,strong) NSArray<GTAlldatalistModel *> * alldatalist;
 @property(nonatomic,copy) NSString * title;
+@property(nonatomic,assign) BOOL  isSelected;
 @end
 
 @interface GTBurstModel : NSObject

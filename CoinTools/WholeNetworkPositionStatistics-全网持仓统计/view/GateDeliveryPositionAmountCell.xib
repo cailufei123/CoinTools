@@ -32,25 +32,27 @@
                             <constraint firstAttribute="height" constant="200" id="xbj-Hm-BmF"/>
                         </constraints>
                     </view>
-                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P7w-Bx-uQj">
-                        <rect key="frame" x="0.0" y="230" width="366" height="0.0"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P7w-Bx-uQj">
+                        <rect key="frame" x="0.0" y="230" width="366" height="50"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RUb-5C-3WM">
-                                <rect key="frame" x="15" y="-10.5" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qxb-99-0hn" customClass="GTSwitchBt">
+                                <rect key="frame" x="291" y="7.5" width="60" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="Sg2-fd-Zev"/>
+                                    <constraint firstAttribute="width" constant="60" id="nGR-3u-jdu"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="RUb-5C-3WM" firstAttribute="leading" secondItem="P7w-Bx-uQj" secondAttribute="leading" constant="15" id="8NI-FU-Nsd"/>
-                            <constraint firstAttribute="height" id="lZp-oM-JHP"/>
-                            <constraint firstItem="RUb-5C-3WM" firstAttribute="centerY" secondItem="P7w-Bx-uQj" secondAttribute="centerY" id="yQ1-qP-Z2C"/>
+                            <constraint firstItem="qxb-99-0hn" firstAttribute="centerY" secondItem="P7w-Bx-uQj" secondAttribute="centerY" id="2h2-e7-nka"/>
+                            <constraint firstAttribute="trailing" secondItem="qxb-99-0hn" secondAttribute="trailing" constant="15" id="96o-pn-xpR"/>
+                            <constraint firstAttribute="height" constant="50" id="lZp-oM-JHP"/>
                         </constraints>
                     </view>
                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q1x-Cc-V68">
-                        <rect key="frame" x="0.0" y="230" width="366" height="0.0"/>
+                        <rect key="frame" x="0.0" y="280" width="366" height="0.0"/>
                         <color key="backgroundColor" red="0.96470588235294119" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" id="W62-hY-gKK"/>
@@ -76,8 +78,8 @@
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
                 <outlet property="chartView" destination="aRF-ir-6rl" id="XXf-jT-hCe"/>
-                <outlet property="describeLb" destination="RUb-5C-3WM" id="rTL-6d-vHa"/>
                 <outlet property="describeView" destination="P7w-Bx-uQj" id="DIt-fi-cXz"/>
+                <outlet property="switchBt" destination="qxb-99-0hn" id="Zk9-W0-FJF"/>
                 <outlet property="topSelectView" destination="Klw-yO-bXd" id="wiQ-GF-kgN"/>
             </connections>
             <point key="canvasLocation" x="81.159420289855078" y="45.535714285714285"/>

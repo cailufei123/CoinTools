@@ -18,6 +18,7 @@
 @property(nonatomic,strong)NSMutableArray * temps;
 @property(nonatomic,strong)NSMutableArray * styleArr;
 @property(nonatomic,strong)NSMutableArray * allstyleArr;
+@property (weak, nonatomic) IBOutlet GTSwitchBt *switchBt;
 @end
 @implementation GateDeliveryPositionAmountCell
 
@@ -87,6 +88,17 @@
     self.chartView.marker = marker;
     [self.topSelectView addSubview:self.topPublicSelectView];
     marker.xAxisValueFormatter = self.xXisFearIndexValueFormatter;
+    @weakify(self)
+    self.switchBt.selectBlock = ^(BOOL select) {
+        @strongify(self)
+      
+        self.holdData.isSelected = select;
+        
+        [self setChartData];
+        
+        self.holdData = self.holdData;
+        
+    };
 }
 
 -(GatePublicSelectView *)topPublicSelectView{
@@ -97,19 +109,36 @@
        @weakify(self)
       _topPublicSelectView.selectBlock = ^(NSInteger index, GatePublicSelectModel * _Nonnull publicSelectModel) {
           @strongify(self)
-                     LineChartDataSet * set =  (LineChartDataSet *) self.chartView.lineData.dataSets[index+1];
-          set.visible = !publicSelectModel.selectEnabled;
-          NSMutableArray * styleArr1 = [NSMutableArray array];
-          for (int i = 0; i<self.chartView.lineData.dataSets.count; i++) {
-              LineChartDataSet * set1 = (LineChartDataSet *) self.chartView.lineData.dataSets[i];
-              if (set1.isVisible) {
-                  [styleArr1 addObject:self.allstyleArr[i]];
+                NSMutableArray * styleArr1 = [NSMutableArray array];
+          if (!self.holdData.isSelected) {
+              BarChartDataSet * set =  (BarChartDataSet *) self.chartView.barData.dataSets[index+1];
+              set.visible = !publicSelectModel.selectEnabled;
+            
+              for (int i = 0; i<self.chartView.barData.dataSets.count; i++) {
+                  BarChartDataSet * set1 = (BarChartDataSet *) self.chartView.barData.dataSets[i];
+                  if (set1.isVisible) {
+                      [styleArr1 addObject:self.allstyleArr[i]];
+                  }
+                  
               }
-              
+          }else{
+              LineChartDataSet * set =  (LineChartDataSet *) self.chartView.lineData.dataSets[index+1];
+              set.visible = !publicSelectModel.selectEnabled;
+//              NSMutableArray * styleArr1 = [NSMutableArray array];
+              for (int i = 0; i<self.chartView.lineData.dataSets.count; i++) {
+                  LineChartDataSet * set1 = (LineChartDataSet *) self.chartView.lineData.dataSets[i];
+                  if (set1.isVisible) {
+                      [styleArr1 addObject:self.allstyleArr[i]];
+                  }
+                  
+              }
           }
-          self.marker.stylemodels = styleArr1;
+         
           
-                     [self.chartView setNeedsDisplay];
+          
+          
+          self.marker.stylemodels = styleArr1;
+          [self.chartView setNeedsDisplay];
       };
       
    }
@@ -148,48 +177,116 @@
 - (void)setChartData
 {
     CombinedChartData *data = [[CombinedChartData alloc] init];
-    
-    data.lineData = [self generateLineData];
-//    data.barData = [self generateBarData];
-//    data.bubbleData = [self generateBubbleData];
-//    data.scatterData = [self generateScatterData];
-//    data.candleData = [self generateCandleData];
-    
-//    _chartView.xAxis.axisMaximum = data.xMax + 0.25;
+//
+//    data.lineData = [self generateLineData];
+//    CombinedChartData *data = [[CombinedChartData alloc] init];
+  
+    if (!_holdData.isSelected) {
+        data.barData = [self generateBarData];
+    }else{
+        data.lineData = [self generateLineData];
+    }
+
+    _chartView.xAxis.axisMinimum = data.xMin + 0.25;
+    _chartView.xAxis.axisMaximum = data.xMax + 0.5;
+    _chartView.data = data;
+   [_chartView.data notifyDataChanged];
 
     _chartView.data = data;
 }
 - (BarChartData *)generateBarData
 {
-    NSMutableArray<BarChartDataEntry *> *entries1 = [[NSMutableArray alloc] init];
-//    NSMutableArray<BarChartDataEntry *> *entries2 = [[NSMutableArray alloc] init];
+//    NSMutableArray<BarChartDataEntry *> *entries1 = [[NSMutableArray alloc] init];
+////    NSMutableArray<BarChartDataEntry *> *entries2 = [[NSMutableArray alloc] init];
+//
+//    for (int index = 0; index < 30; index++)
+//    {
+//        [entries1 addObject:[[BarChartDataEntry alloc] initWithX:index y:(arc4random_uniform(250) + 25)]];
+//
+//        // stacked
+////        [entries2 addObject:[[BarChartDataEntry alloc] initWithX:0.0 y:arc4random_uniform(13) + 12]];
+//    }
+//    _chartView.xAxis.axisMaximum = 30+0.5;
+//    BarChartDataSet *set1 = [[BarChartDataSet alloc] initWithEntries:entries1 label:@"Bar 1"];
+//    [set1 setColor:gateColor(@"ffbc51")];
+//    set1.valueTextColor = [UIColor colorWithRed:60/255.f green:220/255.f blue:78/255.f alpha:1.f];
+//    set1.valueFont = [UIFont systemFontOfSize:10.f];
+//    set1.axisDependency = AxisDependencyRight;
+//     set1.highlightEnabled = NO;
+//
+//    NSMutableArray *dataSets = [[NSMutableArray alloc] init];
+//          [dataSets addObject:set1];
+//    BarChartData *d = [[BarChartData alloc] initWithDataSets:dataSets];
+//   [d setDrawValues:NO];
+//
+//     [d setBarWidth:0.5];
+//
+//    return d;
+//
     
-    for (int index = 0; index < 30; index++)
-    {
-        [entries1 addObject:[[BarChartDataEntry alloc] initWithX:index y:(arc4random_uniform(250) + 25)]];
-        
-        // stacked
-//        [entries2 addObject:[[BarChartDataEntry alloc] initWithX:0.0 y:arc4random_uniform(13) + 12]];
-    }
-    _chartView.xAxis.axisMaximum = 30+0.5;
-    BarChartDataSet *set1 = [[BarChartDataSet alloc] initWithEntries:entries1 label:@"Bar 1"];
-    [set1 setColor:gateColor(@"ffbc51")];
-    set1.valueTextColor = [UIColor colorWithRed:60/255.f green:220/255.f blue:78/255.f alpha:1.f];
-    set1.valueFont = [UIFont systemFontOfSize:10.f];
-    set1.axisDependency = AxisDependencyRight;
-     set1.highlightEnabled = NO;
-
+    
+    
+    
+    
+    BarChartData *d = [[BarChartData alloc] init];
+         [d setBarWidth:0.5];
+          double leftAxisMin = MAXFLOAT;
+          double leftAxisMax = 0;
+         double rightAxisMin = MAXFLOAT;
+         double rightAxisMax = 0;
     NSMutableArray *dataSets = [[NSMutableArray alloc] init];
-          [dataSets addObject:set1];
-    BarChartData *d = [[BarChartData alloc] initWithDataSets:dataSets];
-   [d setDrawValues:NO];
- 
-     [d setBarWidth:0.5];
-
+    for (int i = 1; i<_holdData.alldatalist.count; i++) {
+        
+        
+        
+        
+       NSArray< GTHomeTitleModel *> * models = [GTDataManager getItemModelWhit:_holdData.alldatalist[i].datalist.firstObject];
+        NSMutableArray *entries = [[NSMutableArray alloc] init];
+        NSLog(@"%@",models);
+        for (int index = 0; index<models.count; index++) {
+            GTHomeTitleModel * titleModel  = models[index];
+           
+            if (i == 1) {
+                double val = [titleModel.content integerValue];
+                rightAxisMax = MAX(val, rightAxisMax);
+                rightAxisMin = MIN(val, rightAxisMin);
+            }else{
+                double val = [titleModel.content integerValue];
+                leftAxisMax = MAX(val, leftAxisMax);
+                leftAxisMin = MIN(val, leftAxisMin);
+            }
+            [entries addObject:[[BarChartDataEntry alloc] initWithX:index + 0.5 y:([titleModel.content doubleValue])]];
+       }
+       
+        BarChartDataSet * set1 = [self getArr:entries barChartDataSet:gateColor(models.firstObject.color) drawFilledEnabled:i == 1?YES:NO];
+        [dataSets addObject:set1];
+        if (i == 1) {
+            set1.axisDependency = AxisDependencyRight;
+        }else{
+            set1.axisDependency = AxisDependencyLeft;
+        }
+//        [d addDataSet:set1];
+    }
+//    [d groupBarsFromX: startYear groupSpace: groupSpace barSpace: barSpace];
+    d.dataSets = dataSets;
+    
+    self.chartView.leftAxis.axisMinimum = leftAxisMin;
+    self.chartView.leftAxis.axisMaximum = leftAxisMax;
+    self.chartView.rightAxis.axisMinimum = rightAxisMin;
+    self.chartView.rightAxis.axisMaximum = rightAxisMax;
+    float groupSpace = 0.08f;
+    float barSpace = 0.03f;
+    [d groupBarsFromX: self.chartView.xAxis.axisMinimum  groupSpace: 1 barSpace: barSpace];
     return d;
 }
 
 
+-(BarChartDataSet *)getArr:(NSMutableArray *)entries barChartDataSet:(UIColor * )color drawFilledEnabled:(BOOL)drawFilledEnabled{
+    BarChartDataSet *set =  [[BarChartDataSet alloc] initWithEntries:entries label:@"Company A"];
+    set.drawValuesEnabled = NO;
+    [set setColor:color];
+    return set;
+}
 
 
 
@@ -310,8 +407,9 @@
      self.allstyleArr = [NSMutableArray array];
     
     self.styleArr = styleArr;
-     for (int i = 0; i<self.chartView.lineData.dataSets.count; i++) {
-                LineChartDataSet * set1 = (LineChartDataSet *) self.chartView.lineData.dataSets[i];
+     for (int i = 0; i<self.chartView.data.dataSets.count; i++) {
+         
+         ChartDataSet * set1 = (ChartDataSet *) self.chartView.data.dataSets[i];
                 GTHomeTitleModel * title = self.holdData.alldatalist[i+1].title;
                 GTHomeTitleModel * titleModel = [GTDataManager getItemModelWhit:self.holdData.alldatalist[i+1].datalist.firstObject][index];
                 GatePublicSelectModel *  selectModel = [[GatePublicSelectModel alloc] init];

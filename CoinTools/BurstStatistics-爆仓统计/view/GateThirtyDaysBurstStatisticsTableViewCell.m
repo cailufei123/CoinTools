@@ -91,7 +91,7 @@
 //    self.chartView.highlightFullBarEnabled = YES;
 //    self.chartView.maxHighlightDistance = 1000;
     self.chartView.scaleYEnabled = NO;                                      // 取消 Y 轴缩放
-    self.chartView.dragEnabled = YES;
+    self.chartView.dragXEnabled = YES;
 
     ChartYAxis *leftAxis = _chartView.leftAxis;
     //显示网格线。默认YES

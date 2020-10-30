@@ -35,7 +35,7 @@
     _chartView.doubleTapToZoomEnabled = NO;
      _chartView.scaleYEnabled = NO;
      _chartView.scaleXEnabled = YES;
-    _chartView.scaleXEnabled = YES;
+
     [_chartView setX:10];
     _chartView.drawOrder = @[
                              @(CombinedChartDrawOrderBar),

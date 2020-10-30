@@ -19,7 +19,7 @@
 @property(nonatomic,strong)  GTYxisFearIndexValueFormatter *  yLeftXisFearIndexValueFormatter;
 @property(nonatomic,strong) GTYxisFearIndexValueFormatter * yXisFearIndexValueFormatter;
 @property (weak, nonatomic) IBOutlet UIView *selectView;
-
+@property (weak, nonatomic) IBOutlet GTSwitchBt *switchBt;
 @property(nonatomic,strong)GTChartPMarkerView * marker;
 
 
@@ -43,7 +43,7 @@
     _chartView.highlightPerDragEnabled = NO;
     _chartView.doubleTapToZoomEnabled = NO;
      _chartView.scaleYEnabled = NO;
-     _chartView.scaleXEnabled = NO;
+     _chartView.scaleXEnabled = YES;
     _chartView.drawOrder = @[
                              @(CombinedChartDrawOrderBar),
                              @(CombinedChartDrawOrderBubble),
@@ -95,6 +95,19 @@
     self.chartView.marker = marker;
     [self.selectView addSubview:self.topPublicSelectView];
     marker.xAxisValueFormatter = self.xXisFearIndexValueFormatter;
+    
+    @weakify(self)
+    self.switchBt.selectBlock = ^(BOOL select) {
+        @strongify(self)
+      
+        self.fearIndexPublicContentModel.isSelected = select;
+        
+        [self setChartData];
+        
+        self.fearIndexPublicContentModel = self.fearIndexPublicContentModel;
+        
+    };
+   
 }
 
 -(GatePublicSelectView *)topPublicSelectView{
@@ -126,6 +139,16 @@
 
 -(void)setFearIndexPublicContentModel:(GTPublicContentModel *)fearIndexPublicContentModel{
     _fearIndexPublicContentModel = fearIndexPublicContentModel;
+    self.switchBt.selected = fearIndexPublicContentModel.isSelected;
+    if (!self.switchBt.isSelected) {
+       
+        self.switchBt.backgroundColor = gateColor(@"5064f2");
+  
+    }else{
+        
+        self.switchBt.backgroundColor = gateColor(@"f6f9fb");
+ 
+    }
     NSMutableArray * arr = [NSMutableArray array];
     self.temps =  [NSMutableArray array];
     
@@ -155,15 +178,88 @@
 
 - (void)setChartData
 {
-    CombinedChartData *data = [[CombinedChartData alloc] init];
+//    CombinedChartData *data = [[CombinedChartData alloc] init];
+//
+//    data.lineData = [self generateLineData];
+//
+//
+//    _chartView.data = data;
     
-    data.lineData = [self generateLineData];
+    
+    CombinedChartData *data = [[CombinedChartData alloc] init];
+  
+    if (self.fearIndexPublicContentModel.isSelected) {
+        data.barData = [self generateBarData];
+        _chartView.xAxis.axisMinimum = data.xMin + 0.25;
+        _chartView.xAxis.axisMaximum = data.xMax + 0.25;
+    }else{
+        data.lineData = [self generateLineData];
+    }
 
-
+  
     _chartView.data = data;
+//   [_chartView.data notifyDataChanged];
 }
 
 
+
+- (BarChartData *)generateBarData{
+   
+  
+    
+    
+    BarChartData *d = [[BarChartData alloc] init];
+
+          double leftAxisMin = MAXFLOAT;
+          double leftAxisMax = 0;
+         double rightAxisMin = MAXFLOAT;
+         double rightAxisMax = 0;
+    for (int i = 1; i<_fearIndexPublicContentModel.alldatalist.count; i++) {
+       NSArray< GTHomeTitleModel *> * models = [GTDataManager getItemModelWhit:_fearIndexPublicContentModel.alldatalist[i].datalist.firstObject];
+        NSMutableArray *entries = [[NSMutableArray alloc] init];
+        NSLog(@"%@",models);
+        for (int index = 0; index<models.count; index++) {
+            GTHomeTitleModel * titleModel  = models[index];
+           
+            if (i == 1) {
+                double val = [titleModel.content integerValue];
+                rightAxisMax = MAX(val, rightAxisMax);
+                rightAxisMin = MIN(val, rightAxisMin);
+            }else{
+                double val = [titleModel.content integerValue];
+                leftAxisMax = MAX(val, leftAxisMax);
+                leftAxisMin = MIN(val, leftAxisMin);
+            }
+            [entries addObject:[[BarChartDataEntry alloc] initWithX:index + 0.5 y:([titleModel.content doubleValue])]];
+       }
+       
+        BarChartDataSet * set1 = [self getArr:entries barChartDataSet:gateColor(models.firstObject.color) drawFilledEnabled:NO];
+      
+        if (i == 1) {
+            set1.axisDependency = AxisDependencyRight;
+        }else{
+            set1.axisDependency = AxisDependencyLeft;
+        }
+        [d addDataSet:set1];
+    }
+  
+    self.chartView.leftAxis.axisMinimum = leftAxisMin;
+    self.chartView.leftAxis.axisMaximum = leftAxisMax;
+    self.chartView.rightAxis.axisMinimum = rightAxisMin;
+    self.chartView.rightAxis.axisMaximum = rightAxisMax;
+    float groupSpace = 0.08f;
+    float barSpace = 0.03f;
+    [d groupBarsFromX: self.chartView.xAxis.axisMinimum  groupSpace: 1 barSpace: barSpace];
+    
+    return d;
+}
+
+-(BarChartDataSet *)getArr:(NSMutableArray *)entries barChartDataSet:(UIColor * )color drawFilledEnabled:(BOOL)drawFilledEnabled{
+    BarChartDataSet *set =  [[BarChartDataSet alloc] initWithEntries:entries label:@"Company A"];
+    set.drawValuesEnabled = NO;
+    [set setColor:color];
+    return set;
+}
 
 
 
@@ -250,25 +346,25 @@
                      entry:(ChartDataEntry * _Nonnull)entry
                  highlight:(ChartHighlight * _Nonnull)highlight {
 
-    NSArray * lineChartDataSets = self.chartView.lineData.dataSets;
-    for (LineChartDataSet *set in lineChartDataSets) {
-
-        for ( ChartDataEntry *entry in set.entries) { entry.icon = nil; }
-
-    }
-
+//    NSArray * lineChartDataSets = self.chartView.lineData.dataSets;
+//    for (LineChartDataSet *set in lineChartDataSets) {
+//
+//        for ( ChartDataEntry *entry in set.entries) { entry.icon = nil; }
+//
+//    }
+//
     NSInteger  x = entry.x;
-
-
-    for (int i =0; i<lineChartDataSets.count; i++) {
-
-        LineChartDataSet *set = lineChartDataSets[i];
-
-        ChartDataEntry *entry = set.entries[ x ];
-        GatePublicSelectModel *  selectModel =  self.temps[i];
-
-        entry.icon = [GTStyleManager  selecrDotStyle:selectModel.color];
-    }
+//
+//
+//    for (int i =0; i<lineChartDataSets.count; i++) {
+//
+//        LineChartDataSet *set = lineChartDataSets[i];
+//
+//        ChartDataEntry *entry = set.entries[ x ];
+//        GatePublicSelectModel *  selectModel =  self.temps[i];
+//
+//        entry.icon = [GTStyleManager  selecrDotStyle:selectModel.color];
+//    }
 
 
     [self setLineDot: x];
@@ -284,8 +380,9 @@
      self.allstyleArr = [NSMutableArray array];
     
     self.styleArr = styleArr;
-     for (int i = 0; i<self.chartView.lineData.dataSets.count; i++) {
-                LineChartDataSet * set1 = (LineChartDataSet *) self.chartView.lineData.dataSets[i];
+     for (int i = 0; i<self.chartView.data.dataSets.count; i++) {
+         
+         ChartDataSet * set1 = (ChartDataSet *) self.chartView.data.dataSets[i];
                 GTHomeTitleModel * title = self.fearIndexPublicContentModel.alldatalist[i+1].title;
                 GTHomeTitleModel * titleModel = [GTDataManager getItemModelWhit:self.fearIndexPublicContentModel.alldatalist[i+1].datalist.firstObject][index];
                 GatePublicSelectModel *  selectModel = [[GatePublicSelectModel alloc] init];
@@ -300,7 +397,6 @@
     
      self.marker.stylemodels = styleArr;
 }
-
 
 - (void)chartValueNothingSelected:(ChartViewBase * __nonnull)chartView
 {

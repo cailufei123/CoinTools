@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -19,7 +20,7 @@
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="96v-GO-2HN">
                         <rect key="frame" x="0.0" y="0.0" width="398" height="50"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="50" id="7aW-3T-Jgp"/>
                         </constraints>
@@ -31,23 +32,39 @@
                             <constraint firstAttribute="height" constant="300" id="Tkz-JQ-gMs"/>
                         </constraints>
                     </view>
+                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b2B-lC-dQ5" customClass="GTSwitchBt">
+                        <rect key="frame" x="323" y="360" width="60" height="28"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="60" id="xf0-gd-GmF"/>
+                            <constraint firstAttribute="height" constant="35" id="xst-Ed-grt"/>
+                        </constraints>
+                        <state key="normal" title="Button"/>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="96v-GO-2HN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="8RO-SE-8GI"/>
                     <constraint firstItem="N0X-EU-IwE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="B26-Lo-P0o"/>
                     <constraint firstItem="96v-GO-2HN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="BI1-KE-lVx"/>
                     <constraint firstAttribute="trailing" secondItem="N0X-EU-IwE" secondAttribute="trailing" id="LMf-2F-DBs"/>
+                    <constraint firstItem="b2B-lC-dQ5" firstAttribute="top" secondItem="N0X-EU-IwE" secondAttribute="bottom" constant="10" id="V3X-bo-2WF"/>
+                    <constraint firstAttribute="trailing" secondItem="b2B-lC-dQ5" secondAttribute="trailing" constant="15" id="e8y-kq-0qO"/>
                     <constraint firstItem="N0X-EU-IwE" firstAttribute="top" secondItem="96v-GO-2HN" secondAttribute="bottom" id="jhh-BK-JTo"/>
                     <constraint firstAttribute="trailing" secondItem="96v-GO-2HN" secondAttribute="trailing" id="ytT-FI-eSh"/>
-                    <constraint firstAttribute="bottom" secondItem="N0X-EU-IwE" secondAttribute="bottom" constant="10" id="zMC-5L-wWX"/>
+                    <constraint firstAttribute="bottom" secondItem="N0X-EU-IwE" secondAttribute="bottom" constant="60" id="zMC-5L-wWX"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
                 <outlet property="chartView" destination="N0X-EU-IwE" id="2cf-mo-gxn"/>
                 <outlet property="selectView" destination="96v-GO-2HN" id="dhE-Je-SIm"/>
+                <outlet property="switchBt" destination="b2B-lC-dQ5" id="rnE-vB-PB2"/>
             </connections>
             <point key="canvasLocation" x="194.20289855072465" y="55.580357142857139"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

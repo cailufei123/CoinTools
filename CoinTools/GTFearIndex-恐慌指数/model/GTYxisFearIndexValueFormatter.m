@@ -12,11 +12,11 @@
 /// 实现协议方法，返回 y 轴的数据
 - (NSString *)stringForValue:(double)value axis:(ChartAxisBase *)axis {
     
-    if (self.formatterType == GTFormatterYRightDuoKong) {
+    if (self.formatterType == GTFormatterYLeftAxisDuoKong) {
         
        
         return  [NSString stringWithFormat:@"$%@",[self formatDecimalNumber:[NSString stringWithFormat:@"%lf",value]]] ;
-    } else  if (self.formatterType == GTFormatterYLeftAxisDuoKong) {
+    } else  if (self.formatterType == GTFormatterYRightDuoKong) {
         return [self formatPercentage:value];
     } else  if (self.formatterType == GTFormatterYRightChiCang) {
        return [NSString stringWithFormat:@"$%@",[self formatDecimalNumber:[NSString stringWithFormat:@"%lf",value]]] ;

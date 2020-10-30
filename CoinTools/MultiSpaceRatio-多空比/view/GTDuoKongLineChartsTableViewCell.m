@@ -14,6 +14,7 @@
 @import Charts;
 @interface GTDuoKongLineChartsTableViewCell() <ChartViewDelegate, IChartAxisValueFormatter>
 
+@property (weak, nonatomic) IBOutlet GTSwitchBt *switchBt;
 @property (weak, nonatomic) IBOutlet CombinedChartView *chartView;
 @property(nonatomic,strong) GatePublicSelectView * topPublicSelectView;
 @property(nonatomic,strong) GTXAxisFearIndexValueFormatter * xXisFearIndexValueFormatter;
@@ -50,11 +51,11 @@
                              @(CombinedChartDrawOrderLine),
                              @(CombinedChartDrawOrderScatter)
                              ];
-
+    _chartView.dragXEnabled = YES;
 //  _chartView.rightAxis.enabled = NO;
     ChartYAxis *rightAxis = _chartView.rightAxis;
     _chartView.rightAxis.enabled = YES;
-    
+//    _chartView.maxVisibleCount = 1000;
     
     self.yXisFearIndexValueFormatter = [GTYxisFearIndexValueFormatter getGTYxisFearIndexValueFormatter];
     self.yXisFearIndexValueFormatter.formatterType = GTFormatterYRightDuoKong;
@@ -93,7 +94,7 @@
     
     xAxis.labelPosition  = XAxisLabelPositionBottom;
     xAxis.labelCount = 4;
-  
+    
 
 //     xAxis.centerAxisLabelsEnabled = YES;
     //    xAxis.labelRotationAngle = 50;
@@ -110,11 +111,22 @@
      
       [self.chartView animateWithXAxisDuration:2.0f];
     
-    
-
+    self.chartView.scaleYEnabled = NO;                                      // 取消 Y 轴缩放
+    self.chartView.dragEnabled = YES;
+    self.chartView.scaleXEnabled = YES;
     [self.selectView addSubview:self.topPublicSelectView];
    
- 
+    @weakify(self)
+    self.switchBt.selectBlock = ^(BOOL select) {
+        @strongify(self)
+      
+        self.duoKongData.isSelected = select;
+        
+        [self setChartData];
+        
+        self.duoKongData = self.duoKongData;
+        
+    };
    
   
 }
@@ -122,6 +134,17 @@
 
 -(void)setDuoKongData:(GTPublicContentModel *)duoKongData{
     _duoKongData = duoKongData;
+    self.switchBt.selected = duoKongData.isSelected;
+    if (!self.switchBt.isSelected) {
+       
+        self.switchBt.backgroundColor = gateColor(@"5064f2");
+  
+    }else{
+        
+        self.switchBt.backgroundColor = gateColor(@"f6f9fb");
+ 
+    }
+    
     NSMutableArray * arr = [NSMutableArray array];
     self.temps =  [NSMutableArray array];
 
@@ -155,18 +178,47 @@
        @weakify(self)
       _topPublicSelectView.selectBlock = ^(NSInteger index, GatePublicSelectModel * _Nonnull publicSelectModel) {
           @strongify(self)
-            LineChartDataSet * set =  (LineChartDataSet *) self.chartView.lineData.dataSets[index];
-            set.visible = !publicSelectModel.selectEnabled;
+//            LineChartDataSet * set =  (LineChartDataSet *) self.chartView.lineData.dataSets[index];
+//            set.visible = !publicSelectModel.selectEnabled;
+//
+//
+//
+//            NSMutableArray * styleArr1 = [NSMutableArray array];
+//            for (int i = 0; i<self.chartView.lineData.dataSets.count; i++) {
+//            LineChartDataSet * set1 = (LineChartDataSet *) self.chartView.lineData.dataSets[i];
+//            if (set1.isVisible) {
+//             [styleArr1 addObject:self.allstyleArr[i]];
+//          }
+//      }
           
+          NSMutableArray * styleArr1 = [NSMutableArray array];
           
-          
-            NSMutableArray * styleArr1 = [NSMutableArray array];
-            for (int i = 0; i<self.chartView.lineData.dataSets.count; i++) {
-            LineChartDataSet * set1 = (LineChartDataSet *) self.chartView.lineData.dataSets[i];
-            if (set1.isVisible) {
-             [styleArr1 addObject:self.allstyleArr[i]];
+          if (self.duoKongData.isSelected) {
+              BarChartDataSet * set =  (BarChartDataSet *) self.chartView.barData.dataSets[index];
+              set.visible = !publicSelectModel.selectEnabled;
+            
+              for (int i = 0; i<self.chartView.barData.dataSets.count; i++) {
+                  BarChartDataSet * set1 = (BarChartDataSet *) self.chartView.barData.dataSets[i];
+                  if (set1.isVisible) {
+                      [styleArr1 addObject:self.allstyleArr[i]];
+                  }
+                  
+              }
+          }else{
+              LineChartDataSet * set =  (LineChartDataSet *) self.chartView.lineData.dataSets[index];
+              set.visible = !publicSelectModel.selectEnabled;
+//              NSMutableArray * styleArr1 = [NSMutableArray array];
+              for (int i = 0; i<self.chartView.lineData.dataSets.count; i++) {
+                  LineChartDataSet * set1 = (LineChartDataSet *) self.chartView.lineData.dataSets[i];
+                  if (set1.isVisible) {
+                      [styleArr1 addObject:self.allstyleArr[i]];
+                  }
+                  
+              }
           }
-      }
+         
+          
+          
           self.marker.stylemodels = styleArr1;
 
           [self.chartView setNeedsDisplay];
@@ -189,25 +241,139 @@
 //          // 这里放异步执行任务代码
 //      });
     @weakify(self)
- [self generateLineDataBlock:^(LineChartData *lineChartData) {
+// [self generateLineDataBlock:^(LineChartData *lineChartData) {
      
-     @strongify(self)
-     dispatch_async(dispatch_get_main_queue(), ^{
-         data.lineData  = lineChartData;
-         self.chartView.data = data;
-         [self.chartView.data notifyDataChanged];
- //               [self.chartView notifyDataSetChanged];
-                [self.chartView setNeedsDisplay];
- //              [self.chartView animateWithXAxisDuration:2];
-         
-         
-     });
-}];
-    
+//     @strongify(self)
+//     dispatch_async(dispatch_get_main_queue(), ^{
+//         data.lineData  = lineChartData;
+//         self.chartView.data = data;
+//         [self.chartView.data notifyDataChanged];
+// //               [self.chartView notifyDataSetChanged];
+//                [self.chartView setNeedsDisplay];
+// //              [self.chartView animateWithXAxisDuration:2];
+//         _chartView.xAxis.axisMinimum = data.xMin + 0.25;
+//         _chartView.xAxis.axisMaximum = data.xMax + 0.5;
+//
+//     });
+//}];
+//
+//
+//
+//
+//
+//    CombinedChartData *data = [[CombinedChartData alloc] init];
+//
+//    data.lineData = [self generateLineData];
+//    CombinedChartData *data = [[CombinedChartData alloc] init];
+//     @weakify(self)
+    if (!_duoKongData.isSelected) {
+       
+     [self generateLineDataBlock:^(LineChartData *lineChartData) {
 
-  
+         @strongify(self)
+         dispatch_async(dispatch_get_main_queue(), ^{
+             data.lineData  = lineChartData;
+             self.chartView.data = data;
+             [self.chartView.data notifyDataChanged];
+     //               [self.chartView notifyDataSetChanged];
+                    [self.chartView setNeedsDisplay];
+     //              [self.chartView animateWithXAxisDuration:2];
+             self.chartView.xAxis.axisMinimum = data.xMin + 0.25;
+             self.chartView.xAxis.axisMaximum = data.xMax + 0.25;
+
+         });
+    }];
+    }else{
+      
+     [self generateBarDataBlock:^(BarChartData *lineChartData) {
+
+         @strongify(self)
+         dispatch_async(dispatch_get_main_queue(), ^{
+             data.barData  = lineChartData;
+             self.chartView.data = data;
+             [self.chartView.data notifyDataChanged];
+     //               [self.chartView notifyDataSetChanged];
+                    [self.chartView setNeedsDisplay];
+     //              [self.chartView animateWithXAxisDuration:2];
+             self.chartView.xAxis.axisMinimum = data.xMin + 0.25;
+             self.chartView.xAxis.axisMaximum = data.xMax + 0.25;
+
+         });
+    }];
+    }
+
 }
 
+
+- (BarChartData *)generateBarDataBlock:(void(^)(BarChartData * lineChartData))finishblock{
+    BarChartData *d = [[BarChartData alloc] init];
+         [d setBarWidth:0.5];
+    
+     dispatch_async(dispatch_get_global_queue(0, 0), ^{
+       
+   
+        
+        double leftAxisMin = MAXFLOAT;
+        double leftAxisMax = 0;
+       double rightAxisMin = MAXFLOAT;
+       double rightAxisMax = 0;
+  for (int i = 1; i<self.duoKongData.alldatalist.count; i++) {
+     NSArray< GTHomeTitleModel *> * models = [GTDataManager getItemModelWhit:self.duoKongData.alldatalist[i].datalist.firstObject];
+      NSMutableArray *entries = [[NSMutableArray alloc] init];
+      NSLog(@"%@",models);
+      for (int index = 0; index<models.count; index++) {
+          GTHomeTitleModel * titleModel  = models[index];
+          if (i == 1) {
+             
+              double val = [titleModel.content doubleValue];
+              rightAxisMax   = MAX(val, rightAxisMax);
+              rightAxisMin   = MIN(val, rightAxisMin);
+          }else{
+              double val = [titleModel.content doubleValue];
+              leftAxisMax = MAX(val, leftAxisMax);
+              leftAxisMin = MIN(val, leftAxisMin);
+          }
+//              [titleModel.content doubleValue]
+//              arc4random_uniform(250) + 25
+          [entries addObject:[[BarChartDataEntry alloc] initWithX:index  y:([titleModel.content doubleValue])]];
+     }
+     
+      BarChartDataSet * set1 = [self getArr:entries barChartDataSet:gateColor(models.firstObject.color) drawFilledEnabled:NO];
+    
+      if (i == 1) {
+          set1.axisDependency = AxisDependencyRight;
+         
+      }else{
+          set1.axisDependency = AxisDependencyLeft;
+      }
+      [d addDataSet:set1];
+  }
+
+  self.chartView.leftAxis.axisMinimum = leftAxisMin;
+  self.chartView.leftAxis.axisMaximum = leftAxisMax;
+  self.chartView.rightAxis.axisMinimum = rightAxisMin;
+  self.chartView.rightAxis.axisMaximum = rightAxisMax;
+        
+        float groupSpace = 0.08f;
+        float barSpace = 0.03f;
+        [d groupBarsFromX: self.chartView.xAxis.axisMinimum  groupSpace: 1 barSpace: barSpace];
+        
+        
+        
+        
+        finishblock(d);
+        
+     });
+   
+    return d;
+}
+
+-(BarChartDataSet *)getArr:(NSMutableArray *)entries barChartDataSet:(UIColor * )color drawFilledEnabled:(BOOL)drawFilledEnabled{
+    BarChartDataSet *set =  [[BarChartDataSet alloc] initWithEntries:entries label:@"Company A"];
+    set.drawValuesEnabled = NO;
+    [set setColor:color];
+    return set;
+}
 
 - (LineChartData *)generateLineDataBlock:(void(^)(LineChartData * lineChartData))finishblock
 {
@@ -231,8 +397,8 @@
 //                    
 //                   bcoin_coin_long_short_infoModel * bcoin_btc_vix_data_infoModel =  self.bcoin_coin_long_short_infos[index];
 //                 
-//                     [entries addObject:[[ChartDataEntry alloc] initWithX:index + 0.5  y:[bcoin_btc_vix_data_infoModel.offer doubleValue]]];
-//            [entries1 addObject:[[ChartDataEntry alloc] initWithX:index + 0.5  y:[bcoin_btc_vix_data_infoModel.long_rate doubleValue]]];
+//                     [entries addObject:[[ChartDataEntry alloc] initWithX:index   y:[bcoin_btc_vix_data_infoModel.offer doubleValue]]];
+//            [entries1 addObject:[[ChartDataEntry alloc] initWithX:index   y:[bcoin_btc_vix_data_infoModel.long_rate doubleValue]]];
 //                   
 //                 
 //
@@ -270,25 +436,25 @@
               if (i == 1) {
                  
                   double val = [titleModel.content doubleValue];
-                  leftAxisMax = MAX(val, leftAxisMax);
-                  leftAxisMin = MIN(val, leftAxisMin);
+                  rightAxisMax   = MAX(val, rightAxisMax);
+                  rightAxisMin   = MIN(val, rightAxisMin);
               }else{
                   double val = [titleModel.content doubleValue];
-                  rightAxisMax = MAX(val, rightAxisMax);
-                  rightAxisMin = MIN(val, rightAxisMin);
+                  leftAxisMax = MAX(val, leftAxisMax);
+                  leftAxisMin = MIN(val, leftAxisMin);
               }
 //              [titleModel.content doubleValue]
 //              arc4random_uniform(250) + 25
-              [entries addObject:[[ChartDataEntry alloc] initWithX:index + 0.5 y:([titleModel.content doubleValue])]];
+              [entries addObject:[[ChartDataEntry alloc] initWithX:index  y:([titleModel.content doubleValue])]];
          }
          
           LineChartDataSet * set1 = [self getArr:entries lineChartDataSet:gateColor(models.firstObject.color) drawFilledEnabled:NO];
         
           if (i == 1) {
               
-              set1.axisDependency = AxisDependencyLeft;
-          }else{
               set1.axisDependency = AxisDependencyRight;
+          }else{
+              set1.axisDependency = AxisDependencyLeft;
           }
           [d addDataSet:set1];
       }
@@ -398,8 +564,31 @@
     [GTDotManager chartDotManagerValueSelected: self.chartView entry:entry highlight:highlight publicSelectModels:self.topPublicSelectView.arr];
     
 
-    [self setLineDot:(int)entry.x];
+//    [self setLineDot:(int)entry.x];
    
+    
+//    NSArray * lineChartDataSets = self.chartView.lineData.dataSets;
+//    for (LineChartDataSet *set in lineChartDataSets) {
+//
+//        for ( ChartDataEntry *entry in set.entries) { entry.icon = nil; }
+//
+//    }
+//
+    NSInteger  x = entry.x;
+//
+//
+//    for (int i =0; i<lineChartDataSets.count; i++) {
+//
+//        LineChartDataSet *set = lineChartDataSets[i];
+//
+//        ChartDataEntry *entry = set.entries[ x ];
+//        GatePublicSelectModel *  selectModel =  self.temps[i];
+//
+//        entry.icon = [GTStyleManager  selecrDotStyle:selectModel.color];
+//    }
+    
+    
+    [self setLineDot: x];
     
     
     
@@ -408,9 +597,11 @@
    
      NSMutableArray * styleArr = [NSMutableArray array];
      self.allstyleArr = [NSMutableArray array];
+    
     self.styleArr = styleArr;
-     for (int i = 0; i<self.chartView.lineData.dataSets.count; i++) {
-                LineChartDataSet * set1 = (LineChartDataSet *) self.chartView.lineData.dataSets[i];
+     for (int i = 0; i<self.chartView.data.dataSets.count; i++) {
+         
+         ChartDataSet * set1 = (ChartDataSet *) self.chartView.data.dataSets[i];
                 GTHomeTitleModel * title = self.duoKongData.alldatalist[i+1].title;
                 GTHomeTitleModel * titleModel = [GTDataManager getItemModelWhit:self.duoKongData.alldatalist[i+1].datalist.firstObject][index];
                 GatePublicSelectModel *  selectModel = [[GatePublicSelectModel alloc] init];
@@ -419,7 +610,8 @@
                 if (set1.isVisible) {
                     [styleArr addObject:@{@"title":[NSString stringWithFormat:@"%@:%@", title.content,titleModel.content] ,@"color":gateColor(titleModel.color)}];
               }
-         [self.allstyleArr addObject:@{@"title":[NSString stringWithFormat:@"%@:%@", title.content,titleModel.content] ,@"color":gateColor(titleModel.color)}];
+          [self.allstyleArr addObject:@{@"title":[NSString stringWithFormat:@"%@:%@", title.content,titleModel.content] ,@"color":gateColor(titleModel.color)}];
+    
         }
     
      self.marker.stylemodels = styleArr;

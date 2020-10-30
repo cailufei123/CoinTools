@@ -38,7 +38,7 @@
        _pieChartView.highlightPerTapEnabled = YES;
        //代理
        _pieChartView.delegate = self;
-       
+    _pieChartView.rotationAngle = 270;
        ChartLegend *l = _pieChartView.legend;
        l.horizontalAlignment = ChartLegendHorizontalAlignmentRight;
        l.verticalAlignment = ChartLegendVerticalAlignmentTop;

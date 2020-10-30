@@ -181,7 +181,7 @@ if (@available(iOS 11.0, *)) {
          return [UIView new];
     }else{
         GateHoursSelectCategoryView * selectCategoryView = [[GateHoursSelectCategoryView alloc] initWithFrame:CGRectMake(0, 0, scrWeiht-100, 50)];
-                              selectCategoryView.titles =  @[@"1H",@"4H",@"24H"];
+                              selectCategoryView.titles =  @[@"ALL",@"1M",@"1W"];
         selectCategoryView.categoryView.defaultSelectedIndex = self.index;
         selectCategoryView.titleLb.text =getItemModel(self.fearIndexModel.vix_bigtitle.alldatalist.firstObject.datalist.firstObject).firstObject.content;
         setStyle(getItemModel(self.fearIndexModel.vix_bigtitle.alldatalist.firstObject.datalist.firstObject).firstObject, selectCategoryView.titleLb);
@@ -222,7 +222,7 @@ if (@available(iOS 11.0, *)) {
     if (indexPath.section == 0) {
         return 150;
     }else{
-        return 230;
+        return 290;
     }
     
 

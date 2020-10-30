@@ -40,7 +40,10 @@
     self.moneyLb.text = [GTDataManager getItemModelWhit:burstbourse.alldatalist[1].datalist.firstObject][self.indexPath.row].content;
     [GTStyleManager setStyleWhit: [GTDataManager getItemModelWhit:burstbourse.alldatalist[1].datalist.firstObject][self.indexPath.row] forLale: self.moneyLb];
     
-    self.progressLb.text =[NSString stringWithFormat:@"%0.2lf%%",[[GTDataManager getItemModelWhit:burstbourse.alldatalist[2].datalist.firstObject][self.indexPath.row].content doubleValue]*100] ;
+    self.progressLb.text =[NSString stringWithFormat:@"%0.2lf%%",[[GTDataManager getItemModelWhit:burstbourse.alldatalist[2].datalist.firstObject][self.indexPath.row].content doubleValue]*100>100.0?100:[[GTDataManager getItemModelWhit:burstbourse.alldatalist[2].datalist.firstObject][self.indexPath.row].content doubleValue]*100] ;
+    
+    self.progressLb.text =[NSString stringWithFormat:@"%0.2lf%%",[[GTDataManager getItemModelWhit:burstbourse.alldatalist[2].datalist.firstObject][self.indexPath.row].content doubleValue]*100<=0?0:[[GTDataManager getItemModelWhit:burstbourse.alldatalist[2].datalist.firstObject][self.indexPath.row].content doubleValue]*100] ;
+    
     [GTStyleManager setStyleWhit: [GTDataManager getItemModelWhit:burstbourse.alldatalist[2].datalist.firstObject][self.indexPath.row] forLale: self.progressLb];
     
 //    self.moneyLb.text = bcoin_coin_burst_exchange_infoModel.burst_amt;

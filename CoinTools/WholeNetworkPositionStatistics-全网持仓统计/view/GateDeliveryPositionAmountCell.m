@@ -37,8 +37,7 @@
     _chartView.highlightFullBarEnabled = NO;
     _chartView.highlightPerDragEnabled = NO;
     _chartView.doubleTapToZoomEnabled = NO;
-     _chartView.scaleYEnabled = NO;
-     _chartView.scaleXEnabled = NO;
+  
     _chartView.drawOrder = @[
                              @(CombinedChartDrawOrderBar),
                              @(CombinedChartDrawOrderBubble),
@@ -80,6 +79,11 @@
    
     xAxis.labelCount = 3;
    
+    self.chartView.highlightPerTapEnabled = YES;
+    self.chartView.scaleYEnabled = NO;                                      // 取消 Y 轴缩放
+    self.chartView.dragXEnabled = YES;
+    _chartView.scaleYEnabled = NO;
+    _chartView.scaleXEnabled = YES;
     
     GTChartPMarkerView * marker = [GTStyleManager getChartPMarkerViewWhit];
     marker.chartView =  self.chartView;
@@ -182,9 +186,9 @@
 //    CombinedChartData *data = [[CombinedChartData alloc] init];
   
     if (!_holdData.isSelected) {
-        data.barData = [self generateBarData];
-    }else{
         data.lineData = [self generateLineData];
+    }else{
+        data.barData = [self generateBarData];
     }
 
     _chartView.xAxis.axisMinimum = data.xMin + 0.25;

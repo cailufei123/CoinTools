@@ -1447,11 +1447,11 @@
 			isa = PBXGroup;
 			children = (
 				04D34EB4250B0C8500D940D1 /* JXCategoryTitleBackgroundCell.h */,
-				04D34EB5250B0C8500D940D1 /* JXCategoryTitleBackgroundView.h */,
-				04D34EB6250B0C8500D940D1 /* JXCategoryTitleBackgroundCellModel.m */,
 				04D34EB7250B0C8500D940D1 /* JXCategoryTitleBackgroundCell.m */,
+				04D34EB5250B0C8500D940D1 /* JXCategoryTitleBackgroundView.h */,
 				04D34EB8250B0C8500D940D1 /* JXCategoryTitleBackgroundView.m */,
 				04D34EB9250B0C8500D940D1 /* JXCategoryTitleBackgroundCellModel.h */,
+				04D34EB6250B0C8500D940D1 /* JXCategoryTitleBackgroundCellModel.m */,
 			);
 			path = TitleBackground;
 			sourceTree = "<group>";

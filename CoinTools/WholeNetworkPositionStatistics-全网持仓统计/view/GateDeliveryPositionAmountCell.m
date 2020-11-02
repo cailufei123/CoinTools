@@ -114,7 +114,7 @@
       _topPublicSelectView.selectBlock = ^(NSInteger index, GatePublicSelectModel * _Nonnull publicSelectModel) {
           @strongify(self)
                 NSMutableArray * styleArr1 = [NSMutableArray array];
-          if (!self.holdData.isSelected) {
+          if (self.holdData.isSelected) {
               BarChartDataSet * set =  (BarChartDataSet *) self.chartView.barData.dataSets[index+1];
               set.visible = !publicSelectModel.selectEnabled;
             

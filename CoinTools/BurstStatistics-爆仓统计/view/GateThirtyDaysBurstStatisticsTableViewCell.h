@@ -16,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIView *bottomSelectView;
 //@property (strong, nonatomic) NSArray<GTBcoin_coin_30d_calendar_infoModel *>*  bcoin_coin_30d_calendar_infos;
 @property(nonatomic,strong)GTPublicContentModel * burstcalpic;
+@property (nonatomic, copy) void(^selectBlock) (void);
++(instancetype)loadThirtyDaysBurstStatisticsTableViewCell;
 @end
 
 NS_ASSUME_NONNULL_END

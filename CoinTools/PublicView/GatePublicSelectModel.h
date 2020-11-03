@@ -23,6 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic,strong)UIColor * color;
 
+@property(nonatomic,copy)NSString * strColor;
+
 @property(nonatomic,strong)UIColor * selectColor;
 
 @property(nonatomic,strong)UIColor * titlesColor;

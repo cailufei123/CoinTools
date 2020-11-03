@@ -17,6 +17,7 @@
 #import "GateBurstListTableViewCell.h"
 #import "GTBurstModel.h"
 #import "GTHeYueMessageTableViewCell.h"
+#import "GateFaceOrientationLandStatisticsViewController.h"
 @interface GateBurstViewController ()
 @property(nonatomic,strong)GTBurstModel * burstModel;
 
@@ -406,7 +407,17 @@ cell1.burstcalpic =  self.burstModel.burstcalpic;
            if (self.selectedIndex == 0) {
             GateThirtyDaysBurstStatisticsTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"GateThirtyDaysBurstStatisticsTableViewCell" forIndexPath:indexPath];
               cell.burstcalpic =  self.burstModel.burstcalpic;
-                                     return cell;
+             
+               @weakify(self)
+               cell.selectBlock = ^{
+                   @strongify(self)
+                   GateFaceOrientationLandStatisticsViewController * fearIndexVc = [[GateFaceOrientationLandStatisticsViewController alloc] init];
+                   fearIndexVc.burstcalpic =  self.burstModel.burstcalpic;
+                   [self.navigationController pushViewController:fearIndexVc animated:YES];
+                   
+               };
+               return cell;
+              
            }else{
                GTHeYueMessageTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"GTHeYueMessageTableViewCell" forIndexPath:indexPath];
                cell.burstfuture = self.burstModel.burstfuture;

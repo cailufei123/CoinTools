@@ -16,7 +16,7 @@
 #import "GateBigOrderStatisticsViewController.h"
 #import "GateWholeNetworkPositionStatisticsViewController.h"
 #import "GateNewDetailsViewController.h"
-#import "GateMarketValueViewController.h"
+
 #import "GateBurstViewController.h"
 
 #import "GateHomePageTopEnterViewCell.h"
@@ -26,6 +26,7 @@
 #import "GTNewTopTableViewCell.h"
 #import "GTMainCoinQuotationListTableViewCell.h"
 #import "GTFearIndexViewController.h"
+#import "GateFaceOrientationLandStatisticsViewController.h"
 @interface GateHomePageController ()
 @property(nonatomic,strong)NSArray * classArry;
 @property(nonatomic,strong)GTHomeModel * homeModel;
@@ -291,8 +292,9 @@ if (@available(iOS 11.0, *)) {
        
         [self.navigationController pushViewController:fearIndexVc animated:YES];
     }
-   
+    
 }
+
 - (UIViewController*)stringChangeToClass:(NSString *)str {
     id vc = [[NSClassFromString(str) alloc]init];
     if ([vc isKindOfClass:[UIViewController class]]) {

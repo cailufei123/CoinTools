@@ -62,71 +62,93 @@
 
 
 
-
+-(void)setPieChart:(NSArray* )itleModels{
+   
+   
+    NSMutableArray *values = [[NSMutableArray alloc] init];
+    NSMutableArray * arr = [NSMutableArray array];
+     for (int i = 0; i < itleModels.count; i++)
+     {
+       
+        
+       
+         GTHomeTitleModel * titleModel = itleModels[i];
+         [arr addObject:gateColor(titleModel.color)];
+        
+         NSString * valStr = [titleModel.content stringByReplacingOccurrencesOfString:@"%@" withString:@""];
+      
+         PieChartDataEntry * dataEntry = [[PieChartDataEntry alloc] initWithValue:[valStr doubleValue]+5 label:@"333" icon: [UIImage imageNamed:@"icon"]];
+        
+         [values addObject:dataEntry];
+        
+     }
+     
+     PieChartDataSet *dataSet = [[PieChartDataSet alloc] initWithEntries:values label:@"Election Results"];
+    
+     dataSet.drawIconsEnabled = NO;
+    
+   
+     dataSet.iconsOffset = CGPointMake(0, 40);
+     //相邻区块之间的间距
+     dataSet.sliceSpace = 2;
+     //扇形区域放大范围
+     dataSet.selectionShift = 5;
+     //动画开始的角度
+     // add a lot of colors
+   dataSet.drawValuesEnabled = NO; // 是否绘制显示数据
+    
+     
+     dataSet.selectionShift = 8;// 2.设置PieChartDataSet缩放系数
+ //    NSMutableArray *colors = [[NSMutableArray alloc] init];
+ //    NSArray * arr = @[[UIColor redColor],[UIColor blueColor],[UIColor orangeColor],[UIColor purpleColor]];
+ //    [colors addObjectsFromArray:arr];
+ //   [colors addObjectsFromArray:ChartColorTemplates.joyful];
+ //    [colors addObjectsFromArray:ChartColorTemplates.colorful];
+ //    [colors addObjectsFromArray:ChartColorTemplates.liberty];
+ //    [colors addObjectsFromArray:ChartColorTemplates.pastel];
+ //    [colors addObject:[UIColor colorWithRed:51/255.f green:181/255.f blue:229/255.f alpha:1.f]];
+ //
+     dataSet.colors = arr;
+     PieChartData *data = [[PieChartData alloc] initWithDataSet:dataSet];
+     NSNumberFormatter *pFormatter = [[NSNumberFormatter alloc] init];
+     pFormatter.numberStyle = NSNumberFormatterPercentStyle;
+     pFormatter.maximumFractionDigits = 1;
+     pFormatter.multiplier = @1.f;
+     pFormatter.percentSymbol = @" %";
+     [data setValueFormatter:[[ChartDefaultValueFormatter alloc] initWithFormatter:pFormatter]];
+     [data setValueFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:11.f]];
+     [data setValueTextColor:UIColor.whiteColor];
+     _pieChartView.data = data;
+     [_pieChartView highlightValues:nil];
+ //    [_pieChartView animateWithXAxisDuration:2.0f easingOption:ChartEasingOptionEaseOutExpo];
+}
 
 -(void)setHoardpage_top5:(GTPublicContentModel *)hoardpage_top5{
+    self.arr = [NSMutableArray array];
     _hoardpage_top5 = hoardpage_top5;
     
     [self.topTableView reloadData];
   
-    NSMutableArray *values = [[NSMutableArray alloc] init];
-    NSMutableArray * arr = [NSMutableArray array];
-    for (int i = 0; i < getItemModel(hoardpage_top5.alldatalist.lastObject.datalist.firstObject).count; i++)
-    {
-      
-
-      
-        GTHomeTitleModel * titleModel = getItemModel(hoardpage_top5.alldatalist.lastObject.datalist.firstObject)[i];
-        [arr addObject:gateColor(titleModel.color)];
-        NSString * valStr = [titleModel.content stringByReplacingOccurrencesOfString:@"%@" withString:@""];
-     
-        
-        [values addObject:[[PieChartDataEntry alloc] initWithValue:[valStr doubleValue]+5 label:@"333" icon: [UIImage imageNamed:@"icon"]]];
-    }
-    
-    PieChartDataSet *dataSet = [[PieChartDataSet alloc] initWithEntries:values label:@"Election Results"];
-    
-    dataSet.drawIconsEnabled = NO;
-    
-  
-    dataSet.iconsOffset = CGPointMake(0, 40);
-    //相邻区块之间的间距
-    dataSet.sliceSpace = 2;
-    //扇形区域放大范围
-    dataSet.selectionShift = 5;
-    //动画开始的角度
-    // add a lot of colors
-  dataSet.drawValuesEnabled = NO; // 是否绘制显示数据
    
-    
-    dataSet.selectionShift = 8;// 2.设置PieChartDataSet缩放系数
-//    NSMutableArray *colors = [[NSMutableArray alloc] init];
-//    NSArray * arr = @[[UIColor redColor],[UIColor blueColor],[UIColor orangeColor],[UIColor purpleColor]];
-//    [colors addObjectsFromArray:arr];
-//   [colors addObjectsFromArray:ChartColorTemplates.joyful];
-//    [colors addObjectsFromArray:ChartColorTemplates.colorful];
-//    [colors addObjectsFromArray:ChartColorTemplates.liberty];
-//    [colors addObjectsFromArray:ChartColorTemplates.pastel];
-//    [colors addObject:[UIColor colorWithRed:51/255.f green:181/255.f blue:229/255.f alpha:1.f]];
-//
-    dataSet.colors = arr;
-    PieChartData *data = [[PieChartData alloc] initWithDataSet:dataSet];
-    
-    NSNumberFormatter *pFormatter = [[NSNumberFormatter alloc] init];
-    pFormatter.numberStyle = NSNumberFormatterPercentStyle;
-    pFormatter.maximumFractionDigits = 1;
-    pFormatter.multiplier = @1.f;
-    pFormatter.percentSymbol = @" %";
-    [data setValueFormatter:[[ChartDefaultValueFormatter alloc] initWithFormatter:pFormatter]];
-    [data setValueFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:11.f]];
-    [data setValueTextColor:UIColor.whiteColor];
-    
-    _pieChartView.data = data;
-    [_pieChartView highlightValues:nil];
-//    [_pieChartView animateWithXAxisDuration:2.0f easingOption:ChartEasingOptionEaseOutExpo];
+    NSArray * itleModels = getItemModel(hoardpage_top5.alldatalist.lastObject.datalist.firstObject);
+    for (int i = 0; i < itleModels.count; i++)
+    {
+        GatePublicSelectModel * publicSelectModel = [[GatePublicSelectModel alloc] init];
+       
+      
+        [self.arr addObject:publicSelectModel];
+       
+       
+    }
+    [self setPieChart:itleModels];
+   
     
     self.topTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     gateTableRegisterNib(self.topTableView, @"GTTopTableViewTableViewCell");
+    
+    
+    
+
 }
 
 
@@ -152,6 +174,12 @@
       GTHomeTitleModel * titleModel = getItemModel(_hoardpage_top5.alldatalist.firstObject.datalist.firstObject)[indexPath.row-1];
       GTHomeTitleModel * titleModel1 = getItemModel(_hoardpage_top5.alldatalist.lastObject.datalist.firstObject)[indexPath.row-1];
     
+      GatePublicSelectModel *  selectModel = self.arr[indexPath.row-1];
+      
+      
+      
+      
+      
       if (indexPath.row == 0) {
           cell.top5Lb.text = _hoardpage_top5.alldatalist.firstObject.title.content;
           cell.ratioLb.text =  _hoardpage_top5.alldatalist.lastObject.title.content;
@@ -169,11 +197,49 @@
       
       cell.top5Lb.lineBreakMode = NSLineBreakByTruncatingMiddle;
       cell.ratioLb.lineBreakMode = NSLineBreakByTruncatingMiddle;
+      
+      
+      if (selectModel.selectEnabled == YES) {
+          cell.colorView.backgroundColor = selectModel.selectColor;
+          cell.top5Lb.textColor =  selectModel.selectColor;
+          cell.ratioLb.textColor =  selectModel.selectColor;
+      }else{
+          cell.colorView.backgroundColor = gateColor(titleModel1.color);
+          setStyle(titleModel,  cell.top5Lb);
+          setStyle(titleModel,  cell.ratioLb);
+      }
+      
+      
         return cell;
      
   }
  
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row == 0) return;
+    GatePublicSelectModel *  selectModel = self.arr[indexPath.row-1];
+  if (selectModel.selectEnabled == YES) {
+          selectModel.selectEnabled = NO;
+      }else{
+          selectModel.selectEnabled = YES;
+    }
+   
+    
+    
 
+    NSArray * itleModels = getItemModel(self.hoardpage_top5.alldatalist.lastObject.datalist.firstObject);
+        NSMutableArray * arrt = [NSMutableArray array];
+        for (int i = 0; i < self.arr.count; i++) {
+            GatePublicSelectModel *  selectModel11 = self.arr[i];
+            GTHomeTitleModel *titleModel = itleModels[i];
+            if (selectModel11.selectEnabled == NO) {
+                [arrt addObject:titleModel];
+    
+            }
+    
+        }
+    [self setPieChart:arrt];
+    [self.topTableView reloadData];
+}
 
 @end
 

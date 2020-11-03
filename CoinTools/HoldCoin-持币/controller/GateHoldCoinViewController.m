@@ -120,7 +120,7 @@
         if (section == 0){
         GateHoursSelectCategoryView * selectCategoryView = [[GateHoursSelectCategoryView alloc] initWithFrame:CGRectMake(0, 0, scrWeiht-100, 50)];
                    selectCategoryView.titles =  @[];
-                  selectCategoryView.title =getItemModel(self.holdCoinModel.holdpage_bigtitle.alldatalist.firstObject.datalist.firstObject).firstObject.content;
+                  selectCategoryView.title = getItemModel(self.holdCoinModel.holdpage_bigtitle.alldatalist.firstObject.datalist.firstObject).firstObject.content;
             setStyle(getItemModel(self.holdCoinModel.holdpage_bigtitle.alldatalist.firstObject.datalist.firstObject).firstObject, selectCategoryView.titleLb);
                    selectCategoryView.selectblock = ^(NSInteger index) {
                        
@@ -129,8 +129,8 @@
         }else{
             GateHoursSelectCategoryView * selectCategoryView = [[GateHoursSelectCategoryView alloc] initWithFrame:CGRectMake(0, 0, scrWeiht-100, 50)];
                        selectCategoryView.titles =  @[];
-            selectCategoryView.title = getItemModel(self.holdCoinModel.holdpage_bigtitle.alldatalist.firstObject.datalist[section]).firstObject.content;
-            setStyle(getItemModel(self.holdCoinModel.holdpage_bigtitle.alldatalist.firstObject.datalist[section]).firstObject, selectCategoryView.titleLb);
+            selectCategoryView.title = getItemModel(self.holdCoinModel.holdpage_bigtitle.alldatalist.firstObject.datalist.firstObject)[section].content;
+            setStyle(getItemModel(self.holdCoinModel.holdpage_bigtitle.alldatalist.firstObject.datalist.firstObject)[section], selectCategoryView.titleLb);
                        selectCategoryView.selectblock = ^(NSInteger index) {
                            
                        };
@@ -151,11 +151,16 @@
         return self.holdCoinModel.hoardpage_top5?1:0;
     }
     if (section == 1) {
-        return self.holdCoinModel.hoardpage_trans.alldatalist.firstObject.datalist.firstObject.count>0? self.holdCoinModel.hoardpage_trans.alldatalist.firstObject.datalist.firstObject.count +1:0;
-       }
+     
+    if (self.holdCoinModel.hoardpage_trans.alldatalist.firstObject.datalist.firstObject.count<=0) {
+        return 0;
+    }
+    return self.holdCoinModel.hoardpage_trans.alldatalist.firstObject.datalist.firstObject.count>5? 5 + 1:self.holdCoinModel.hoardpage_trans.alldatalist.firstObject.datalist.firstObject.count+1;
+   }
     
     if (section == 2) {
-        return self.holdCoinModel.hoardpage_top100.alldatalist.firstObject.datalist.firstObject.count>0? self.holdCoinModel.hoardpage_top100.alldatalist.firstObject.datalist.firstObject.count +1:0;
+       
+        return self.holdCoinModel.hoardpage_top100.alldatalist.firstObject.datalist.firstObject.count>0? self.holdCoinModel.hoardpage_top100.alldatalist.firstObject.datalist.firstObject.count+1:0;
        }
     
     return self.holdCoinModel.hoardpage_top5?1:0;

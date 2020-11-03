@@ -14,7 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet PieChartView *pieChartView;
 @property (weak, nonatomic) IBOutlet UITableView *topTableView;
 @property(nonatomic,strong)GTPublicContentModel * hoardpage_top5;
-
+@property(nonatomic,strong)NSMutableArray * arr;
+@property(nonatomic,strong)NSIndexPath * selectIndexPath;
+@property(nonatomic,strong)NSMutableArray  * arrts;
 @end
 
 NS_ASSUME_NONNULL_END

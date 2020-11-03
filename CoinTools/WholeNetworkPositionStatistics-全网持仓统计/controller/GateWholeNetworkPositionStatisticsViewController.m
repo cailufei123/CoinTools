@@ -211,7 +211,7 @@
                                         fd_heightForCellWithIdentifier:@"GateDeliveryPositionAmountCell"
                                         cacheByIndexPath:indexPath
                                         configuration:^(id cell) {
-            
+                
                                       }];
                    return height;
       }

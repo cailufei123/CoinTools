@@ -151,24 +151,30 @@ extension GTChartPMarkerView{
             models.append(getPublicSelectModel(selectEnabled: false, color: UIColor.red, titleText: str))
 
        
+
+        
+        
+        if srtingArr.count>0 {
+            
+  let buy_amount:[String:Any] =  srtingArr.first as! [String : Any]
            
- let buy_amount:[String:Any] =  srtingArr.first as! [String : Any]
-          
-        
-        let str1 = "\(buy_amount["title"] ?? "")"
-        
-        
-     
+         
+         let str1 = "\(buy_amount["title"] ?? "")"
+            models.append(getPublicSelectModel(selectEnabled: true, color:  buy_amount["color"] as! UIColor, titleText: str1))
+        }
                  
-        models.append(getPublicSelectModel(selectEnabled: true, color:  buy_amount["color"] as! UIColor, titleText: str1))
+        if srtingArr.count>1{
+            
+            let sell_amount:[String:Any] =  srtingArr.last as! [String : Any]
+            let str2 = "\(sell_amount["title"] ?? "")"
+              
                 
-        let sell_amount:[String:Any] =  srtingArr.last as! [String : Any]
-        let str2 = "\(sell_amount["title"] ?? "")"
-          
-            
             models.append(getPublicSelectModel(selectEnabled: true, color:  sell_amount["color"] as! UIColor, titleText: str2))
-            
-            publicView.publicSelectModels = models as! [Any];
+                
+        }
+                
+        
+         publicView.publicSelectModels = models as [Any];
             self.frame = CGRect(x: 0, y: 0,width: 130, height: models.count*20);
             self.layoutIfNeeded();
         

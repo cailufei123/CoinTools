@@ -184,14 +184,16 @@
         _bottomPublicSelectView.centerX = scrWeiht/2;
         _bottomPublicSelectView.checkboxEnabled = YES;
        
-        _bottomPublicSelectView.userInteractionEnabled = NO;
+     
          @weakify(self)
         _bottomPublicSelectView.selectBlock = ^(NSInteger index, GatePublicSelectModel * _Nonnull publicSelectModel) {
             @strongify(self)
 //                       BubbleChartDataSet * set =  (BubbleChartDataSet *) self.chartView.bubbleData.dataSets[index];
 //            set.visible = !publicSelectModel.selectEnabled;
 //                       [self.chartView setNeedsDisplay];
+          
             
+            [self setChartData:self.bigdeal_dists[self.selectIndex ]];
             
         };
         
@@ -308,14 +310,30 @@
               dispatch_sync(dispatch_get_main_queue(), ^{
                   if ([titleModel2.content isNotBlank]) {
                       UIImage * iamgeColor =    [self  selecrDotStyle:gateColor(titleModel4.color) ];
+                      if (self.bottomPublicSelectView.arr.count<=0) {
+                          [entries addObject:[[BubbleChartDataEntry alloc] initWithX:i y:val size:50 icon: iamgeColor data:@{@"arr":tempArr,@"color":gateColor(titleModel4.color)}]];
+                      }
                       
-                      [entries addObject:[[BubbleChartDataEntry alloc] initWithX:i y:val size:50 icon: iamgeColor data:@{@"arr":tempArr,@"color":gateColor(titleModel4.color)}]];
-                      [colorSets addObject:@{@"color":titleModel4.color,@"content":titleModel4.content}];
+                      NSMutableArray * tempColors = [NSMutableArray array];
+                      for (int i = 0; i<self.bottomPublicSelectView.arr.count; i++){
+                          GatePublicSelectModel *  selectModel = self.bottomPublicSelectView.arr[i];
+                          if (!selectModel.selectEnabled) {
+                              [tempColors addObject:selectModel.strColor];
+                          }
+                      }
 
-                    
-                  }
-                 
-                 
+
+                          if ([tempColors containsObject:titleModel4.color]) {
+                              [entries addObject:[[BubbleChartDataEntry alloc] initWithX:i y:val size:50 icon: iamgeColor data:@{@"arr":tempArr,@"color":gateColor(titleModel4.color)}]];
+                          }
+//
+               
+                          [colorSets addObject:@{@"color":titleModel4.color,@"content":titleModel4.content}];
+                      
+                      }
+                  
+
+                  
               });
              
 
@@ -339,6 +357,7 @@
                 GatePublicSelectModel *  selectModel = [[GatePublicSelectModel alloc] init];
                 selectModel.color =gateColor(array2[i][@"color"]);
                 selectModel.shape = square;
+                selectModel.strColor = array2[i][@"color"];
                 selectModel.titleText = array2[i][@"content"];
  //               publicContentModel.alldatalist[i].title.content;
                 [selectModels addObject:selectModel];
@@ -346,7 +365,11 @@
             }
             
             dispatch_sync(dispatch_get_main_queue(), ^{
-                self.bottomPublicSelectView.arr = (NSMutableArray *)selectModels;
+                static dispatch_once_t onceToken;
+                    dispatch_once(&onceToken, ^{
+                        self.bottomPublicSelectView.arr = (NSMutableArray *)selectModels;
+                    });
+               
             });
            
             

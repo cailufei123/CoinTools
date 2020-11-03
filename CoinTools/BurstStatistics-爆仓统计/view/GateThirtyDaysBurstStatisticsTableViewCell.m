@@ -15,12 +15,18 @@
 @property(nonatomic,strong)GateYHorstAxisValueFormatter * yAxisValueFormatter ;
 @property(nonatomic,strong) GatePublicSelectView * bottomPublicSelectView;
 @property(nonatomic,strong) GTChartPMarkerView * marker1;
+@property(nonatomic,strong) NSMutableArray * arrds;
 
 @property (weak, nonatomic) IBOutlet GTSwitchBt *switchBt;
 @end
 @implementation GateThirtyDaysBurstStatisticsTableViewCell
 
 
+- (IBAction)screenAcrion:(UIButton *)sender {
+    
+    !_selectBlock?:_selectBlock();
+    
+}
 
 -(GateXHorstAxisValueFormatter *)xAxisValueFormatter{
     if (!_xAxisValueFormatter) {
@@ -34,16 +40,21 @@
     }
     return _yAxisValueFormatter;
 }
-
++(instancetype)loadThirtyDaysBurstStatisticsTableViewCell{
+    return  loadXib
+}
 - (void)awakeFromNib {
+    
     [super awakeFromNib];
     [self setChartView];
+    self.arrds = [NSMutableArray array];
 }
 
 -(void)setChartView{
     @weakify(self)
     self.switchBt.selectBlock = ^(BOOL select) {
         @strongify(self)
+        self.burstcalpic.isSelected = select;
         [self setChartData];
     };
     //设置偏移
@@ -141,13 +152,17 @@
     marker1.cycleSelectBlock = ^NSArray * _Nonnull(NSInteger index) {
          @strongify(self)
         NSMutableArray * arr = [NSMutableArray array];
-       
+        
+         GatePublicSelectModel * model1  =  self.bottomPublicSelectView.arr.firstObject;
+         GatePublicSelectModel * model2  =  self.bottomPublicSelectView.arr.lastObject;
+        if (!model1.selectEnabled) {
+            [arr addObject:@{@"title":[NSString stringWithFormat:@"%@:%@", self.burstcalpic.alldatalist[1].title.content,[GTDataManager getItemModelWhit:self.burstcalpic.alldatalist[1].datalist.firstObject][index].content] ,@"color":gateColor([GTDataManager getItemModelWhit:self.burstcalpic.alldatalist[1].datalist.firstObject][index].color)}];
+        }
     
-       
-        [arr addObject:@{@"title":[NSString stringWithFormat:@"%@:%@", self.burstcalpic.alldatalist[1].title.content,[GTDataManager getItemModelWhit:self.burstcalpic.alldatalist[1].datalist.firstObject][index].content] ,@"color":gateColor([GTDataManager getItemModelWhit:self.burstcalpic.alldatalist[1].datalist.firstObject][index].color)}];
-        [arr addObject:@{@"title":[NSString stringWithFormat:@"%@:%@", self.burstcalpic.alldatalist[2].title.content,[GTDataManager getItemModelWhit:self.burstcalpic.alldatalist[2].datalist.firstObject][index].content],@"color":gateColor([GTDataManager getItemModelWhit:self.burstcalpic.alldatalist[2].datalist.firstObject][index].color)}];
-        
-        
+        if (!model2.selectEnabled) {
+            [arr addObject:@{@"title":[NSString stringWithFormat:@"%@:%@", self.burstcalpic.alldatalist[2].title.content,[GTDataManager getItemModelWhit:self.burstcalpic.alldatalist[2].datalist.firstObject][index].content],@"color":gateColor([GTDataManager getItemModelWhit:self.burstcalpic.alldatalist[2].datalist.firstObject][index].color)}];
+        }
+    
           return arr;
       };
  
@@ -174,8 +189,14 @@
         _bottomPublicSelectView = [[GatePublicSelectView alloc]initWithFrame:CGRectMake(0, 0, 220, 30)];
         _bottomPublicSelectView.centerX = scrWeiht/2;
         _bottomPublicSelectView.checkboxEnabled = YES;
-        _bottomPublicSelectView.userInteractionEnabled = NO;
+        _bottomPublicSelectView.userInteractionEnabled = YES;
+        @weakify(self)
         _bottomPublicSelectView.selectBlock = ^(NSInteger index, GatePublicSelectModel * _Nonnull publicSelectModel) {
+            
+            @strongify(self)
+            
+            [self setChartData];
+            [self.chartView animateWithYAxisDuration:1];
         };
         
      }
@@ -186,22 +207,24 @@
     _burstcalpic = burstcalpic;
 
     self.marker1.possArr = [GTDataManager getItemModelWhit:_burstcalpic.alldatalist[1].datalist.firstObject];
-     NSMutableArray * arr = [NSMutableArray array];
+    if (self.arrds.count<=0) {
+        for (int i = 1; i<burstcalpic.alldatalist.count; i++) {
+            
+            GTAlldatalistModel *alldatalistModel =burstcalpic.alldatalist[i];
+            GatePublicSelectModel *  selectModel = [[GatePublicSelectModel alloc] init];
+            selectModel.color = gateColor([GTDataManager getItemModelWhit:_burstcalpic.alldatalist[i].datalist.firstObject].firstObject.color);
+            
+            selectModel.shape = square;
+            selectModel.titleText =alldatalistModel.title.content;
+            [self.arrds addObject:selectModel];
+            
+        }
+    
 
-           for (int i = 1; i<burstcalpic.alldatalist.count; i++) {
-               
-               GTAlldatalistModel *alldatalistModel =burstcalpic.alldatalist[i];
-               GatePublicSelectModel *  selectModel = [[GatePublicSelectModel alloc] init];
-               selectModel.color = gateColor([GTDataManager getItemModelWhit:_burstcalpic.alldatalist[i].datalist.firstObject].firstObject.color);
-               
-               selectModel.shape = square;
-               selectModel.titleText =alldatalistModel.title.content;
-               [arr addObject:selectModel];
-               
-       }
+    }
 
 
-          self.bottomPublicSelectView.arr = arr;
+          self.bottomPublicSelectView.arr = self.arrds;
       self.bottomPublicSelectView.selectIndex = 0;
     self.xAxisValueFormatter.publicArr = [GTDataManager getItemModelWhit:_burstcalpic.alldatalist[0].datalist.firstObject];
       [self setChartData];
@@ -210,7 +233,7 @@
 {
     CombinedChartData *data = [[CombinedChartData alloc] init];
   
-    if (!self.switchBt.isSelected) {
+    if (!self.burstcalpic.isSelected) {
         data.barData = [self generateBarData];
     }else{
         data.lineData = [self generateLineData];
@@ -220,6 +243,7 @@
     _chartView.xAxis.axisMaximum = data.xMax + 0.25;
     _chartView.data = data;
    [_chartView.data notifyDataChanged];
+   
     
 }
 
@@ -232,14 +256,13 @@
           double leftAxisMin = MAXFLOAT;
           double leftAxisMax = 0;
      
-    
-    
+  
     
     for (int i = 1; i<_burstcalpic.alldatalist.count; i++) {
         NSArray<GTHomeTitleModel *> * modelAr = [GTDataManager getItemModelWhit:_burstcalpic.alldatalist[i].datalist.firstObject];
         NSMutableArray *entries = [[NSMutableArray alloc] init];
         
-     
+        GatePublicSelectModel * model1  =  self.bottomPublicSelectView.arr[i-1];
         for (int index = 0; index<modelAr.count; index++) {
             GTHomeTitleModel * titleModel  = modelAr[index];
            
@@ -250,10 +273,14 @@
             [entries addObject:[[ChartDataEntry alloc] initWithX:index + 0.5 y:(val)]];
        }
        
-        LineChartDataSet * set1 = [self getArr:entries lineChartDataSet:gateColor(modelAr.firstObject.color) drawFilledEnabled:NO];
-        set1.axisDependency = AxisDependencyLeft;
+        if (!model1.selectEnabled) {
+            LineChartDataSet * set1 = [self getArr:entries lineChartDataSet:gateColor(modelAr.firstObject.color) drawFilledEnabled:NO];
+            set1.axisDependency = AxisDependencyLeft;
+            
+            [d addDataSet:set1];
+        }
         
-        [d addDataSet:set1];
+       
     }
   
 //    self.chartView.leftAxis.axisMinimum = leftAxisMin;
@@ -312,6 +339,9 @@
  NSArray<GTHomeTitleModel *> * modelAr = [GTDataManager getItemModelWhit:_burstcalpic.alldatalist[1].datalist.firstObject];
  NSArray<GTHomeTitleModel *> * lastObjectmodelAr = [GTDataManager getItemModelWhit:_burstcalpic.alldatalist[2].datalist.firstObject];
     
+   
+    GatePublicSelectModel * model1  =  self.bottomPublicSelectView.arr.firstObject;
+    GatePublicSelectModel * model2  =  self.bottomPublicSelectView.arr.lastObject;
 //    self.chartView.xAxis.axisMaximum = modelAr.count - 1;
  for (int i = 0; i<modelAr.count; i++){
      GTHomeTitleModel *titleModel =modelAr[i];
@@ -319,7 +349,14 @@
      double val = [titleModel.content doubleValue];
      leftAxisMax = MAX(val, leftAxisMax);
      leftAxisMin = MIN(val, leftAxisMin);
-     [array addObject:[[BarChartDataEntry alloc] initWithX:i+0.5 yValues:@[[NSNumber numberWithString:titleModel.content], [NSNumber numberWithString:titleModel1.content]] icon: [UIImage imageNamed:@"icon"]]];
+     NSMutableArray *  modelArr = [NSMutableArray array];
+     if (!model1.selectEnabled) {
+         [modelArr addObject:[NSNumber numberWithString:titleModel.content]];
+     }
+     if (!model2.selectEnabled) {
+         [modelArr addObject:[NSNumber numberWithString:titleModel1.content]];
+     }
+     [array addObject:[[BarChartDataEntry alloc] initWithX:i+0.5 yValues:modelArr icon: [UIImage imageNamed:@"icon"]]];
     
 }
     //set
@@ -328,7 +365,15 @@
  set.stackLabels = @[@"Births", @"Divorces"];
 
  if (modelAr.firstObject.color.length) {
-      set.colors = @[gateColor(modelAr.firstObject.color),gateColor(lastObjectmodelAr.firstObject.color)];
+     NSMutableArray *  modelColors = [NSMutableArray array];
+     if (!model1.selectEnabled) {
+         [modelColors addObject:gateColor(modelAr.firstObject.color)];
+     }
+     if (!model2.selectEnabled) {
+         [modelColors addObject:gateColor(lastObjectmodelAr.firstObject.color)];
+     }
+     
+     set.colors = modelColors.count>0?modelColors:@[UIColor.clearColor];
  }
 
      set.drawValuesEnabled = NO; //圆柱上是否显示文字

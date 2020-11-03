@@ -55,8 +55,26 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6X1-Rx-CAB">
                         <rect key="frame" x="0.0" y="300" width="343" height="50"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jVp-4Y-Ttp" customClass="GTSwitchBt">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9CP-eo-ArA">
                                 <rect key="frame" x="268" y="3" width="60" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="fJH-pt-HIs"/>
+                                    <constraint firstAttribute="width" constant="60" id="zLb-RB-nga"/>
+                                </constraints>
+                                <state key="normal" title="全屏">
+                                    <color key="titleColor" red="0.08235294118" green="0.1058823529" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="screenAcrion:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="es1-8H-rUa"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jVp-4Y-Ttp" customClass="GTSwitchBt">
+                                <rect key="frame" x="183" y="3" width="60" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="DaR-0n-E2K"/>
                                     <constraint firstAttribute="height" constant="35" id="TyW-0R-oaW"/>
@@ -74,8 +92,10 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="jVp-4Y-Ttp" secondAttribute="trailing" constant="15" id="NzF-fO-l3B"/>
+                            <constraint firstItem="9CP-eo-ArA" firstAttribute="centerY" secondItem="jVp-4Y-Ttp" secondAttribute="centerY" id="2D1-1A-VTN"/>
+                            <constraint firstAttribute="trailing" secondItem="jVp-4Y-Ttp" secondAttribute="trailing" constant="100" id="NzF-fO-l3B"/>
                             <constraint firstItem="jVp-4Y-Ttp" firstAttribute="top" secondItem="6X1-Rx-CAB" secondAttribute="top" constant="3" id="OQV-xp-J8b"/>
+                            <constraint firstAttribute="trailing" secondItem="9CP-eo-ArA" secondAttribute="trailing" constant="15" id="fsP-oT-WWk"/>
                             <constraint firstAttribute="height" constant="50" id="qfA-1g-KDt"/>
                         </constraints>
                     </view>

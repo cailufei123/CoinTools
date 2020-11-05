@@ -25,9 +25,12 @@
 @property(nonatomic,strong)NSMutableArray * temps;
 @property(nonatomic,strong)NSMutableArray * styleArr;
 @property(nonatomic,strong)NSMutableArray * allstyleArr;
+@property (weak, nonatomic) IBOutlet GTScreenBt *screenBt;
 @end
 @implementation GTDuoKongLineChartsTableViewCell
-
++(instancetype)loadTableViewCell{
+    return  loadXib;
+}
 - (void)awakeFromNib {
     [super awakeFromNib];
     
@@ -128,6 +131,11 @@
         
     };
    
+    self.screenBt.selectBlock = ^(BOOL select) {
+        @strongify(self)
+        !self.selectBlock?:self.selectBlock();
+        
+    };
   
 }
 

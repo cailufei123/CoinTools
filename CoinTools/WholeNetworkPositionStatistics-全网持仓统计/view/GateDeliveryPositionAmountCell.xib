@@ -36,18 +36,35 @@
                         <rect key="frame" x="0.0" y="230" width="366" height="50"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qxb-99-0hn" customClass="GTSwitchBt">
-                                <rect key="frame" x="291" y="7.5" width="60" height="35"/>
+                                <rect key="frame" x="269" y="10" width="50" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="Sg2-fd-Zev"/>
-                                    <constraint firstAttribute="width" constant="60" id="nGR-3u-jdu"/>
+                                    <constraint firstAttribute="height" constant="30" id="Sg2-fd-Zev"/>
+                                    <constraint firstAttribute="width" constant="50" id="nGR-3u-jdu"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hSo-z9-D9a" customClass="GTScreenBt">
+                                <rect key="frame" x="334" y="15" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="Bgi-nL-1VU"/>
+                                    <constraint firstAttribute="height" constant="20" id="D4J-ZP-KqM"/>
+                                </constraints>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.08235294118" green="0.1058823529" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="qxb-99-0hn" firstAttribute="centerY" secondItem="P7w-Bx-uQj" secondAttribute="centerY" id="2h2-e7-nka"/>
-                            <constraint firstAttribute="trailing" secondItem="qxb-99-0hn" secondAttribute="trailing" constant="15" id="96o-pn-xpR"/>
+                            <constraint firstItem="hSo-z9-D9a" firstAttribute="centerY" secondItem="qxb-99-0hn" secondAttribute="centerY" id="5cQ-nK-afu"/>
+                            <constraint firstItem="hSo-z9-D9a" firstAttribute="leading" secondItem="qxb-99-0hn" secondAttribute="trailing" constant="15" id="7UK-iA-F7O"/>
+                            <constraint firstAttribute="trailing" secondItem="hSo-z9-D9a" secondAttribute="trailing" constant="12" id="OhG-TC-umo"/>
                             <constraint firstAttribute="height" constant="50" id="lZp-oM-JHP"/>
                         </constraints>
                     </view>
@@ -79,6 +96,7 @@
             <connections>
                 <outlet property="chartView" destination="aRF-ir-6rl" id="XXf-jT-hCe"/>
                 <outlet property="describeView" destination="P7w-Bx-uQj" id="DIt-fi-cXz"/>
+                <outlet property="screenBt" destination="hSo-z9-D9a" id="Shy-g9-SXi"/>
                 <outlet property="switchBt" destination="qxb-99-0hn" id="Zk9-W0-FJF"/>
                 <outlet property="topSelectView" destination="Klw-yO-bXd" id="wiQ-GF-kgN"/>
             </connections>

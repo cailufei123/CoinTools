@@ -9,6 +9,9 @@
 #import "GateFaceOrientationLandStatisticsViewController.h"
 #import "AutoRotation.h"
 #import "GateThirtyDaysBurstStatisticsTableViewCell.h"
+#import "GateDeliveryPositionAmountCell.h"
+#import "GTDuoKongLineChartsTableViewCell.h"
+#import "GTFearIndexLineChartsTableViewCell.h"
 @interface GateFaceOrientationLandStatisticsViewController ()
 @property(nonatomic,strong) GateThirtyDaysBurstStatisticsTableViewCell * burstStatisticsTableViewCell ;
 @end
@@ -29,19 +32,83 @@
     [self.view addSubview:button];
 //    [self ar_turnToLandscape];
 //    [UIViewController attemptRotationToDeviceOrientation];
-  self.burstStatisticsTableViewCell =  [GateThirtyDaysBurstStatisticsTableViewCell loadThirtyDaysBurstStatisticsTableViewCell];
-    self.burstStatisticsTableViewCell.burstcalpic = self.burstcalpic;
-    [self.view addSubview:self.burstStatisticsTableViewCell];
+ 
     
-    [self.burstStatisticsTableViewCell mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(0);
-        make.top.mas_equalTo(0);
-        make.bottom.mas_equalTo(0);
-        make.right.mas_equalTo(0);
-    }];
+    
+    switch (self.chartsStype) {
+        case baoCang:
+        {
+            
+    self.burstStatisticsTableViewCell =  [GateThirtyDaysBurstStatisticsTableViewCell loadThirtyDaysBurstStatisticsTableViewCell];
+    self.burstStatisticsTableViewCell.burstcalpic = self.burstcalpic;
+            [self setTableViewCell:self.burstStatisticsTableViewCell];
+            @weakify(self)
     self.burstStatisticsTableViewCell.selectBlock = ^{
-        [self.navigationController popViewControllerAnimated:YES];
+                @strongify(self)
+                [self.navigationController popViewControllerAnimated:YES];
     };
+        }
+          
+            break;
+        case chiCang:
+        {
+            GateDeliveryPositionAmountCell * positionAmountCell =  [GateDeliveryPositionAmountCell loadTableViewCell];
+            positionAmountCell.holdData = self.burstcalpic;
+                    [self setTableViewCell:positionAmountCell];
+                    @weakify(self)
+            positionAmountCell.selectBlock = ^{
+                        @strongify(self)
+                        [self.navigationController popViewControllerAnimated:YES];
+            };
+            
+        }
+            break;
+        case duoKong:
+        {
+            GTDuoKongLineChartsTableViewCell * positionAmountCell =  [GTDuoKongLineChartsTableViewCell loadTableViewCell];
+            positionAmountCell.duoKongData = self.burstcalpic;
+                    [self setTableViewCell:positionAmountCell];
+                    @weakify(self)
+            positionAmountCell.selectBlock = ^{
+                        @strongify(self)
+                        [self.navigationController popViewControllerAnimated:YES];
+            };
+            
+        }
+        case kongHuang:
+        {
+            GTFearIndexLineChartsTableViewCell * positionAmountCell =  [GTFearIndexLineChartsTableViewCell loadTableViewCell];
+            positionAmountCell.fearIndexPublicContentModel = self.burstcalpic;
+                    [self setTableViewCell:positionAmountCell];
+                    @weakify(self)
+            positionAmountCell.selectBlock = ^{
+                        @strongify(self)
+                        [self.navigationController popViewControllerAnimated:YES];
+            };
+            
+        }
+        default:
+            break;
+    }
+    
+    
+    
+    
+    
+}
+
+
+-(void)setTableViewCell:(UITableViewCell * )cell {
+   
+     
+      [self.view addSubview:cell];
+      
+      [cell mas_makeConstraints:^(MASConstraintMaker *make) {
+          make.left.mas_equalTo(0);
+          make.top.mas_equalTo(0);
+          make.bottom.mas_equalTo(0);
+          make.right.mas_equalTo(0);
+      }];
     
 }
 //-(void)viewDidLayoutSubviews{

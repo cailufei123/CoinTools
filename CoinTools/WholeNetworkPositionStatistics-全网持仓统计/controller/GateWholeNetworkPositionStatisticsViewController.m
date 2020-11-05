@@ -227,6 +227,15 @@
        }else  {
                 GateDeliveryPositionAmountCell * cell = [tableView dequeueReusableCellWithIdentifier:@"GateDeliveryPositionAmountCell" forIndexPath:indexPath];
            cell.holdData = self.dataArrs[indexPath.section-1];
+           @weakify(self)
+           cell.selectBlock = ^{
+               @strongify(self)
+               GateFaceOrientationLandStatisticsViewController * fearIndexVc = [[GateFaceOrientationLandStatisticsViewController alloc] init];
+               fearIndexVc.burstcalpic =  self.dataArrs[indexPath.section-1];
+               fearIndexVc.chartsStype =  chiCang;
+               [self.navigationController pushViewController:fearIndexVc animated:YES];
+               
+           };
                              return cell;
        }
    

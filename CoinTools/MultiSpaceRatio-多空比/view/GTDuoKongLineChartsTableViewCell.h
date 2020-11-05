@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface GTDuoKongLineChartsTableViewCell : UITableViewCell
 @property(nonatomic,strong)GTPublicContentModel * duoKongData;
+@property (nonatomic, copy) void(^selectBlock) (void);
++(instancetype)loadTableViewCell;
 @end
 
 NS_ASSUME_NONNULL_END

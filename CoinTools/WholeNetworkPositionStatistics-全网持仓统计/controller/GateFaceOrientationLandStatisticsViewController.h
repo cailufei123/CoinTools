@@ -10,8 +10,16 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef NS_ENUM(NSInteger, ChartsStype) {
+    baoCang = 4,
+    chiCang,
+    duoKong,
+    kongHuang,
+};
 @interface GateFaceOrientationLandStatisticsViewController : UIViewController
 @property(nonatomic,strong)GTPublicContentModel * burstcalpic;
+@property(nonatomic,assign) ChartsStype  chartsStype;
+
 @end
 
 NS_ASSUME_NONNULL_END

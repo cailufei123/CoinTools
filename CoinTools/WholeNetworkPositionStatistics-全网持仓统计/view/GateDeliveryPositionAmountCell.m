@@ -19,12 +19,20 @@
 @property(nonatomic,strong)NSMutableArray * styleArr;
 @property(nonatomic,strong)NSMutableArray * allstyleArr;
 @property (weak, nonatomic) IBOutlet GTSwitchBt *switchBt;
+@property (weak, nonatomic) IBOutlet GTScreenBt *screenBt;
 @end
 @implementation GateDeliveryPositionAmountCell
-
++(instancetype)loadTableViewCell{
+    return  loadXib
+}
 - (void)awakeFromNib {
     [super awakeFromNib];
-    
+    @weakify(self)
+    self.screenBt.selectBlock = ^(BOOL select) {
+        @strongify(self)
+        !self.selectBlock?:self.selectBlock();
+        
+    };
     self.describeLb.text = @"合约BTC 一张=100美元";
     self.describeLb.textColor = gateColor(@"9fafc4");
     self.describeLb.font = gateFont(12, Normal);
@@ -92,7 +100,7 @@
     self.chartView.marker = marker;
     [self.topSelectView addSubview:self.topPublicSelectView];
     marker.xAxisValueFormatter = self.xXisFearIndexValueFormatter;
-    @weakify(self)
+  
     self.switchBt.selectBlock = ^(BOOL select) {
         @strongify(self)
       

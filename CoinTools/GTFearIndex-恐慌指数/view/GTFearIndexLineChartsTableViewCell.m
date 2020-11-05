@@ -26,13 +26,21 @@
 @property(nonatomic,strong)NSMutableArray * temps;
 @property(nonatomic,strong)NSMutableArray * styleArr;
 @property(nonatomic,strong)NSMutableArray * allstyleArr;
+@property (weak, nonatomic) IBOutlet GTScreenBt *screenBt;
 @end
 @implementation GTFearIndexLineChartsTableViewCell
-
++(instancetype)loadTableViewCell{
+    return  loadXib;
+}
 - (void)awakeFromNib {
     [super awakeFromNib];
     
-
+    @weakify(self)
+    self.screenBt.selectBlock = ^(BOOL select) {
+        @strongify(self)
+        !self.selectBlock?:self.selectBlock();
+        
+    };
    _chartView.delegate = self;
     [_chartView setExtraOffsetsWithLeft:20 top:0 right:0 bottom:0];
     _chartView.chartDescription.enabled = NO;
@@ -96,7 +104,7 @@
     [self.selectView addSubview:self.topPublicSelectView];
     marker.xAxisValueFormatter = self.xXisFearIndexValueFormatter;
     
-    @weakify(self)
+   
     self.switchBt.selectBlock = ^(BOOL select) {
         @strongify(self)
       

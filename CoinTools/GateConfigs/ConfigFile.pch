@@ -8,7 +8,7 @@
 
 #ifndef ConfigFile_pch
 #define ConfigFile_pch
-
+//http://clf.app.api.zzhaosi.com/api/vip/v1/user/specialreport/page?report_type=1&page_size=20&page_index=1
 #endif
 #import "URL.h"
 #import "GateHeaderFile.h"

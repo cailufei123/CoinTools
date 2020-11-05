@@ -219,6 +219,15 @@
        }else if (indexPath.section == 1) {
               GateThirtyDaysBurstStatisticsTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"GateThirtyDaysBurstStatisticsTableViewCell" forIndexPath:indexPath];
            cell.burstcalpic = self.bigOrderModel.bigdeal_info_pic;
+           @weakify(self)
+           cell.selectBlock = ^{
+               @strongify(self)
+               GateFaceOrientationLandStatisticsViewController * fearIndexVc = [[GateFaceOrientationLandStatisticsViewController alloc] init];
+               fearIndexVc.burstcalpic =   self.bigOrderModel.bigdeal_info_pic;
+               fearIndexVc.chartsStype =  baoCang;
+               [self.navigationController pushViewController:fearIndexVc animated:YES];
+               
+           };
                     return cell;
             }else if (indexPath.section == 2) {
                GateHousBurstStatisticsTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"GateHousBurstStatisticsTableViewCell" forIndexPath:indexPath];

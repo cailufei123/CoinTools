@@ -190,6 +190,11 @@ if (@available(iOS 11.0, *)) {
                                  [self loadDataWhit:index];
                              };
                  
+        
+        
+        
+        
+        
                                  return selectCategoryView;
     }
      
@@ -238,6 +243,15 @@ if (@available(iOS 11.0, *)) {
     }else{
         GTFearIndexLineChartsTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"GTFearIndexLineChartsTableViewCell" forIndexPath:indexPath];
            cell.fearIndexPublicContentModel = self.fearIndexModel.vix_info;
+        @weakify(self)
+        cell.selectBlock = ^{
+            @strongify(self)
+            GateFaceOrientationLandStatisticsViewController * fearIndexVc = [[GateFaceOrientationLandStatisticsViewController alloc] init];
+            fearIndexVc.burstcalpic =   self.fearIndexModel.vix_info;
+            fearIndexVc.chartsStype =  kongHuang;
+            [self.navigationController pushViewController:fearIndexVc animated:YES];
+            
+        };
                          return cell;
     }
     

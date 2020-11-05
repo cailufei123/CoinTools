@@ -59,4 +59,7 @@
 #import "GTHoldCoinModel.h"
 #import "GTDotManager.h"
 #import "GTSwitchBt.h"
+#import "GTScreenBt.h"
+#import "GateFaceOrientationLandStatisticsViewController.h"
+
 #endif /* HeaderFile_h */

@@ -12,8 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface GTFearIndexLineChartsTableViewCell : UITableViewCell
 
-
+@property (nonatomic, copy) void(^selectBlock) (void);
 @property(nonatomic,strong)GTPublicContentModel * fearIndexPublicContentModel;
++(instancetype)loadTableViewCell;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -413,6 +413,7 @@ cell1.burstcalpic =  self.burstModel.burstcalpic;
                    @strongify(self)
                    GateFaceOrientationLandStatisticsViewController * fearIndexVc = [[GateFaceOrientationLandStatisticsViewController alloc] init];
                    fearIndexVc.burstcalpic =  self.burstModel.burstcalpic;
+                   fearIndexVc.chartsStype =  baoCang;
                    [self.navigationController pushViewController:fearIndexVc animated:YES];
                    
                };

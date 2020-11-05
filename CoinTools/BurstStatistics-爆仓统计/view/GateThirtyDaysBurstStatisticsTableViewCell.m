@@ -18,13 +18,14 @@
 @property(nonatomic,strong) NSMutableArray * arrds;
 
 @property (weak, nonatomic) IBOutlet GTSwitchBt *switchBt;
+@property (weak, nonatomic) IBOutlet GTScreenBt *screenBt;
 @end
 @implementation GateThirtyDaysBurstStatisticsTableViewCell
 
 
 - (IBAction)screenAcrion:(UIButton *)sender {
     
-    !_selectBlock?:_selectBlock();
+//    !_selectBlock?:_selectBlock();
     
 }
 
@@ -48,6 +49,12 @@
     [super awakeFromNib];
     [self setChartView];
     self.arrds = [NSMutableArray array];
+    @weakify(self)
+    self.screenBt.selectBlock = ^(BOOL select) {
+        @strongify(self)
+        !self.selectBlock?:self.selectBlock();
+        
+    };
 }
 
 -(void)setChartView{

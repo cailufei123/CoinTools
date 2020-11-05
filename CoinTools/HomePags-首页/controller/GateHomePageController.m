@@ -131,7 +131,7 @@ if (@available(iOS 11.0, *)) {
 }
 -(void)loadData{
     @weakify(self)
-   
+
      [GateRequestManager getCache:homepagegURL block:^(NSError * _Nonnull error, BOOL isCache, NSDictionary * _Nonnull response) {
            @strongify(self)
         

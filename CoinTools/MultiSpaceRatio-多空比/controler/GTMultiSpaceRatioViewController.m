@@ -353,6 +353,15 @@
                  GTDuoKongLineChartsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GTDuoKongLineChartsTableViewCell" forIndexPath:indexPath];
                 GTPublicContentModel *publicContentModel = self.dataArrs[indexPath.section];
                 cell.duoKongData = publicContentModel;
+                @weakify(self)
+                cell.selectBlock = ^{
+                    @strongify(self)
+                    GateFaceOrientationLandStatisticsViewController * fearIndexVc = [[GateFaceOrientationLandStatisticsViewController alloc] init];
+                    fearIndexVc.burstcalpic =  publicContentModel;
+                    fearIndexVc.chartsStype =  duoKong;
+                    [self.navigationController pushViewController:fearIndexVc animated:YES];
+                    
+                };
                                 return cell;
             }
     }

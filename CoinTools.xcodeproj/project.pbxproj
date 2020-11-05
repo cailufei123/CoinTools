@@ -151,6 +151,8 @@
 		049514BD2518A1DD00294FD7 /* GTYxisFearIndexValueFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 049514BB2518A1DD00294FD7 /* GTYxisFearIndexValueFormatter.m */; };
 		04AB6CC42543D6AC005E8636 /* GTHoldCoinModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 04AB6CC22543D6AC005E8636 /* GTHoldCoinModel.h */; };
 		04AB6CC52543D6AC005E8636 /* GTHoldCoinModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AB6CC32543D6AC005E8636 /* GTHoldCoinModel.m */; };
+		04ACEEED25538ADB00541B34 /* GTScreenBt.h in Headers */ = {isa = PBXBuildFile; fileRef = 04ACEEEB25538ADB00541B34 /* GTScreenBt.h */; };
+		04ACEEEE25538ADB00541B34 /* GTScreenBt.m in Sources */ = {isa = PBXBuildFile; fileRef = 04ACEEEC25538ADB00541B34 /* GTScreenBt.m */; };
 		04BA82CC25104F5100E1FE8F /* GTTotalViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 04BA82CA25104F5100E1FE8F /* GTTotalViewController.h */; };
 		04BA82CD25104F5100E1FE8F /* GTTotalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BA82CB25104F5100E1FE8F /* GTTotalViewController.m */; };
 		04BA82D0251077E600E1FE8F /* GTHoldCoinHeardView.h in Headers */ = {isa = PBXBuildFile; fileRef = 04BA82CE251077E600E1FE8F /* GTHoldCoinHeardView.h */; };
@@ -616,6 +618,8 @@
 		049514BB2518A1DD00294FD7 /* GTYxisFearIndexValueFormatter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTYxisFearIndexValueFormatter.m; sourceTree = "<group>"; };
 		04AB6CC22543D6AC005E8636 /* GTHoldCoinModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTHoldCoinModel.h; sourceTree = "<group>"; };
 		04AB6CC32543D6AC005E8636 /* GTHoldCoinModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTHoldCoinModel.m; sourceTree = "<group>"; };
+		04ACEEEB25538ADB00541B34 /* GTScreenBt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTScreenBt.h; sourceTree = "<group>"; };
+		04ACEEEC25538ADB00541B34 /* GTScreenBt.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTScreenBt.m; sourceTree = "<group>"; };
 		04BA82CA25104F5100E1FE8F /* GTTotalViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTTotalViewController.h; sourceTree = "<group>"; };
 		04BA82CB25104F5100E1FE8F /* GTTotalViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTTotalViewController.m; sourceTree = "<group>"; };
 		04BA82CE251077E600E1FE8F /* GTHoldCoinHeardView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTHoldCoinHeardView.h; sourceTree = "<group>"; };
@@ -1413,6 +1417,8 @@
 				04D34EAE250B0C8500D940D1 /* GateDeliveryPositionAmountCell.h */,
 				04D34EAC250B0C8500D940D1 /* GateDeliveryPositionAmountCell.m */,
 				04D34EAD250B0C8500D940D1 /* GateDeliveryPositionAmountCell.xib */,
+				04ACEEEB25538ADB00541B34 /* GTScreenBt.h */,
+				04ACEEEC25538ADB00541B34 /* GTScreenBt.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -2077,6 +2083,7 @@
 				04D3502B250B0F7300D940D1 /* NSNumber+WHNumber.h in Headers */,
 				04D35045250B0F7300D940D1 /* UIColor+HYDEGradientChange.h in Headers */,
 				04D35013250B0F7300D940D1 /* NSFileManager+WHFileManager.h in Headers */,
+				04ACEEED25538ADB00541B34 /* GTScreenBt.h in Headers */,
 				04D35008250B0F7300D940D1 /* NSDateFormatter+Category.h in Headers */,
 				04D3500F250B0F7300D940D1 /* UIColor+WHColor.h in Headers */,
 				04D3508A250B16EA00D940D1 /* GateLineChartTableViewCell.h in Headers */,
@@ -2324,6 +2331,7 @@
 				04D35032250B0F7300D940D1 /* NSFileManager+WHFileManager.m in Sources */,
 				04BA82D8251093DA00E1FE8F /* GTHoldCoinListTableViewCell.m in Sources */,
 				0466FCCA253964980091A1A9 /* EasyLodingTypes.m in Sources */,
+				04ACEEEE25538ADB00541B34 /* GTScreenBt.m in Sources */,
 				04D350B7250B587700D940D1 /* GateHoldCoinTopMessageCell.m in Sources */,
 				04D35080250B16EA00D940D1 /* GateLineChartTableViewCell.m in Sources */,
 				04CBE5A22511FCCB00E4DD40 /* LNRefreshFooter.m in Sources */,

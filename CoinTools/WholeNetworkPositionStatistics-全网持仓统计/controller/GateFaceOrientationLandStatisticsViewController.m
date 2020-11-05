@@ -66,8 +66,11 @@
         case duoKong:
         {
             GTDuoKongLineChartsTableViewCell * positionAmountCell =  [GTDuoKongLineChartsTableViewCell loadTableViewCell];
-            positionAmountCell.duoKongData = self.burstcalpic;
-                    [self setTableViewCell:positionAmountCell];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                positionAmountCell.duoKongData = self.burstcalpic;
+            });
+         
+            [self setTableViewCell:positionAmountCell];
                     @weakify(self)
             positionAmountCell.selectBlock = ^{
                         @strongify(self)
@@ -75,6 +78,7 @@
             };
             
         }
+            break;
         case kongHuang:
         {
             GTFearIndexLineChartsTableViewCell * positionAmountCell =  [GTFearIndexLineChartsTableViewCell loadTableViewCell];

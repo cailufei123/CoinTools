@@ -364,7 +364,7 @@
         
         float groupSpace = 0.08f;
         float barSpace = 0.03f;
-        [d groupBarsFromX: self.chartView.xAxis.axisMinimum  groupSpace: 1 barSpace: barSpace];
+        [d groupBarsFromX: self.chartView.xAxis.axisMinimum  groupSpace: 0.03 barSpace: 0.01];
         
         
         
@@ -467,11 +467,11 @@
           [d addDataSet:set1];
       }
     
-      self.chartView.leftAxis.axisMinimum = leftAxisMin;
-      self.chartView.leftAxis.axisMaximum = leftAxisMax;
-      self.chartView.rightAxis.axisMinimum = rightAxisMin;
-      self.chartView.rightAxis.axisMaximum = rightAxisMax;
-            
+    
+            self.chartView.leftAxis.axisMinimum =leftAxisMin - (leftAxisMax - leftAxisMin)/10 <0? leftAxisMin : leftAxisMin- (leftAxisMax - leftAxisMin)/10;
+            self.chartView.leftAxis.axisMaximum =(leftAxisMax - leftAxisMin)/10 + leftAxisMax;
+            self.chartView.rightAxis.axisMinimum = rightAxisMin -(rightAxisMax - rightAxisMin)/10  < 0?rightAxisMin :rightAxisMin - (rightAxisMax - rightAxisMin)/10 ;
+            self.chartView.rightAxis.axisMaximum = (rightAxisMax - rightAxisMin)/10 +rightAxisMax;
             
             
             

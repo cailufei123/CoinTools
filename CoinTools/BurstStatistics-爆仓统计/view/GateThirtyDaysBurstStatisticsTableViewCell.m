@@ -64,6 +64,14 @@
         self.burstcalpic.isSelected = select;
         [self setChartData];
     };
+   
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.switchBt setTitle:@"折线图" forState:UIControlStateNormal];
+        [self.switchBt setTitle:@"柱状图" forState:UIControlStateSelected];
+
+    });
+//    [self.switchBt switchShapeAction:self.switchBt];
+    
     //设置偏移
     [self.chartView setExtraOffsetsWithLeft:0 top:0 right:0 bottom:0];
    
@@ -83,7 +91,7 @@
 //    _chartView.xAxis.axisMaximum =10;
     _chartView.maxVisibleCount = 40;
     _chartView.pinchZoomEnabled = NO;
-
+   
     _chartView.drawGridBackgroundEnabled = NO;
     _chartView.drawBarShadowEnabled = NO;
     _chartView.drawValueAboveBarEnabled = NO;
@@ -137,6 +145,7 @@
 //    xAxis.axisMinimum = 2;
     xAxis.labelPosition = XAxisLabelPositionBottom;
    xAxis.drawGridLinesEnabled = NO;
+    xAxis.granularity = 0.5;
     xAxis.valueFormatter = self.xAxisValueFormatter;
     xAxis.labelCount = 3;
     xAxis.drawAxisLineEnabled = NO;
@@ -184,9 +193,10 @@
   
     
     
-    
+   
    
          [self.bottomSelectView addSubview:self.bottomPublicSelectView];
+    [self.bottomSelectView bringSubviewToFront:self.switchBt];
          
 }
 
@@ -234,6 +244,23 @@
           self.bottomPublicSelectView.arr = self.arrds;
       self.bottomPublicSelectView.selectIndex = 0;
     self.xAxisValueFormatter.publicArr = [GTDataManager getItemModelWhit:_burstcalpic.alldatalist[0].datalist.firstObject];
+   
+    
+    if (!self.burstcalpic.isSelected) {
+        self.switchBt.selected = NO;
+    }else{
+        self.switchBt.selected = YES;
+        
+    }
+    if (self.switchBt.isSelected) {
+       
+      
+        self.switchBt.backgroundColor = gateColor(@"f6f9fb");
+    }else{
+    
+        self.switchBt.backgroundColor = gateColor(@"5064f2");
+ 
+    }
       [self setChartData];
 }
 - (void)setChartData
@@ -282,11 +309,13 @@
        
         if (!model1.selectEnabled) {
             LineChartDataSet * set1 = [self getArr:entries lineChartDataSet:gateColor(modelAr.firstObject.color) drawFilledEnabled:NO];
+            set1.lineCapType =  kCGLineCapRound;
+            set1.mode = LineChartModeHorizontalBezier;
             set1.axisDependency = AxisDependencyLeft;
             
             [d addDataSet:set1];
         }
-        
+       
        
     }
   

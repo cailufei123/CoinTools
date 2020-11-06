@@ -53,7 +53,7 @@
                              @(CombinedChartDrawOrderLine),
                              @(CombinedChartDrawOrderScatter)
                              ];
-
+//    [_chartView setExtraOffsetsWithLeft:0 top:-100 right:0 bottom:0];
   _chartView.rightAxis.enabled = YES;
     ChartYAxis *rightAxis = _chartView.rightAxis;
     rightAxis.drawGridLinesEnabled = NO;
@@ -63,7 +63,7 @@
     rightAxis.valueFormatter = self.yXisFearIndexValueFormatter ;
     ChartYAxis *leftAxis = _chartView.leftAxis;
     leftAxis.drawGridLinesEnabled = YES;
-    leftAxis.axisMinimum = 0.0; // this replaces startAtZero = YES  //网格线的颜色
+//    leftAxis.axisMinimum = 0.0; // this replaces startAtZero = YES  //网格线的颜色
     leftAxis.gridColor = gateColor(@"f6f6f9"); //网格线的颜色
     leftAxis.axisLineColor = gateColor(gateGridColor);
      leftAxis.labelTextColor = gateColor(axislabelTextColor);
@@ -74,7 +74,8 @@
     xAxis.axisMinimum = -0.5;
       xAxis.drawGridLinesEnabled = NO;
     xAxis.granularity = 1.0;
-    
+//    xAxis.axisRange =
+   
     
    self.xXisFearIndexValueFormatter = [GTXAxisFearIndexValueFormatter getGTXAxisFearIndexValueFormatter];
     xAxis.valueFormatter = self.xXisFearIndexValueFormatter;;
@@ -85,8 +86,7 @@
   xAxis.axisLineColor = gateColor(gateGridColor);
   xAxis.labelTextColor = gateColor(axislabelTextColor);
    
-    xAxis.labelCount = 3;
-   
+    xAxis.labelCount = 4;
     self.chartView.highlightPerTapEnabled = YES;
     self.chartView.scaleYEnabled = NO;                                      // 取消 Y 轴缩放
     self.chartView.dragXEnabled = YES;
@@ -101,6 +101,9 @@
     [self.topSelectView addSubview:self.topPublicSelectView];
     marker.xAxisValueFormatter = self.xXisFearIndexValueFormatter;
   
+    self.chartView.leftAxis.drawZeroLineEnabled = YES;
+    
+   
     self.switchBt.selectBlock = ^(BOOL select) {
         @strongify(self)
       
@@ -330,7 +333,7 @@
        }
        
         LineChartDataSet * set1 = [self getArr:entries lineChartDataSet:gateColor(models.firstObject.color) drawFilledEnabled:i == 1?YES:NO];
-      
+//        set1.mode = LineChartModeHorizontalBezier;
         if (i == 1) {
             set1.axisDependency = AxisDependencyRight;
         }else{
@@ -338,11 +341,11 @@
         }
         [d addDataSet:set1];
     }
-  
-    self.chartView.leftAxis.axisMinimum = leftAxisMin;
-    self.chartView.leftAxis.axisMaximum = leftAxisMax;
-    self.chartView.rightAxis.axisMinimum = rightAxisMin;
-    self.chartView.rightAxis.axisMaximum = rightAxisMax;
+   
+    self.chartView.leftAxis.axisMinimum =leftAxisMin - (leftAxisMax - leftAxisMin)/10 <0? leftAxisMin : leftAxisMin- (leftAxisMax - leftAxisMin)/10;
+    self.chartView.leftAxis.axisMaximum =(leftAxisMax - leftAxisMin)/10 + leftAxisMax;
+    self.chartView.rightAxis.axisMinimum = rightAxisMin - (rightAxisMax - rightAxisMin)/10  < 0?rightAxisMin :rightAxisMin - (rightAxisMax - rightAxisMin)/10 ;
+//    self.chartView.rightAxis.axisMaximum =rightAxisMax;
     return d;
 }
 -(LineChartDataSet *)getArr:(NSMutableArray *)entries lineChartDataSet:(UIColor * )color drawFilledEnabled:(BOOL)drawFilledEnabled{

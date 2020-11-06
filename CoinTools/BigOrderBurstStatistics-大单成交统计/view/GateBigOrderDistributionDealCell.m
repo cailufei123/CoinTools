@@ -345,9 +345,12 @@
             
             set1.axisDependency = AxisDependencyLeft;
             [d addDataSet:set1];
-      self.chartView.leftAxis.axisMinimum = leftAxisMin;
-      self.chartView.leftAxis.axisMaximum = leftAxisMax;
-     
+//      self.chartView.leftAxis.axisMinimum = leftAxisMin;
+//      self.chartView.leftAxis.axisMaximum = leftAxisMax;
+            
+             self.chartView.leftAxis.axisMinimum =leftAxisMin - (leftAxisMax - leftAxisMin)/10 <0? leftAxisMin : leftAxisMin- (leftAxisMax - leftAxisMin)/10;
+             self.chartView.leftAxis.axisMaximum =(leftAxisMax - leftAxisMin)/10 + leftAxisMax;
+          
             
             
             
@@ -444,9 +447,10 @@
             LineChartDataSet * set1 = [self getArr:entries lineChartDataSet:gateColor([GTDataManager getItemModelWhit:publicContentModel.alldatalist[1].datalist.firstObject].firstObject.color) drawFilledEnabled:NO];
             set1.axisDependency = AxisDependencyRight;
             [d addDataSet:set1];
-      self.chartView.rightAxis.axisMinimum = leftAxisMin;
-      self.chartView.rightAxis.axisMaximum = leftAxisMax;
-     
+//      self.chartView.rightAxis.axisMinimum = leftAxisMin;
+//      self.chartView.rightAxis.axisMaximum = leftAxisMax;
+            self.chartView.leftAxis.axisMinimum =leftAxisMin - (leftAxisMax - leftAxisMin)/10 <0? leftAxisMin : leftAxisMin- (leftAxisMax - leftAxisMin)/10;
+            self.chartView.leftAxis.axisMaximum =(leftAxisMax - leftAxisMin)/10 + leftAxisMax;
             finishblock(d);
             
         });

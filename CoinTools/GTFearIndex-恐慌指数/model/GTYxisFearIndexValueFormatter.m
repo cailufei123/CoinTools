@@ -19,7 +19,7 @@
     } else  if (self.formatterType == GTFormatterYRightDuoKong) {
         return [self formatPercentage:value];
     } else  if (self.formatterType == GTFormatterYRightChiCang) {
-       return [NSString stringWithFormat:@"$%@",[self formatDecimalNumber:[NSString stringWithFormat:@"%lf",value]]] ;
+       return [NSString stringWithFormat:@"%@",[self formatDecimalNumber:[NSString stringWithFormat:@"%lf",value]]] ;
       
   }else  if (self.formatterType == GTFormatterYLeftAxisKongHuang) {
       return [NSString stringWithFormat:@"%d",(int)value ];

@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTSwitchBt : UIButton
 
 @property (nonatomic, copy) void(^selectBlock) (BOOL select);
+-(void)switchShapeAction:(UIButton * )sender;
 @end
 
 NS_ASSUME_NONNULL_END
